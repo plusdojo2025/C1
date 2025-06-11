@@ -1,0 +1,204 @@
+<!-- 
+データベース　c1
+
+ログイン、新規登録
+users テーブル
+CREATE TABLE users (				
+    user_id INT AUTO_INCREMENT PRIMARY KEY,				
+    login_id VARCHAR(100) NOT NULL UNIQUE,				
+    password_hash VARCHAR(128) NOT NULL				
+);				
+
+INSERT INTO users VALUES
+(2, 'tanaka0219',
+'818b5ba3c4446375a3d7b1aeb57ef6f9095c72537bce58cf258575039dfec381a188950206aa4e3b28fc5eeba9d36378accbddee7cb36a17f8552fff259430e0');
+
+
+DELETE FROM users WHERE login_id = 'tanaka0219';
+
+select * from users;
+
+
+感情登録
+
+emotions 親テーブル
+create table emotions (
+    emo_stamp int not null,
+    action varchar(100) not null,
+    emotion int not null
+);
+
+insert into emotions values (2,'今日先生に褒められた',1);
+select from emotions;
+
+
+
+
+
+emo_stamp 子テーブル
+ create table emo_stamp( id Int auto_increment primary key, name varchar(10) not null);
+
+ insert into emo_stamp(name) values
+ ('恐れ'),
+ ('悲しみ'),
+ ('怒り'),
+ ('楽しみ'),
+ ('喜び');
+
+
+  select * from emo_stamp;
+  +----+-----------+
+| id | name      |
++----+-----------+
+|  1 | 恐れ      |
+|  2 | 悲しみ    |
+|  3 | 怒り      |
+|  4 | 楽しみ    |
+|  5 | 喜び      |
++----+-----------+
+
+
+emotion 子テーブル 
+create table emotion( id Int auto_increment primary key, 
+emo_stamp_id int not null,
+name varchar(10) not null,
+foreign key (emo_stamp_id) references emo_stamp(id) on delete cascade
+);
+
+insert into emotion(emo_stamp_id, name) values
+(1, '不安'),
+(1, '恐怖'),
+(1, '焦り'),
+(1, '後悔'),
+(2, '切なさ'),
+(2, '寂しさ'), 
+(2, '絶望'),
+(2, '後悔'),
+(3, '憤り'),
+(3, '嫉妬'),
+(3, '不満'),
+(3, '嫌悪'),
+(4, '満足'),
+(4, '幸せ'),
+(4, '好き'),
+(4, '安心'), 
+(4, 'リラックス'),
+(5, '満足'),
+(5, '幸せ'),
+(5, '好き'),
+(5, '安心'), 
+(5, 'リラックス'),
+(5, '元気');
+
+select * from emotion;
++----+--------------+-----------------+
+| id | emo_stamp_id | name            |
++----+--------------+-----------------+
+|  1 |            1 | 不安            |
+|  2 |            1 | 恐怖            |
+|  3 |            1 | 焦り            |
+|  4 |            1 | 後悔            |
+|  5 |            2 | 切なさ          |
+|  6 |            2 | 寂しさ          |
+|  7 |            2 | 絶望            |
+|  8 |            2 | 後悔            |
+|  9 |            3 | 憤り            |
+| 10 |            3 | 嫉妬            |
+| 11 |            3 | 不満            |
+| 12 |            3 | 嫌悪            |
+| 13 |            4 | 満足            |
+| 14 |            4 | 幸せ            |
+| 15 |            4 | 好き            |
+| 16 |            4 | 安心            |
+| 17 |            4 | リラックス      |
+| 18 |            5 | 満足            |
+| 19 |            5 | 幸せ            |
+| 20 |            5 | 好き            |
+| 21 |            5 | 安心            |
+| 22 |            5 | リラックス      |
+| 23 |            5 | 元気            |
++----+--------------+-----------------+
+
+feedbacks　テーブル インナージョイン
+create table feedbacks(
+    id int auto_increment primary key,
+    emotion_id int not null,
+    feedbacks varchar(100) not null,
+    judge int not null,
+    foreign key(emotion_id) references emotion(id) on delete cascade
+);
+
+insert into feedbacks (emotion_id, message) values
+(1, '教えてくれてありがとう。ああああああ');
+
+ねぎらいの言葉、ポジティブ変換、気分転換・アドバイス
+
+ねぎらいの言葉集
+お疲れ様！
+さすが！
+よくやったね！
+大変だったね。
+大丈夫だよ。
+よく頑張ってるね。
+そんな日もあるよ。
+教えてくれてありがとう。
+
+
+
+
+
+1-1~1-6
+''
+
+
+
+stamps　テーブル
+create table stamps (
+    weekstamps int not null,
+    created_at datetime not null default current_timestamp
+);
+
+delete
+
+allList　テーブル
+create table allList (
+    id int auto_increment primary key, 
+    emo_stamp_id int not null, 
+    action varchar(100) not null,
+    emotion_id int not null,
+    feedbacks_id int not null,
+    created_at datetime not null,
+    plant varchar(100) not null,
+    foreign key (emo_stamp_id)references emo_stamp(id) on delete cascade,
+    foreign key (emotion_id)references emotion(id) on delete cascade,
+    foreign key (feedbacks_id)references feedbacks(id) on delete cascade
+);
+
+explanation テーブル
+create table explanation (
+    title varchar(15) not null,
+    content varchar(150) not null
+);
+
+insert into explanation (title, content) values
+('アプリについて', 'このアプリは自分のメンタル状況を確認し、マインドをネガティブからポジティブにシフトすることを助けます。1日1回、毎日登録することで、ホームページの植物が育ちます。開花を目指して継続しましょう！'),
+('ホーム', '1日1回感情登録すると、育てた植物と今月のカレンダー、今月のスタンプの集計が表示されます。カレンダーの日付をクリックすると、一覧表示ページのクリックした日付に移動します。'),
+('植物', '"1週間のうちに登録した回数によって植物の育ち方が変わります。
+また、1週間毎日登録した場合、感情スタンプの種類によって開花する植物の種類が変わります。7種類あります。"'),
+('感情登録', '感情登録ページから感情スタンプ、出来事、どのような気持ちだったかの3つ全てを入力して登録してください。登録された内容に基づいたフィードバックがあります。'),
+('記録一覧', '今までに登録した感情スタンプ、出来事、気持ち、フィードバック、育てた植物を一覧で確認することができます。'),
+('アカウント', 'ログアウトとアカウント削除ができます。');
+
+select * from explanation;
++----------------------------------------------------------------------------------------------------------------------------------------------------------------------------------------------------------------------------------------------------------------------------------------------+
+| title                 | content                                                                                                                                                                                                                                                                                      |
++-----------------------+----------------------------------------------------------------------------------------------------------------------------------------------------------------------------------------------------------------------------------------------------------------------------------------------+
+| アプリについて        | このアプリは自分のメンタル状況を確認し、マインドをネガティブからポジティブにシフトすることを助けます。1日1回、毎日登録することで、ホームページの植物が育ちます。開花を目指して継続しましょう！                                                                                               |
+| ホーム                | 1日1回感情登録すると、育てた植物と今月のカレンダー、今月のスタンプの集計が表示されます。カレンダーの日付をクリックすると、一覧表示ページのクリックした日付に移動します。                                                                                                                     |
+| 植物                  | "1週間のうちに登録した回数によって植物の育ち方が変わります。
+また、1週間毎日登録した場合、感情スタンプの種類によって開花する植物の種類が変わります。7種類あります。"                                                                                                                         |
+| 感情登録              | 感情登録ページから感情スタンプ、出来事、どのような気持ちだったかの3つ全てを入力して登録してください。登録された内容に基づいたフィードバックがあります。                                                                                                                                      |
+| 記録一覧              | 今までに登録した感情スタンプ、出来事、気持ち、フィードバック、育てた植物を一覧で確認することができます。                                                                                                                                                                                     |
+| アカウント            | ログアウトとアカウント削除ができます。                                                                                                                                                                                                                                                       |
++----------------------------------------------------------------------------------------------------------------------------------------------------------------------------------------------------------------------------------------------------------------------------------------------+
+
