@@ -27,7 +27,7 @@ public abstract class CustomTemplateServlet extends HttpServlet {
 		boolean result = (session.getAttribute("id") != null);
 		if (result) {
 			// MENUにリダイレクトする
-			response.sendRedirect("menu");
+			response.sendRedirect("home");
 		}
 		return result;
 	}
