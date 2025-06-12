@@ -17,6 +17,8 @@ public class HomeServlet extends CustomTemplateServlet {
 			throws ServletException, IOException {
 		// ホームページにフォワードする
 		RequestDispatcher dispatcher = request.getRequestDispatcher("/WEB-INF/jsp/home.jsp");
+		//テンプレートを動かしたいときはコチラにしてください
+		//RequestDispatcher dispatcher = request.getRequestDispatcher("/WEB-INF/jsp/MindShift_template.jsp");
 		dispatcher.forward(request, response);
 	}
 
