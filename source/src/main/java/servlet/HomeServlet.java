@@ -15,6 +15,9 @@ public class HomeServlet extends CustomTemplateServlet {
 	@Override
 	protected void doGet(HttpServletRequest request, HttpServletResponse response)
 			throws ServletException, IOException {
+		if(checkNoneLogin(request, response)) {
+			return;
+		}
 		// ホームページにフォワードする
 		RequestDispatcher dispatcher = request.getRequestDispatcher("/WEB-INF/jsp/home.jsp");
 		//テンプレートを動かしたいときはコチラにしてください
@@ -26,7 +29,12 @@ public class HomeServlet extends CustomTemplateServlet {
 	protected void doPost(HttpServletRequest request, HttpServletResponse response)
 			throws ServletException, IOException {
 		// TODO 自動生成されたメソッド・スタブ
-
+		if(checkNoneLogin(request, response)) {
+			return;
+		}
+		if (logout(request, response)) {
+			return;
+		}
 	}
 
 }
