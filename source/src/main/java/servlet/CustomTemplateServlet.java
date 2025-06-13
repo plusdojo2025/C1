@@ -10,6 +10,19 @@ import javax.servlet.http.HttpSession;
 
 public abstract class CustomTemplateServlet extends HttpServlet {
 	
+	public boolean logout(HttpServletRequest request, HttpServletResponse response) 
+		throws IOException {
+		String logout = request.getParameter("logout");
+		boolean result = (logout != null);
+		if (logout != null) {
+			/*ログアウトボタンが押された*/
+			HttpSession session = request.getSession();
+			session.removeAttribute("id");
+			checkNoneLogin(request, response);
+		}
+		return result;
+	}
+	
 	protected final boolean checkNoneLogin(HttpServletRequest request, HttpServletResponse response) 
 			   throws IOException {
 		HttpSession session = request.getSession();

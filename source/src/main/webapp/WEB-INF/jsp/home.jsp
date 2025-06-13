@@ -7,7 +7,7 @@
 <title>Insert title here</title>
 </head>
 <body>
-	<form action="HomeServlet" method="post">
+	<form action="MindShift-home" method="post">
 		<div>
 			<input type="submit" id="logout" name="logout" value="ログアウト">
 		</div>
