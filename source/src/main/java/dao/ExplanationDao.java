@@ -71,6 +71,9 @@ public class ExplanationDao extends CustomTemplateDao<ExplanationDto> {
 
 			// SQL文を実行する
 			if (pStmt.executeUpdate() == 1) {
+				ResultSet res = pStmt.getGeneratedKeys();
+				res.next();
+				dto.setTitle(res.getString(1));
 				result = true;
 			}
 		} catch (SQLException e) {
