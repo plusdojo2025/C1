@@ -16,7 +16,7 @@ public abstract class CustomTemplateServlet extends HttpServlet {
 		boolean result = (session.getAttribute("id") == null);
 		if (result) {
 			// LOGINにリダイレクトする
-			response.sendRedirect("login");
+			response.sendRedirect("MindShift-login");
 		}
 		return result;
 	}
@@ -27,7 +27,7 @@ public abstract class CustomTemplateServlet extends HttpServlet {
 		boolean result = (session.getAttribute("id") != null);
 		if (result) {
 			// MENUにリダイレクトする
-			response.sendRedirect("home");
+			response.sendRedirect("MindShift-home");
 		}
 		return result;
 	}
