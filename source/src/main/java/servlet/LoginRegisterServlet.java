@@ -6,20 +6,17 @@ import javax.servlet.annotation.WebServlet;
 import javax.servlet.http.HttpServletRequest;
 import javax.servlet.http.HttpServletResponse;
 
-import dao.UsersDao;
-import dto.UsersDto;
-
 /**
- * Servlet implementation class Test
+ * Servlet implementation class LoginRegisterServlet
  */
-@WebServlet("/test")
-public class Test extends CustomTemplateServlet {
+@WebServlet("/LoginRegisterServlet")
+public class LoginRegisterServlet extends CustomTemplateServlet {
 	private static final long serialVersionUID = 1L;
 
     /**
      * Default constructor. 
      */
-    public Test() {
+    public LoginRegisterServlet() {
         // TODO Auto-generated constructor stub
     }
 
@@ -27,20 +24,7 @@ public class Test extends CustomTemplateServlet {
 	 * @see HttpServlet#doGet(HttpServletRequest request, HttpServletResponse response)
 	 */
 	protected void doGet(HttpServletRequest request, HttpServletResponse response) throws ServletException, IOException {
-		UsersDao userDao = new UsersDao();
-		UsersDto userDto = new UsersDto();
-		
-		//AIのカラム以外を記載
-		userDto.setLoginId("setLoginId");
-		userDto.setPasswordHash("setPasswordHash");
-		
-		//userDto.setUserId(23);
-		
-		userDao.insert(userDto);
-		userDao.select(userDto);
-		userDao.update(userDto);
-		userDao.delete(userDto);
-		
+		// TODO Auto-generated method stub
 		response.getWriter().append("Served at: ").append(request.getContextPath());
 	}
 
