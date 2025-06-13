@@ -50,19 +50,110 @@ public class ExplanationDao extends CustomTemplateDao<ExplanationDto> {
 
 	@Override
 	public boolean insert(ExplanationDto dto) {
-		// TODO 自動生成されたメソッド・スタブ
-		return false;
+		Connection conn = null;
+		boolean result = false;
+
+		try {
+			// JDBCドライバを読み込む
+			// データベースに接続する
+			conn = conn();
+
+			// SQL文を準備する
+			String sql = """
+					insert explanation(content) 
+					value(?)
+					""";
+			PreparedStatement pStmt = conn.prepareStatement(sql);
+
+			// SQL文を完成させる
+			pStmt.setString(1, dto.getContent());
+			
+
+			// SQL文を実行する
+			if (pStmt.executeUpdate() == 1) {
+				ResultSet res = pStmt.getGeneratedKeys();
+				res.next();
+				dto.setTitle(res.getString(1));
+				result = true;
+			}
+		} catch (SQLException e) {
+			e.printStackTrace();
+		} finally {
+			// データベースを切断
+			close(conn);
+			}
+		
+		// 結果を返す
+		return result;
 	}
 
 	@Override
 	public boolean update(ExplanationDto dto) {
-		// TODO 自動生成されたメソッド・スタブ
-		return false;
+		Connection conn = null;
+		boolean result = false;
+
+		try {
+			// JDBCドライバを読み込む
+			// データベースに接続する
+			conn = conn();
+
+			// SQL文を準備する
+			String sql = """
+					update explanation set 
+					content = ? 
+					where title = ?
+					""";
+			PreparedStatement pStmt = conn.prepareStatement(sql);
+
+			// SQL文を完成させる
+			pStmt.setString(1, dto.getContent());
+			pStmt.setString(2, dto.getTitle());
+			
+
+			// SQL文を実行する
+			if (pStmt.executeUpdate() == 1) {
+				result = true;
+			}
+		} catch (SQLException e) {
+			e.printStackTrace();
+		} finally {
+			// データベースを切断
+			close(conn);
+			}
+		
+		// 結果を返す
+		return result;
 	}
 
 	@Override
 	public boolean delete(ExplanationDto dto) {
-		// TODO 自動生成されたメソッド・スタブ
-		return false;
+		Connection conn = null;
+		boolean result = false;
+
+		try {
+			// JDBCドライバを読み込む
+			// データベースに接続する
+			conn = conn();
+
+			// SQL文を準備する
+			String sql = "delete from explanation where title = ?";
+			PreparedStatement pStmt = conn.prepareStatement(sql);
+
+			// SQL文を完成させる
+			pStmt.setString(1, dto.getTitle());
+
+			// SQL文を実行する
+			if (pStmt.executeUpdate() == 1) {
+				result = true;
+			}
+		} catch (SQLException e) {
+			e.printStackTrace();
+		} finally {
+			// データベースを切断
+			close(conn);
+			}
+		
+		// 結果を返す
+		return result;
 	}
 }

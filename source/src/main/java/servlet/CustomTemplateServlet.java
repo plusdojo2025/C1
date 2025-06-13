@@ -10,6 +10,7 @@ import javax.servlet.http.HttpSession;
 
 public abstract class CustomTemplateServlet extends HttpServlet {
 	
+	//ログアウト処理（セッションのidを削除）
 	public boolean logout(HttpServletRequest request, HttpServletResponse response) 
 		throws IOException {
 		String logout = request.getParameter("logout");
@@ -23,6 +24,7 @@ public abstract class CustomTemplateServlet extends HttpServlet {
 		return result;
 	}
 	
+	//未ログインならログイン画面へリダイレクト
 	protected final boolean checkNoneLogin(HttpServletRequest request, HttpServletResponse response) 
 			   throws IOException {
 		HttpSession session = request.getSession();
@@ -34,6 +36,7 @@ public abstract class CustomTemplateServlet extends HttpServlet {
 		return result;
 	}
 	
+	//ログイン済みかチェックして、済みならMindShift-homeにリダイレクト
 	protected final boolean checkDoneLogin(HttpServletRequest request, HttpServletResponse response) 
 			   throws IOException {
 		HttpSession session = request.getSession();
