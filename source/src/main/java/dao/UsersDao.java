@@ -50,21 +50,112 @@ public class UsersDao extends CustomTemplateDao<UsersDto> {
 	}
 
 	@Override
-	public boolean insert(UsersDto dto) {
-		// TODO 自動生成されたメソッド・スタブ
-		return false;
+	public boolean insert(UsersDto dto)  {
+		Connection conn = null;
+		boolean result = false;
+
+		try {
+			// JDBCドライバを読み込む
+			// データベースに接続する
+			conn = conn();
+
+			// SQL文を準備する
+			String sql = """
+					insert users(login_id, password_hash) 
+					 		value(		?,				?)
+					""";
+			PreparedStatement pStmt = conn.prepareStatement(sql);
+
+			// SQL文を完成させる
+			pStmt.setString(1, dto.getLoginId());
+			pStmt.setString(2, dto.getPasswordHash());
+
+			// SQL文を実行する
+			if (pStmt.executeUpdate() == 1) {
+				ResultSet res = pStmt.getGeneratedKeys();
+				res.next();
+				dto.setUserId(res.getInt(1));
+				result = true;
+			}
+		} catch (SQLException e) {
+			e.printStackTrace();
+		} finally {
+			// データベースを切断
+			close(conn);
+			}
+		
+		// 結果を返す
+		return result;
 	}
 
 	@Override
 	public boolean update(UsersDto dto) {
-		// TODO 自動生成されたメソッド・スタブ
-		return false;
+		Connection conn = null;
+		boolean result = false;
+
+		try {
+			// JDBCドライバを読み込む
+			// データベースに接続する
+			conn = conn();
+
+			// SQL文を準備する
+			String sql = """
+					update users set
+login_id = ?
+, password_hash = ?
+					 where user_id = ?
+					""";
+			PreparedStatement pStmt = conn.prepareStatement(sql);
+
+			// SQL文を完成させる
+			pStmt.setString(1, dto.getLoginId());
+			pStmt.setString(2, dto.getPasswordHash());
+			pStmt.setInt(3, dto.getUserId());
+
+			// SQL文を実行する
+			if (pStmt.executeUpdate() == 1) {
+				result = true;
+			}
+		} catch (SQLException e) {
+			e.printStackTrace();
+		} finally {
+			// データベースを切断
+			close(conn);
+			}
+		
+		// 結果を返す
+		return result;
 	}
 
 	@Override
 	public boolean delete(UsersDto dto) {
-		// TODO 自動生成されたメソッド・スタブ
-		return false;
-	}
+		Connection conn = null;
+		boolean result = false;
 
+		try {
+			// JDBCドライバを読み込む
+			// データベースに接続する
+			conn = conn();
+
+			// SQL文を準備する
+			String sql = "DELETE FROM users where user_id = ?";
+			PreparedStatement pStmt = conn.prepareStatement(sql);
+
+			// SQL文を完成させる
+			pStmt.setInt(1, dto.getUserId());
+
+			// SQL文を実行する
+			if (pStmt.executeUpdate() == 1) {
+				result = true;
+			}
+		} catch (SQLException e) {
+			e.printStackTrace();
+		} finally {
+			// データベースを切断
+			close(conn);
+			}
+		
+		// 結果を返す
+		return result;
+	}
 }
