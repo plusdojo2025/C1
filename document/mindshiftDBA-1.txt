@@ -30,9 +30,7 @@ create table emotions (
 
 insert into emotions values (2,'今日先生に褒められた',1);
 select from emotions;
-
-
-
+delete from emotions;
 
 
 emo_stamp 子テーブル
@@ -119,9 +117,9 @@ select * from emotion;
 | 23 |            5 | リラックス      |
 | 24 |            5 | 元気            |
 +----+--------------+-----------------+
-24 rows in set (0.01 sec)
+Select name from emotion where emo_stamp_id =5;
 
-feedbacks　テーブル インナージョイン
+feedbacks　テーブル 
 create table feedbacks(
     id int auto_increment primary key,
     emotion_id int not null,
@@ -130,27 +128,29 @@ create table feedbacks(
     foreign key(emotion_id) references emotion(id) on delete cascade
 );
 
-insert into feedbacks (emotion_id, message) values
-(1, '教えてくれてありがとう。ああああああ');
+insert into feedbacks (emotion_id, feedbacks) values
+(1, '教えてくれてありがとう。焦らなくても大丈夫、危機管理能力が長けているね！好きな音楽を聴いてリラックスしてね。'),
+(1, '大丈夫だよ。焦らなくても進んでるよ、周りを見られて優秀！今日は散歩して帰ろう。'),
+(1, 'お疲れ様。焦らなくても大丈夫、先まで考えられてえらい！今日はゆっくりお風呂に入ろう。');
 
-ねぎらいの言葉、ポジティブ変換、気分転換・アドバイス
+Select * from feedbacks;
+//emotion_id からランダムで FB 表示
+Select feedbacks from feedbacks where emotion_id = 10 order by rand() limit 1;
 
-ねぎらいの言葉集
-お疲れ様！
-さすが！
-よくやったね！
-大変だったね。
-大丈夫だよ。
-よく頑張ってるね。
-そんな日もあるよ。
-教えてくれてありがとう。
-
-
-
-
-
-1-1~1-6
-''
+//インナージョイン emo_stamp_id, emotion_id, emotion_name, action, feedbacks を表示
+SELECT
+e.emo_stamp_id,
+e.id AS emotion_id,
+e.name AS emotion_name,
+em.action,
+f.feedbacks
+FROM feedbacks f
+JOIN emotion e ON f.emotion_id = e.id
+JOIN emotions em ON e.emo_stamp_id = em.emo_stamp
+WHERE e.id = 24
+ORDER by rand() limit 1;
+| emo_stamp_id | emotion_id | emotion_name | action | feedbacks |
+| 1 | 1 | 不安 | 友人がどんどん昇級していく | 大丈夫だよ。焦らなくても進んでるよ、周りを見られて優秀！今日は散歩して帰ろう。
 
 
 
@@ -160,7 +160,21 @@ create table stamps (
     created_at datetime not null default current_timestamp
 );
 
-delete
+//INSERT 文
+INSERT INTO stamps (weekstamps) VALUES (5);
+
+//直近 7 日間のスタンプ件数と合計点数
+SELECT COUNT(*) AS count, SUM(weekstamps) AS totalScore FROM stamps WHERE created_at >= NOW() - INTERVAL 7 DAY;
++----------+ | COUNT(1) | +----------+ | 0 | +----------+
+
+//オブジェクト表示、一週間分のデータを自動削除
+CREATE EVENT IF NOT EXISTS delete_old_stamps ON SCHEDULE EVERY 1 WEEK DO DELETE FROM stamps WHERE created_at < NOW() - INTERVAL 7 DAY;
+
+//↓MySQL でイベント使うとき、 EVENT_SCHEDULER を ON にしておく必要がある
+SET GLOBAL event_scheduler = ON;
+
+//↓そもそも ON になっているか確認する文
+SHOW VARIABLES LIKE 'event_scheduler'; //| event_scheduler | ON |になってれば〇
 
 allList　テーブル
 create table allList (
@@ -175,6 +189,38 @@ create table allList (
     foreign key (emotion_id)references emotion(id) on delete cascade,
     foreign key (feedbacks_id)references feedbacks(id) on delete cascade
 );
+
+INSERT INTO allList(
+emo_stamp_id, action, emotion_id, feedbacks_id, created_at, plant) VALUES(4, '今日先生に褒められた', 4, 1, '2025-06-08 17:00:00', 'URL');
+
+全体の表示(最新の 1 か月) 
+SELECT emo_stamp_id, action, emotion_id, feedbacks_id, created_at from allList WHERE
+created_at >= DATE_FORMAT(CURDATE(), '%Y-%m-01') AND created_at <
+DATE_FORMAT(DATE_ADD(CURDATE(), INTERVAL 1 MONTH), '%Y-%m-01');
+
+全体の表示(過去) 
+SELECT emo_stamp_id, action, emotion_id, feedbacks_id, created_at from allList WHERE
+created_at >= ? AND created_at < ?;
+※?に入るのは選択された日の月の頭と選択された日の翌月の頭の日(2025/3/4 が選択された場合、範囲
+は 2025/3/1～2025/4/1 まで)サーブレット内で絞る範囲(始めと終わり)を計算して、その情報を引数と
+して DAO に渡す。
+
+日付の期間の表示(例：2025/06/09 ～ 2025/06/15 みたいな表示)
+SELECT DATE_SUB(DATE(created_at), INTERVAL WEEKDAY(created_at) DAY) AS week_monday,
+DATE_ADD(DATE_SUB(DATE(created_at), INTERVAL WEEKDAY(created_at) DAY), INTERVAL 6 DAY)
+AS week_sunday from allList WHERE created_at >= ? AND created_at < ? GROUP BY
+week_monday, week_sunday ORDER BY week_monday;
+※最初の長い分で月曜日の日と日曜日の日を見つけている
+
+植物の配置 
+SELECT plant FROM allList where created_at = DATE_ADD(DATE_SUB(DATE(created_at),
+INTERVAL WEEKDAY(created_at) DAY), INTERVAL 6 DAY);
+
+ホーム(カレンダーにスタンプ配置)
+SELECT emo_stamp_id from allList WHERE created_at >= ? AND created_at < ?;
+※?部分に表示されている月の範囲が来る想定
+
+
 
 explanation テーブル
 create table explanation (
