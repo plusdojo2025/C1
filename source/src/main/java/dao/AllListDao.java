@@ -55,20 +55,135 @@ public class AllListDao extends CustomTemplateDao<AllListDto> {
 
 	@Override
 	public boolean insert(AllListDto dto) {
-		// TODO 自動生成されたメソッド・スタブ
-		return false;
+		Connection conn = null;
+		boolean result = false;
+
+		try {
+			// JDBCドライバを読み込む
+			// データベースに接続する
+			conn = conn();
+
+			// SQL文を準備する
+			String sql = """
+					insert allList(emo_stamp_id, 
+					action, 
+					emotion_id, 
+					feedbacks_id, 
+					created_at, 
+					plant)
+					value(?,0,?,?,new Timestamp(System.currentTimeMillis(),?)
+					emo_stamp_id= ?
+					action= ?
+					emotion_id= ?
+					feedbacks_id= ?
+					created_at= ?
+					plant= ?
+					where id = ?
+					
+					""";
+			PreparedStatement pStmt = conn.prepareStatement(sql);
+
+			// SQL文を完成させる
+			pStmt.setInt(1, dto.getEmoStampId());
+			pStmt.setString(2, dto.getAction());
+			pStmt.setInt(3, dto.getEmotionId());
+			pStmt.setInt(4, dto.getFeedbacksId());
+			pStmt.setTimestamp(5, dto.getCreated_at());
+			pStmt.setString(6, dto.getPlant());
+
+			// SQL文を実行する
+			if (pStmt.executeUpdate() == 1) {
+				result = true;
+			}
+		} catch (SQLException e) {
+			e.printStackTrace();
+		} finally {
+			// データベースを切断
+			close(conn);
+			}
+		
+		// 結果を返す
+		return result;
 	}
 
 	@Override
-	public boolean update(AllListDto dto) {
-		// TODO 自動生成されたメソッド・スタブ
-		return false;
+	public boolean update(AllListDto dto)  {
+		Connection conn = null;
+		boolean result = false;
+
+		try {
+			// JDBCドライバを読み込む
+			// データベースに接続する
+			conn = conn();
+
+			// SQL文を準備する
+			String sql = """
+					update allList set
+					emo_stamp_id= ?
+					action= ?
+					emotion_id= ?
+					feedbacks_id= ?
+					created_at= ?
+					plant= ?
+					where id = ?
+					
+					""";
+			PreparedStatement pStmt = conn.prepareStatement(sql);
+
+			// SQL文を完成させる
+			pStmt.setInt(1, dto.getEmoStampId());
+			pStmt.setString(2, dto.getAction());
+			pStmt.setInt(3, dto.getEmotionId());
+			pStmt.setInt(4, dto.getFeedbacksId());
+			pStmt.setTimestamp(5, dto.getCreated_at());
+			pStmt.setString(6, dto.getPlant());
+			pStmt.setInt(7, dto.getId());
+
+			// SQL文を実行する
+			if (pStmt.executeUpdate() == 1) {
+				result = true;
+			}
+		} catch (SQLException e) {
+			e.printStackTrace();
+		} finally {
+			// データベースを切断
+			close(conn);
+			}
+		
+		// 結果を返す
+		return result;
 	}
 
 	@Override
 	public boolean delete(AllListDto dto) {
-		// TODO 自動生成されたメソッド・スタブ
-		return false;
+		Connection conn = null;
+		boolean result = false;
+
+		try {
+			// JDBCドライバを読み込む
+			// データベースに接続する
+			conn = conn();
+
+			// SQL文を準備する
+			String sql = "DELETE FROM users where user_id = ?";
+			PreparedStatement pStmt = conn.prepareStatement(sql);
+
+			// SQL文を完成させる
+			pStmt.setInt(1, dto.getId());
+
+			// SQL文を実行する
+			if (pStmt.executeUpdate() == 1) {
+				result = true;
+			}
+		} catch (SQLException e) {
+			e.printStackTrace();
+		} finally {
+			// データベースを切断
+			close(conn);
+			}
+		
+		// 結果を返す
+		return result;
 	}
 
 }
