@@ -7,7 +7,7 @@
 <html>
 <head>
 <meta charset="UTF-8">
-<title>ページ名 | MindShift</title>
+<title>各種説明 | MindShift</title>
 <link rel="stylesheet"
 	href="${pageContext.request.contextPath}/css/explain.css">
 </head>
@@ -24,21 +24,22 @@
 		u><h2 style="text-align: center;">MindShift</h2></u>
 		<!-- アプリについて -->
 		<div class="section">
-		 <h3 style="text-align: center;"><c:out value="${explainList[0].title}" /></h3>
-		 <p><c:out value="${explainList[0].content}" /></p>
+		 <h3 style="text-align: center;">アプリについて</h3>
+		 <p>このアプリは自分のメンタル状況を確認し、マインドをネガティブからポジティブにシフトすることを助けます。1日1回、毎日登録することで、ホームページの植物が育ちます。開花を目指して継続しましょう！</p>
 	    </div>
 	
 	    <u><h2 style="text-align:center;">使い方</h2></u>
 		<!-- ホーム-->
 		<div class="section">
-		  <h3 style="text-align:center;"><c:out value="${explainList[1].title}" /></h3>
-		  <p><c:out value="${explainList[1].content}" /></p>
+		  <h3 style="text-align:center;">ホーム</h3>
+		  <p>1日1回感情登録すると、育てた植物と今月のカレンダー、今月のスタンプの集計が表示されます。カレンダーの日付をクリックすると、一覧表示ページのクリックした日付に移動します。</p>
 		</div>
 		    
 		<!-- 植物-->
 		<div class="section">
-		   <h3 style="text-align:center;"><c:out value="${explainList[2].title}" /></h3>
-		   <p><c:out value="${explainList[2].content}" /></p>
+		   <h3 style="text-align:center;">植物</h3>
+		   <p>1週間のうちに登録した回数によって植物の育ち方が変わります。
+また、1週間毎日登録した場合、感情スタンプの種類によって開花する植物の種類が変わります。7種類あります。</p>
 		
 		   <h3 style="text-align:center;">植物の育ち方</h3>
 		   <img src="${pageContext.request.contextPath}/image/枠あり育ち方.png" class="images" alt="植物の育ち方">
@@ -49,8 +50,8 @@
 		    
 		<!-- 感情登録-->
 		<div class="section">
-		   <h3 style="text-align:center;"><c:out value="${explainList[3].title}" /></h3>
-		   <p><c:out value="${explainList[3].content}" /></p>
+		   <h3 style="text-align:center;">感情登録</h3>
+		   <p>感情登録ページから感情スタンプ、出来事、どのような気持ちだったかの3つ全てを入力して登録してください。登録された内容に基づいたフィードバックがあります。</p>
 		
 		   <h3 style="text-align:center;">感情スタンプ</h3>
 		   <img src="${pageContext.request.contextPath}/image/枠ありスタンプ.png" class="images" alt="スタンプ">
@@ -58,14 +59,14 @@
 		    
 		<!-- 記録一覧-->
 	    <div class="section">
-		   <h3 style="text-align:center;"><c:out value="${explainList[4].title}" /></h3>
-		   <p><c:out value="${explainList[4].content}" /></p>
+		   <h3 style="text-align:center;">記録一覧</h3>
+		   <p>今までに登録した感情スタンプ、出来事、気持ち、フィードバック、育てた植物を一覧で確認することができます。</p>
 		</div>
 		    
 		<!-- アカウント-->
 		<div class="section">
-		   <h3 style="text-align:center;"><c:out value="${explainList[5].title}" /></h3>
-		   <p><c:out value="${explainList[5].content}" /></p>
+		   <h3 style="text-align:center;">アカウント</h3>
+		   <p>ログアウトとアカウント削除ができます。</p>
 		</div>	
 	</main>
 
