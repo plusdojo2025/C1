@@ -23,9 +23,6 @@ public class ExplanationDao extends CustomTemplateDao<ExplanationDto> {
 			String sql = "select * from explanation";
 			PreparedStatement pStmt = conn.prepareStatement(sql);
 
-			// SQL文を完成させる
-			pStmt.setString(1, dto.getTitle());
-
 			// SQL文を実行し、結果表を取得する
 			ResultSet rs = pStmt.executeQuery();
 
@@ -50,9 +47,9 @@ public class ExplanationDao extends CustomTemplateDao<ExplanationDto> {
 
 	@Override
 	public boolean insert(ExplanationDto dto) {
-		Connection conn = null;
+		//Connection conn = null;
 		boolean result = false;
-
+/*
 		try {
 			// JDBCドライバを読み込む
 			// データベースに接続する
@@ -82,16 +79,16 @@ public class ExplanationDao extends CustomTemplateDao<ExplanationDto> {
 			// データベースを切断
 			close(conn);
 			}
-		
+*/		
 		// 結果を返す
 		return result;
 	}
 
 	@Override
 	public boolean update(ExplanationDto dto) {
-		Connection conn = null;
+		//Connection conn = null;
 		boolean result = false;
-
+/*
 		try {
 			// JDBCドライバを読み込む
 			// データベースに接続する
@@ -120,16 +117,16 @@ public class ExplanationDao extends CustomTemplateDao<ExplanationDto> {
 			// データベースを切断
 			close(conn);
 			}
-		
+*/		
 		// 結果を返す
 		return result;
 	}
 
 	@Override
 	public boolean delete(ExplanationDto dto) {
-		Connection conn = null;
+		//Connection conn = null;
 		boolean result = false;
-
+/*
 		try {
 			// JDBCドライバを読み込む
 			// データベースに接続する
@@ -152,7 +149,7 @@ public class ExplanationDao extends CustomTemplateDao<ExplanationDto> {
 			// データベースを切断
 			close(conn);
 			}
-		
+*/		
 		// 結果を返す
 		return result;
 	}
