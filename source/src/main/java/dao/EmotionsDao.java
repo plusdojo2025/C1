@@ -130,7 +130,6 @@ public class EmotionsDao extends CustomTemplateDao<EmotionsDto> {
 
 	@Override
 	public boolean update(EmotionsDto dto) {
-		Connection conn = null;
 		boolean result = false;
 /*
 		try {
@@ -169,7 +168,6 @@ public class EmotionsDao extends CustomTemplateDao<EmotionsDto> {
 
 	@Override
 	public boolean delete(EmotionsDto dto) {
-		Connection conn = null;
 		boolean result = false;
 /*
 		try {

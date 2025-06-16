@@ -1,7 +1,8 @@
 package dto;
 
 import java.io.Serializable;
-import java.sql.Timestamp;
+import java.util.Date;
+
 
 public class AllListDto extends CustomTemplateDto implements Serializable{
 	private int id;
@@ -9,10 +10,10 @@ public class AllListDto extends CustomTemplateDto implements Serializable{
 	private String action;
 	private int emotionId;
 	private int FeedbacksId;
-	private Timestamp created_at;
+	private Date createdAt;
 	private String plant;
 	
-	public AllListDto(int id, int emoStampId, String action, int emotionId, int feedbacksId, Timestamp created_at,
+	public AllListDto(int id, int emoStampId, String action, int emotionId, int feedbacksId, Date createdAt,
 			String plant) {
 		super();
 		this.id = id;
@@ -20,12 +21,12 @@ public class AllListDto extends CustomTemplateDto implements Serializable{
 		this.action = action;
 		this.emotionId = emotionId;
 		FeedbacksId = feedbacksId;
-		this.created_at = created_at;
+		this.createdAt = createdAt;
 		this.plant = plant;
 	}
 
 	public AllListDto() {
-		this(0,0,"", 0, 0, new Timestamp(System.currentTimeMillis()), "");
+		this(0,0,"", 0, 0, new Date(), "");
 	}
 
 	public int getId() {
@@ -68,12 +69,12 @@ public class AllListDto extends CustomTemplateDto implements Serializable{
 		FeedbacksId = feedbacksId;
 	}
 
-	public Timestamp getCreated_at() {
-		return created_at;
+	public Date getCreatedAt() {
+		return createdAt;
 	}
 
-	public void setCreated_at(Timestamp created_at) {
-		this.created_at = created_at;
+	public void setCreatedAt(Date createdAt) {
+		this.createdAt = createdAt;
 	}
 
 	public String getPlant() {
