@@ -1,10 +1,16 @@
 package servlet;
 
 import java.io.IOException;
+
+import javax.servlet.RequestDispatcher;
 import javax.servlet.ServletException;
 import javax.servlet.annotation.WebServlet;
 import javax.servlet.http.HttpServletRequest;
 import javax.servlet.http.HttpServletResponse;
+
+import dao.EmotionsDao;
+import dto.EmotionsDto;
+
 
 /**
  * Servlet implementation class EmoRegistServlet
@@ -25,15 +31,46 @@ public class EmoRegistServlet extends CustomTemplateServlet {
 	 */
 	protected void doGet(HttpServletRequest request, HttpServletResponse response) throws ServletException, IOException {
 		// TODO Auto-generated method stub
+		EmotionsDao EmotionDao = new EmotionsDao();
+		EmotionsDto EmotionDto = new EmotionsDto();
+		
+		EmotionDto.setEmoStamp(0);
+		EmotionDto.setAction("setAction");
+		EmotionDto.setEmotion(0);
+		
+		EmotionDao.insert(EmotionDto);
+		EmotionDao.select(EmotionDto);
+		EmotionDao.update(EmotionDto);
+		EmotionDao.delete(EmotionDto);
 		response.getWriter().append("Served at: ").append(request.getContextPath());
+	 
+	
+		//ログインしていなかった場合、ログイン画面にリダイレクト処理をする。(HomeServletをそのままコピーしてもらって大丈夫です。)
+		if(checkNoneLogin (request, response)) {
+			return;
+		}	
+		// ホームページにフォワードする
+	    RequestDispatcher dispatcher = request.getRequestDispatcher("/WEB-INF/jsp/regist.jsp");
+		
+		dispatcher.forward(request, response);
 	}
 
 	/**
 	 * @see HttpServlet#doPost(HttpServletRequest request, HttpServletResponse response)
 	 */
-	protected void doPost(HttpServletRequest request, HttpServletResponse response) throws ServletException, IOException {
-		// TODO Auto-generated method stub
-		doGet(request, response);
+protected void doPost(HttpServletRequest request, HttpServletResponse response)
+		throws ServletException, IOException {
+	// TODO 自動生成されたメソッド・スタブ
+	
+	//ログインしていなかった場合、ログイン画面にリダイレクト処理をする。(HomeServletをそのままコピーしてもらって大丈夫です。)
+	if(checkNoneLogin(request, response)) {
+		return;
+	}	
+	//ログアウト処理(HomeServletをそのままコピーしてもらって大丈夫です。)
+	if (logout(request, response)) {
+		return;
 	}
+	
+}
 
 }
