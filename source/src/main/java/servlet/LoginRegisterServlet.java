@@ -77,7 +77,7 @@ public class LoginRegisterServlet extends CustomTemplateServlet {
 
                 out.println("alert('登録が完了しました！');");
                 //homeのservletのマッピング名に変更してください
-                out.println("window.location.href = 'MindShift-register';");
+                out.println("window.location.href = 'MindShift-home';");
             } else {
                 out.println("alert('このメールアドレスはすでに存在します');");
                 out.println("window.location.href = 'MindShift-register';");
