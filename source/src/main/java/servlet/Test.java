@@ -1,13 +1,15 @@
 package servlet;
 
 import java.io.IOException;
+
 import javax.servlet.ServletException;
 import javax.servlet.annotation.WebServlet;
+import javax.servlet.http.HttpServlet;
 import javax.servlet.http.HttpServletRequest;
 import javax.servlet.http.HttpServletResponse;
 
-import dao.UsersDao;
-import dto.UsersDto;
+import dao.AllListDao;
+import dto.AllListDto;
 
 /**
  * Servlet implementation class Test
@@ -27,19 +29,25 @@ public class Test extends CustomTemplateServlet {
 	 * @see HttpServlet#doGet(HttpServletRequest request, HttpServletResponse response)
 	 */
 	protected void doGet(HttpServletRequest request, HttpServletResponse response) throws ServletException, IOException {
-		UsersDao userDao = new UsersDao();
-		UsersDto userDto = new UsersDto();
+		AllListDao MyAllListDao = new AllListDao();
+		AllListDto MyAllListDto = new AllListDto();
 		
 		//AIのカラム以外を記載
-		userDto.setLoginId("setLoginId");
-		userDto.setPasswordHash("setPasswordHash");
+		MyAllListDto.setId(0);
+		MyAllListDto.setEmoStampId(0);
+		MyAllListDto.setAction("setAction");
+		MyAllListDto.setEmotionId(0);
+		MyAllListDto.setFeedbacksId(0);
+		MyAllListDto.setCreated_at(null);
+		MyAllListDto.setPlant("setEmoStampId");
+		
 		
 		//userDto.setUserId(23);
 		
-		userDao.insert(userDto);
-		userDao.select(userDto);
-		userDao.update(userDto);
-		userDao.delete(userDto);
+		MyAllListDao.insert(MyAllListDto);
+		MyAllListDao.select(MyAllListDto);
+		MyAllListDao.update(MyAllListDto);
+		MyAllListDao.delete(MyAllListDto);
 		
 		response.getWriter().append("Served at: ").append(request.getContextPath());
 	}

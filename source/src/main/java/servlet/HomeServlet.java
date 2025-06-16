@@ -14,6 +14,8 @@ public class HomeServlet extends CustomTemplateServlet {
 
 	@Override
 	protected void doGet(HttpServletRequest request, HttpServletResponse response)
+	
+		
 			throws ServletException, IOException {
 		if(checkNoneLogin(request, response)) {
 			return;
