@@ -16,6 +16,8 @@ public class HomeServlet extends CustomTemplateServlet {
 	@Override
 	//「checkNoneLogin」の処理を加えてください。
 	protected void doGet(HttpServletRequest request, HttpServletResponse response)
+	
+		
 			throws ServletException, IOException {
 		//ログインしていなかった場合、ログイン画面にリダイレクト処理をする。(HomeServletをそのままコピーしてもらって大丈夫です。)
 		if(checkNoneLogin(request, response)) {
