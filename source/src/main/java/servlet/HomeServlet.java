@@ -8,6 +8,7 @@ import javax.servlet.annotation.WebServlet;
 import javax.servlet.http.HttpServletRequest;
 import javax.servlet.http.HttpServletResponse;
 
+//ページのURLの名前を入れる
 @WebServlet("/MindShift-home")
 public class HomeServlet extends CustomTemplateServlet {
 	private static final long serialVersionUID = 1L;
@@ -21,7 +22,7 @@ public class HomeServlet extends CustomTemplateServlet {
 			return;
 		}
 		// ホームページにフォワードする
-		RequestDispatcher dispatcher = request.getRequestDispatcher("/WEB-INF/jsp/home.jsp");
+	    RequestDispatcher dispatcher = request.getRequestDispatcher("/WEB-INF/jsp/home.jsp");
 		
 		dispatcher.forward(request, response);
 	}

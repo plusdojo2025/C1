@@ -1,133 +1,180 @@
 /*MindShift*/
 /*ホームのナビゲーション、フッター*/
-html {
-	scroll-behavior: smooth;
+
+html{
+  scroll-behavior: smooth;
 }
 /* bodyタグ */
 body {
-	margin: 0 0 0 0; /* マージンなし（後で個別に設定） */
-	padding: 0 0 0 0; /* パディングなし（後で個別に設定） */
-	color: #333;
-	font-size: 16px;
-	background: #c3e6d3;
+  margin: 0 0 0 0;	/* マージンなし（後で個別に設定） */
+  padding: 0 0 0 0;	/* パディングなし（後で個別に設定） */
+  color: #333;
+  font-size: 16px;
+  background: #c3e6d3;
 }
 /* wrapperクラス */
 .wrapper {
-	margin: 0 auto 0 auto; /* 中央揃え */
-	width: 1000px; /* 幅を固定 */
-	padding: 20px;
+  margin: 0 auto 0 auto;	/* 中央揃え */
+  width: 1000px;			/* 幅を固定 */
+  padding: 20px;
 }
 
 /* タイトル*/
 #logo {
-	text-align: center;
-	font-family: 'Courier New', Courier, monospace;
-	font-size: 70px;
-	color: #67AE6E;
+  text-align: center;
+  font-family: 'Courier New', Courier, monospace;
+  font-size: 70px;
+  color:#67AE6E;
 }
 
 .logo {
-	text-align: center;
-	font-family: 'Courier New', Courier, monospace;
-	font-size: 70px;
-	color: #67AE6E;
+  text-align: center;
+  font-family: 'Courier New', Courier, monospace;
+  font-size: 70px;
+  color:#67AE6E;
 }
 
 /****************************ナビゲーション**************************/
-.menu2 { /*メニューバー全体の設定*/
-	margin: 30px 0 0 0; /*メニューバーの位置*/
-	display: flex; /*横並び*/
-	padding: 0 0 0 0; /*枠いっぱいにする*/
-	background-color: #59b396;
-	list-style-type: none; /*箇条書きの"・"を入れるかどうか*/
+.menu2 {  /*メニューバー全体の設定*/
+  margin: 30px 0 0 0; /*メニューバーの位置*/
+  display: flex;/*横並び*/
+  padding: 0 0 0 0;/*枠いっぱいにする*/
+  background-color: #59b396;
+  list-style-type: none;/*箇条書きの"・"を入れるかどうか*/
+  
 }
 
-.menu2>li { /*子セレクタを指定したいときに「>」を使う*/
-	flex-grow: 1; /* メニューの均等配置　*/
-	position: relative;
-	border-right: 1px solid #59b396;
+.menu2 > li {/*子セレクタを指定したいときに「>」を使う*/
+  flex-grow: 1; /* メニューの均等配置　*/
+  position: relative;
+  border-right: 1px solid #59b396;
 }
 
-.menu2 a { /*それぞれのブロックの設定*/
-	display: block;
-	padding: 20px 20px;
-	text-align: center;
-	background-color: #59b396;
+.menu2 a {/*それぞれのブロックの設定*/
+  display: block;
+  padding: 20px 20px;
+  text-align: center;
+  background-color: #59b396;
+  
+  
 }
 
-.menu2 a:link {
-	color: rgb(255, 255, 255);
-	text-decoration: none;
+.menu2 a:link{
+  color: rgb(255, 255, 255);
+  text-decoration: none;
+  
+}
+.menu2 a:visited{
+  color: rgb(255, 255, 255);
+  text-decoration: underline;
 }
 
-.menu2 a:visited {
-	color: rgb(255, 255, 255);
-	text-decoration: underline;
+.menu2 a:hover {/*ポインターが対象に乗ったときの設定*/
+  background-color: #59b396;
+  color: rgb(255, 255, 255);
+  text-decoration: underline;
+  font-size: 1.3rem;
 }
 
-.menu2 a:hover { /*ポインターが対象に乗ったときの設定*/
-	background-color: #59b396;
-	color: rgb(255, 255, 255);
-	text-decoration: underline;
-	font-size: 1.3rem;
+.menu2 a:active{
+  color: rgb(255, 255, 255);
+  text-decoration: underline;
 }
 
-.menu2 a:active {
-	color: rgb(255, 255, 255);
-	text-decoration: underline;
+.menu2 li:hover > ul {/*カーソルを対象に動かしたら、ダウンメニューが表示される*/
+  display: block;
+  opacity: 1;
+  visibility: visible;
 }
 
-.menu2 li:hover>ul { /*カーソルを対象に動かしたら、ダウンメニューが表示される*/
-	display: block;
-	opacity: 1;
-	visibility: visible;
+.menu2 ul {/*トップダウンメニューのボックスの設定*/
+position: absolute;
+top: 100%;
+left: 0;
+background-color: var(--childnav-bg);
+width: 100%;
+opacity: 0;
+visibility: hidden;
+transition: opacity 0.3s ease-in-out;
+margin: 0;
+padding: 0;
+
+}
+.menu2 ul li {/*トップダウンメニューのボックスの設定*/
+  display: block;/*ブロックのサイズが一定になる*/ 
+}
+.menu2 ul a {/*トップダウンメニューの中身の設定*/
+  padding: 10px;
+  text-align: center;/*文字を左揃え*/
+
+}
+.menu2 ul a:hover {/*トップダウンメニューの中身の設定*/
+  background-color: #59b396;
+  font-size: 1.3rem;
+}
+.menu2 ul button.menu-button {
+  all: unset;                     /* ブラウザのデフォルトスタイルを消す */
+  display: block;
+  width: 100%;                    /* 親の幅いっぱいに広げる */
+  padding: 10px;
+  box-sizing: border-box;         /* paddingを含めて幅を計算 */
+  text-align: center;
+  color: #ffffff;
+  background-color: #59b396;
+  cursor: pointer;
+  font: inherit;
+  border: none;
 }
 
-.menu2 ul { /*トップダウンメニューのボックスの設定*/
-	position: absolute;
-	top: 100%;
-	left: 0;
-	background-color: var(- -childnav-bg);
-	width: 100%;
-	opacity: 0;
-	visibility: hidden;
-	transition: opacity 0.3s ease-in-out;
-	margin: 0;
-	padding: 0;
+.menu2 ul button.menu-button:hover {
+  background-color: #59b396;
+  font-size: 1.3rem;
+  text-decoration: underline;
 }
 
-.menu2 ul li { /*トップダウンメニューのボックスの設定*/
-	display: block; /*ブロックのサイズが一定になる*/
+
+.menu2 li button.menu-button_li {
+  all: unset;                     /* ブラウザのデフォルトスタイルを消す */
+  display: block;
+  width: 100%;                    /* 親の幅いっぱいに広げる */
+  padding-top: 20px;
+  box-sizing: border-box;         /* paddingを含めて幅を計算 */
+  text-align: center;
+  color: #ffffff;
+  background-color: #59b396;
+  cursor: pointer;
+  font: inherit;
+  border: none;
 }
 
-.menu2 ul a { /*トップダウンメニューの中身の設定*/
-	padding: 10px;
-	text-align: center; /*文字を左揃え*/
-}
-
-.menu2 ul a:hover { /*トップダウンメニューの中身の設定*/
-	background-color: #59b396;
-	font-size: 1.3rem;
+.menu2 li button.menu-button_li:hover {
+  background-color: #59b396;
+  font-size: 1.3rem;
+  text-decoration: underline;
 }
 /***********************************************************************/
 
-/* フッター　*/
+
+
+
+
+/* フッター　************************************************************/
 /* id="footer" */
 #footer {
-	margin-top: 20px;
-	margin-bottom: 0;
-	margin-top: 60px;
-	padding: 20px;
-	background: #59b396;
-	color: #FFFFFF;
-	font-size: smaller;
-	text-align: center;
-	border-radius: 8px;
+  margin-top: 20px;
+  margin-bottom:0;
+  margin-top: 60px;
+  padding: 20px;
+  background: #59b396;
+  color: #FFFFFF;
+  font-size: smaller;
+  text-align: center;
+  border-radius: 8px;
 }
-
 .gotop img {
-	text-align: center;
-	width: 140px;
-	height: 140px;
-	margin-top: 10px;
+  text-align: center;
+  width: 140px;
+  height: 140px;
+  margin-top: 10px;
 }
+/***********************************************************************/
