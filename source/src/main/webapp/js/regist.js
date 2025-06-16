@@ -1,6 +1,7 @@
 // アクセス日時表示
   document.getElementById('time').textContent = new Date().toLocaleString();
-    //ログアウト
+
+//ログアウト
 var btn = document.getElementById('logout');//id、ログアウトの情報をbtnに読み込み
 
         btn.addEventListener('click', function(event) { //対象要素.addEventListener(種類(clickはマウスボタンをクリックした時), function() {}
