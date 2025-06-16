@@ -50,26 +50,37 @@ protected void doPost(HttpServletRequest request, HttpServletResponse response)
 		throws ServletException, IOException {
 	// TODO 自動生成されたメソッド・スタブ
 	
-	//ログインしていなかった場合、ログイン画面にリダイレクト処理をする。(HomeServletをそのままコピーしてもらって大丈夫です。)
+	//ログインしていなかった場合、ログイン画面にリダイレクト処理をする。
 	if(checkNoneLogin(request, response)) {
 		return;
 	}	
+	request.setCharacterEncoding("UTF-8");
 	
 	EmotionsDao EmotionDao = new EmotionsDao();
 	EmotionsDto EmotionDto = new EmotionsDto();
 	
-	EmotionDto.setEmoStamp(0);
-	EmotionDto.setAction("setAction");
-	EmotionDto.setEmotion(0);
+//	int emo
 	
-	EmotionDao.insert(EmotionDto);
-	EmotionDao.select(EmotionDto);
-	EmotionDao.update(EmotionDto);
-	EmotionDao.delete(EmotionDto);
+//	EmotionDto.setEmoStamp(0);
+//	EmotionDto.setAction("action");
+//	EmotionDto.setEmotion(0);
+	
+//	EmotionDao.insert(0,action,0);
+//	EmotionDao.select(EmotionDto);
+//	EmotionDao.update(EmotionDto);
+//	EmotionDao.delete(EmotionDto);
 	response.getWriter().append("Served at: ").append(request.getContextPath());
 	
-	//ログアウト処理(HomeServletをそのままコピーしてもらって大丈夫です。)
+	//ログインしていなかった場合、ログイン画面にリダイレクト処理をする。
+	if(checkNoneLogin(request, response)) {
+		return;
+	}	
+	//ログアウト処理
 	if (logout(request, response)) {
+		return;
+	}
+	// アカウント削除処理
+	if (account_del(request, response)) {
 		return;
 	}
 	
