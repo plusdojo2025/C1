@@ -38,8 +38,8 @@ public class ExplainServlet extends CustomTemplateServlet {
 		ExplanationDto.setTitle("setTitle");
 		ExplanationDto.setContent("setContent");
 		
-		ExplanationDao.insert(ExplanationDto);
 		ExplanationDao.select(ExplanationDto);
+		ExplanationDao.insert(ExplanationDto);
 		ExplanationDao.update(ExplanationDto);
 		ExplanationDao.delete(ExplanationDto);
 		
