@@ -12,7 +12,7 @@ import javax.servlet.http.HttpServletResponse;
 /**
  * Servlet implementation class ListServlet
  */
-@WebServlet("/Mindshift-list")
+@WebServlet("/MindShift-list")
 public class ListServlet extends CustomTemplateServlet {
 	private static final long serialVersionUID = 1L;
 
