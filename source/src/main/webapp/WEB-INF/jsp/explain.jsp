@@ -76,7 +76,7 @@
 		<!-- フッター（ここまで） -->
 	</div>
 	<!--javascriptのファイルの読み込み-->
-	<script src="js/template.js"></script>
+	<script src="js/explain.js"></script>
 
 </body>
 </html>

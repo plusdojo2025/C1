@@ -52,9 +52,16 @@ public class ExplainServlet extends CustomTemplateServlet {
 				return;
 			}
 			
+		//アカウント削除処理(HomeServletをそのままコピーしてもらって大丈夫です。)
+		if (account_del(request, response)) {
+			return;
+		}
+			
 			ExplanationDao ExplanationDAO = new ExplanationDao();
 			List<ExplanationDto> explanation = ExplanationDAO.select(ExplanationDto);
 	        request.setAttribute("explainList", explanation);
+	        
+	    
 
 		// ホームページにフォワードする
 			RequestDispatcher dispatcher = request.getRequestDispatcher("/WEB-INF/jsp/explain.jsp");	
