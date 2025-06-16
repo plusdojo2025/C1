@@ -9,6 +9,9 @@ import javax.servlet.http.HttpServletRequest;
 import javax.servlet.http.HttpServletResponse;
 import javax.servlet.http.HttpSession;
 
+import dao.UsersDao;
+import dto.UsersDto;
+
 @WebServlet("/MindShift-login")
 public class LoginServlet extends CustomTemplateServlet {
 	private static final long serialVersionUID = 1L;
@@ -16,6 +19,18 @@ public class LoginServlet extends CustomTemplateServlet {
 	@Override
 	protected void doGet(HttpServletRequest request, HttpServletResponse response)
 			throws ServletException, IOException {
+		UsersDao userDao = new UsersDao();
+		UsersDto userDto = new UsersDto();
+		
+		//AIのカラム以外を記載
+		userDto.setLoginId("setLoginId");
+		userDto.setPasswordHash("setPasswordHash");
+		
+		userDao.insert(userDto);
+		userDao.select(userDto);
+		userDao.update(userDto);
+		userDao.delete(userDto);
+		
 		if(checkDoneLogin(request, response)) {
 			return;
 		}

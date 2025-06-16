@@ -62,7 +62,7 @@ public class EmotionsDao extends CustomTemplateDao<EmotionsDto> {
 			// SQL文を準備する
 			String sql = """
 					insert emotions(emoStamp, action, emotion)
-							value(0,?,0)
+							value(?,?,?)
 					""";
 			PreparedStatement pStmt = conn.prepareStatement(sql);
 
@@ -85,12 +85,54 @@ public class EmotionsDao extends CustomTemplateDao<EmotionsDto> {
 		// 結果を返す
 		return result;
 	}
+	/*
+	public boolean insert(EmotionsDto dto)  {
+		{
+			Connection conn = null;
+			boolean result = false;
+
+			try {
+				// JDBCドライバを読み込む
+				// データベースに接続する
+				conn = conn();
+
+				// SQL文を準備する
+				String sql = """
+						insert emotions(action, emotion )
+								value(?, ?)
+						""";
+				PreparedStatement pStmt = conn.prepareStatement(sql);
+
+				// SQL文を完成させる
+				pStmt.setString(1, dto.getAction());
+				pStmt.setInt(2, dto.getEmotion());
+
+
+				// SQL文を実行する
+				if (pStmt.executeUpdate() == 1) {
+					ResultSet res = pStmt.getGeneratedKeys();
+					res.next();
+					dto.setEmoStamp(res.getInt(1));
+					result = true;
+				}
+			} catch (SQLException e) {
+				e.printStackTrace();
+			} finally {
+				// データベースを切断
+				close(conn);
+				}
+			
+			// 結果を返す
+			return result;
+		}
+	}
+	*/
 
 	@Override
 	public boolean update(EmotionsDto dto) {
 		Connection conn = null;
 		boolean result = false;
-
+/*
 		try {
 			// JDBCドライバを読み込む
 			// データベースに接続する
@@ -119,8 +161,8 @@ public class EmotionsDao extends CustomTemplateDao<EmotionsDto> {
 		} finally {
 			// データベースを切断
 			close(conn);
-			}
-		
+		}
+		*/
 		// 結果を返す
 		return result;
 	}
@@ -129,7 +171,7 @@ public class EmotionsDao extends CustomTemplateDao<EmotionsDto> {
 	public boolean delete(EmotionsDto dto) {
 		Connection conn = null;
 		boolean result = false;
-
+/*
 		try {
 			// JDBCドライバを読み込む
 			// データベースに接続する
@@ -152,9 +194,8 @@ public class EmotionsDao extends CustomTemplateDao<EmotionsDto> {
 			// データベースを切断
 			close(conn);
 			}
-		
+		*/
 		// 結果を返す
 		return result;
 	}
-
 }
