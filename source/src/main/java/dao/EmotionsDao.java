@@ -11,6 +11,7 @@ import dto.EmotionsDto;
 
 public class EmotionsDao extends CustomTemplateDao<EmotionsDto> {
 	
+	// 感情登録内容を指定し取り出す（select文）
 	@Override
 	public List<EmotionsDto> select(EmotionsDto dto) {
 		Connection conn = null;
@@ -22,9 +23,6 @@ public class EmotionsDao extends CustomTemplateDao<EmotionsDto> {
 			// SQL文を準備する
 			String sql = "Select * from emotions";
 			PreparedStatement pStmt = conn.prepareStatement(sql);
-
-			// SQL文を完成させる
-			pStmt.setInt(1, dto.getEmoStamp());
 
 			// SQL文を実行し、結果表を取得する
 			ResultSet rs = pStmt.executeQuery();
@@ -49,14 +47,13 @@ public class EmotionsDao extends CustomTemplateDao<EmotionsDto> {
 		return emotions;
 	}
 
+	// ユーザーの入力した感情を登録する（insert文）
 	@Override
 	public boolean insert(EmotionsDto dto) {
 		Connection conn = null;
 		boolean result = false;
 
 		try {
-			// JDBCドライバを読み込む
-			// データベースに接続する
 			conn = conn();
 
 			// SQL文を準備する
@@ -167,20 +164,17 @@ public class EmotionsDao extends CustomTemplateDao<EmotionsDto> {
 	}
 
 	@Override
+	// all list登録タイミングでdeleteするためのdelete文
 	public boolean delete(EmotionsDto dto) {
+		Connection conn = null;
 		boolean result = false;
-/*
+
 		try {
-			// JDBCドライバを読み込む
-			// データベースに接続する
 			conn = conn();
 
 			// SQL文を準備する
 			String sql = "delete from emotions";
 			PreparedStatement pStmt = conn.prepareStatement(sql);
-
-			// SQL文を完成させる
-			pStmt.setInt(1, dto.getEmoStamp());
 
 			// SQL文を実行する
 			if (pStmt.executeUpdate() == 1) {
@@ -192,7 +186,7 @@ public class EmotionsDao extends CustomTemplateDao<EmotionsDto> {
 			// データベースを切断
 			close(conn);
 			}
-		*/
+			
 		// 結果を返す
 		return result;
 	}
