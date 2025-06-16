@@ -21,8 +21,7 @@
         <u><h2 style="text-align:center;">感情登録</h2></u>
   
   <main>
-    <form id="emo_form" action="名刺管理アプリ試作品/result.html">
-    <!-- <form id="emo_form" method="POST" action="/C1/EmoRegistServlet"> -->
+	<form id="emo_form" method="POST" action="/C1/EmoRegistServlet"> 
       <p class="radio">
           1.感情スタンプを選んでね<br>
           <div class="radio_edit">
@@ -59,7 +58,7 @@
 		<!-- フッター（ここまで） -->
 	</div>
 	<!--javascriptのファイルの読み込み-->
-	<script src="js/template.js"></script>
+	<script src="js/regist.js"></script>
 
 </body>
 </html>

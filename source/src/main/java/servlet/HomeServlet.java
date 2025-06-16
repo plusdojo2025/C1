@@ -44,6 +44,13 @@ public class HomeServlet extends CustomTemplateServlet {
 			return;
 		}
 		
+		if (account_del(request, response)) {
+			return;
+		}
+		
+		
 	}
+	
+
 
 }
