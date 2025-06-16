@@ -66,6 +66,8 @@
 		      <h3 style="text-align:center;"><c:out value="${explainList[5].title}" /></h3>
 		      <p><c:out value="${explainList[5].content}" /></p>
 		    </div>
+		    
+		   
 		</main>
 
 		<!-- フッター（ここから） -->

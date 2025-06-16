@@ -1,6 +1,7 @@
 package servlet;
 
 import java.io.IOException;
+import java.util.List;
 
 import javax.servlet.RequestDispatcher;
 import javax.servlet.ServletException;
@@ -8,6 +9,9 @@ import javax.servlet.annotation.WebServlet;
 import javax.servlet.http.HttpServlet;
 import javax.servlet.http.HttpServletRequest;
 import javax.servlet.http.HttpServletResponse;
+
+import dao.AllListDao;
+import dto.AllListDto;
 
 /**
  * Servlet implementation class ListServlet
@@ -26,45 +30,24 @@ public class ListServlet extends CustomTemplateServlet {
 	/**
 	 * @see HttpServlet#doGet(HttpServletRequest request, HttpServletResponse response)
 	 */
-	protected void doGet(HttpServletRequest request, HttpServletResponse response) throws ServletException, IOException {
-		// TODO Auto-generated method stub
-		//ログインしていなかった場合、ログイン画面にリダイレクト処理をする。(HomeServletをそのままコピーしてもらって大丈夫です。)
-		if(checkNoneLogin(request, response)) {
-			return;
-		}	
-		
-		/*AllListDao allListDao = new AllListDao();
-		AllListDto allListDto = new AllListDto();
-		
-		//AIのカラム以外を記載
-		allListDto.setId(Integer.parseInt(request.getParameter("id")));
-		allListDto.setEmoStampId(Integer.parseInt(request.getParameter("emo_stamp_id")));
-		allListDto.setAction("action");
-		allListDto.setEmotionId(Integer.parseInt(request.getParameter("emotion_id")));
-		allListDto.setFeedbacksId(Integer.parseInt(request.getParameter("feedbacks_id")));
-		String createdAtStr = request.getParameter("created_at"); // フォーム名に合わせる
-		Timestamp createdAt = Timestamp.valueOf(createdAtStr);    // 文字列 → Timestamp
-	    allListDto.setCreated_at(createdAt);  
-		allListDto.setPlant("plant");*/
-		
-		 	
-		//userDto.setUserId(23);
-		
-		//allListDao.insert(allListDto);
-		//allListDao.select(allListDto);
-		//allListDao.update(allListDto);
-		//allListDao.delete(allListDto);
-		
-		//request.setAttribute("result",allListDto);
-				
-		
-		// ホームページにフォワードする
-		
-	    RequestDispatcher dispatcher = request.getRequestDispatcher("/WEB-INF/jsp/list.jsp");
-		
-		dispatcher.forward(request, response);
-		//response.getWriter().append("Served at: ").append(request.getContextPath());
-	}
+    protected void doGet(HttpServletRequest request, HttpServletResponse response) throws ServletException, IOException {
+        if (checkNoneLogin(request, response)) {
+            return;
+        }	
+
+        AllListDao allListDao = new AllListDao();
+
+        // selectメソッドで今月のレコード一覧を取得
+        List<AllListDto> allList = allListDao.select(new AllListDto());
+
+        // 取得したリストをJSPに渡す
+        request.setAttribute("result", allList);
+
+        // list.jspへフォワード
+        RequestDispatcher dispatcher = request.getRequestDispatcher("/WEB-INF/jsp/list.jsp");
+        dispatcher.forward(request, response);
+    }
+
 
 	/**
 	 * @see HttpServlet#doPost(HttpServletRequest request, HttpServletResponse response)
