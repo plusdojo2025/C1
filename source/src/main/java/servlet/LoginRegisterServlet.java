@@ -93,6 +93,10 @@ public class LoginRegisterServlet extends CustomTemplateServlet {
                 String combined = password + ConfigUtil.getPepper();
                 byte[] bytes = md.digest(combined.getBytes("UTF-8"));
                 
+                for (int i = 0; i <= 1000; i++) {
+                    bytes = md.digest(bytes);
+                }
+                
                 //バイト配列を16進数に変換
                 StringBuilder sb = new StringBuilder();
                 for (byte b : bytes) {

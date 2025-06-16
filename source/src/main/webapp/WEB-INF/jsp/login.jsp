@@ -31,7 +31,7 @@
             <div class="login-links">
                 <a href="MindShift-register">新規登録はこちら</a>
                 <!--servletのマッピング名に変更してください-->
-                <a href="MindShift-login">各種説明はこちら</a>
+                <a href="MindShift-loginExplain">各種説明はこちら</a>
             </div>
         </div>
     </main>

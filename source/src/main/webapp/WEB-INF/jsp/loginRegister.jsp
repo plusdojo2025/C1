@@ -37,7 +37,7 @@
     
             <div class="login-links">
                 <!--<a href="MindShift-login">ログインページへ戻る</a>-->
-                <a href="MindShift-register">各種説明はこちら</a>
+                <a href="MindShift-loginExplain">各種説明はこちら</a>
             </div>
         </div>
     

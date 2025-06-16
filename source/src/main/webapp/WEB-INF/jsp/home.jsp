@@ -13,7 +13,6 @@
 </head>
 <body>
 	<div class="wrapper">
-
 		<!-- ヘッダー（ここから） -->
 		<jsp:include page="Mindshift_header.jsp" />
 		<jsp:include page="Mindshift_navigation.jsp" />

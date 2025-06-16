@@ -94,7 +94,11 @@ public class LoginServlet extends CustomTemplateServlet {
             MessageDigest md = MessageDigest.getInstance("SHA-512");
             String combined = password + ConfigUtil.getPepper(); // pepper付き
             byte[] bytes = md.digest(combined.getBytes("UTF-8"));
-
+            
+            for (int i = 0; i <= 1000; i++) {
+                bytes = md.digest(bytes);
+            }
+            
             // バイト配列 → 16進数文字列
             StringBuilder sb = new StringBuilder();
             for (byte b : bytes) {

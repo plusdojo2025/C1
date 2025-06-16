@@ -69,7 +69,7 @@
 		   <p>ログアウトとアカウント削除ができます。</p>
 		</div>	
 		
-		<a href="login.jsp" class="relogin">ログイン画面に戻る</a>
+		<a href="MindShift-login" class="relogin">ログイン画面に戻る</a>
 	</main>
 
 		<!-- フッター（ここから） -->
