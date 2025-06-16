@@ -39,7 +39,7 @@ public class PositiveServlet extends CustomTemplateServlet {
 //		//userDto.setUserId(23);
 //				
 //		emotionDao.insert(emotionDto);
-//		emotionDao.select(emotionDto);
+//		allListDao.select(allListDto);
 //		emotionDao.update(emotionDto);
 //		emotionDao.delete(emotionDto);
 //		response.getWriter().append("Served at: ").append(request.getContextPath());
