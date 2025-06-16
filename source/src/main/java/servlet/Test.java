@@ -38,7 +38,7 @@ public class Test extends CustomTemplateServlet {
 		MyAllListDto.setAction("setAction");
 		MyAllListDto.setEmotionId(0);
 		MyAllListDto.setFeedbacksId(0);
-		MyAllListDto.setCreated_at(null);
+		MyAllListDto.setCreatedAt(null);
 		MyAllListDto.setPlant("setEmoStampId");
 		
 		

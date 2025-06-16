@@ -36,7 +36,7 @@ public class AllListDao extends CustomTemplateDao<AllListDto> {
 						rs.getString("action"),
 						rs.getInt("emotion_id"),
 						rs.getInt("feedbacks_id"),
-						rs.getTimestamp("created_at"),
+						new java.util.Date(rs.getDate("created_at").getTime()),
 						rs.getString("plant")
 				);
 				allList.add(allLists);
@@ -88,7 +88,7 @@ public class AllListDao extends CustomTemplateDao<AllListDto> {
 			pStmt.setString(2, dto.getAction());
 			pStmt.setInt(3, dto.getEmotionId());
 			pStmt.setInt(4, dto.getFeedbacksId());
-			pStmt.setTimestamp(5, dto.getCreated_at());
+			pStmt.setDate(5, new java.sql.Date(dto.getCreatedAt().getTime()));
 			pStmt.setString(6, dto.getPlant());
 
 			// SQL文を実行する
@@ -135,7 +135,7 @@ public class AllListDao extends CustomTemplateDao<AllListDto> {
 			pStmt.setString(2, dto.getAction());
 			pStmt.setInt(3, dto.getEmotionId());
 			pStmt.setInt(4, dto.getFeedbacksId());
-			pStmt.setTimestamp(5, dto.getCreated_at());
+			pStmt.setDate(5, new java.sql.Date(dto.getCreatedAt().getTime()));
 			pStmt.setString(6, dto.getPlant());
 			pStmt.setInt(7, dto.getId());
 
