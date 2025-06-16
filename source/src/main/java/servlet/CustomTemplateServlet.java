@@ -18,7 +18,7 @@ public abstract class CustomTemplateServlet extends HttpServlet {
 		if (logout != null) {
 			/*ログアウトボタンが押された*/
 			HttpSession session = request.getSession();
-			session.removeAttribute("id");
+			session.removeAttribute("user_id");
 			checkNoneLogin(request, response);
 		}
 		return result;
@@ -28,7 +28,7 @@ public abstract class CustomTemplateServlet extends HttpServlet {
 	protected final boolean checkNoneLogin(HttpServletRequest request, HttpServletResponse response) 
 			   throws IOException {
 		HttpSession session = request.getSession();
-		boolean result = (session.getAttribute("id") == null);
+		boolean result = (session.getAttribute("user_id") == null);
 		if (result) {
 			// LOGINにリダイレクトする
 			response.sendRedirect("MindShift-login");
@@ -40,7 +40,7 @@ public abstract class CustomTemplateServlet extends HttpServlet {
 	protected final boolean checkDoneLogin(HttpServletRequest request, HttpServletResponse response) 
 			   throws IOException {
 		HttpSession session = request.getSession();
-		boolean result = (session.getAttribute("id") != null);
+		boolean result = (session.getAttribute("user_id") != null);
 		if (result) {
 			// MENUにリダイレクトする
 			response.sendRedirect("MindShift-home");

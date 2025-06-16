@@ -4,6 +4,7 @@ import java.sql.Connection;
 import java.sql.PreparedStatement;
 import java.sql.ResultSet;
 import java.sql.SQLException;
+import java.sql.SQLIntegrityConstraintViolationException;
 import java.util.ArrayList;
 import java.util.List;
 
@@ -20,7 +21,7 @@ public class UsersDao extends CustomTemplateDao<UsersDto> {
 			conn = conn();
 
 			// SQL文を準備する
-			String sql = "SELECT * from users where user_id = ?";
+			String sql = "SELECT * from users where login_id = ?";
 			PreparedStatement pStmt = conn.prepareStatement(sql);
 
 			// SQL文を完成させる
@@ -158,4 +159,56 @@ login_id = ?
 		// 結果を返す
 		return result;
 	}
+	
+    public UsersDto findUser(String loginId) {
+    	Connection conn = null;
+    	UsersDto user = null;
+
+        try {
+			conn = conn();
+            String sql = "SELECT * FROM users WHERE login_id = ?";
+            PreparedStatement stmt = conn.prepareStatement(sql);
+            stmt.setString(1, loginId);
+
+            ResultSet rs = stmt.executeQuery();
+            if (rs.next()) {
+                user = new UsersDto();
+                user.setUserId(rs.getInt("user_id"));
+                user.setLoginId(rs.getString("login_id"));
+                user.setPasswordHash(rs.getString("password_hash"));
+            }
+
+            close(conn);
+
+        } catch (Exception e) {
+            e.printStackTrace();
+        }
+
+        return user;
+    }
+
+    public boolean registerUser(UsersDto user) {
+    	Connection conn = null;
+        try {
+			conn = conn();
+
+            String sql = "INSERT INTO users (login_id, password_hash) VALUES (?, ?)";
+            PreparedStatement stmt = conn.prepareStatement(sql);
+            stmt.setString(1, user.getLoginId());
+            stmt.setString(2, user.getPasswordHash());
+
+            int rows = stmt.executeUpdate();
+
+            close(conn);
+
+            return rows > 0;
+            
+        //制約に違反した場合(login_idはunique属性)
+        } catch (SQLIntegrityConstraintViolationException e) {
+            return false;
+        } catch (Exception e) {
+            e.printStackTrace();
+            return false;
+        }
+    }
 }
