@@ -1,16 +1,13 @@
 package servlet;
 
 import java.io.IOException;
-import java.sql.Timestamp;
 
+import javax.servlet.RequestDispatcher;
 import javax.servlet.ServletException;
 import javax.servlet.annotation.WebServlet;
 import javax.servlet.http.HttpServlet;
 import javax.servlet.http.HttpServletRequest;
 import javax.servlet.http.HttpServletResponse;
-
-import dao.AllListDao;
-import dto.AllListDto;
 
 /**
  * Servlet implementation class ListServlet
@@ -31,11 +28,11 @@ public class ListServlet extends CustomTemplateServlet {
 	 */
 	protected void doGet(HttpServletRequest request, HttpServletResponse response) throws ServletException, IOException {
 		// TODO Auto-generated method stub
-		AllListDao AllListDao = new AllListDao();
-		AllListDto AllListDto = new AllListDto();
+		//AllListDao AllListDao = new AllListDao();
+		//AllListDto AllListDto = new AllListDto();
 		
 		//AIのカラム以外を記載
-		AllListDto.setId(Integer.parseInt(request.getParameter("id")));
+		/*AllListDto.setId(Integer.parseInt(request.getParameter("id")));
 		AllListDto.setEmoStampId(Integer.parseInt(request.getParameter("emo_stamp_id")));
 		AllListDto.setAction("action");
 		AllListDto.setEmotionId(Integer.parseInt(request.getParameter("emotion_id")));
@@ -53,7 +50,12 @@ public class ListServlet extends CustomTemplateServlet {
 		AllListDao.select(AllListDto);
 		AllListDao.update(AllListDto);
 		AllListDao.delete(AllListDto);
-		response.getWriter().append("Served at: ").append(request.getContextPath());
+		response.getWriter().append("Served at: ").append(request.getContextPath());*/
+		// ホームページにフォワードする
+		
+	    RequestDispatcher dispatcher = request.getRequestDispatcher("/WEB-INF/jsp/list.jsp");
+		
+		dispatcher.forward(request, response);
 	}
 
 	/**

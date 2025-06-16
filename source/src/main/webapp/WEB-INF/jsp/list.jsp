@@ -18,7 +18,7 @@
 		<jsp:include page="Mindshift_header.jsp" />
 		<jsp:include page="Mindshift_navigation.jsp" />
 		<!-- ヘッダー（ここまで） -->
-		<u><h2 style="text-align: center;">例</h2></u>
+		<u><h2 style="text-align: center;">登録一覧</h2></u>
 
 		<main>
 		
