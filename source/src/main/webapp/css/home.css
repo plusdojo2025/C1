@@ -1,7 +1,7 @@
 /*MindShift*/
 /*ホームのナビゲーション、フッター*/
 
-html{
+jsp{
   scroll-behavior: smooth;
 }
 /* bodyタグ */
@@ -34,6 +34,17 @@ body {
   color:#67AE6E;
 }
 
+/* h2タグを付けたページの見出し */
+h2 {
+  text-align: center;
+  font-size: 1.9rem;
+  padding: 0.5em 0;
+  color: #333;
+  margin-top: 40px;
+  margin-bottom: 20px;
+  font-weight: bold;
+
+}
 /****************************ナビゲーション**************************/
 .menu2 {  /*メニューバー全体の設定*/
   margin: 30px 0 0 0; /*メニューバーの位置*/
@@ -153,36 +164,175 @@ padding: 0;
   text-decoration: underline;
 }
 /***********************************************************************/
-
-.main{
-  margin-top: 30px;
-  margin-bottom:300px;
+/******************************オブジェクト表示******************************/
+.rectangle{
+  width: 60%;
+  height: 300px;
+  background-color: white;
+  margin: 20px auto;
+  position: relative;
+  display: flex;
+  justify-content: center; /* 左右中央 */
+  align-items: center;     /* 上下中央 */
+  margin-top: 40px;       /*上に余白*/
+  margin-bottom: 100px; /* 下に余白 */
+  border-radius: 8px;
+  box-shadow: 0 0 10px rgba(0,0,0,0.1);
 }
-
-.section{/*項目・内容セット*/
-  margin: 50px;
+.plantimg{
+  display: flex;
+  justify-content: center;
+  align-items: center;
+  width: 100%;
+  height: 100%;
 }
-
-h2{/*下線あり大見出し*/
-  margin: 20px;
-}
-
-h3{/*小見出し*/
-  margin-bottom: 20px;
-}
-
-img{/*画像*/
-  max-width: 600px;
+.plantimg img {
+  margin: 0;
   display: block;
-  margin: 0 auto;
+  width: 200px;
+  height: auto;
 }
 
-/*** ログイン画面の各種説明 ***/
-.relogin{
-  display: block;
+/*********************************カレンダー**********************************/
+.container-calendar {
+    color: rgb(11, 15, 5);
+    font-size: 2rem;
+    padding: 50px;
+    width: 70%;
+    margin: 0 auto;
+    overflow: auto;
+    background-color: #ffffff; /* 背景を白く */
+    border-radius: 8px;
+    box-shadow: 0 0 10px rgba(0,0,0,0.1);
+    
+    
+  }
+
+  .button-container-calendar button {
+    cursor: pointer;
+    display: inline-block;
+    zoom: 1;
+    background: #007bff;
+    color: #fff;
+    border: 1px solid #0aa2b5;
+    border-radius: 4px;
+    padding: 5px 10px;
+  }
+  .table-calendar {
+    border-collapse: collapse;
+    width: 100%;
+  }
+  .table-calendar th,
+  .table-calendar td{
+    padding: 5px;
+    border: 1px solid #e2e2e2;
+    text-align: center;
+    vertical-align: top;
+  }
+  .date-picker.selected {
+    font-weight: bold;
+    color: #fff;
+    background: #0085cc;
+  }
+  .date-picker.selected span {
+    border-bottom: 2px solid currentColor;
+  }
+  /* 日曜 */
+  .date-picker:nth-child(1) {
+  color: red;
+  }
+  /* 土曜 */
+  .date-picker:nth-child(7) {
+  color: blue;
+  }
+  #monthAndYear {
+    text-align: center;
+    margin-top: 0;
+  }
+  .button-container-calendar {
+    position: relative;
+    margin-bottom: 1em;
+    overflow: hidden;
+    clear: both;
+  }
+  #previous {
+    float: left;
+  }
+  #next {
+    float: right;
+  }
+  .footer-container-calendar {
+    margin-top: 1em;
+    border-top: 1px solid #dadada;
+    padding: 10px 0;
+  }
+  .footer-container-calendar select {
+    cursor: pointer;
+    display: inline-block;
+    zoom: 1;
+    background: #FFFFFF;
+    color: #333;
+    border: 1px solid #007bff;
+    border-radius: 6px;
+    padding: 6px 12px;
+    margin:5px;
+    transition: border 0.2s ease;
+  }
+  .footer-container-calendar select:focus {
+  border-color: #0056b3;
+  outline: none;
+  box-shadow: 0 0 5px rgba(0, 123, 255, 0.5);
+  }
+
+  .next-month {
+  color: #bbb;          /* 薄いグレー */
+  background-color: #f5f5f5; /* 薄い背景色 */
+}
+
+.plant {
+  width: 150px; /* 好きな幅に調整 */
+  /* 必要に応じて高さや他のスタイルも指定可能 */
+  height: 80px;
+  background-color: #e0f7fa; /* 背景色の例 */
+  /* テーブルの幅調整をしたいときは下のbox-sizingも便利 */
+  box-sizing: border-box;
+}
+
+/*********************************カレンダー**********************************/
+
+/*スタンプ集計表の体裁*/
+.stamptable {
+  width: 80%;
+  margin: 20px auto;
+  border-collapse: separate;
+  border-spacing: 0;
+  font-size: 1.2rem;
   text-align: center;
-  font-size: 1.3rem;
-  margin-top: 200px;
+  border-radius: 12px;
+  overflow: hidden;
+  box-shadow: 0 0 15px rgba(0, 0, 0, 0.1);
+}
+
+.stamptable th {
+  background-color: #59b396;
+  color: #fff;
+  padding: 15px 10px;
+  font-weight: bold;
+}
+
+.stamptable td {
+  background-color: #f9f9f9;
+  padding: 15px 10px;
+  border-top: 1px solid #e0e0e0;
+  transition: background-color 0.3s ease;
+}
+
+.stamptable td:hover {
+  background-color: #e3f7ef;
+}
+
+#stamp-summary {
+  padding: 10px;
 }
 
 

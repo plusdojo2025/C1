@@ -3,7 +3,6 @@
 <%@ taglib prefix="c" uri="http://java.sun.com/jsp/jstl/core"%>
 <%@ taglib uri="http://java.sun.com/jsp/jstl/fmt" prefix="fmt"%>
 <!DOCTYPE html>
-
 <html>
 <head>
 <meta charset="UTF-8">
@@ -20,7 +19,7 @@
 		<jsp:include page="Mindshift_navigation.jsp" />
 		<!-- ヘッダー（ここまで） -->
 
-		<main>
+		<main class="main">
 		 <u><h2 style="text-align:center;">MindShift</h2></u>
 			<!--アプリについて -->
 		    <div class="section">
@@ -41,10 +40,10 @@
 		      <p><c:out value="${explainList[2].content}" /></p>
 		
 		        <h3 style="text-align:center;">植物の育ち方</h3>
-		        <img src="images/枠あり育ち方.png" class="images" alt="植物の育ち方">
+		        <img src="${pageContext.request.contextPath}/image/枠あり育ち方.png" class="images" alt="植物の育ち方">
 		
 		        <h3 style="text-align:center;">植物の種類</h3>
-		        <img src="images/枠あり種類.png" class="images" alt="植物の種類">
+		        <img src="${pageContext.request.contextPath}/image/枠あり種類.png" class="images" alt="植物の種類">
 		    </div>
 		    
 		    <!-- 感情登録-->
@@ -53,7 +52,7 @@
 		      <p><c:out value="${explainList[3].content}" /></p>
 		
 		        <h3 style="text-align:center;">感情スタンプ</h3>
-		        <img src="images/枠ありスタンプ.png" class="images" alt="スタンプ">
+		        <img src="${pageContext.request.contextPath}/image/枠ありスタンプ.png" class="images" alt="スタンプ">
 		    </div>
 		    
 		    <!-- 記録一覧-->

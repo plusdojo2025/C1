@@ -8,6 +8,9 @@ import javax.servlet.http.HttpServletRequest;
 import javax.servlet.http.HttpServletResponse;
 import javax.servlet.http.HttpSession;
 
+import dao.UsersDao;
+import dto.UsersDto;
+
 public abstract class CustomTemplateServlet extends HttpServlet {
 	
 	//ログアウト処理（セッションのidを削除）
@@ -23,6 +26,39 @@ public abstract class CustomTemplateServlet extends HttpServlet {
 		}
 		return result;
 	}
+	
+	//アカウント削除処理（セッションのidを削除）
+	public boolean account_del(HttpServletRequest request, HttpServletResponse response) 
+			throws IOException {
+		String account_del = request.getParameter("account_del");
+		boolean result = (account_del != null);
+		if (account_del != null) {
+			// セッションからuser_idを取得
+			HttpSession session = request.getSession();
+			Integer userId = (Integer) session.getAttribute("user_id");
+			
+			if (userId != null) {
+				UsersDto dto = new UsersDto();
+				dto.setUserId(userId);  // ここが重要
+				
+				UsersDao dao = new UsersDao();
+				boolean deleted = dao.delete(dto);
+				
+				if (deleted) {
+					session.invalidate(); // セッション破棄（ログアウト状態に）
+					response.sendRedirect("MindShift-login"); // ログイン画面へリダイレクト
+				} else {
+					// 削除失敗時の処理（必要なら）
+				}
+			} else {
+				// user_idがなければログイン画面へリダイレクト
+				response.sendRedirect("MindShift-login");
+			}
+		}
+		return result;
+	}
+
+	
 	
 	//未ログインならログイン画面へリダイレクト
 	protected final boolean checkNoneLogin(HttpServletRequest request, HttpServletResponse response) 
