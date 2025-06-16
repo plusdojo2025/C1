@@ -20,11 +20,8 @@ public class AllListDao extends CustomTemplateDao<AllListDto> {
 			conn = conn();
 
 			// SQL文を準備する
-			String sql = "SELECT emo_stamp_id, action, emotion_id, feedbacks_id, created_at from allList WHERE created_at >= DATE_FORMAT(CURDATE(), '%Y-%m-01') AND created_at < DATE_FORMAT(DATE_ADD(CURDATE(), INTERVAL 1 MONTH), '%Y-%m-01'); ";
+			String sql = "SELECT * from allList WHERE created_at >= DATE_FORMAT(CURDATE(), '%Y-%m-01') AND created_at < DATE_FORMAT(DATE_ADD(CURDATE(), INTERVAL 1 MONTH), '%Y-%m-01'); ";
 			PreparedStatement pStmt = conn.prepareStatement(sql);
-
-			// SQL文を完成させる
-			pStmt.setInt(1, dto.getId());
 
 			// SQL文を実行し、結果表を取得する
 			ResultSet rs = pStmt.executeQuery();
