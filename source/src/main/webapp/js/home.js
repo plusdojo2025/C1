@@ -1,10 +1,13 @@
 // アクセス日時表示
   document.getElementById('time').textContent = new Date().toLocaleString();
 
+// アクセス日時表示
+  document.getElementById('time').textContent = new Date().toLocaleString();
+
 //ログアウト
 var btn = document.getElementById('logout');//id、ログアウトの情報をbtnに読み込み
 
-        btn.addEventListener('click', function() { //対象要素.addEventListener(種類(clickはマウスボタンをクリックした時), function() {}
+        btn.addEventListener('click', function(event) { //対象要素.addEventListener(種類(clickはマウスボタンをクリックした時), function() {}
 
           var confirmLogout = confirm("本当にログアウトしますか？");
 
@@ -26,16 +29,16 @@ var btn = document.getElementById('logout');//id、ログアウトの情報をbt
         }
 
 //アカウント削除
-var btn = document.getElementById('acount_del');
+var btn_del = document.getElementById('account_del');
 
-        btn.addEventListener('click', function() { //対象要素.addEventListener(種類(clickはマウスボタンをクリックした時), function() {}
+        btn_del.addEventListener('click', function(e) { //対象要素.addEventListener(種類(clickはマウスボタンをクリックした時), function() {}
 
           var confirmLogout = confirm("アカウント削除しますか？");
 
         // ユーザーが「OK」を押した場合、処理を実行
         if (!confirmLogout) {
             // 「キャンセル」が押された場合、リンクのデフォルト動作をキャンセル
-            event.preventDefault();
+            e.preventDefault();
         }else{
           alert("アカウントを削除しました。");
         }
@@ -48,6 +51,9 @@ var btn = document.getElementById('acount_del');
         }
         }
              
+        
+
+        
  
  //＊＊＊＊＊＊＊＊＊＊＊＊＊＊＊＊＊＊＊＊＊＊＊＊＊カレンダー表示＊＊＊＊＊＊＊＊＊＊＊＊＊＊＊＊＊＊＊＊＊＊＊＊
  
