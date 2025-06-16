@@ -1,0 +1,345 @@
+/* <header> */
+.logo {
+    display: flex;
+    align-items: center;
+    text-decoration: none;
+    background-image: url('../imgaes/title_back2.jpg');
+    background-size: cover;       
+    background-position: center;               
+}
+
+/* </header> */
+
+/* login.html */
+.login-main {
+    height: 100%;
+    display: flex;
+    flex-direction: column;
+    justify-content: center;
+    align-items: center;
+    background-image: url('../imgaes/background.jpg');
+    background-size: cover;
+    background-position: center;
+}
+
+.login-logo img {
+    width: 300px;
+    height: auto;
+    margin-bottom: 30px;
+}
+
+.login-form-container {
+    background-color: #ffffffcc;
+    padding: 40px;
+    border-radius: 10px;
+    box-shadow: 0 4px 8px rgba(0,0,0,0.4);
+    width: 300px;
+    text-align: center;
+}
+
+.login-form-container h1 {
+    margin-bottom: 20px;
+    font-size: 24px;
+}
+
+.form-group {
+    margin-bottom: 20px;
+    text-align: left;
+}
+
+.form-group label {
+    display: block;
+    margin-bottom: 5px;
+    font-weight: bold;
+}
+
+.form-group input {
+    width: 100%;
+    padding: 10px;
+    border: 1px solid #ccc;
+    border-radius: 5px;
+}
+
+.login-button {
+    width: 100%;
+    padding: 10px;
+    background-color: #ffff00;
+    color: black;
+    border: none;
+    border-radius: 9999px;
+    font-size: 16px;
+    cursor: pointer;
+    width: 100px;
+    height: 50px;
+}
+
+.login-button:hover {
+    background-color: #ffd700;
+}
+
+.login-links {
+    margin-top: 20px;
+    display: flex;
+    flex-direction: column;
+    gap: 10px;
+}
+
+.login-links a {
+    color: #007BFF;
+    text-decoration: none;
+    font-size: 14px;
+}
+
+.login-links a:hover {
+    text-decoration: underline;
+}
+/* /login.html */
+
+/* new_login.html */
+.newlogin-main {
+    height: 100%;
+    display: flex;
+    flex-direction: column;
+    justify-content: center;
+    align-items: center;
+    background-image: url('../imgaes/background.jpg');
+    background-size: cover;
+    background-position: center;
+}
+
+.newlogin-form-container {
+    background-color: #ffffffcc;
+    padding: 40px;
+    border-radius: 10px;
+    box-shadow: 0 4px 8px rgba(0,0,0,0.2);
+    width: 300px;
+    text-align: center;
+}
+
+.newlogin-form-container h1 {
+    margin-bottom: 20px;
+    font-size: 24px;
+}
+
+.newlogin-button {
+    width: 100%;
+    padding: 10px;
+    background-color: #008000;
+    color: white;
+    border: none;
+    border-radius: 9999px;
+    font-size: 16px;
+    cursor: pointer;
+    width: 100px;
+    height: 50px;
+}
+
+.newlogin-button:hover {
+    background-color: #006400;
+}
+/* /new_login.html */
+
+/* logout.html */
+.logout-main {
+    height: 100%;
+    display: flex;
+    justify-content: center;
+    align-items: center;
+    background-image: url('../imgaes/background.jpg');
+    background-size: cover;
+    background-position: center;
+}
+
+.logout-container {
+    text-align: center;
+    background-color: #ffffff;
+    padding: 40px;
+    border-radius: 10px;
+    box-shadow: 0 4px 8px rgba(0, 0, 0, 0.2);
+    width: 300px;
+}
+
+.logout-container h1 {
+    font-size: 24px;
+    margin-bottom: 20px;
+}
+
+.logout-container p {
+    font-size: 18px;
+    margin-bottom: 30px;
+}
+
+.logout-buttons {
+    display: flex;
+    justify-content: space-between;
+}
+
+.logout-button, .cancel-button {
+    padding: 10px 20px;
+    font-size: 16px;
+    border-radius: 5px;
+    text-decoration: none;
+    color: white;
+    background-color: #007BFF;
+    border: none
+}
+
+.logout-button:hover, .cancel-button:hover {
+    background-color: #0056b3;
+}
+
+.cancel-button {
+    background-color: #FF0000;
+}
+
+.cancel-button:hover {
+    background-color: #cc0000;
+}
+/* /logout.html */
+
+/* その他 */
+html, body {
+    margin: 0;
+    padding: 0;
+    width: 100%;
+    height: 100%;
+  }
+
+/*MindShift*/
+/*MindShift*/
+/*ホームのナビゲーション、フッター*/
+
+html{
+  scroll-behavior: smooth;
+}
+/* bodyタグ */
+body {
+  margin: 0 0 0 0;	/* マージンなし（後で個別に設定） */
+  padding: 0 0 0 0;	/* パディングなし（後で個別に設定） */
+  color: #333;
+  font-size: 16px;
+  background: #c3e6d3;
+}
+/* wrapperクラス */
+.wrapper {
+  margin: 0 auto 0 auto;	/* 中央揃え */
+  width: 1000px;			/* 幅を固定 */
+  padding: 20px;
+}
+
+/* タイトル*/
+#logo {
+  text-align: center;
+  font-family: 'Courier New', Courier, monospace;
+  font-size: 70px;
+  color:#67AE6E;
+}
+
+.logo {
+  text-align: center;
+  font-family: 'Courier New', Courier, monospace;
+  font-size: 70px;
+  color:#67AE6E;
+}
+
+/****************************ナビゲーション**************************/
+.menu2 {  /*メニューバー全体の設定*/
+  margin: 30px 0 0 0; /*メニューバーの位置*/
+  display: flex;/*横並び*/
+  padding: 0 0 0 0;/*枠いっぱいにする*/
+  background-color: #59b396;
+  list-style-type: none;/*箇条書きの"・"を入れるかどうか*/
+  
+}
+
+.menu2 > li {/*子セレクタを指定したいときに「>」を使う*/
+  flex-grow: 1; /* メニューの均等配置　*/
+  position: relative;
+  border-right: 1px solid #59b396;
+}
+
+.menu2 a {/*それぞれのブロックの設定*/
+  display: block;
+  padding: 20px 20px;
+  text-align: center;
+  background-color: #59b396;
+  
+  
+}
+
+.menu2 a:link{
+  color: rgb(255, 255, 255);
+  text-decoration: none;
+  
+}
+.menu2 a:visited{
+  color: rgb(255, 255, 255);
+  text-decoration: underline;
+}
+
+.menu2 a:hover {/*ポインターが対象に乗ったときの設定*/
+  background-color: #59b396;
+  color: rgb(255, 255, 255);
+  text-decoration: underline;
+  font-size: 1.3rem;
+}
+
+.menu2 a:active{
+  color: rgb(255, 255, 255);
+  text-decoration: underline;
+}
+
+.menu2 li:hover > ul {/*カーソルを対象に動かしたら、ダウンメニューが表示される*/
+  display: block;
+  opacity: 1;
+  visibility: visible;
+}
+
+.menu2 ul {/*トップダウンメニューのボックスの設定*/
+position: absolute;
+top: 100%;
+left: 0;
+background-color: var(--childnav-bg);
+width: 100%;
+opacity: 0;
+visibility: hidden;
+transition: opacity 0.3s ease-in-out;
+margin: 0;
+padding: 0;
+
+}
+.menu2 ul li {/*トップダウンメニューのボックスの設定*/
+  display: block;/*ブロックのサイズが一定になる*/ 
+}
+.menu2 ul a {/*トップダウンメニューの中身の設定*/
+  padding: 10px;
+  text-align: center;/*文字を左揃え*/
+
+}
+.menu2 ul a:hover {/*トップダウンメニューの中身の設定*/
+  background-color: #59b396;
+  font-size: 1.3rem;
+}
+/***********************************************************************/
+
+
+
+/* フッター　*/
+/* id="footer" */
+#footer {
+  margin-top: 20px;
+  margin-bottom:0;
+  margin-top: 60px;
+  padding: 20px;
+  background: #59b396;
+  color: #FFFFFF;
+  font-size: smaller;
+  text-align: center;
+  border-radius: 8px;
+}
+.gotop img {
+  text-align: center;
+  width: 140px;
+  height: 140px;
+  margin-top: 10px;
+}

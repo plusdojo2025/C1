@@ -7,7 +7,7 @@
 <html>
 <head>
 <meta charset="UTF-8">
-<title>感情登録 | MindShift</title>
+<title>フィードバック | MindShift</title>
 <link rel="stylesheet"
 	href="${pageContext.request.contextPath}/css/template.css">
 </head>
@@ -18,13 +18,11 @@
 		<jsp:include page="Mindshift_header.jsp" />
 		<jsp:include page="Mindshift_navigation.jsp" />
 		<!-- ヘッダー（ここまで） -->
-		<u><h2 style="text-align: center;">例</h2></u>
 
-		<main>
-		
-	
-	
-		</main>
+  
+  <main>
+  </main>
+
 
 		<!-- フッター（ここから） -->
 		<jsp:include page="Mindshift_footer.jsp" />
@@ -32,7 +30,7 @@
 		<!-- フッター（ここまで） -->
 	</div>
 	<!--javascriptのファイルの読み込み-->
-	<script src="js/template.js"></script>
+	<script src="js/template.j"></script>
 
 </body>
 </html>
