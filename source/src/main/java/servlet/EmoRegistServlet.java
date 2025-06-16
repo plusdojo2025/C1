@@ -16,7 +16,7 @@ import dto.EmotionsDto;
 /**
  * Servlet implementation class EmoRegistServlet
  */
-@WebServlet("/EmoRegistServlet")
+@WebServlet("/MindShift-regist")
 public class EmoRegistServlet extends CustomTemplateServlet {
 	private static final long serialVersionUID = 1L;
 
@@ -32,19 +32,6 @@ public class EmoRegistServlet extends CustomTemplateServlet {
 	 */
 	protected void doGet(HttpServletRequest request, HttpServletResponse response) throws ServletException, IOException {
 		// TODO Auto-generated method stub
-		EmotionsDao EmotionDao = new EmotionsDao();
-		EmotionsDto EmotionDto = new EmotionsDto();
-		
-		EmotionDto.setEmoStamp(0);
-		EmotionDto.setAction("setAction");
-		EmotionDto.setEmotion(0);
-		
-		EmotionDao.insert(EmotionDto);
-		EmotionDao.select(EmotionDto);
-		EmotionDao.update(EmotionDto);
-		EmotionDao.delete(EmotionDto);
-		response.getWriter().append("Served at: ").append(request.getContextPath());
-	 
 	
 		//ログインしていなかった場合、ログイン画面にリダイレクト処理をする。(HomeServletをそのままコピーしてもらって大丈夫です。)
 		if(checkNoneLogin (request, response)) {
@@ -67,6 +54,20 @@ protected void doPost(HttpServletRequest request, HttpServletResponse response)
 	if(checkNoneLogin(request, response)) {
 		return;
 	}	
+	
+	EmotionsDao EmotionDao = new EmotionsDao();
+	EmotionsDto EmotionDto = new EmotionsDto();
+	
+	EmotionDto.setEmoStamp(0);
+	EmotionDto.setAction("setAction");
+	EmotionDto.setEmotion(0);
+	
+	EmotionDao.insert(EmotionDto);
+	EmotionDao.select(EmotionDto);
+	EmotionDao.update(EmotionDto);
+	EmotionDao.delete(EmotionDto);
+	response.getWriter().append("Served at: ").append(request.getContextPath());
+	
 	//ログアウト処理(HomeServletをそのままコピーしてもらって大丈夫です。)
 	if (logout(request, response)) {
 		return;

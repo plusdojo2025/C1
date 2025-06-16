@@ -33,7 +33,7 @@
         <p id="feedback">それはいい事だね！！自分らしく取り組んだ結果だね。この調子で行こう！！</p>
     </div>
 
-    <form id="feedback_form" action="名刺管理アプリ試作品/result.html">
+    <form id="feedback_form" method="POST" action="/C1/PositiveSrvlet">
         <input type="button" id="back_button" value="感情登録に戻る">
         <input type="submit" value="登録">
     </form>
