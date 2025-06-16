@@ -1,6 +1,7 @@
 // アクセス日時表示
   document.getElementById('time').textContent = new Date().toLocaleString();
-    //ログアウト
+
+//ログアウト
 var btn = document.getElementById('logout');//id、ログアウトの情報をbtnに読み込み
 
         btn.addEventListener('click', function(event) { //対象要素.addEventListener(種類(clickはマウスボタンをクリックした時), function() {}
@@ -46,7 +47,10 @@ var btn_del = document.getElementById('account_del');
             return false;
         }
         }
+             
+        
 
+        
 // 2.文字数をカウントするShowLength関数
 function ShowLength( str ) {
    document.getElementById("inputlength").innerHTML = str.length + "文字";
