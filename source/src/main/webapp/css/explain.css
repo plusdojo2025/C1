@@ -154,6 +154,36 @@ padding: 0;
 }
 /***********************************************************************/
 
+.main{
+  margin-top: 30px;
+  margin-bottom:300px;
+}
+
+.section{/*項目・内容セット*/
+  margin: 50px;
+}
+
+h2{/*下線あり大見出し*/
+  margin: 20px;
+}
+
+h3{/*小見出し*/
+  margin-bottom: 20px;
+}
+
+img{/*画像*/
+  max-width: 600px;
+  display: block;
+  margin: 0 auto;
+}
+
+/*** ログイン画面の各種説明 ***/
+.relogin{
+  display: block;
+  text-align: center;
+  font-size: 1.3rem;
+  margin-top: 200px;
+}
 
 
 

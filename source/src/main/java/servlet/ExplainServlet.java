@@ -1,7 +1,9 @@
 package servlet;
 
 import java.io.IOException;
+import java.util.List;
 
+import javax.servlet.RequestDispatcher;
 import javax.servlet.ServletException;
 import javax.servlet.annotation.WebServlet;
 import javax.servlet.http.HttpServlet;
@@ -42,6 +44,19 @@ public class ExplainServlet extends CustomTemplateServlet {
 		ExplanationDao.delete(ExplanationDto);
 		
 		response.getWriter().append("Served at: ").append(request.getContextPath());
+		
+		//ログインしていなかった場合、ログイン画面にリダイレクト処理をする。(HomeServletをそのままコピーしてもらって大丈夫です。)
+			if(checkNoneLogin(request, response)) {
+				return;
+			}
+			
+			ExplanationDao ExplanationDAO = new ExplanationDao();
+			List<ExplanationDto> explanation = ExplanationDAO.select(ExplanationDto);
+	        request.setAttribute("explainList", explanation);
+
+		// ホームページにフォワードする
+			RequestDispatcher dispatcher = request.getRequestDispatcher("/WEB-INF/jsp/explain.jsp");	
+			dispatcher.forward(request, response);
 	}
 
 	/**
