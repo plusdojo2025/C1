@@ -68,11 +68,14 @@ public class PositiveServlet extends CustomTemplateServlet {
 					return;
 				}
 				
+				//アカウント削除処理(HomeServletをそのままコピーしてもらって大丈夫です。)
 				if (account_del(request, response)) {
 					return;
 				}
 				
 				
+				response.getWriter().append("Served at: ").append(request.getContextPath());
+			
 			}
 			
 
