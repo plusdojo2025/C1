@@ -112,17 +112,18 @@ padding: 0;
   background-color: #59b396;
   font-size: 1.3rem;
 }
-
 .menu2 ul button.menu-button {
-  all: unset; /* ブラウザのデフォルトボタンスタイルをリセット */
+  all: unset;                     /* ブラウザのデフォルトスタイルを消す */
   display: block;
-  width: 100%;
+  width: 100%;                    /* 親の幅いっぱいに広げる */
   padding: 10px;
+  box-sizing: border-box;         /* paddingを含めて幅を計算 */
   text-align: center;
-  color: rgb(255, 255, 255);
+  color: #ffffff;
   background-color: #59b396;
   cursor: pointer;
-  font: inherit; /* 親のフォントスタイルを継承 */
+  font: inherit;
+  border: none;
 }
 
 .menu2 ul button.menu-button:hover {
@@ -130,7 +131,29 @@ padding: 0;
   font-size: 1.3rem;
   text-decoration: underline;
 }
+
+
+.menu2 li button.menu-button_li {
+  all: unset;                     /* ブラウザのデフォルトスタイルを消す */
+  display: block;
+  width: 100%;                    /* 親の幅いっぱいに広げる */
+  padding-top: 20px;
+  box-sizing: border-box;         /* paddingを含めて幅を計算 */
+  text-align: center;
+  color: #ffffff;
+  background-color: #59b396;
+  cursor: pointer;
+  font: inherit;
+  border: none;
+}
+
+.menu2 li button.menu-button_li:hover {
+  background-color: #59b396;
+  font-size: 1.3rem;
+  text-decoration: underline;
+}
 /***********************************************************************/
+
 
 .term{
    font-size: 2rem; 
@@ -229,8 +252,7 @@ textarea:focus {
   margin-bottom: 25px;
 }
 
-
-/* フッター　*/
+/* フッター　************************************************************/
 /* id="footer" */
 #footer {
   margin-top: 20px;
@@ -249,3 +271,4 @@ textarea:focus {
   height: 140px;
   margin-top: 10px;
 }
+/***********************************************************************/
