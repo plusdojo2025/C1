@@ -50,6 +50,42 @@ public class EmotionsDao extends CustomTemplateDao<EmotionsDto> {
 	}
 
 	@Override
+	public boolean insert(EmotionsDto dto) {
+		Connection conn = null;
+		boolean result = false;
+
+		try {
+			// JDBCドライバを読み込む
+			// データベースに接続する
+			conn = conn();
+
+			// SQL文を準備する
+			String sql = """
+					insert emotions(emoStamp, action, emotion)
+							value(?,?,?)
+					""";
+			PreparedStatement pStmt = conn.prepareStatement(sql);
+
+			// SQL文を完成させる
+			pStmt.setInt(1, dto.getEmoStamp());
+			pStmt.setString(2, dto.getAction());
+			pStmt.setInt(3, dto.getEmotion());
+
+			// SQL文を実行する
+			if (pStmt.executeUpdate() == 1) {
+				result = true;
+			}
+		} catch (SQLException e) {
+			e.printStackTrace();
+		} finally {
+			// データベースを切断
+			close(conn);
+			}
+		
+		// 結果を返す
+		return result;
+	}
+	/*
 	public boolean insert(EmotionsDto dto)  {
 		{
 			Connection conn = null;
@@ -90,62 +126,59 @@ public class EmotionsDao extends CustomTemplateDao<EmotionsDto> {
 			return result;
 		}
 	}
+	*/
 
 	@Override
 	public boolean update(EmotionsDto dto) {
-		{
-			Connection conn = null;
-			boolean result = false;
-
-			try {
-				// JDBCドライバを読み込む
-				// データベースに接続する
-				conn = conn();
-
-				// SQL文を準備する
-				String sql = """
-						update emotions set
-emo_stamp = ?
-,action = ?
-,emotion = ?
-						where 主キー　=?
-						""";
-				PreparedStatement pStmt = conn.prepareStatement(sql);
-
-				// SQL文を完成させる
-				pStmt.setInt(1, dto.getEmoStamp());
-				pStmt.setString(2, dto.getAction());
-				pStmt.setInt(3, dto.getEmotion());
-
-
-				// SQL文を実行する
-				if (pStmt.executeUpdate() == 1) {
-					result = true;
-				}
-			} catch (SQLException e) {
-				e.printStackTrace();
-			} finally {
-				// データベースを切断
-				close(conn);
-				}
-			
-			// 結果を返す
-			return result;
-		}
-	}
-
-	@Override
-	public boolean delete(EmotionsDto dto) {
 		Connection conn = null;
 		boolean result = false;
-
+/*
 		try {
 			// JDBCドライバを読み込む
 			// データベースに接続する
 			conn = conn();
 
 			// SQL文を準備する
-			String sql = "DELETE FROM emotions";
+			String sql = """
+					update emotions set
+					emoStamp = ?  
+					action = ? 
+					emotion = ? 
+					""";
+			PreparedStatement pStmt = conn.prepareStatement(sql);
+
+			// SQL文を完成させる
+			pStmt.setInt(1, dto.getEmoStamp());
+			pStmt.setString(2, dto.getAction());
+			pStmt.setInt(3, dto.getEmotion());
+
+			// SQL文を実行する
+			if (pStmt.executeUpdate() == 1) {
+				result = true;
+			}
+		} catch (SQLException e) {
+			e.printStackTrace();
+		} finally {
+			// データベースを切断
+			close(conn);
+		}
+		*/
+		// 結果を返す
+		return result;
+	}
+
+	@Override
+	public boolean delete(EmotionsDto dto) {
+		Connection conn = null;
+		boolean result = false;
+/*
+		try {
+			// JDBCドライバを読み込む
+			// データベースに接続する
+			conn = conn();
+
+			// SQL文を準備する
+			String sql = "delete from emotions";
 			PreparedStatement pStmt = conn.prepareStatement(sql);
 
 			// SQL文を完成させる
@@ -161,7 +194,7 @@ emo_stamp = ?
 			// データベースを切断
 			close(conn);
 			}
-		
+		*/
 		// 結果を返す
 		return result;
 	}
