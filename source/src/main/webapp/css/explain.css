@@ -165,10 +165,12 @@ padding: 0;
 
 h2{/*下線あり大見出し*/
   margin: 20px;
+  font-size: 1.9rem;
 }
 
 h3{/*小見出し*/
   margin-bottom: 20px;
+  font-size: 1.5rem;
 }
 
 img{/*画像*/

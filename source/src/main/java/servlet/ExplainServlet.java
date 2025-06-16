@@ -43,6 +43,8 @@ public class ExplainServlet extends CustomTemplateServlet {
 		ExplanationDao.update(ExplanationDto);
 		ExplanationDao.delete(ExplanationDto);
 		
+		response.setContentType("text/html; charset=UTF-8");
+		response.setCharacterEncoding("UTF-8");
 		response.getWriter().append("Served at: ").append(request.getContextPath());
 		
 		//ログインしていなかった場合、ログイン画面にリダイレクト処理をする。(HomeServletをそのままコピーしてもらって大丈夫です。)

@@ -5,7 +5,7 @@
 <nav class="nav">
   <ul class="menu2">
     <li><a href="MindShift-home">ホーム</a></li>
-    <li><a href="">各種説明</a></li>
+    <li><a href="MindShift-explain">各種説明</a></li>
     <li><a href="">感情登録</a></li>
 
     <!-- 登録一覧へのPOSTリクエスト -->
