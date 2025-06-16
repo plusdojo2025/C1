@@ -10,18 +10,18 @@
 <title>各種説明 | MindShift</title>
 <link rel="stylesheet"
 	href="${pageContext.request.contextPath}/css/explain.css">
+	 <link rel="icon" href="image/favicon1.ico" id="favicon">
 </head>
 <body>
 	<div class="wrapper">
 
 		<!-- ヘッダー（ここから） -->
 		<jsp:include page="Mindshift_header.jsp" />
-		<header class="header3"></header>
-		<!--<jsp:include page="Mindshift_navigation.jsp" />-->
+		<header class="header"></header>
 		<!-- ヘッダー（ここまで） -->
 
 	<main class="main">
-		u><h2 style="text-align: center;">MindShift</h2></u>
+		<u><h2 style="text-align: center;">MindShift</h2></u>
 		<!-- アプリについて -->
 		<div class="section">
 		 <h3 style="text-align: center;">アプリについて</h3>
@@ -68,6 +68,8 @@
 		   <h3 style="text-align:center;">アカウント</h3>
 		   <p>ログアウトとアカウント削除ができます。</p>
 		</div>	
+		
+		<a href="login.jsp" class="relogin">ログイン画面に戻る</a>
 	</main>
 
 		<!-- フッター（ここから） -->

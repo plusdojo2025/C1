@@ -9,7 +9,7 @@
 <title>ページ名 | MindShift</title>
 <link rel="stylesheet"
 	href="${pageContext.request.contextPath}/css/explain.css">
-    <link rel="icon" href="images/favicon1.ico" id="favicon">
+    <link rel="icon" href="image/favicon1.ico" id="favicon">
 </head>
 <body>
 	<div class="wrapper">
