@@ -20,8 +20,11 @@
 		<!-- ヘッダー（ここまで） -->
 		<u><h2 style="text-align: center;">例</h2></u>
 
-		<main></main>
-
+		<main>
+		
+	
+	
+		</main>
 
 		<!-- フッター（ここから） -->
 		<jsp:include page="Mindshift_footer.jsp" />
