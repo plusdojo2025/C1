@@ -1,8 +1,6 @@
 // アクセス日時表示
   document.getElementById('time').textContent = new Date().toLocaleString();
 
-// アクセス日時表示
-  document.getElementById('time').textContent = new Date().toLocaleString();
 
 //ログアウト
 var btn = document.getElementById('logout');//id、ログアウトの情報をbtnに読み込み
@@ -198,7 +196,7 @@ var btn_del = document.getElementById('account_del');
     const type = getPlantType(totalScore);
 
     // 植物画像のファイル名例: "nemophila.png"
-    const imagePath = `images/${type}.png`;
+    const imagePath = `image/${type}.png`;
 
     // 画像を差し替える（クラス plantimg の中にある img タグ）
     const plantImg = document.querySelector('.plantimg img');
@@ -212,6 +210,7 @@ var btn_del = document.getElementById('account_del');
   
 //************************************************スタンプ集計表**************************************** */
 
+  
 //**********************************************登録済みアラート***********************************::: */
 const alreadyRegistered = alreadyRegistered;
   function handleEmotionClick() {

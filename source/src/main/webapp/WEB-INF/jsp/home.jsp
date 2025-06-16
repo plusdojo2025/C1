@@ -7,6 +7,7 @@
 <html>
 <head>
 <meta charset="UTF-8">
+<link rel="icon" href="image/favicon1.ico">
 <title>ホーム | MindShift</title>
 <link rel="stylesheet"
 	href="${pageContext.request.contextPath}/css/home.css">
@@ -25,9 +26,10 @@
 		
 		<!--カレンダー表示エリア-->
 		<div id="calendar"></div>
-		<main>
-		<h2>カレンダー</h2> 
-     	 <div class="container-calendar">
+    <main>
+      <!--ページの中心となる内容をまとめるためのタグ --> 
+      <h2>カレンダー</h2> 
+      <div class="container-calendar">
             <h4 id="monthAndYear"></h4>
             <div class="button-container-calendar">
                 <button id="previous" onclick="previous()">‹</button>
@@ -90,9 +92,9 @@
 	</div>
 	<!--javascriptのファイルの読み込み-->
 	<script src="js/home.js"></script>
-	<script>
-	  const stampCount = ${stampCount};     // スタンプ件数
-	  const totalScore = ${totalScore};     // スコア合計
-	</script>
+	<!-- <script>
+		const stampCount = ${stampCount};     // スタンプ件数
+		const totalScore = ${totalScore};     // スコア合計 
+	</script> -->
 </body>
 </html>
