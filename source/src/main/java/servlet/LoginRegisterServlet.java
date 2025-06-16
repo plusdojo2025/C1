@@ -73,6 +73,7 @@ public class LoginRegisterServlet extends CustomTemplateServlet {
             if (success) {
                 // セッションにログインID保存（任意）
                 HttpSession session = request.getSession();
+                session.setAttribute("user_id", user.getUserId());
                 session.setAttribute("login_id", loginId);
 
                 out.println("alert('登録が完了しました！');");
