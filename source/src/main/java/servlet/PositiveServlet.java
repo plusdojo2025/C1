@@ -10,8 +10,10 @@ import javax.servlet.http.HttpServlet;
 import javax.servlet.http.HttpServletRequest;
 import javax.servlet.http.HttpServletResponse;
 
+import dao.AllListDao;
 import dao.EmotionsDao;
 import dao.FeedbacksDao;
+import dto.AllList;
 import dto.EmotionsDto;
 import dto.FeedbacksDto;
 
@@ -93,12 +95,22 @@ public class PositiveServlet extends CustomTemplateServlet {
 				
       			// リクエストパラメータを取得（入力された内容を取得する）
 				request.setCharacterEncoding("UTF-8");
-				String action = request.getParameter("action");	
+				String abutton = request.getParameter("abutton");
+				int emo_stamp = Integer.parseInt(request.getParameter(""));
+				String action = request.getParameter("");
+				int emotion = Integer.parseInt(request.getParameter(""));
+				int feedbacks_id = Integer.parseInt(request.getParameter(""));
+				String feedbacks = request.getParameter("");
+				String plant = request.getParameter("");
 				
-				if("登録".equals(action)){
+				
+				
+				if("登録".equals(abutton)){
 				// AllListDaoのinsert文を呼び出して登録処理をする
-//				AllListDao AllListDAO = new AllListDao();
-//				AllListDAO.insert();	
+				AllList AL = new AllList(0, emo_stamp ,action, emotion, feedbacks_id, new java.util.Date(), plant);	
+				AL.setFeedbacks(feedbacks);
+				AllListDao AllListDAO = new AllListDao();
+				AllListDAO.insert(AL);	
 				
 				// EmotionsDaoのdelete文を呼び出して削除処理をする
 				EmotionsDao EmotionsDAO = new EmotionsDao();

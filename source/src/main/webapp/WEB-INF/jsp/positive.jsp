@@ -34,8 +34,8 @@
     </div>
 
     <form id="feedback_form" method="POST" action="/C1/PositiveSrvlet">
-        <input type="button" id="back_button" name="action" value="感情登録に戻る">
-        <input type="submit" name="action" value="登録">
+        <input type="button" id="back_button" name="abutton" value="感情登録に戻る">
+        <input type="submit" name="abutton" value="登録">
     </form>
   </main>
 
