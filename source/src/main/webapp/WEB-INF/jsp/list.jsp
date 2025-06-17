@@ -171,7 +171,7 @@
 </form>
 
 <!-- 画像を右側に表示 -->
-  <div class="image-box" style="background-image: url('${pageContext.request.contextPath}/images/gotop_circle_light.png');">
+  <div class="image-box" style="background-image: url('${pageContext.request.contextPath}/image/${item.plant}');">
   </div>
 </div>
 </c:forEach>
