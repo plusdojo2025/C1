@@ -91,7 +91,7 @@ public class PositiveServlet extends CustomTemplateServlet {
 					return;
 				}
 				
-//				// リクエストパラメータを取得（入力された内容を取得する）
+      			// リクエストパラメータを取得（入力された内容を取得する）
 				request.setCharacterEncoding("UTF-8");
 				String action = request.getParameter("action");	
 				
@@ -104,13 +104,13 @@ public class PositiveServlet extends CustomTemplateServlet {
 				EmotionsDao EmotionsDAO = new EmotionsDao();
 				EmotionsDAO.delete(new EmotionsDto());
 				
-				//ページ遷移
+				// ページ遷移
 				response.sendRedirect("/WEB-INF/home.jsp");
 //				}else{
 				// EmotionsDaoのdelete文を呼び出して削除処理をする
 				EmotionsDAO.delete(new EmotionsDto());
 				
-				//ページ遷移
+				// ページ遷移
 				response.sendRedirect("/WEB-INF/regist.jsp");
 				}
 //				response.getWriter().append("Served at: ").append(request.getContextPath());
