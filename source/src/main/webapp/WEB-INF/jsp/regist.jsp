@@ -21,7 +21,7 @@
         <u><h2 style="text-align:center;">感情登録</h2></u>
   
   <main>
-	<form id="emo_form" method="POST" action="<c:url value='/EmoRegistServlet' />"> 
+	<form id="emo_form" method="POST" action="/EmoRegistServlet"> 
       <p class="radio">
           1.感情スタンプを選んでね<br>
           <div class="radio_edit">
@@ -58,7 +58,7 @@
 		<!-- フッター（ここまで） -->
 	</div>
 	<!--javascriptのファイルの読み込み-->
-	<script src="<c:url value='/js/script.js' />"></script>
+	<script src="js/regist.js"></script>
 
 </body>
 </html>
