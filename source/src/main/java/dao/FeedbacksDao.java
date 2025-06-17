@@ -26,7 +26,8 @@ e.emo_stamp_id,
 e.id AS emotion_id,
 e.name AS emotion_name,
 em.action,
-f.feedbacks
+f.feedbacks,
+f.feedbacks_id
 FROM feedbacks f
 JOIN emotion e ON f.emotion_id = e.id
 JOIN emotions em ON e.emo_stamp_id = em.emo_stamp
