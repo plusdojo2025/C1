@@ -1,11 +1,14 @@
 package dao;
 
 import java.sql.Connection;
+import java.sql.DriverManager;
 import java.sql.PreparedStatement;
 import java.sql.ResultSet;
 import java.sql.SQLException;
 import java.util.ArrayList;
+import java.util.HashMap;
 import java.util.List;
+import java.util.Map;
 
 import dto.AllListDto;
 
@@ -183,7 +186,41 @@ public class AllListDao extends CustomTemplateDao<AllListDto> {
 		return result;
 	}
 
+		// ****************スタンプ集計表　指定ユーザーの「今月分」のスタンプ件数をemo_stamp_idごとに取得*************
+	public Map<Integer, Integer> getStampCountsThisMonth(int userId) {
+	    Map<Integer, Integer> result = new HashMap<>();
+	    String sql = """
+	        SELECT emo_stamp_id, COUNT(*) AS cnt
+	        FROM allList
+	        WHERE created_at >= DATE_FORMAT(CURDATE(), '%Y-%m-01')
+	          AND created_at < DATE_FORMAT(DATE_ADD(CURDATE(), INTERVAL 1 MONTH), '%Y-%m-01')
+	          AND user_id = ?
+	        GROUP BY emo_stamp_id
+	    """;
+
+	    try (Connection conn = DriverManager.getConnection(
+	    	    "jdbc:mysql://localhost:3306/your_database_name?serverTimezone=Asia/Tokyo",
+	    	    "your_username",
+	    	    "your_password"
+	    	);
+	         PreparedStatement ps = conn.prepareStatement(sql)) {
+	        ps.setInt(1, userId);
+	        ResultSet rs = ps.executeQuery();
+	        while (rs.next()) {
+	            result.put(rs.getInt("emo_stamp_id"), rs.getInt("cnt"));
+	        }
+	    } catch (Exception e) {
+	        e.printStackTrace();
+	    }
+	    return result;
+		
+
+		//return null;
+		}
 }
+	
+
+
 
 
 

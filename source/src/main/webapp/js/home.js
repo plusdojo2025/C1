@@ -170,11 +170,12 @@ var btn_del = document.getElementById('account_del');
 
 //＊＊＊＊＊＊＊＊＊＊＊＊＊＊＊＊＊＊＊＊＊＊＊＊＊オブジェクト表示＊＊＊＊＊＊＊＊＊＊＊＊＊＊＊＊＊＊＊＊＊＊＊＊
 // スタンプの数で成長段階を判断
+
   // stampsテーブルから　スタンプ件数（count）と点数合計（totalScore）
-  function getGrowthStage(count) {
-    if (count === 0 || count === 1) return "pot";       // 植木鉢
-    else if (count >= 2 && count <= 4) return "sprout";  // 芽
-    else if (count === 5 || count === 6) return "bud";   // つぼみ
+  function getGrowthStage(cnt) {
+    if (cnt === 0 || count === 1) return "uekibati";       // 植木鉢
+    else if (cnt >= 2 && cnt <= 4) return "me";  // 芽
+    else if (cnt === 5 || cnt === 6) return "tubomi";   // つぼみ
     else return "flower";                                // 開花
   }
 
@@ -201,7 +202,7 @@ var btn_del = document.getElementById('account_del');
     // 画像を差し替える（クラス plantimg の中にある img タグ）
     const plantImg = document.querySelector('.plantimg img');
     plantImg.src = imagePath;
-    //plantImg.alt = `${type} - ${stage}`;
+    plantImg.alt = `${type} - ${stage}`;
   }
 
   // ページ読み込み時に実行
@@ -209,6 +210,12 @@ var btn_del = document.getElementById('account_del');
   
   
 //************************************************スタンプ集計表**************************************** */
+// IDごとに該当するセルへ集計値を反映（JSPの表に反映）
+	stampData.forEach(item => {
+	  const cell = document.getElementById(`stamp-${item.id}`);
+	  if (cell) cell.textContent = item.count;
+	});
+
 
   
 //**********************************************登録済みアラート***********************************::: */

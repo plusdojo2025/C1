@@ -2,6 +2,7 @@ package servlet;
 
 import java.io.IOException;
 import java.util.Date;
+import java.util.Map;
 
 import javax.servlet.RequestDispatcher;
 import javax.servlet.ServletException;
@@ -11,6 +12,7 @@ import javax.servlet.http.HttpServletResponse;
 
 import dao.AllListDao;
 import dto.AllListDto;
+
 
 //ページのURLの名前を入れる
 @WebServlet("/MindShift-home")
@@ -41,45 +43,28 @@ public class HomeServlet extends CustomTemplateServlet {
 		if(checkNoneLogin(request, response)) {
 			return;
 		}
-		// ホームページにフォワードする
-	    RequestDispatcher dispatcher = request.getRequestDispatcher("/WEB-INF/jsp/home.jsp");
 		
-		dispatcher.forward(request, response);
-		
+				//ホームページ　オブジェクト表示用stampsテーブルから件数とスコア
+				StampsDAO stampsDao = new StampsDAO();
+			    int stampCount = stampsDao.getWeeklyStampCount(userId);
+			    int totalScore = stampsDao.getWeeklyScore(userId);
+			    request.setAttribute("stampCount", stampCount);
+			    request.setAttribute("totalScore", totalScore);
+				
+				//ホームページ　スタンプ集計表用allListテーブルから今月分の件数をemo_stamp_idごとに取得
+			    AllListDao listDao = new AllListDao();
+			    Map<Integer, Integer> stampCounts = listDao.getStampCountsThisMonth(userId);
+			    request.setAttribute("stampCounts", stampCounts);
+				
+			    
+			    // ホームページにフォワードする
+			    RequestDispatcher dispatcher = request.getRequestDispatcher("/WEB-INF/jsp/home.jsp");
+				
+				dispatcher.forward(request, response);
+				
 	}
 	
-		//ホームページスタンプ集計表とオブジェクト表示用
-		/*<内容>					<実装方法>                                        
-		 スタンプ件数とスコア取得      Java + SQL（7日分）                             
-		 JavaScriptへの受け渡し 	 `<%= request.getAttribute(...) %>` でJSに変数渡し
-		 植物の種類を変える        	 `getPlantType(score)` 関数で制御                 
-		 植物の段階を変える        	 `getGrowthStage(count)` 関数で制御               
-		 画像ファイル           	 `img/${type}_${stage}.png` 形式で準備 */  
-	
-		/* int stampCount = 0;
-		 int totalScore = 0;
-
-		    try (Connection conn = DBUtil.getConnection()) {
-		      String sql = "SELECT COUNT(*) AS count, SUM(weekstamps) AS total FROM stamps " +
-		                   "WHERE created_at >= CURDATE() - INTERVAL 7 DAY";
-
-		      PreparedStatement ps = conn.prepareStatement(sql);
-		      ResultSet rs = ps.executeQuery();
-
-		      if (rs.next()) {
-		        stampCount = rs.getInt("count");
-		        totalScore = rs.getInt("total"); // NULL のときは 0 にしたい
-		      }
-
-		    } catch (Exception e) {
-		      e.printStackTrace();
-		    }
-
-		    request.setAttribute("stampCount", stampCount);
-		    request.setAttribute("totalScore", totalScore > 0 ? totalScore : 0);
-
-		    RequestDispatcher rd = request.getRequestDispatcher("/home.jsp");
-		    rd.forward(request, response);*/
+		
 
 	
 	

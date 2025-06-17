@@ -21,7 +21,7 @@
 		<main>
 		<h2 style="text-align:center;">オブジェクト表示（仮）</h2>
 		  <div class="rectangle">
-		    <div class="plantimg"><img src="image/dandelion.png" width="100" height="150" alt="植物の画像"></div>
+		    <div class="plantimg"><img id="plantImage" src="" width="100" height="150" alt="植物の画像"></div>
 		  </div>
 		
 		<!--カレンダー表示エリア-->
@@ -82,7 +82,7 @@
     </table>
   </div>
   <!--スタンプ集計表終わり-->
-	</main>
+</main>
 	
 
 		<!-- フッター（ここから） -->
@@ -91,10 +91,23 @@
 		<!-- フッター（ここまで） -->
 	</div>
 	<!--javascriptのファイルの読み込み-->
+	<script>
+		const stampCount = ${stampCount};     // 1週間のスタンプ件数
+		const totalScore = ${totalScore};     // 1週間のスコア合計 
+		const stampData = [];//Javaから受け取った1か月分のスタンプ集計（emo_stamp_idごとの件数）
+		
+		<c:forEach var="e" items="${stampCounts}">//stampDataにデータが入り、表示に反映される
+		    stampData.push({ id: ${e.key}, count: ${e.value} });
+		</c:forEach>
+		
+		stampData.forEach(item => {
+		    const cell = document.getElementById(`stamp-${item.id}`);
+		    if (cell) {
+		      cell.textContent = item.count;
+		    }
+		  });  
+	</script> 
 	<script src="js/home.js"></script>
-	<!-- <script>
-		const stampCount = ${stampCount};     // スタンプ件数
-		const totalScore = ${totalScore};     // スコア合計 
-	</script> -->
+	
 </body>
 </html>
