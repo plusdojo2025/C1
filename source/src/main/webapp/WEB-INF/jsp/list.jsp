@@ -8,9 +8,10 @@
 <head>
 <meta charset="UTF-8">
 <title>ページ名 | MindShift</title>
+<link rel="icon" href="images/favicon1.ico" id="favicon">
 <link rel="stylesheet"
 	href="${pageContext.request.contextPath}/css/list.css">
-	<link rel="icon" href="images/favicon1.ico" id="favicon">
+	
 </head>
 <body>
 	<div class="wrapper">
