@@ -7,7 +7,13 @@ public class stampsDto extends CustomTemplateDto implements Serializable{
 	private int userId;
 	private int weekStamps;
 	private Date createdAt;
+	
+	// 件数（1週間の登録数）
+	private int count;
 
+	// 合計スコア（1週間のスコア）
+	private int totalScore;
+	
 	public stampsDto(int userId, int weekStamps, Date createdAt) {
 		super();
 		this.userId = userId;
@@ -40,6 +46,19 @@ public class stampsDto extends CustomTemplateDto implements Serializable{
 
 	public void setCreatedAt(Date createdAt) {
 		this.createdAt = createdAt;
+	}
+	public int getCount() {
+	    return count;
+	}
+	public void setCount(int count) {
+	    this.count = count;
+	}
+
+	public int getTotalScore() {
+	    return totalScore;
+	}
+	public void setTotalScore(int totalScore) {
+	    this.totalScore = totalScore;
 	}
 	
 	

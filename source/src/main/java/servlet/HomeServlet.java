@@ -2,17 +2,18 @@ package servlet;
 
 import java.io.IOException;
 import java.util.Date;
-import java.util.Map;
 
 import javax.servlet.RequestDispatcher;
 import javax.servlet.ServletException;
 import javax.servlet.annotation.WebServlet;
 import javax.servlet.http.HttpServletRequest;
 import javax.servlet.http.HttpServletResponse;
+import javax.servlet.http.HttpSession;
 
 import dao.AllListDao;
+import dao.stampsDao;
 import dto.AllListDto;
-
+import dto.stampsDto;
 
 //ページのURLの名前を入れる
 @WebServlet("/MindShift-home")
@@ -44,25 +45,31 @@ public class HomeServlet extends CustomTemplateServlet {
 			return;
 		}
 		
+		HttpSession session = request.getSession();
+		Integer userId = (Integer) request.getSession().getAttribute("user_id");
+		
 				//ホームページ　オブジェクト表示用stampsテーブルから件数とスコア
-				StampsDAO stampsDao = new StampsDAO();
-			    int stampCount = stampsDao.getWeeklyStampCount(userId);
-			    int totalScore = stampsDao.getWeeklyScore(userId);
-			    request.setAttribute("stampCount", stampCount);
-			    request.setAttribute("totalScore", totalScore);
-				
-				//ホームページ　スタンプ集計表用allListテーブルから今月分の件数をemo_stamp_idごとに取得
-			    AllListDao listDao = new AllListDao();
-			    Map<Integer, Integer> stampCounts = listDao.getStampCountsThisMonth(userId);
-			    request.setAttribute("stampCounts", stampCounts);
-				
-			    
-			    // ホームページにフォワードする
-			    RequestDispatcher dispatcher = request.getRequestDispatcher("/WEB-INF/jsp/home.jsp");
-				
-				dispatcher.forward(request, response);
-				
+		/* ---------- 1. 1週間分（植物表示） ---------- */
+		 stampsDao sDao = new stampsDao();
+		    stampsDto summary = sDao.selectWeeklySummary(userId);
+		    request.setAttribute("stampCount",  summary.getCount());
+		    request.setAttribute("totalScore",  summary.getTotalScore());
+
+		    // スタンプ集計表（1か月分）
+		    AllListDao aDao = new AllListDao();
+		    request.setAttribute("stampCounts", aDao.getStampCountsThisMonth(userId));
+		    
+		    System.out.println("stampCount = " + summary.getCount());
+		    System.out.println("totalScore = " + summary.getCount());
+	    // ホームページにフォワードする
+	    RequestDispatcher dispatcher = request.getRequestDispatcher("/WEB-INF/jsp/home.jsp");
+		
+		dispatcher.forward(request, response);
+		
 	}
+			    
+			   
+
 	
 		
 
