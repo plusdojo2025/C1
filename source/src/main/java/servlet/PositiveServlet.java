@@ -1,20 +1,26 @@
 package servlet;
 
 import java.io.IOException;
+import java.util.List;
 
 import javax.servlet.RequestDispatcher;
 import javax.servlet.ServletException;
 import javax.servlet.annotation.WebServlet;
+import javax.servlet.http.HttpServlet;
 import javax.servlet.http.HttpServletRequest;
 import javax.servlet.http.HttpServletResponse;
 
-//import dao.EmotionsDao;
-//import dto.EmotionsDto;
+import dao.EmotionsDao;
+import dao.FeedbacksDao;
+import dto.EmotionsDto;
+import dto.FeedbacksDto;
+
+
 
 /**
  * Servlet implementation class PositiveServlet
  */
-@WebServlet("/PositiveServlet")
+@WebServlet("/MindShift-positive")
 public class PositiveServlet extends CustomTemplateServlet {
 	private static final long serialVersionUID = 1L;
 
@@ -26,9 +32,11 @@ public class PositiveServlet extends CustomTemplateServlet {
     }
 
 	/**
+	 * @param EmotionsDto 
+	 * @param FeedbacksDto 
 	 * @see HttpServlet#doGet(HttpServletRequest request, HttpServletResponse response)
 	 */
-	protected void doGet(HttpServletRequest request, HttpServletResponse response) throws ServletException, IOException {
+	protected void doGet(HttpServletRequest request, HttpServletResponse response, EmotionsDto EmotionsDto, FeedbacksDto FeedbacksDto) throws ServletException, IOException {
 //		EmotionsDao emotionDao = new EmotionsDao();
 //		EmotionsDto emotionDto = new EmotionsDto();
 //		
@@ -48,12 +56,22 @@ public class PositiveServlet extends CustomTemplateServlet {
 				if(checkNoneLogin(request, response)) {
 					return;
 				}
-				// ホームページにフォワードする
-			    RequestDispatcher dispatcher = request.getRequestDispatcher("/WEB-INF/jsp/positive.jsp");
 				
+				//EmotionsDaoでデータベースから情報を得る
+				EmotionsDao EmotionsDAO = new EmotionsDao();
+				List<EmotionsDto> emotions = EmotionsDAO.select(EmotionsDto);
+		        request.setAttribute("emotionsList", emotions);
+				
+		       //FeedbacksDaoでデータベースから情報を得る
+		       FeedbacksDao FeedbacksDAO = new FeedbacksDao();
+		       List<FeedbacksDto> feedbacks = FeedbacksDAO.select(FeedbacksDto);
+			   request.setAttribute("feedbacksList", feedbacks);		        
+		        
+				// ポジティブページにフォワードする
+			    RequestDispatcher dispatcher = request.getRequestDispatcher("/WEB-INF/jsp/positive.jsp");
 				dispatcher.forward(request, response);
 			}
-
+	
 			@Override
 			//「checkNoneLogin」、「logout」の処理を加えてください。(logoutはナビゲーションがあるページのみに適用する。)
 			protected void doPost(HttpServletRequest request, HttpServletResponse response)throws ServletException, IOException {
@@ -73,10 +91,32 @@ public class PositiveServlet extends CustomTemplateServlet {
 					return;
 				}
 				
+//				// リクエストパラメータを取得（入力された内容を取得する）
+				request.setCharacterEncoding("UTF-8");
+//				String action = request.getParameter("action");	
 				
-				response.getWriter().append("Served at: ").append(request.getContextPath());
+//				EmotionsDao EmotionsDAO = new EmotionsDao();
+//				if(""){
+				// AllListDaoのinsert文を呼び出して登録処理をする
+//				AllListDao AllListDAO = new AllListDao();
+//				AllListDAO.insert();	
+				
+				// EmotionsDaoのdelete文を呼び出して削除処理をする
+				
+//				}else{
+				
+				// EmotionsDaoのdelete文を呼び出して削除処理をする
+//				}
+//				response.getWriter().append("Served at: ").append(request.getContextPath());
 			
 			}
-			
+
+	@Override
+	protected void doGet(HttpServletRequest request, HttpServletResponse response)
+			throws ServletException, IOException {
+		// TODO 自動生成されたメソッド・スタブ
+		
+	}
+
 
 }

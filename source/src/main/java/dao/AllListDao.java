@@ -185,6 +185,30 @@ public class AllListDao extends CustomTemplateDao<AllListDto> {
 		// 結果を返す
 		return result;
 	}
+	
+	//今日だけ登録しているのかを調べる
+	public boolean hasTodayEntry(int userId) {
+	    Connection conn = null;
+	    boolean exists = false;
+
+	    try {
+	        conn = conn();
+	        String sql = "SELECT 1 FROM alllist WHERE user_id = ? AND DATE(created_at) = CURDATE() LIMIT 1";
+	        PreparedStatement pStmt = conn.prepareStatement(sql);
+	        pStmt.setInt(1, userId);
+	        ResultSet rs = pStmt.executeQuery();
+	        //1件でもあればtrue
+	        exists = rs.next();
+	    } catch (SQLException e) {
+	        e.printStackTrace();
+	    } finally {
+	        close(conn);
+	    }
+
+	    return exists;
+	}
+
+
 
 		// ****************スタンプ集計表　指定ユーザーの「今月分」のスタンプ件数をemo_stamp_idごとに取得*************
 	public Map<Integer, Integer> getStampCountsThisMonth(int userId) {
