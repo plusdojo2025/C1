@@ -73,8 +73,7 @@ protected void doPost(HttpServletRequest request, HttpServletResponse response)
 //	EmotionDao.delete(EmotionDto);
 	
 	// フィードバック画面にリダイレクトする
-    RequestDispatcher dispatcher = request.getRequestDispatcher("/c1/PositiveServlet");
-	dispatcher.forward(request, response);
+	response.sendRedirect("/PositiveServlet");
 	
 	//ログインしていなかった場合、ログイン画面にリダイレクト処理をする。
 	if(checkNoneLogin(request, response)) {
