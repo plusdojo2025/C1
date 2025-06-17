@@ -49,9 +49,8 @@ var btn_del = document.getElementById('account_del');
         }
 
 
-// 感情スタンプをint型から顔文字に変換して表示 <%=request.getAttribute("emo_stamp") %>
-s = 5;
-switch(s) {
+// 感情スタンプをint型から顔文字に変換して表示
+switch("${emotionsList.emoStamp}") {
   case 5:
     document.getElementById('emo_stamp').textContent = '😆';
     break;
@@ -72,9 +71,8 @@ switch(s) {
     break;
 }
 
-// その時の感情をint型から文字列にして表示 <%=request.getAttribute("emotion") %>
-e = 5;
-switch(e) {
+// その時の感情をint型から文字列にして表示 
+switch("${emotionsList.emotion}") {
   case 18,24:
     document.getElementById('emotion').textContent = '感情：元気';
     break;

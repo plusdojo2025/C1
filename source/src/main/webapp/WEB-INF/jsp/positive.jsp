@@ -25,7 +25,7 @@
         <h2>登録内容</h2>
         <p id="emo_stamp"><c:out value="${emotionsList.emoStamp}" /></p>
         <p id="action">出来事：<c:out value="${emotionsList.action}" /></p>
-        <p id="emotion">感情：<c:out value="${emotionsList.emotion}" /></p>
+        <p id="emotion"><c:out value="${emotionsList.emotion}" /></p>
     </div>
 
     <div id="feedback_text">
