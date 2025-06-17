@@ -204,6 +204,92 @@ public class AllListDao extends CustomTemplateDao<AllListDto> {
 
 	    return exists;
 	}
+	
+	
+	public List<AllListDto> selectWithPaging( int limit, int offset) {
+	    Connection conn = null;
+	    PreparedStatement pStmt = null;
+	    ResultSet rs = null;
+	    List<AllListDto> cardList = new ArrayList<>();
+
+	    try {
+	        conn = conn();
+
+	        // 検索条件を使ったSQL（created_atは今月の範囲で固定）
+	        String sql = """
+	            SELECT * FROM allList
+	            WHERE created_at >= DATE_FORMAT(CURDATE(), '%Y-%m-01') 
+	              AND created_at < DATE_FORMAT(DATE_ADD(CURDATE(), INTERVAL 1 MONTH), '%Y-%m-01')
+	              -- ここに他の条件あれば追加できます
+	            ORDER BY created_at
+	            LIMIT ? OFFSET ?
+	            """;
+
+	        pStmt = conn.prepareStatement(sql);
+
+	        // limit, offset は最後の2つのパラメータ
+	        pStmt.setInt(1, limit);
+	        pStmt.setInt(2, offset);
+
+	        rs = pStmt.executeQuery();
+
+	        while (rs.next()) {
+	            AllListDto allLists = new AllListDto(
+	                rs.getInt("id"),
+	                rs.getInt("emo_stamp_id"),
+	                rs.getString("action"),
+	                rs.getInt("emotion_id"),
+	                rs.getInt("feedbacks_id"),
+	                new java.util.Date(rs.getDate("created_at").getTime()),
+	                rs.getString("plant")
+	            );
+	            cardList.add(allLists);
+	        }
+
+	    } catch (SQLException e) {
+	        e.printStackTrace();
+	    } finally {
+	        close(conn);
+	    }
+
+	    return cardList;
+	}
+
+
+	
+	
+	public int count() {
+	    Connection conn = null;
+	    PreparedStatement pStmt = null;
+	    ResultSet rs = null;
+	    int count = 0;
+
+	    try {
+	        conn = conn();
+
+	        String sql = """
+	            SELECT COUNT(*) FROM allList
+	            WHERE created_at >= DATE_FORMAT(CURDATE(), '%Y-%m-01') 
+	              AND created_at < DATE_FORMAT(DATE_ADD(CURDATE(), INTERVAL 1 MONTH), '%Y-%m-01')
+	              -- ここに他の条件あれば追加できます
+	            """;
+
+	        pStmt = conn.prepareStatement(sql);
+
+	        rs = pStmt.executeQuery();
+
+	        if (rs.next()) {
+	            count = rs.getInt(1);
+	        }
+
+	    } catch (SQLException e) {
+	        e.printStackTrace();
+	    } finally {
+	        close(conn);
+	    }
+
+	    return count;
+	}
 
 
 

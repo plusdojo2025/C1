@@ -34,15 +34,29 @@ public class ListServlet extends CustomTemplateServlet {
         if (checkNoneLogin(request, response)) {
             return;
         }	
-
+        
+        int recordsPerPage = 7;
+	    int currentPage = 1;
+	    String pageParam = request.getParameter("page");
+	    if (pageParam != null && !pageParam.isEmpty()) {
+	        currentPage = Integer.parseInt(pageParam);
+	    }
+	    int offset = (currentPage - 1) * recordsPerPage;
+	    
+       
         AllListDao allListDao = new AllListDao();
-
-        // selectメソッドで今月のレコード一覧を取得
-        List<AllListDto> allList = allListDao.select(new AllListDto());
-
+        
+        int totalRecords = allListDao.count();
+	    int totalPages = (int) Math.ceil((double) totalRecords / recordsPerPage);
+	    
+	    List<AllListDto> pagedCards = allListDao.selectWithPaging(recordsPerPage, offset);
+	
+	    
         // 取得したリストをJSPに渡す
-        request.setAttribute("result", allList);
-
+	    request.setAttribute("cardList", pagedCards);
+        request.setAttribute("currentPage", currentPage);
+	    request.setAttribute("totalPages", totalPages);        
+        
         // list.jspへフォワード
         RequestDispatcher dispatcher = request.getRequestDispatcher("/WEB-INF/jsp/list.jsp");
         dispatcher.forward(request, response);
@@ -53,8 +67,7 @@ public class ListServlet extends CustomTemplateServlet {
 	 * @see HttpServlet#doPost(HttpServletRequest request, HttpServletResponse response)
 	 */
 	protected void doPost(HttpServletRequest request, HttpServletResponse response) throws ServletException, IOException {
-		// TODO Auto-generated method stub
-		doGet(request, response);
+		
 		
 		//ログインしていなかった場合、ログイン画面にリダイレクト処理をする。(HomeServletをそのままコピーしてもらって大丈夫です。)
 		if(checkNoneLogin(request, response)) {
@@ -71,7 +84,8 @@ public class ListServlet extends CustomTemplateServlet {
 		}
 		
 		
-		response.getWriter().append("Served at: ").append(request.getContextPath());
+		// TODO Auto-generated method stub
+		doGet(request, response);
 	}
 
 }

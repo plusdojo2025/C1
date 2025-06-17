@@ -47,7 +47,5 @@ var btn_del = document.getElementById('account_del');
             return false;
         }
         }
-             
-        
-
+      
         
