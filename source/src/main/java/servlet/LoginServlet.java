@@ -34,9 +34,9 @@ public class LoginServlet extends CustomTemplateServlet {
 //		userDao.update(userDto);
 //		userDao.delete(userDto);
 		
-//		if(checkDoneLogin(request, response)) {
-//			return;
-//		}
+		if(checkDoneLogin(request, response)) {
+			return;
+		}
 		// ログインページにフォワードする
 		RequestDispatcher dispatcher = request.getRequestDispatcher("/WEB-INF/jsp/login.jsp");
 		dispatcher.forward(request, response);
