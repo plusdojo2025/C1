@@ -23,19 +23,19 @@
   <main>
     <div id="regist_text">
         <h2>登録内容</h2>
-        <p id="emo_stamp">😊</p>
-        <p id="action">出来事：今日先生に褒められた</p>
-        <p id="emotion">感情：満足</p>
+        <p id="emo_stamp"><c:out value="${emotionsList.emoStamp}" /></p>
+        <p id="action">出来事：<c:out value="${emotionsList.action}" /></p>
+        <p id="emotion">感情：<c:out value="${emotionsList.emotion}" /></p>
     </div>
 
     <div id="feedback_text">
         <h2>フィードバック</h2>
-        <p id="feedback">それはいい事だね！！自分らしく取り組んだ結果だね。この調子で行こう！！</p>
+        <p id="feedback"><c:out value="${feedbacksList.feedbacks}" /></p>
     </div>
 
     <form id="feedback_form" method="POST" action="/C1/PositiveSrvlet">
-        <input type="button" id="back_button" value="感情登録に戻る">
-        <input type="submit" value="登録">
+        <input type="button" id="back_button" name="action" value="感情登録に戻る">
+        <input type="submit" name="action" value="登録">
     </form>
   </main>
 
