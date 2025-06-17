@@ -72,7 +72,7 @@ public class PositiveServlet extends CustomTemplateServlet {
 				dispatcher.forward(request, response);
 			}
 	
-	@Override
+			@Override
 			//「checkNoneLogin」、「logout」の処理を加えてください。(logoutはナビゲーションがあるページのみに適用する。)
 			protected void doPost(HttpServletRequest request, HttpServletResponse response)throws ServletException, IOException {
 				// TODO 自動生成されたメソッド・スタブ
@@ -96,12 +96,17 @@ public class PositiveServlet extends CustomTemplateServlet {
 //				String action = request.getParameter("action");	
 				
 //				EmotionsDao EmotionsDAO = new EmotionsDao();
-//				if("")
+//				if(""){
 				// AllListDaoのinsert文を呼び出して登録処理をする
 //				AllListDao AllListDAO = new AllListDao();
 //				AllListDAO.insert();	
 				
 				// EmotionsDaoのdelete文を呼び出して削除処理をする
+				
+//				}else{
+				
+				// EmotionsDaoのdelete文を呼び出して削除処理をする
+//				}
 //				response.getWriter().append("Served at: ").append(request.getContextPath());
 			
 			}
