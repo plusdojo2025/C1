@@ -37,9 +37,9 @@ public class LoginRegisterServlet extends CustomTemplateServlet {
 //		userDao.update(userDto);
 //		userDao.delete(userDto);
 		
-//		if(checkDoneLogin(request, response)) {
-//			return;
-//		}
+		if(checkDoneLogin(request, response)) {
+			return;
+		}
 		// 新規登録にフォワードする
 		RequestDispatcher dispatcher = request.getRequestDispatcher("/WEB-INF/jsp/loginRegister.jsp");
 		dispatcher.forward(request, response);

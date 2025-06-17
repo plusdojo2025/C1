@@ -1,6 +1,7 @@
 package servlet;
 
 import java.io.IOException;
+import java.io.PrintWriter;
 
 import javax.servlet.RequestDispatcher;
 import javax.servlet.ServletException;
@@ -9,6 +10,7 @@ import javax.servlet.http.HttpServlet;
 import javax.servlet.http.HttpServletRequest;
 import javax.servlet.http.HttpServletResponse;
 
+import dao.AllListDao;
 import dao.EmotionsDao;
 import dto.EmotionsDto;
 
@@ -19,24 +21,32 @@ import dto.EmotionsDto;
 @WebServlet("/MindShift-regist")
 public class EmoRegistServlet extends CustomTemplateServlet {
 	private static final long serialVersionUID = 1L;
-
-    /**
-     * Default constructor. 
-     */
-    public EmoRegistServlet() {
-        // TODO Auto-generated constructor stub
-    }
-
-	/**
-	 * @see HttpServlet#doGet(HttpServletRequest request, HttpServletResponse response)
-	 */
 	protected void doGet(HttpServletRequest request, HttpServletResponse response) throws ServletException, IOException {
 		// TODO Auto-generated method stub
-	
-		//ログインしていなかった場合、ログイン画面にリダイレクト処理をする。(HomeServletをそのままコピーしてもらって大丈夫です。)
+			
+		//セッションuser_id取得
+	    Integer userId = (Integer) request.getSession().getAttribute("user_id");
+		
+	    //ログインしていなかった場合、ログイン画面にリダイレクト処理をする。(HomeServletをそのままコピーしてもらって大丈夫です。)
 		if(checkNoneLogin (request, response)) {
 			return;
-		}	
+		}
+		
+	    // 今日すでに登録があるかチェック
+	    AllListDao allListDao = new AllListDao();
+	    boolean hasTodayEntry = allListDao.hasTodayEntry(userId);
+
+	    if (hasTodayEntry) {
+	        response.setContentType("text/html; charset=UTF-8");
+	        PrintWriter out = response.getWriter();
+	        out.println("<script>");
+	        out.println("alert('登録は1日1回までです');");
+	        out.println("window.location.href = 'MindShift-home';");
+	        out.println("</script>");
+	        out.close();
+	        return;
+	    }
+	    
 		// ホームページにフォワードする
 	    RequestDispatcher dispatcher = request.getRequestDispatcher("/WEB-INF/jsp/regist.jsp");
 		
