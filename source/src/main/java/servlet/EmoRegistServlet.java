@@ -54,22 +54,27 @@ protected void doPost(HttpServletRequest request, HttpServletResponse response)
 	if(checkNoneLogin(request, response)) {
 		return;
 	}	
+	// リクエストパラメータを取得（入力された内容を取得する）
 	request.setCharacterEncoding("UTF-8");
-	
-	EmotionsDao EmotionDao = new EmotionsDao();
-	EmotionsDto EmotionDto = new EmotionsDto();
-	
-//	int emo
+	int emo_stamp = Integer.parseInt(request.getParameter("emoStamp"));
+	String action = request.getParameter("action");
+	int emotion = Integer.parseInt(request.getParameter("emotion"));
 	
 //	EmotionDto.setEmoStamp(0);
 //	EmotionDto.setAction("action");
 //	EmotionDto.setEmotion(0);
 	
-//	EmotionDao.insert(0,action,0);
+	// EmotionsDaoのinsert文を呼び出して登録処理をする
+	EmotionsDao EmotionDao = new EmotionsDao();
+	EmotionDao.insert(new EmotionsDto(emo_stamp, action, emotion));
+	
 //	EmotionDao.select(EmotionDto);
 //	EmotionDao.update(EmotionDto);
 //	EmotionDao.delete(EmotionDto);
-	response.getWriter().append("Served at: ").append(request.getContextPath());
+	
+	// フィードバック画面にリダイレクトする
+    RequestDispatcher dispatcher = request.getRequestDispatcher("/c1/PositiveServlet");
+	dispatcher.forward(request, response);
 	
 	//ログインしていなかった場合、ログイン画面にリダイレクト処理をする。
 	if(checkNoneLogin(request, response)) {
