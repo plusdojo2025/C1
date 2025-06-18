@@ -29,7 +29,7 @@
 		  <fmt:formatDate value="${cardList[0].createdAt}" pattern="M" var="createdMonth" />
 		  <c:choose>
 		    <c:when test="${createdMonth == month}">
-		      <u><h2 style="text-align: center;">今月の登録一覧</h2></u>
+		      <u><h2 style="text-align: center;">登録一覧</h2></u>
 		    </c:when>
 		    <c:otherwise>
 		      <u><h2 style="text-align: center;">${year}年-${month}月の登録一覧</h2></u>
