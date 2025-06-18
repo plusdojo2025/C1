@@ -12,7 +12,7 @@
 <link rel="stylesheet"
 	href="${pageContext.request.contextPath}/css/home.css">
 </head>
-<body>
+<body data-context="${pageContext.request.contextPath}">
 	<div class="wrapper">
 		<!-- ヘッダー（ここから） -->
 		<jsp:include page="Mindshift_header.jsp" />
@@ -28,7 +28,7 @@
 		<div id="calendar"></div>
     <main>
       <!--ページの中心となる内容をまとめるためのタグ --> 
-      <h2>カレンダー</h2> 
+    <h2>カレンダー</h2> 
       <div class="container-calendar">
             <h4 id="monthAndYear"></h4>
             <div class="button-container-calendar">
@@ -93,11 +93,11 @@
 	</div>
 	<!--javascriptのファイルの読み込み-->
 	<script>
-		const stampCount = ${stampCount != null ? stampCount : 0};     // 1週間のスタンプ件数
-		const totalScore = ${totalScore != null ? totalScore : 0};     // 1週間のスコア合計 
-		const stampData = [];//Javaから受け取った1か月分のスタンプ集計（emo_stamp_idごとの件数）
+		const stampCount = Number("${stampCount != null ? stampCount : 0}");
+		const totalScore = Number("${totalScore != null ? totalScore : 0}");
 		
-		<c:forEach var="e" items="${stampCounts}">//stampDataにデータが入り、表示に反映される
+		const stampData = [];
+		<c:forEach var="e" items="${stampCounts}">
 		    stampData.push({ id: ${e.key}, count: ${e.value} });
 		</c:forEach>
 		
@@ -109,6 +109,5 @@
 		  });  
 	</script> 
 	<script src="js/home.js"></script>
-	
 </body>
 </html>

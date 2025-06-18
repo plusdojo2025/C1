@@ -221,14 +221,14 @@ var btn_del = document.getElementById('account_del');
 
   // スコアに応じた植物種類（7段階）
   function getPlantType(score) {
-    if (score <= 31) return "roses";        //バラ
-    else if (score <= 27) return "tulips";    // チューリップ
-    else if (score <= 23) return "sunflower"; // ひまわり
-    else if (score <= 19) return "dandelion"; // タンポポ
-    else if (score <= 15) return "nemophila"; //　ネモフィラ
-    else if (score <= 11) return "rindou";    // りんどう
-    else return "lavender";                      // ラベンダー
-  }
+    if (score <= 7)  return "lavender";
+  else if (score <= 11) return "rindou";
+  else if (score <= 15) return "nemophila";
+  else if (score <= 19) return "dandelion";
+  else if (score <= 23) return "sunflower";
+  else if (score <= 27) return "tulips";
+  else if (score <= 31) return "roses";
+}
 
   
   // オブジェクト画像の切り替え
@@ -237,18 +237,16 @@ function updatePlantImage() {
   const score = typeof totalScore !== 'undefined' ? totalScore : 0;
 
   const stage = getGrowthStage(cnt);
-  let imageName = "";
+  const imageName = stage === "flower" ? getPlantType(score)  // 花 → 種類ごとの画像
+                                       : stage;                   // 植木鉢/芽/つぼみ
 
-  if (stage === "flower") {
-    imageName = getFlowerByScore(score);  // flower → 花の種類（画像名）
-  } else {
-    imageName = stage;  // 植木鉢 / 芽 / つぼみ　/　花
-  }
-
+  // contextPath を付けて 404 を防ぐ
+  const contextPath = document.body.getAttribute("data-context"); // JSP で埋め込む
   const plantImg = document.getElementById("plantImage");
-  plantImg.src = `image/${imageName}.png`;
+  plantImg.src = `${contextPath}/image/${imageName}.png`;
   plantImg.alt = imageName;
 }
+
 
 // DOM読み込み完了時に実行
 document.addEventListener("DOMContentLoaded", updatePlantImage);

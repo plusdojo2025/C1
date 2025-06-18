@@ -1,7 +1,6 @@
 package dao;
 
 import java.sql.Connection;
-import java.sql.DriverManager;
 import java.sql.PreparedStatement;
 import java.sql.ResultSet;
 import java.sql.SQLException;
@@ -128,34 +127,33 @@ public class stampsDao extends CustomTemplateDao<stampsDto> {
 		return result;
 	}
 	
-	public stampsDto selectWeeklySummary(int userId) {
-	    stampsDto dto = new stampsDto();
-	    String sql = """
-	        SELECT COUNT(*) AS cnt,
-	               COALESCE(SUM(weekstamps), 0) AS total
-	        FROM stamps
-	        WHERE user_id = ?
-	          AND created_at >= CURDATE() - INTERVAL 7 DAY
-	    """;
+	//1週間分のデータを計算するメソッド
+	public stampsDto selectWeeklySummary() {
+	    stampsDto summary = new stampsDto();
+	    Connection conn = null;
 
-	    try (Connection conn = DriverManager.getConnection(
-	    	    "jdbc:mysql://localhost:3306/your_database_name?serverTimezone=Asia/Tokyo",
-	    	    "your_username",
-	    	    "your_password"
-	    		);
-	         PreparedStatement ps = conn.prepareStatement(sql)) {
-
-	        ps.setInt(1, userId);
+	    try {
+	        conn = conn();
+	        String sql = """
+	            SELECT COUNT(*) AS cnt,
+	                   COALESCE(SUM(weekstamps), 0) AS total
+	            FROM stamps
+	            WHERE created_at >= CURDATE() - INTERVAL 7 DAY
+	        """;
+	        PreparedStatement ps = conn.prepareStatement(sql);
 	        ResultSet rs = ps.executeQuery();
+
 	        if (rs.next()) {
-	            dto.setUserId(userId);
-	            dto.setCount(rs.getInt("cnt"));
-	            dto.setTotalScore(rs.getInt("total"));
+	            summary.setCount(rs.getInt("cnt"));
+	            summary.setTotalScore(rs.getInt("total"));
 	        }
-	    } catch (SQLException e) {
+	    } catch (Exception e) {
 	        e.printStackTrace();
+	    } finally {
+	        close(conn);
 	    }
-	    return dto;
+
+	    return summary;
 	}
 	
 		

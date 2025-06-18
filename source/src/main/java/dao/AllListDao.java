@@ -1,7 +1,6 @@
 package dao;
 
 import java.sql.Connection;
-import java.sql.DriverManager;
 import java.sql.PreparedStatement;
 import java.sql.ResultSet;
 import java.sql.SQLException;
@@ -309,36 +308,37 @@ public class AllListDao extends CustomTemplateDao<AllListDto> {
 
 
 		// ****************スタンプ集計表　指定ユーザーの「今月分」のスタンプ件数をemo_stamp_idごとに取得*************
-	public Map<Integer, Integer> getStampCountsThisMonth(int userId) {
-	    Map<Integer, Integer> result = new HashMap<>();
-	    String sql = """
-	        SELECT emo_stamp_id, COUNT(*) AS cnt
-	        FROM allList
-	        WHERE created_at >= DATE_FORMAT(CURDATE(), '%Y-%m-01')
-	          AND created_at < DATE_FORMAT(DATE_ADD(CURDATE(), INTERVAL 1 MONTH), '%Y-%m-01')
-	          AND user_id = ?
-	        GROUP BY emo_stamp_id
-	    """;
+	public Map<Integer, Integer> getStampCountsThisMonth() {
+	    Map<Integer, Integer> map = new HashMap<>();
+	    Connection conn = null;
 
-	    try (Connection conn = DriverManager.getConnection(
-	    	    "jdbc:mysql://localhost:3306/your_database_name?serverTimezone=Asia/Tokyo",
-	    	    "your_username",
-	    	    "your_password"
-	    	);
-	         PreparedStatement ps = conn.prepareStatement(sql)) {
-	        ps.setInt(1, userId);
+	    try {
+	        conn = conn();  // DB接続
+
+	        String sql = """
+	            SELECT emo_stamp_id, COUNT(*) AS cnt
+	            FROM allList
+	            WHERE created_at >= DATE_FORMAT(CURDATE(), '%Y-%m-01')
+	              AND created_at < DATE_FORMAT(DATE_ADD(CURDATE(), INTERVAL 1 MONTH), '%Y-%m-01')
+	            GROUP BY emo_stamp_id
+	        """;
+
+	        PreparedStatement ps = conn.prepareStatement(sql);
 	        ResultSet rs = ps.executeQuery();
+
 	        while (rs.next()) {
-	            result.put(rs.getInt("emo_stamp_id"), rs.getInt("cnt"));
+	            int id = rs.getInt("emo_stamp_id");
+	            int count = rs.getInt("cnt");
+	            map.put(id, count);
 	        }
 	    } catch (Exception e) {
 	        e.printStackTrace();
+	    } finally {
+	        close(conn);
 	    }
-	    return result;
-		
 
-		//return null;
-		}
+	    return map;
+	}
 }
 	
 
