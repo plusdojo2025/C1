@@ -21,7 +21,7 @@
         <h2 style="text-align:center;">感情登録</h2>
   
   <main>
-	<form id="emo_form" method="POST" action="/c1/EmoRegistServlet"> 
+	<form id="emo_form" method="POST" action="MindShift-regist"> 
       <div class="radio">
           1.感情スタンプを選んでね<br>
           <div class="radio_edit">

@@ -66,7 +66,7 @@ protected void doPost(HttpServletRequest request, HttpServletResponse response)
 	}	
 	// リクエストパラメータを取得（入力された内容を取得する）
 	request.setCharacterEncoding("UTF-8");
-	int emo_stamp = Integer.parseInt(request.getParameter("emoStamp"));
+//	int emo_stamp = Integer.parseInt(request.getParameter("emoStamp"));
 	String action = request.getParameter("action");
 	int emotion = Integer.parseInt(request.getParameter("emotion"));
 	

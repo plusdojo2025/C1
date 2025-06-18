@@ -60,14 +60,14 @@ public class PositiveServlet extends CustomTemplateServlet {
 				eDto.setEmoStamp(Integer.parseInt(request.getSession().getAttribute("user_id").toString()));
 				
 				List<EmotionsDto> emotions = eDao.select(eDto);
-		        request.setAttribute("emotionsList", emotions);
+		        request.setAttribute("emotionsList", emotions.get(0));
 				
 		       //FeedbacksDaoでデータベースから情報を得る
 		       FeedbacksDao fDao = new FeedbacksDao();
 		       FeedbacksDto fDto = new FeedbacksDto();
 		       fDto.setEmotionId(emotions.get(0).getEmotion());
 		       List<FeedbacksDto> feedbacks = fDao.select(fDto);
-			   request.setAttribute("feedbacksList", feedbacks);		        
+			   request.setAttribute("feedbacksList", feedbacks.get(0));
 		        
 				// ポジティブページにフォワードする
 			    RequestDispatcher dispatcher = request.getRequestDispatcher("/WEB-INF/jsp/positive.jsp");

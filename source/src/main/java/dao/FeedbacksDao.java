@@ -27,24 +27,24 @@ e.id AS emotion_id,
 e.name AS emotion_name,
 em.action,
 f.feedbacks,
-f.feedbacks_id
+f.id AS feedbacks_id
 FROM feedbacks f
 JOIN emotion e ON f.emotion_id = e.id
 JOIN emotions em ON e.emo_stamp_id = em.emo_stamp
-WHERE e.id = 24
+WHERE e.id = ?
 ORDER by rand() limit 1
 					""";
 			PreparedStatement pStmt = conn.prepareStatement(sql);
 
 			// SQL文を完成させる
-			pStmt.setInt(1, dto.getId());
+			pStmt.setInt(1, dto.getEmotionId());
 
 			// SQL文を実行し、結果表を取得する
 			ResultSet rs = pStmt.executeQuery();
 
 			// 結果表をコレクションにコピーする
 			while (rs.next()) {
-				FeedbacksDto feedback = new FeedbacksDto(rs.getInt("id"),
+				FeedbacksDto feedback = new FeedbacksDto(rs.getInt("feedbacks_id"),
 						rs.getInt("emotion_id"),
 						rs.getString("feedbacks")
 				);

@@ -37,7 +37,7 @@
     	<input type="hidden" name="emo_stamp" value="${emotionsList.emoStamp}">
     	<input type="hidden" name="action" value="${emotionsList.action}">
     	<input type="hidden" name="emotion" value="${emotionsList.emotion}">
-    	<input type="hidden" name="feedbacks_id" value="${feedbacksList.feedbacks_id}">
+    	<input type="hidden" name="feedbacks_id" value="${feedbacksList.id}">
     	<input type="hidden" name="feedbacks" value="${feedbacksList.feedbacks}">
         <input type="button" id="back_button" name="abutton" value="感情登録に戻る">
         <input type="submit" name="abutton" value="登録">
