@@ -50,20 +50,20 @@ var btn_del = document.getElementById('account_del');
 
 
 // 感情スタンプをint型から顔文字に変換して表示
-switch("${emotionsList.emoStamp}") {
-  case 5:
+switch(emotionsList.emoStamp) {
+  case "5":
     document.getElementById('emo_stamp').textContent = '😆';
     break;
-  case 4:
+  case "4":
     document.getElementById('emo_stamp').textContent = '😊';
     break;
-  case 3:
+  case "3":
     document.getElementById('emo_stamp').textContent = '😠';
     break;
-  case 2:
+  case "2":
     document.getElementById('emo_stamp').textContent = '😢';
     break;
-  case 1:
+  case "1":
     document.getElementById('emo_stamp').textContent = '😨';
     break;
   default:
@@ -72,56 +72,56 @@ switch("${emotionsList.emoStamp}") {
 }
 
 // その時の感情をint型から文字列にして表示 
-switch("${emotionsList.emotion}") {
-  case 18,24:
+switch(emotionsList.emotion) {
+  case "18","24":
     document.getElementById('emotion').textContent = '感情：元気';
     break;
-  case 17,23:
+  case "17","23":
     document.getElementById('emotion').textContent = '感情：リラックス';
     break;
-  case 16,22:
+  case "16","22":
     document.getElementById('emotion').textContent = '感情：安心';
     break;
-  case 15,21:
+  case "15","21":
     document.getElementById('emotion').textContent = '感情：好き';
     break;
-  case 14,20:
+  case "14","20":
     document.getElementById('emotion').textContent = '感情：幸せ';
     break;
-  case 13,19:
+  case "13","19":
     document.getElementById('emotion').textContent = '感情：満足';
     break;
-  case 12:
+  case "12":
     document.getElementById('emotion').textContent = '感情：嫌悪';
     break;
-  case 11:
+  case "11":
     document.getElementById('emotion').textContent = '感情：不満';
     break;
-  case 10:
+  case "10":
     document.getElementById('emotion').textContent = '感情：嫉妬';
     break;
-  case 9:
+  case "9":
     document.getElementById('emotion').textContent = '感情：憤り';
     break;
-  case 4,8:
+  case "4","8":
     document.getElementById('emotion').textContent = '感情：後悔';
     break;
-  case 7:
+  case "7":
     document.getElementById('emotion').textContent = '感情：絶望';
     break;
-  case 6:
+  case "6":
     document.getElementById('emotion').textContent = '感情：寂しさ';
     break;
-  case 5:
+  case "5":
     document.getElementById('emotion').textContent = '感情：切なさ';
     break;
-  case 3:
+  case "3":
     document.getElementById('emotion').textContent = '感情：焦り';
     break;
-  case 2:
+  case "2":
     document.getElementById('emotion').textContent = '感情：恐怖';
     break;
-  case 1:
+  case "1":
     document.getElementById('emotion').textContent = '感情：不安';
     break;
   default:
