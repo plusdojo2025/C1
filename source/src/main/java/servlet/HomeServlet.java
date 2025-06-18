@@ -44,7 +44,6 @@ public class HomeServlet extends CustomTemplateServlet {
 		if(checkNoneLogin(request, response)) {
 			return;
 		}
-		
 		//セッションの取得
 		HttpSession session = request.getSession();
 		Integer userId = (Integer) request.getSession().getAttribute("user_id");
@@ -64,7 +63,6 @@ public class HomeServlet extends CustomTemplateServlet {
 		    System.out.println("totalScore = " + summary.getCount());
 	    // ホームページにフォワードする
 	    RequestDispatcher dispatcher = request.getRequestDispatcher("/WEB-INF/jsp/home.jsp");
-		
 		dispatcher.forward(request, response);
 		
 	}

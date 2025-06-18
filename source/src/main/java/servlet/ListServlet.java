@@ -39,13 +39,12 @@ public class ListServlet extends CustomTemplateServlet {
         String year = request.getParameter("year");
         String month = request.getParameter("month");
         String day = request.getParameter("day");
+
         
         HttpSession session = request.getSession();
 		Integer userId = (Integer) session.getAttribute("user_id");
 
-        // パラメータの使い方に応じて処理
-        System.out.println("Year: " + year + ", Month: " + month + ", Day: " + day);
-            
+       
         int recordsPerPage = 7;
 	    int currentPage = 1;
 	    String pageParam = request.getParameter("page");
