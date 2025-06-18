@@ -38,9 +38,7 @@ public class PositiveServlet extends CustomTemplateServlet {
 	 * @param FeedbacksDto 
 	 * @see HttpServlet#doGet(HttpServletRequest request, HttpServletResponse response)
 	 */
-	protected void doGet(HttpServletRequest request, HttpServletResponse response) throws ServletException, IOException {
-		EmotionsDto emotionsDto = new EmotionsDto();
-		FeedbacksDto feedbacksDto = new FeedbacksDto();
+	protected void doGet(HttpServletRequest request, HttpServletResponse response, EmotionsDto EmotionsDto, FeedbacksDto FeedbacksDto) throws ServletException, IOException {
 //		EmotionsDao emotionDao = new EmotionsDao();
 //		EmotionsDto emotionDto = new EmotionsDto();
 //		
@@ -63,13 +61,12 @@ public class PositiveServlet extends CustomTemplateServlet {
 				
 				//EmotionsDaoでデータベースから情報を得る
 				EmotionsDao EmotionsDAO = new EmotionsDao();
-//		　　　　　　　レコードをsetで取得する？	仮レコードを登録しておいてUPDATEする形のほうがいい？
-				List<EmotionsDto> emotions = EmotionsDAO.select(emotionsDto);
+				List<EmotionsDto> emotions = EmotionsDAO.select(EmotionsDto);
 		        request.setAttribute("emotionsList", emotions);
 				
 		       //FeedbacksDaoでデータベースから情報を得る
 		       FeedbacksDao FeedbacksDAO = new FeedbacksDao();
-		       List<FeedbacksDto> feedbacks = FeedbacksDAO.select(feedbacksDto);
+		       List<FeedbacksDto> feedbacks = FeedbacksDAO.select(FeedbacksDto);
 			   request.setAttribute("feedbacksList", feedbacks);		        
 		        
 				// ポジティブページにフォワードする
@@ -99,18 +96,17 @@ public class PositiveServlet extends CustomTemplateServlet {
       			// リクエストパラメータを取得（入力された内容を取得する）
 				request.setCharacterEncoding("UTF-8");
 				String abutton = request.getParameter("abutton");
-				int emo_stamp = Integer.parseInt(request.getParameter(""));
-				String action = request.getParameter("");
-				int emotion = Integer.parseInt(request.getParameter(""));
-				int feedbacks_id = Integer.parseInt(request.getParameter(""));
-				String feedbacks = request.getParameter("");
-				String plant = request.getParameter("");
+				int emo_stamp = Integer.parseInt(request.getParameter("emo_stamp"));
+				String action = request.getParameter("action");
+				int emotion = Integer.parseInt(request.getParameter("emotion"));
+				int feedbacks_id = Integer.parseInt(request.getParameter("feedbacks_id"));
+				String feedbacks = request.getParameter("feedbacks");
 				
 				
 				
 				if("登録".equals(abutton)){
 				// AllListDaoのinsert文を呼び出して登録処理をする
-				AllList AL = new AllList(0, emo_stamp ,action, emotion, feedbacks_id, new java.util.Date(), plant);	
+				AllList AL = new AllList(0, emo_stamp ,action, emotion, feedbacks_id, new java.util.Date(), "");	
 				AL.setFeedbacks(feedbacks);
 				AllListDao AllListDAO = new AllListDao();
 				AllListDAO.insert(AL);	
@@ -132,7 +128,12 @@ public class PositiveServlet extends CustomTemplateServlet {
 			
 			}
 
-
+	@Override
+	protected void doGet(HttpServletRequest request, HttpServletResponse response)
+			throws ServletException, IOException {
+		// TODO 自動生成されたメソッド・スタブ
+		
+	}
 
 
 }
