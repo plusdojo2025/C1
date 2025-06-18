@@ -6,6 +6,7 @@ import java.util.Date;
 
 public class AllListDto extends CustomTemplateDto implements Serializable{
 	private int id;
+	private int userId;
 	private int emoStampId;
 	private String action;
 	private int emotionId;
@@ -13,10 +14,11 @@ public class AllListDto extends CustomTemplateDto implements Serializable{
 	private Date createdAt;
 	private String plant;
 	
-	public AllListDto(int id, int emoStampId, String action, int emotionId, int feedbacksId, Date createdAt,
+	public AllListDto(int id, int userId, int emoStampId, String action, int emotionId, int feedbacksId, Date createdAt,
 			String plant) {
 		super();
 		this.id = id;
+		this.userId = userId;
 		this.emoStampId = emoStampId;
 		this.action = action;
 		this.emotionId = emotionId;
@@ -26,7 +28,7 @@ public class AllListDto extends CustomTemplateDto implements Serializable{
 	}
 
 	public AllListDto() {
-		this(0,0,"", 0, 0, new Date(), "");
+		this(0,0,0,"", 0, 0, new Date(), "");
 	}
 
 	public int getId() {
@@ -35,6 +37,14 @@ public class AllListDto extends CustomTemplateDto implements Serializable{
 
 	public void setId(int id) {
 		this.id = id;
+	}
+	
+	public int getuserId() {
+		return userId;
+	}
+
+	public void setuserId(int userId) {
+		this.userId = userId;
 	}
 
 	public int getEmoStampId() {
