@@ -19,7 +19,7 @@
 		<jsp:include page="Mindshift_navigation.jsp" />
 		<!-- ヘッダー（ここまで） -->
 		<main>
-		<h2 style="text-align:center;">オブジェクト表示（仮）</h2>
+		<h2 style="text-align:center;">オブジェクト表示</h2>
 		  <div class="rectangle">
 		    <div class="plantimg"><img id="plantImage" src="" width="100" height="150" alt="植物の画像"></div>
 		  </div>
@@ -92,8 +92,8 @@
 	</div>
 	<!--javascriptのファイルの読み込み-->
 	<script>
-		const stampCount = ${stampCount};     // 1週間のスタンプ件数
-		const totalScore = ${totalScore};     // 1週間のスコア合計 
+		const stampCount = ${stampCount != null ? stampCount : 0};     // 1週間のスタンプ件数
+		const totalScore = ${totalScore != null ? totalScore : 0};     // 1週間のスコア合計 
 		const stampData = [];//Javaから受け取った1か月分のスタンプ集計（emo_stamp_idごとの件数）
 		
 		<c:forEach var="e" items="${stampCounts}">//stampDataにデータが入り、表示に反映される

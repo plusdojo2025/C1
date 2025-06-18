@@ -45,11 +45,11 @@ public class HomeServlet extends CustomTemplateServlet {
 			return;
 		}
 		
+		//セッションの取得
 		HttpSession session = request.getSession();
 		Integer userId = (Integer) request.getSession().getAttribute("user_id");
 		
-				//ホームページ　オブジェクト表示用stampsテーブルから件数とスコア
-		/* ---------- 1. 1週間分（植物表示） ---------- */
+		//ホームページ　オブジェクト表示用stampsテーブルから件数とスコア
 		 stampsDao sDao = new stampsDao();
 		    stampsDto summary = sDao.selectWeeklySummary(userId);
 		    request.setAttribute("stampCount",  summary.getCount());
@@ -59,6 +59,7 @@ public class HomeServlet extends CustomTemplateServlet {
 		    AllListDao aDao = new AllListDao();
 		    request.setAttribute("stampCounts", aDao.getStampCountsThisMonth(userId));
 		    
+		    //コンソールにテスト表示
 		    System.out.println("stampCount = " + summary.getCount());
 		    System.out.println("totalScore = " + summary.getCount());
 	    // ホームページにフォワードする
