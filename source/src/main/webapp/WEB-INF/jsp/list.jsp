@@ -21,8 +21,22 @@
 		<jsp:include page="Mindshift_header.jsp" />
 		<jsp:include page="Mindshift_navigation.jsp" />
 		<!-- ヘッダー（ここまで） -->
-		<u><h2 style="text-align: center;">登録一覧</h2></u>
-
+		<c:if test="${empty month}">
+		 <u><h2 style="text-align: center;">今月の登録一覧</h2></u>
+        </c:if>
+        
+        <c:if test="${not empty month}">
+		  <fmt:formatDate value="${cardList[0].createdAt}" pattern="M" var="createdMonth" />
+		  <c:choose>
+		    <c:when test="${createdMonth == month}">
+		      <u><h2 style="text-align: center;">今月の登録一覧</h2></u>
+		    </c:when>
+		    <c:otherwise>
+		      <u><h2 style="text-align: center;">${year}年-${month}月の登録一覧</h2></u>
+		    </c:otherwise>
+		  </c:choose>
+		</c:if>
+        
 		<main>
 	<div class="term">
 	   <c:if test="${not empty cardList}">
