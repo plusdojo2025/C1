@@ -18,11 +18,11 @@
 		<jsp:include page="Mindshift_header.jsp" />
 		<jsp:include page="Mindshift_navigation.jsp" />
 		<!-- ヘッダー（ここまで） -->
-        <u><h2 style="text-align:center;">感情登録</h2></u>
+        <h2 style="text-align:center;">感情登録</h2>
   
   <main>
 	<form id="emo_form" method="POST" action="/c1/EmoRegistServlet"> 
-      <p class="radio">
+      <div class="radio">
           1.感情スタンプを選んでね<br>
           <div class="radio_edit">
           <input type="radio" name="emo_stamp" value="5" onchange="setOption(this);"/>😆　
@@ -31,18 +31,18 @@
           <input type="radio" name="emo_stamp" value="2" onchange="setOption(this);"/>😢　
           <input type="radio" name="emo_stamp" value="1" onchange="setOption(this);"/>😨
           </div>
-      </p>
-      <p class="textarea">
+      </div>
+      <div class="textarea">
           2.出来事を入力してね<br>
           <textarea name="action" placeholder="100文字以内で入力してね" onkeyup="ShowLength(value);"></textarea>
           <p id="inputlength">0文字</p>
-     	</p>
-      <p class="select">
+     	</div>
+      <div class="select">
           3.どんな気持ちだったか選んでね<br>
           <select name="emotion" id="box">
               <option value="">感情を選択</option>
           </select>
-      </p>
+      </div>
 
       <!-- エラーメッセージエリア -->
       <div class="submit">

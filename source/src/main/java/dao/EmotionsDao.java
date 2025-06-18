@@ -21,8 +21,9 @@ public class EmotionsDao extends CustomTemplateDao<EmotionsDto> {
 			conn = conn();
 
 			// SQL文を準備する
-			String sql = "Select * from emotions";
+			String sql = "Select * from emotions where emo_stamp = ?";
 			PreparedStatement pStmt = conn.prepareStatement(sql);
+			pStmt.setInt(1, dto.getEmoStamp());
 
 			// SQL文を実行し、結果表を取得する
 			ResultSet rs = pStmt.executeQuery();

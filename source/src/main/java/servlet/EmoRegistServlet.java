@@ -76,7 +76,8 @@ protected void doPost(HttpServletRequest request, HttpServletResponse response)
 	
 	// EmotionsDaoのinsert文を呼び出して登録処理をする
 	EmotionsDao EmotionDao = new EmotionsDao();
-	EmotionDao.insert(new EmotionsDto(emo_stamp, action, emotion));
+    int userId = Integer.parseInt(request.getSession().getAttribute("user_id").toString());
+	EmotionDao.insert(new EmotionsDto(userId, action, emotion));
 	
 //	EmotionDao.select(EmotionDto);
 //	EmotionDao.update(EmotionDto);
