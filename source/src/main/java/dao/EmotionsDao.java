@@ -59,7 +59,7 @@ public class EmotionsDao extends CustomTemplateDao<EmotionsDto> {
 
 			// SQL文を準備する
 			String sql = """
-					insert emotions(emoStamp, action, emotion)
+					insert emotions(emo_stamp, action, emotion)
 							value(?,?,?)
 					""";
 			PreparedStatement pStmt = conn.prepareStatement(sql);
