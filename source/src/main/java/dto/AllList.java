@@ -15,9 +15,9 @@ public class AllList extends AllListDto implements Serializable{
 		this.feedbacks = feedbacks;
 	}
 
-	public AllList(int id, int emoStampId, String action, int emotionId, int feedbacksId, Date createdAt,
+	public AllList(int id, int userId, int emoStampId, String action, int emotionId, int feedbacksId, Date createdAt,
 			String plant) {
-		super(id, emoStampId, action, emotionId, feedbacksId, createdAt, plant);
+		super(id, userId, emoStampId, action, emotionId, feedbacksId, createdAt, plant);
 		// TODO 自動生成されたコンストラクター・スタブ
 	}
 	

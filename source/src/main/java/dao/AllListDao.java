@@ -23,7 +23,11 @@ public class AllListDao extends CustomTemplateDao<AllListDto> {
 			conn = conn();
 
 			// SQL文を準備する
-			String sql = "SELECT * from allList WHERE created_at >= DATE_FORMAT(CURDATE(), '%Y-%m-01') AND created_at < DATE_FORMAT(DATE_ADD(CURDATE(), INTERVAL 1 MONTH), '%Y-%m-01'); ";
+			String sql = """
+					SELECT * from allList WHERE created_at >= DATE_FORMAT(CURDATE(), '%Y-%m-01') 
+					AND created_at 
+					< DATE_FORMAT(DATE_ADD(CURDATE(), INTERVAL 1 MONTH), '%Y-%m-01') 
+					""";
 			PreparedStatement pStmt = conn.prepareStatement(sql);
 
 			// SQL文を実行し、結果表を取得する
@@ -32,6 +36,7 @@ public class AllListDao extends CustomTemplateDao<AllListDto> {
 			// 結果表をコレクションにコピーする
 			while (rs.next()) {
 				AllListDto allLists = new AllListDto(rs.getInt("id"),
+						rs.getInt("user_id"),
 						rs.getInt("emo_stamp_id"),
 						rs.getString("action"),
 						rs.getInt("emotion_id"),
@@ -65,13 +70,15 @@ public class AllListDao extends CustomTemplateDao<AllListDto> {
 
 			// SQL文を準備する
 			String sql = """
-					insert allList(emo_stamp_id, 
+					insert allList(user_id,
+					emo_stamp_id, 
 					action, 
 					emotion_id, 
 					feedbacks_id, 
 					created_at, 
 					plant)
-					value(?,0,?,?,new Timestamp(System.currentTimeMillis(),?)
+					value(?,?,0,?,?,new Timestamp(System.currentTimeMillis(),?)
+					user_id = ?
 					emo_stamp_id= ?
 					action= ?
 					emotion_id= ?
@@ -84,12 +91,14 @@ public class AllListDao extends CustomTemplateDao<AllListDto> {
 			PreparedStatement pStmt = conn.prepareStatement(sql);
 
 			// SQL文を完成させる
-			pStmt.setInt(1, dto.getEmoStampId());
-			pStmt.setString(2, dto.getAction());
-			pStmt.setInt(3, dto.getEmotionId());
-			pStmt.setInt(4, dto.getFeedbacksId());
-			pStmt.setDate(5, new java.sql.Date(dto.getCreatedAt().getTime()));
-			pStmt.setString(6, dto.getPlant());
+			
+			pStmt.setInt(1, dto.getuserId());
+			pStmt.setInt(2, dto.getEmoStampId());
+			pStmt.setString(3, dto.getAction());
+			pStmt.setInt(4, dto.getEmotionId());
+			pStmt.setInt(5, dto.getFeedbacksId());
+			pStmt.setDate(6, new java.sql.Date(dto.getCreatedAt().getTime()));
+			pStmt.setString(7, dto.getPlant());
 
 			// SQL文を実行する
 			if (pStmt.executeUpdate() == 1) {
@@ -119,6 +128,7 @@ public class AllListDao extends CustomTemplateDao<AllListDto> {
 			// SQL文を準備する
 			String sql = """
 					update allList set
+					user_id = ?
 					emo_stamp_id= ?
 					action= ?
 					emotion_id= ?
@@ -131,13 +141,14 @@ public class AllListDao extends CustomTemplateDao<AllListDto> {
 			PreparedStatement pStmt = conn.prepareStatement(sql);
 
 			// SQL文を完成させる
-			pStmt.setInt(1, dto.getEmoStampId());
-			pStmt.setString(2, dto.getAction());
-			pStmt.setInt(3, dto.getEmotionId());
-			pStmt.setInt(4, dto.getFeedbacksId());
-			pStmt.setDate(5, new java.sql.Date(dto.getCreatedAt().getTime()));
-			pStmt.setString(6, dto.getPlant());
-			pStmt.setInt(7, dto.getId());
+			pStmt.setInt(1, dto.getuserId());
+			pStmt.setInt(2, dto.getEmoStampId());
+			pStmt.setString(3, dto.getAction());
+			pStmt.setInt(4, dto.getEmotionId());
+			pStmt.setInt(5, dto.getFeedbacksId());
+			pStmt.setDate(6, new java.sql.Date(dto.getCreatedAt().getTime()));
+			pStmt.setString(7, dto.getPlant());
+			pStmt.setInt(8, dto.getId());
 
 			// SQL文を実行する
 			if (pStmt.executeUpdate() == 1) {
@@ -239,6 +250,7 @@ public class AllListDao extends CustomTemplateDao<AllListDto> {
 	        while (rs.next()) {
 	            AllListDto allLists = new AllListDto(
 	                rs.getInt("id"),
+	                rs.getInt("user_id"),
 	                rs.getInt("emo_stamp_id"),
 	                rs.getString("action"),
 	                rs.getInt("emotion_id"),
