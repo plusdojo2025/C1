@@ -83,7 +83,7 @@ protected void doPost(HttpServletRequest request, HttpServletResponse response)
 //	EmotionDao.delete(EmotionDto);
 	
 	// フィードバック画面にリダイレクトする
-	response.sendRedirect("/c1/PositiveServlet");
+	response.sendRedirect("MindShift-positive");
 	
 	//ログインしていなかった場合、ログイン画面にリダイレクト処理をする。
 	if(checkNoneLogin(request, response)) {
