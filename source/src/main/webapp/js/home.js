@@ -55,7 +55,7 @@ var btn_del = document.getElementById('account_del');
  
  //＊＊＊＊＊＊＊＊＊＊＊＊＊＊＊＊＊＊＊＊＊＊＊＊＊カレンダー表示＊＊＊＊＊＊＊＊＊＊＊＊＊＊＊＊＊＊＊＊＊＊＊＊
  
-  /*指定された範囲の年（start と end）に対応する <option> タグを生成する関数*/
+   /*指定された範囲の年（start と end）に対応する <option> タグを生成する関数*/
             function generate_year_range(start, end) {
             var years = "";
             for (var year = start; year <= end; year++) {
@@ -127,8 +127,11 @@ var btn_del = document.getElementById('account_del');
             // creating all cells
             /*月の最初の日がどの曜日に当たるかを計算し、その後、カレンダーの日付を順番に並べる*/
             var date = 1;
+            var nextMonthDate = 1; 
+            //const stampValue = '${stamp}';スタンプ用 
             for ( var i = 0; i < 6; i++ ) {
                 var row = document.createElement("tr");
+                var isRowEmpty = true; // 行に今月の日付があるかチェック
 
                 for ( var j = 0; j < 7; j++ ) {
                     if ( i === 0 && j < firstDay ) {
@@ -136,10 +139,18 @@ var btn_del = document.getElementById('account_del');
                         cellText = document.createTextNode("");
                         cell. appendChild(cellText);
                         row.appendChild(cell);
+                        
                     } else if (date > daysInMonth(month, year)) {//月ごとの日を設定
-
-                        break;
+                        var cell = document.createElement("td");
+                                    cell.textContent = nextMonthDate;
+                                    cell.classList.add('next-month');
+                                    row.appendChild(cell);
+                                    nextMonthDate++;
+      
+                        
                     } else {
+                    	let thisDate = date; // ← クリック用に固定した日付を確保
+                        
                         cell = document.createElement("td");
                         cell.setAttribute("data-date", date);
                         cell.setAttribute("data-month", month + 1);
@@ -151,13 +162,42 @@ var btn_del = document.getElementById('account_del');
                         if ( date === today.getDate() && year === today.getFullYear() && month === today.getMonth() ) {
                             cell.className = "date-picker selected";
                         }
-                        const stampDiv = document.createElement('div');
+
+                       // if(date<=today.getDate()){
+                        var stampDiv = document.createElement('div');
+                        stampDiv.setAttribute('data-date', `${year}-${month + 1}-${date}`);
+                       // element.classList.add("emostamp");     
+                        stampDiv.textContent = '　😊'; 
+
+                        cell.appendChild(stampDiv);
+                       // }
+                       
+                        cell.addEventListener("click", (function(y, m, d) {
+                            return function() {
+                                const dateUrl = `MindShift-list?year=${y}&month=${m}&day=${d}`;
+                                console.log("Navigate to", dateUrl);
+                                window.location.href = dateUrl;
+                            };
+                        })(year, month + 1, thisDate));
+
                         row.appendChild(cell);
+                        isRowEmpty = false; // 今月の日付があるので空じゃない
                         date++;
                     }
+                    
+                }
+                if (!isRowEmpty) { // 今月の日付が1つでもある行だけ追加
+                    tbl.appendChild(row);
+                } else {
+                    break; // 完全に空白行だったらループ終了
                 }
 
                 tbl.appendChild(row);
+                const newCell = document.createElement('td');
+                newCell.className = 'plant';
+                newCell.textContent = '';
+                row.appendChild(newCell);
+
             }
 
             }

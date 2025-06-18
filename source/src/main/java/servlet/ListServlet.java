@@ -35,6 +35,16 @@ public class ListServlet extends CustomTemplateServlet {
             return;
         }	
         
+        String year = request.getParameter("year");
+        String month = request.getParameter("month");
+        String day = request.getParameter("day");
+
+        // パラメータの使い方に応じて処理
+        System.out.println("Year: " + year + ", Month: " + month + ", Day: " + day);
+        
+        
+        
+        
         int recordsPerPage = 7;
 	    int currentPage = 1;
 	    String pageParam = request.getParameter("page");

@@ -2,12 +2,13 @@
 	pageEncoding="UTF-8"%>
 <%@ taglib prefix="c" uri="http://java.sun.com/jsp/jstl/core"%>
 <%@ taglib uri="http://java.sun.com/jsp/jstl/fmt" prefix="fmt"%>
+<%@ taglib prefix="fn" uri="http://java.sun.com/jsp/jstl/functions"%>
 <!DOCTYPE html>
 
 <html>
 <head>
 <meta charset="UTF-8">
-<title>ページ名 | MindShift</title>
+<title>登録一覧 | MindShift</title>
 <link rel="icon" href="images/favicon1.ico" id="favicon">
 <link rel="stylesheet"
 	href="${pageContext.request.contextPath}/css/list.css">
@@ -24,7 +25,15 @@
 
 		<main>
 	<div class="term">
-        <p>2025-06-01 ～ 2025-06-07</p>
+	   <c:if test="${not empty cardList}">
+        <p><fmt:formatDate value="${cardList[0].createdAt}" pattern="yyyy-MM-dd"/> 
+        ～  <fmt:formatDate value="${cardList[fn:length(cardList )-1].createdAt}" pattern="yyyy-MM-dd"/></p>
+       </c:if>
+       
+       <c:if test="${empty cardList}">
+        <p>登録データがありません</p>
+       </c:if>
+       
     </div>
 <c:forEach var="item" items="${cardList}">
 	
