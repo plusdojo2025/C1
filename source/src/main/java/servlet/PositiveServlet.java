@@ -117,13 +117,13 @@ public class PositiveServlet extends CustomTemplateServlet {
 				EmotionsDAO.delete(new EmotionsDto());
 				
 				// ページ遷移
-				response.sendRedirect("/WEB-INF/home.jsp");
+				response.sendRedirect("MindShift-home");
 //				}else{
 				// EmotionsDaoのdelete文を呼び出して削除処理をする
 				EmotionsDAO.delete(new EmotionsDto());
 				
 				// ページ遷移
-				response.sendRedirect("/WEB-INF/regist.jsp");
+				response.sendRedirect("MindShift-regist");
 				}
 //				response.getWriter().append("Served at: ").append(request.getContextPath());
 			

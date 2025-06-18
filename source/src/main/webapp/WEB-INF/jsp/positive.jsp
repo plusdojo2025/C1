@@ -33,7 +33,7 @@
         <p id="feedback"><c:out value="${feedbacksList.feedbacks}" /></p>
     </div>
 
-    <form id="feedback_form" method="POST" action="/C1/PositiveSrvlet">
+    <form id="feedback_form" method="POST" action="MindShift-positive">
     	<input type="hidden" name="emo_stamp" value="${emotionsList.emoStamp}">
     	<input type="hidden" name="action" value="${emotionsList.action}">
     	<input type="hidden" name="emotion" value="${emotionsList.emotion}">
