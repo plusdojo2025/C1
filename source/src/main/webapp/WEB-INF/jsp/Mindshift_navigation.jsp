@@ -10,7 +10,7 @@
 
     <!-- 登録一覧へのPOSTリクエスト -->
     <li>
-      <form action="MindShift-list" method="post">
+      <form action="MindShift-list" method="get">
         <button type="submit" class="menu-button_li" name="record">登録一覧</button>
       </form>
     </li>

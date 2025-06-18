@@ -198,7 +198,7 @@ padding: 0;
     color: rgb(11, 15, 5);
     font-size: 2rem;
     padding: 50px;
-    width: 70%;
+    width: 90%;
     margin: 0 auto;
     overflow: auto;
     background-color: #ffffff; /* 背景を白く */
@@ -226,7 +226,7 @@ padding: 0;
   .table-calendar td{
     padding: 5px;
     border: 1px solid #e2e2e2;
-    text-align: center;
+    text-align: left;
     vertical-align: top;
   }
   .date-picker.selected {
@@ -290,7 +290,7 @@ padding: 0;
 }
 
 .plant {
-  width: 150px; /* 好きな幅に調整 */
+  width: 100px; /* 好きな幅に調整 */
   /* 必要に応じて高さや他のスタイルも指定可能 */
   height: 80px;
   background-color: #e0f7fa; /* 背景色の例 */
