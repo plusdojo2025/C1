@@ -135,7 +135,7 @@ document.getElementById('feedback_form').onsubmit = function(event) {
     if (window.confirm("この内容で登録しますか？")) {
       // アラートを表示してから、画面遷移（URLだけ変更必要あり）
       alert("登録が完了しました。");
-      window.location.href='emo_regist.html';
+      window.location.href='MindShift-home';
     }
     else {
       // 遷移せず留まる
@@ -147,7 +147,7 @@ document.getElementById('feedback_form').onsubmit = function(event) {
 document.getElementById('back_button').onclick = function(event) {
     if (window.confirm("登録内容を破棄して感情登録へ戻りますか？")) {
       // アラートを表示してから、画面遷移（URLだけ変更必要あり）
-      window.location.href='emo_regist.html';
+      window.location.href='MindShift-regist';
     }
     else {
       // 遷移せず留まる
