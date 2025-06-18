@@ -8,6 +8,7 @@ import javax.servlet.http.HttpServletRequest;
 import javax.servlet.http.HttpServletResponse;
 import javax.servlet.http.HttpSession;
 
+import dao.AllListDao;
 import dao.UsersDao;
 import dto.UsersDto;
 
@@ -40,11 +41,13 @@ public abstract class CustomTemplateServlet extends HttpServlet {
 			if (userId != null) {
 				UsersDto dto = new UsersDto();
 				dto.setUserId(userId);  // ここが重要
+				AllListDao allListDao = new AllListDao();
+				boolean delete_date = allListDao.delete_date(userId);
 				
 				UsersDao dao = new UsersDao();
 				boolean deleted = dao.delete(dto);
 				
-				if (deleted) {
+				if (deleted && delete_date) {
 					session.invalidate(); // セッション破棄（ログアウト状態に）
 					response.sendRedirect("MindShift-login"); // ログイン画面へリダイレクト
 				} else {
