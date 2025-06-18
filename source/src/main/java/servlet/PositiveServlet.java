@@ -38,7 +38,9 @@ public class PositiveServlet extends CustomTemplateServlet {
 	 * @param FeedbacksDto 
 	 * @see HttpServlet#doGet(HttpServletRequest request, HttpServletResponse response)
 	 */
-	protected void doGet(HttpServletRequest request, HttpServletResponse response, EmotionsDto EmotionsDto, FeedbacksDto FeedbacksDto) throws ServletException, IOException {
+	protected void doGet(HttpServletRequest request, HttpServletResponse response) throws ServletException, IOException {
+		EmotionsDto emotionsDto = new EmotionsDto();
+		FeedbacksDto feedbacksDto = new FeedbacksDto();
 //		EmotionsDao emotionDao = new EmotionsDao();
 //		EmotionsDto emotionDto = new EmotionsDto();
 //		
@@ -61,12 +63,13 @@ public class PositiveServlet extends CustomTemplateServlet {
 				
 				//EmotionsDaoでデータベースから情報を得る
 				EmotionsDao EmotionsDAO = new EmotionsDao();
-				List<EmotionsDto> emotions = EmotionsDAO.select(EmotionsDto);
+//		　　　　　　　レコードをsetで取得する？	仮レコードを登録しておいてUPDATEする形のほうがいい？
+				List<EmotionsDto> emotions = EmotionsDAO.select(emotionsDto);
 		        request.setAttribute("emotionsList", emotions);
 				
 		       //FeedbacksDaoでデータベースから情報を得る
 		       FeedbacksDao FeedbacksDAO = new FeedbacksDao();
-		       List<FeedbacksDto> feedbacks = FeedbacksDAO.select(FeedbacksDto);
+		       List<FeedbacksDto> feedbacks = FeedbacksDAO.select(feedbacksDto);
 			   request.setAttribute("feedbacksList", feedbacks);		        
 		        
 				// ポジティブページにフォワードする
@@ -129,12 +132,7 @@ public class PositiveServlet extends CustomTemplateServlet {
 			
 			}
 
-	@Override
-	protected void doGet(HttpServletRequest request, HttpServletResponse response)
-			throws ServletException, IOException {
-		// TODO 自動生成されたメソッド・スタブ
-		
-	}
+
 
 
 }
