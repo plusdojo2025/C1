@@ -11,7 +11,7 @@
     <!-- 登録一覧へのPOSTリクエスト -->
     <li>
       <form action="MindShift-list" method="get">
-        <button type="submit" class="menu-button_li" name="record">登録一覧</button>
+        <button type="submit" class="menu-button_li" name="record">今月の登録一覧</button>
       </form>
     </li>
 

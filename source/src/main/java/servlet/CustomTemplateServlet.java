@@ -47,7 +47,7 @@ public abstract class CustomTemplateServlet extends HttpServlet {
 				UsersDao dao = new UsersDao();
 				boolean deleted = dao.delete(dto);
 				
-				if (deleted && delete_date) {
+				if (deleted || delete_date) {
 					session.invalidate(); // セッション破棄（ログアウト状態に）
 					response.sendRedirect("MindShift-login"); // ログイン画面へリダイレクト
 				} else {

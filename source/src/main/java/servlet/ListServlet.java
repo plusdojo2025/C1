@@ -65,6 +65,8 @@ public class ListServlet extends CustomTemplateServlet {
         // 取得したリストをJSPに渡す
 	    request.setAttribute("cardList", pagedCards);
         request.setAttribute("currentPage", currentPage);
+        request.setAttribute("month", month);
+        request.setAttribute("year", year);
 	    request.setAttribute("totalPages", totalPages); 
 	    }else {
 	    
@@ -78,6 +80,8 @@ public class ListServlet extends CustomTemplateServlet {
 	    // 取得したリストをJSPに渡す
 	 	request.setAttribute("cardList", pagedCards);
 	    request.setAttribute("currentPage", currentPage);
+	    request.setAttribute("month", month);
+	    request.setAttribute("year", year);
 	 	request.setAttribute("totalPages", totalPages); 	
 	    		    	
 	    }
