@@ -7,6 +7,7 @@
 <html>
 <head>
 <meta charset="UTF-8">
+<link rel="icon" href="image/favicon1.ico">
 <title>感情登録 | MindShift</title>
 <link rel="stylesheet"
 	href="${pageContext.request.contextPath}/css/regist.css">

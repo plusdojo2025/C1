@@ -218,8 +218,8 @@ public class AllListDao extends CustomTemplateDao<AllListDto> {
 	    return exists;
 	}
 	
-	
-	public List<AllListDto> selectWithPaging( int limit, int offset) {
+	//ページネーション用にデータを分ける(今月)
+	public List<AllListDto> selectWithPaging( int limit, int offset,Integer userId) {
 	    Connection conn = null;
 	    PreparedStatement pStmt = null;
 	    ResultSet rs = null;
@@ -231,7 +231,7 @@ public class AllListDao extends CustomTemplateDao<AllListDto> {
 	        // 検索条件を使ったSQL（created_atは今月の範囲で固定）
 	        String sql = """
 	            SELECT * FROM allList
-	            WHERE created_at >= DATE_FORMAT(CURDATE(), '%Y-%m-01') 
+	            WHERE user_id= ? AND created_at >= DATE_FORMAT(CURDATE(), '%Y-%m-01') 
 	              AND created_at < DATE_FORMAT(DATE_ADD(CURDATE(), INTERVAL 1 MONTH), '%Y-%m-01')
 	              -- ここに他の条件あれば追加できます
 	            ORDER BY created_at
@@ -241,8 +241,66 @@ public class AllListDao extends CustomTemplateDao<AllListDto> {
 	        pStmt = conn.prepareStatement(sql);
 
 	        // limit, offset は最後の2つのパラメータ
-	        pStmt.setInt(1, limit);
-	        pStmt.setInt(2, offset);
+	        pStmt.setInt(1, userId);
+	        pStmt.setInt(2, limit);
+	        pStmt.setInt(3, offset);
+
+	        rs = pStmt.executeQuery();
+
+	        while (rs.next()) {
+	            AllListDto allLists = new AllListDto(
+	                rs.getInt("id"),
+	                rs.getInt("user_id"),
+	                rs.getInt("emo_stamp_id"),
+	                rs.getString("action"),
+	                rs.getInt("emotion_id"),
+	                rs.getInt("feedbacks_id"),
+	                new java.util.Date(rs.getDate("created_at").getTime()),
+	                rs.getString("plant")
+	            );
+	            cardList.add(allLists);
+	        }
+
+	    } catch (SQLException e) {
+	        e.printStackTrace();
+	    } finally {
+	        close(conn);
+	    }
+
+	    return cardList;
+	}
+	
+	//ページネーション用にデータを分ける(過去のデータ用)
+	public List<AllListDto> selectWithPaging_history( int limit, int offset, String year, String month, String day, Integer userId) {
+	    Connection conn = null;
+	    PreparedStatement pStmt = null;
+	    ResultSet rs = null;
+	    List<AllListDto> cardList = new ArrayList<>();
+
+	    try {
+	        conn = conn();
+	        
+	        String dateStr = String.format("%s-%s-%s", year, month, day); // 例: "2025-06-01"
+	        java.sql.Date targetDate = java.sql.Date.valueOf(dateStr);
+
+	        // 検索条件を使ったSQL（created_atは今月の範囲で固定）
+	        String sql = """
+	            SELECT * FROM allList
+	            WHERE  user_id= ? AND created_at >= DATE_FORMAT(?, '%Y-%m-01') 
+	              AND created_at < DATE_FORMAT(DATE_ADD(?, INTERVAL 1 MONTH), '%Y-%m-01')
+	              -- ここに他の条件あれば追加できます
+	            ORDER BY created_at
+	            LIMIT ? OFFSET ?
+	            """;
+
+	        pStmt = conn.prepareStatement(sql);
+
+	        // limit, offset は最後の2つのパラメータ
+	        pStmt.setInt(1, userId);
+	        pStmt.setDate(2, targetDate);
+	        pStmt.setDate(3, targetDate);
+	        pStmt.setInt(4, limit);
+	        pStmt.setInt(5, offset);
 
 	        rs = pStmt.executeQuery();
 
@@ -271,8 +329,8 @@ public class AllListDao extends CustomTemplateDao<AllListDto> {
 
 
 	
-	
-	public int count() {
+	//データのカウント(今月)
+	public int count(Integer userId) {
 	    Connection conn = null;
 	    PreparedStatement pStmt = null;
 	    ResultSet rs = null;
@@ -283,12 +341,13 @@ public class AllListDao extends CustomTemplateDao<AllListDto> {
 
 	        String sql = """
 	            SELECT COUNT(*) FROM allList
-	            WHERE created_at >= DATE_FORMAT(CURDATE(), '%Y-%m-01') 
+	            WHERE user_id= ? AND created_at >= DATE_FORMAT(CURDATE(), '%Y-%m-01') 
 	              AND created_at < DATE_FORMAT(DATE_ADD(CURDATE(), INTERVAL 1 MONTH), '%Y-%m-01')
 	              -- ここに他の条件あれば追加できます
 	            """;
 
 	        pStmt = conn.prepareStatement(sql);
+	        pStmt.setInt(1, userId);
 
 	        rs = pStmt.executeQuery();
 
@@ -305,7 +364,77 @@ public class AllListDao extends CustomTemplateDao<AllListDto> {
 	    return count;
 	}
 
+    //データのカウント(過去のデータ用)
+	public int count_history(String year, String month, String day,Integer userId) {
+	    Connection conn = null;
+	    PreparedStatement pStmt = null;
+	    ResultSet rs = null;
+	    int count = 0;
 
+	    try {
+	        conn = conn();
+	        
+	        String countStr = String.format("%s-%s-%s", year, month, day); // 例: "2025-06-01"
+	        java.sql.Date countDate = java.sql.Date.valueOf(countStr);
+
+	        String sql = """
+	            SELECT COUNT(*) FROM allList
+	            WHERE user_id= ? AND created_at >= DATE_FORMAT(?, '%Y-%m-01') 
+	              AND created_at < DATE_FORMAT(DATE_ADD(?, INTERVAL 1 MONTH), '%Y-%m-01')
+	              -- ここに他の条件あれば追加できます
+	            """;
+
+	        pStmt = conn.prepareStatement(sql);
+	        pStmt.setInt(1, userId);
+	        pStmt.setDate(2, countDate);
+	        pStmt.setDate(3, countDate);
+
+	        rs = pStmt.executeQuery();
+
+	        if (rs.next()) {
+	            count = rs.getInt(1);
+	        }
+
+	    } catch (SQLException e) {
+	        e.printStackTrace();
+	    } finally {
+	        close(conn);
+	    }
+
+	    return count;
+	}
+
+	//アカウント削除時のデータ削除
+	public boolean delete_date(Integer userId) {
+		Connection conn = null;
+		boolean result = false;
+
+		try {
+			// JDBCドライバを読み込む
+			// データベースに接続する
+			conn = conn();
+
+			// SQL文を準備する
+			String sql = "DELETE FROM users where user_id = ?";
+			PreparedStatement pStmt = conn.prepareStatement(sql);
+
+			// SQL文を完成させる
+			pStmt.setInt(1,userId);
+
+			// SQL文を実行する
+			if (pStmt.executeUpdate() == 1) {
+				result = true;
+			}
+		} catch (SQLException e) {
+			e.printStackTrace();
+		} finally {
+			// データベースを切断
+			close(conn);
+			}
+		
+		// 結果を返す
+		return result;
+	}
 
 		// ****************スタンプ集計表　指定ユーザーの「今月分」のスタンプ件数をemo_stamp_idごとに取得*************
 	public Map<Integer, Integer> getStampCountsThisMonth() {
