@@ -1,6 +1,7 @@
 package servlet;
 
 import java.io.IOException;
+import java.io.PrintWriter;
 
 import javax.servlet.RequestDispatcher;
 import javax.servlet.ServletException;
@@ -9,6 +10,7 @@ import javax.servlet.http.HttpServlet;
 import javax.servlet.http.HttpServletRequest;
 import javax.servlet.http.HttpServletResponse;
 
+import dao.AllListDao;
 import dao.EmotionsDao;
 import dto.EmotionsDto;
 
@@ -31,19 +33,19 @@ public class EmoRegistServlet extends CustomTemplateServlet {
 		}
 		
 	    // 今日すでに登録があるかチェック
-//	    AllListDao allListDao = new AllListDao();
-//	    boolean hasTodayEntry = allListDao.hasTodayEntry(userId);
-//
-//	    if (hasTodayEntry) {
-//	        response.setContentType("text/html; charset=UTF-8");
-//	        PrintWriter out = response.getWriter();
-//	        out.println("<script>");
-//	        out.println("alert('登録は1日1回までです');");
-//	        out.println("window.location.href = 'MindShift-home';");
-//	        out.println("</script>");
-//	        out.close();
-//	        return;
-//	    }
+	    AllListDao allListDao = new AllListDao();
+	    boolean hasTodayEntry = allListDao.hasTodayEntry(userId);
+
+	    if (hasTodayEntry) {
+	        response.setContentType("text/html; charset=UTF-8");
+	        PrintWriter out = response.getWriter();
+	        out.println("<script>");
+	        out.println("alert('登録は1日1回までです');");
+	        out.println("window.location.href = 'MindShift-home';");
+	        out.println("</script>");
+	        out.close();
+	        return;
+	    }
 	    
 		// ホームページにフォワードする
 	    RequestDispatcher dispatcher = request.getRequestDispatcher("/WEB-INF/jsp/regist.jsp");
