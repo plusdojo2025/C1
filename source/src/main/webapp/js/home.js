@@ -56,7 +56,7 @@ var btn_del = document.getElementById('account_del');
  //＊＊＊＊＊＊＊＊＊＊＊＊＊＊＊＊＊＊＊＊＊＊＊＊＊カレンダー表示＊＊＊＊＊＊＊＊＊＊＊＊＊＊＊＊＊＊＊＊＊＊＊＊
  
    /*指定された範囲の年（start と end）に対応する <option> タグを生成する関数*/
-            function generate_year_range(start, end) {
+         /*   function generate_year_range(start, end) {
             var years = "";
             for (var year = start; year <= end; year++) {
                 years += "<option value='" + year + "'>" + year + "</option>";
@@ -93,7 +93,7 @@ var btn_del = document.getElementById('account_del');
              
             /*next は、現在が12月なら翌年の1月に、そうでない場合は単純に次の月に移動する
               previous は、現在が1月なら前年の12月に、そうでない場合は前の月に移動する*/
-            function next() {
+         /*   function next() {
             currentYear = (currentMonth === 11) ? currentYear + 1 : currentYear;
             currentMonth = (currentMonth + 1) % 12;
             showCalendar(currentMonth, currentYear);
@@ -106,7 +106,7 @@ var btn_del = document.getElementById('account_del');
             }
 
             /*月や年を選択するための <select> タグの値が変更されたときに、その選択に基づいてカレンダーを更新する*/
-            function jump() {
+          /*  function jump() {
             currentYear = parseInt(selectYear.value);
             currentMonth = parseInt(selectMonth.value);
             showCalendar(currentMonth, currentYear);
@@ -126,7 +126,7 @@ var btn_del = document.getElementById('account_del');
 
             // creating all cells
             /*月の最初の日がどの曜日に当たるかを計算し、その後、カレンダーの日付を順番に並べる*/
-            var date = 1;
+          /*  var date = 1;
             var nextMonthDate = 1; 
             //const stampValue = '${stamp}';スタンプ用 
             for ( var i = 0; i < 6; i++ ) {
@@ -203,9 +203,9 @@ var btn_del = document.getElementById('account_del');
             }
 
             /*定の月と年における日数を返す*/
-            function daysInMonth(iMonth, iYear) {
+           /* function daysInMonth(iMonth, iYear) {
             return 32 - new Date(iYear, iMonth, 32).getDate();
-            }
+            }*/
 
 
 //＊＊＊＊＊＊＊＊＊＊＊＊＊＊＊＊＊＊＊＊＊＊＊＊＊オブジェクト表示＊＊＊＊＊＊＊＊＊＊＊＊＊＊＊＊＊＊＊＊＊＊＊＊
