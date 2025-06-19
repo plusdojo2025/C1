@@ -127,34 +127,7 @@ public class stampsDao extends CustomTemplateDao<stampsDto> {
 		return result;
 	}
 	
-	//1週間分のデータを計算するメソッド
-	public stampsDto selectWeeklySummary() {
-	    stampsDto summary = new stampsDto();
-	    Connection conn = null;
-
-	    try {
-	        conn = conn();
-	        String sql = """
-	            SELECT COUNT(*) AS cnt,
-	                   COALESCE(SUM(weekstamps), 0) AS total
-	            FROM stamps
-	            WHERE created_at >= CURDATE() - INTERVAL 7 DAY
-	        """;
-	        PreparedStatement ps = conn.prepareStatement(sql);
-	        ResultSet rs = ps.executeQuery();
-
-	        if (rs.next()) {
-	            summary.setCount(rs.getInt("cnt"));
-	            summary.setTotalScore(rs.getInt("total"));
-	        }
-	    } catch (Exception e) {
-	        e.printStackTrace();
-	    } finally {
-	        close(conn);
-	    }
-
-	    return summary;
-	}
+	
 	
 		
 

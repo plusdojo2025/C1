@@ -10,6 +10,7 @@ import java.util.List;
 import java.util.Map;
 
 import dto.AllListDto;
+import dto.stampsDto;
 
 public class AllListDao extends CustomTemplateDao<AllListDto> {
 	
@@ -437,7 +438,7 @@ public class AllListDao extends CustomTemplateDao<AllListDto> {
 	}
 
 		// ****************スタンプ集計表　指定ユーザーの「今月分」のスタンプ件数をemo_stamp_idごとに取得*************
-	public Map<Integer, Integer> getStampCountsThisMonth() {
+	public Map<Integer, Integer> getStampCountsThisMonth(int userId) {
 	    Map<Integer, Integer> map = new HashMap<>();
 	    Connection conn = null;
 
@@ -446,10 +447,11 @@ public class AllListDao extends CustomTemplateDao<AllListDto> {
 
 	        String sql = """
 	            SELECT emo_stamp_id, COUNT(*) AS cnt
-	            FROM allList
-	            WHERE created_at >= DATE_FORMAT(CURDATE(), '%Y-%m-01')
-	              AND created_at < DATE_FORMAT(DATE_ADD(CURDATE(), INTERVAL 1 MONTH), '%Y-%m-01')
-	            GROUP BY emo_stamp_id
+	        FROM allList
+	        WHERE created_at >= DATE_FORMAT(CURDATE(), '%Y-%m-01')
+	          AND created_at < DATE_FORMAT(DATE_ADD(CURDATE(), INTERVAL 1 MONTH), '%Y-%m-01')
+	          AND user_id = ?
+
 	        """;
 
 	        PreparedStatement ps = conn.prepareStatement(sql);
@@ -468,6 +470,38 @@ public class AllListDao extends CustomTemplateDao<AllListDto> {
 
 	    return map;
 	}
+	
+	/*植物オブジェクト表示　1週間分のデータを計算するメソッド*/
+		public stampsDto selectWeeklySummary(int userId) {
+		    stampsDto summary = new stampsDto();
+		    Connection conn = null;
+
+		    try {
+		        conn = conn();
+		        String sql = """
+		            SELECT COUNT(*) AS cnt,
+		               COALESCE(SUM(weekstamps), 0) AS total
+		        FROM allList
+		        WHERE user_id = ?
+		          AND created_at >= DATE_SUB(CURDATE(), INTERVAL WEEKDAY(CURDATE()) + 1 DAY)
+		          AND created_at <  DATE_ADD(DATE_SUB(CURDATE(), INTERVAL WEEKDAY(CURDATE()) + 1 DAY), INTERVAL 7 DAY)
+
+		        """;
+		        PreparedStatement ps = conn.prepareStatement(sql);
+		        ResultSet rs = ps.executeQuery();
+
+		        if (rs.next()) {
+		            summary.setCount(rs.getInt("cnt"));
+		            summary.setTotalScore(rs.getInt("total"));
+		        }
+		    } catch (Exception e) {
+		        e.printStackTrace();
+		    } finally {
+		        close(conn);
+		    }
+
+		    return summary;
+		}
 }
 	
 

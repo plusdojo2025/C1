@@ -19,6 +19,7 @@
 		<jsp:include page="Mindshift_navigation.jsp" />
 		<!-- ヘッダー（ここまで） -->
 		<main>
+		<!-- この部分を差し替える -->
 		<h2 style="text-align:center;">オブジェクト表示</h2>
 		  <div class="rectangle">
 		    <div class="plantimg"><img id="plantImage" src="" width="100" height="150" alt="植物の画像"></div>

@@ -12,7 +12,6 @@ import javax.servlet.http.HttpServletResponse;
 import javax.servlet.http.HttpSession;
 
 import dao.AllListDao;
-import dao.stampsDao;
 import dto.AllListDto;
 import dto.stampsDto;
 
@@ -47,17 +46,17 @@ public class HomeServlet extends CustomTemplateServlet {
 		}
 		//セッションの取得
 		HttpSession session = request.getSession();
+		Integer userId = (Integer) request.getSession().getAttribute("user_id");
 		
-		
-		//ホームページ　オブジェクト表示用stampsテーブルから件数とスコア
-		stampsDao sDao = new stampsDao();
-		stampsDto summary = sDao.selectWeeklySummary();  // 引数削除
+		//ホームページ　オブジェクト表示用AllListテーブルから件数とスコア
+		AllListDao sDao = new AllListDao();
+	    stampsDto summary = sDao.selectWeeklySummary(userId);
 		    request.setAttribute("stampCount",  summary.getCount());
 		    request.setAttribute("totalScore",  summary.getTotalScore());
 
 		    // スタンプ集計表（1か月分）
 		    AllListDao dao = new AllListDao();
-		    Map<Integer, Integer> stampCounts = dao.getStampCountsThisMonth();  // 引数なしで呼び出しOK
+		    Map<Integer, Integer> stampCounts = dao.getStampCountsThisMonth(userId);  
 		    request.setAttribute("stampCounts", stampCounts);
 
 		    
