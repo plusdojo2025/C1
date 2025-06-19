@@ -482,7 +482,7 @@ public class AllListDao extends CustomTemplateDao<AllListDto> {
 		        ResultSet rs = ps.executeQuery();
 
 		        if (rs.next()) {
-		            summary.setCount(rs.getInt("cnt"));
+		            summary.setCnt(rs.getInt("cnt"));
 		            summary.setTotalScore(rs.getInt("total"));
 		        }
 		    } catch (Exception e) {

@@ -51,7 +51,7 @@ public class HomeServlet extends CustomTemplateServlet {
 		//ホームページ　オブジェクト表示用AllListテーブルから件数とスコア
 		AllListDao sDao = new AllListDao();
 	    stampsDto summary = sDao.selectWeeklySummary(userId);
-		    request.setAttribute("stampCount",  summary.getCount());
+		    request.setAttribute("stampCount",  summary.getCnt());
 		    request.setAttribute("totalScore",  summary.getTotalScore());
 
 		    // スタンプ集計表（1か月分）
@@ -61,9 +61,9 @@ public class HomeServlet extends CustomTemplateServlet {
 
 		    
 		    //コンソールにテスト表示
-		    System.out.println("stampCount = " + summary.getCount());
-		    System.out.println("totalScore = " + summary.getCount());
-		    System.out.println("stampCounts = " + summary.getCount());
+		    System.out.println("stampCount = " + summary.getCnt());
+		    System.out.println("totalScore = " + summary.getCnt());
+		    System.out.println("stampCounts = " + summary.getCnt());
 	    // ホームページにフォワードする
 	    RequestDispatcher dispatcher = request.getRequestDispatcher("/WEB-INF/jsp/home.jsp");
 		dispatcher.forward(request, response);
