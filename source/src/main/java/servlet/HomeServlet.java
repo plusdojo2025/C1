@@ -2,6 +2,7 @@ package servlet;
 
 import java.io.IOException;
 import java.util.Date;
+import java.util.List;
 import java.util.Map;
 
 import javax.servlet.RequestDispatcher;
@@ -64,6 +65,13 @@ public class HomeServlet extends CustomTemplateServlet {
 		    System.out.println("stampCount = " + summary.getCnt());
 		    System.out.println("totalScore = " + summary.getCnt());
 		    System.out.println("stampCounts = " + summary.getCnt());
+		    
+		    
+		    AllListDao allstamps = new AllListDao();   
+		    List<AllListDto> allStamp = allstamps.select_stamp(userId);
+		    
+		    request.setAttribute("allStamp", allStamp);
+
 	    // ホームページにフォワードする
 	    RequestDispatcher dispatcher = request.getRequestDispatcher("/WEB-INF/jsp/home.jsp");
 		dispatcher.forward(request, response);
