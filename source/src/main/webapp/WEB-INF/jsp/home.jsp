@@ -101,7 +101,8 @@
 		<c:forEach var="e" items="${stampCounts}">
 		    stampData.push({ id: ${e.key}, count: ${e.value} });
 		</c:forEach>
-		
+		//ここでブラウザにstampDataの中身を表示する
+		console.log("stampData =", stampData);
 		stampData.forEach(item => {
 		    const cell = document.getElementById(`stamp-${item.id}`);
 		    if (cell) {
