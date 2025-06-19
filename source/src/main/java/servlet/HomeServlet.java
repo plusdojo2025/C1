@@ -35,6 +35,7 @@ public class HomeServlet extends CustomTemplateServlet {
 		allListsDto.setCreatedAt(new Date());
 		allListsDto.setPlant("setPlant");
 		
+		
 		allListsDao.insert(allListsDto);
 		allListsDao.select(allListsDto);
 		allListsDao.update(allListsDto);
@@ -49,21 +50,21 @@ public class HomeServlet extends CustomTemplateServlet {
 		HttpSession session = request.getSession();
 		Integer userId = (Integer) request.getSession().getAttribute("user_id");
 		
-		//ホームページ　オブジェクト表示用AllListテーブルから件数とスコア
+		//ホームページ　オブジェクト表示用 AllListテーブルから件数とスコア
 		AllListDao sDao = new AllListDao();
 	    stampsDto summary = sDao.selectWeeklySummary(userId);
 		    request.setAttribute("stampCount",  summary.getCnt());
 		    request.setAttribute("totalScore",  summary.getTotalScore());
+		  //コンソールにテスト表示
+		    System.out.println("stampCount = " + summary.getCnt());
+		    System.out.println("totalScore = " + summary.getCnt());
 
 		    // スタンプ集計表（1か月分）
 		    AllListDao dao = new AllListDao();
 		    Map<Integer, Integer> stampCounts = dao.getStampCountsThisMonth(userId);  
 		    request.setAttribute("stampCounts", stampCounts);
 
-		    
-		    //コンソールにテスト表示
-		    System.out.println("stampCount = " + summary.getCnt());
-		    System.out.println("totalScore = " + summary.getCnt());
+		    //コンソールにテスト
 		    System.out.println("stampCounts = " + stampCounts);
 		    
 		    

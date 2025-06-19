@@ -520,7 +520,7 @@ public class AllListDao extends CustomTemplateDao<AllListDto> {
 		        conn = conn();
 		        String sql = """
 		            SELECT COUNT(*) AS cnt,
-		               COALESCE(SUM(weekstamps), 0) AS total
+		               COALESCE(SUM(emo_stamp_id), 0) AS total
 		        FROM allList
 		        WHERE user_id = ?
 		          AND created_at >= DATE_SUB(CURDATE(), INTERVAL WEEKDAY(CURDATE()) + 1 DAY)
@@ -532,6 +532,9 @@ public class AllListDao extends CustomTemplateDao<AllListDto> {
 		        ResultSet rs = ps.executeQuery();
 
 		        if (rs.next()) {
+		        	//
+		        	System.out.println("DAO内のSQL結果 cnt = " + rs.getInt("cnt"));
+		        	System.out.println("DAO内のSQL結果 total = " + rs.getInt("total"));
 		            summary.setCnt(rs.getInt("cnt"));
 		            summary.setTotalScore(rs.getInt("total"));
 		        }
