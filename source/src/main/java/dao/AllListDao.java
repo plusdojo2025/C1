@@ -451,7 +451,7 @@ public class AllListDao extends CustomTemplateDao<AllListDto> {
 	        WHERE created_at >= DATE_FORMAT(CURDATE(), '%Y-%m-01')
 	          AND created_at < DATE_FORMAT(DATE_ADD(CURDATE(), INTERVAL 1 MONTH), '%Y-%m-01')
 	          AND user_id = ?
-
+	        　GROUP BY emo_stamp_id
 	        """;
 
 	        PreparedStatement ps = conn.prepareStatement(sql);
