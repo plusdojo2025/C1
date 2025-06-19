@@ -64,7 +64,7 @@ public class HomeServlet extends CustomTemplateServlet {
 		    //コンソールにテスト表示
 		    System.out.println("stampCount = " + summary.getCnt());
 		    System.out.println("totalScore = " + summary.getCnt());
-		    System.out.println("stampCounts = " + summary.getCnt());
+		    System.out.println("stampCounts = " + stampCounts);
 		    
 		    
 		    AllListDao allstamps = new AllListDao();   
