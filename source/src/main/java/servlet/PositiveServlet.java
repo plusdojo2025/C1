@@ -105,7 +105,7 @@ public class PositiveServlet extends CustomTemplateServlet {
 				
 				
 				
-				if("登録".equals(abutton)){
+				if(abutton != null){
 				// AllListDaoのinsert文を呼び出して登録処理をする
 				AllList AL = new AllList(0, userId, emo_stamp ,action, emotion, feedbacks_id, new java.util.Date(), "");	
 				AL.setFeedbacks(feedbacks);
@@ -113,14 +113,14 @@ public class PositiveServlet extends CustomTemplateServlet {
 				AllListDAO.insert(AL);	
 				
 				// EmotionsDaoのdelete文を呼び出して削除処理をする
-				EmotionsDao EmotionsDAO = new EmotionsDao();
-				EmotionsDAO.delete(new EmotionsDto());
+//				EmotionsDao EmotionsDAO = new EmotionsDao();
+//				EmotionsDAO.delete(new EmotionsDto());
 				
 				// ページ遷移
 				response.sendRedirect("MindShift-home");
-//				}else{
+				}else{
 				// EmotionsDaoのdelete文を呼び出して削除処理をする
-				EmotionsDAO.delete(new EmotionsDto());
+//				EmotionsDAO.delete(new EmotionsDto());
 				
 				// ページ遷移
 				response.sendRedirect("MindShift-regist");

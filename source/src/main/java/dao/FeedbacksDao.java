@@ -44,7 +44,9 @@ ORDER by rand() limit 1
 
 			// 結果表をコレクションにコピーする
 			while (rs.next()) {
-				FeedbacksDto feedback = new FeedbacksDto(rs.getInt("feedbacks_id"),
+				FeedbacksDto feedback = new FeedbacksDto(
+						rs.getInt("feedbacks_id"),
+						rs.getInt("emo_stamp_id"),
 						rs.getInt("emotion_id"),
 						rs.getString("feedbacks")
 				);
