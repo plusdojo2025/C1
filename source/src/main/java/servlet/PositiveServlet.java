@@ -94,7 +94,7 @@ public class PositiveServlet extends CustomTemplateServlet {
 				}
 				
       			// リクエストパラメータを取得（入力された内容を取得する）
-				request.setCharacterEncoding("UTF-8");
+				response.setCharacterEncoding("UTF-8");
 				String abutton = request.getParameter("abutton");
 				Integer userId = (Integer) request.getSession().getAttribute("user_id");
 				int emo_stamp = Integer.parseInt(request.getParameter("emo_stamp"));
@@ -105,7 +105,7 @@ public class PositiveServlet extends CustomTemplateServlet {
 				
 				
 				
-				if(abutton != null){
+//				if(abutton .equals("登録")){
 				// AllListDaoのinsert文を呼び出して登録処理をする
 				AllList AL = new AllList(0, userId, emo_stamp ,action, emotion, feedbacks_id, new java.util.Date(), "");	
 				AL.setFeedbacks(feedbacks);
@@ -118,13 +118,13 @@ public class PositiveServlet extends CustomTemplateServlet {
 				
 				// ページ遷移
 				response.sendRedirect("MindShift-home");
-				}else{
+//				}else{
 				// EmotionsDaoのdelete文を呼び出して削除処理をする
 //				EmotionsDAO.delete(new EmotionsDto());
 				
 				// ページ遷移
-				response.sendRedirect("MindShift-regist");
-				}
+//				response.sendRedirect("MindShift-regist");
+//				}
 //				response.getWriter().append("Served at: ").append(request.getContextPath());
 			
 			}

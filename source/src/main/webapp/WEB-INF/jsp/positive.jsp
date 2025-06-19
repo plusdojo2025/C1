@@ -24,10 +24,55 @@
   <main>
     <div id="regist_text">
         <h2>登録内容</h2>
-        <p id="emo_stamp"><c:out value="${feedbacksList.emo_stamp_id}" /></p>
-        <p id="action">出来事：<c:out value="${emotionsList.action}" /></p>
-        <p id="emotion"><c:out value="${emotionsList.emotion}" /></p>
-    </div>
+         <div class="form-group">
+    <label>感情スタンプ：</label>
+   <c:if test="${feedbacksList.emo_stamp_id == '5'}">
+    <span class="emostamp">😆</span>
+   </c:if>
+   
+   <c:if test="${feedbacksList.emo_stamp_id == '4'}">
+    <span class="emostamp">😊</span>
+   </c:if>
+   
+   <c:if test="${feedbacksList.emo_stamp_id == '3'}">
+    <span class="emostamp">😠</span>
+   </c:if>
+   
+   <c:if test="${feedbacksList.emo_stamp_id == '2'}">
+    <span class="emostamp">😢</span>
+   </c:if>
+   
+   <c:if test="${feedbacksList.emo_stamp_id == '1'}">
+    <span class="emostamp">😨</span>
+   </c:if>
+  </div>
+  
+        <p id="action">出来事：<c:out value="${emotionsList.action}" /></p>      
+        
+ <c:choose>
+  <c:when test="${emotionsList.emotion == '24' || emotionsList.emotion == '18'}"> <c:set var="emotionLabel" value="元気" /></c:when>
+  <c:when test="${emotionsList.emotion == '23' || emotionsList.emotion == '17'}"> <c:set var="emotionLabel" value="リラックス" /></c:when>
+  <c:when test="${emotionsList.emotion == '22' || emotionsList.emotion == '16'}"> <c:set var="emotionLabel" value="安心" /></c:when>
+  <c:when test="${emotionsList.emotion == '21' || emotionsList.emotion == '15'}"> <c:set var="emotionLabel" value="好き" /></c:when>
+  <c:when test="${emotionsList.emotion == '20' || emotionsList.emotion == '14'}"> <c:set var="emotionLabel" value="幸せ" /></c:when>
+  <c:when test="${emotionsList.emotion == '19' || emotionsList.emotion == '13'}"> <c:set var="emotionLabel" value="満足" /></c:when>
+  <c:when test="${emotionsList.emotion == '12'}"> <c:set var="emotionLabel" value="嫌悪" /></c:when>
+  <c:when test="${emotionsList.emotion == '11'}"> <c:set var="emotionLabel" value="不満" /></c:when>
+  <c:when test="${emotionsList.emotion == '10'}"> <c:set var="emotionLabel" value="嫉妬" /></c:when>
+  <c:when test="${emotionsList.emotion == '9'}"> <c:set var="emotionLabel" value="憤り" /></c:when>
+  <c:when test="${emotionsList.emotion == '8' || emotionsList.emotion == '4'}"> <c:set var="emotionLabel" value="後悔" /></c:when>
+  <c:when test="${emotionsList.emotion == '7'}"> <c:set var="emotionLabel" value="絶望" /></c:when>
+  <c:when test="${emotionsList.emotion == '6'}"> <c:set var="emotionLabel" value="寂しさ" /></c:when>
+  <c:when test="${emotionsList.emotion == '5'}"> <c:set var="emotionLabel" value="切なさ" /></c:when>
+  <c:when test="${emotionsList.emotion == '3'}"> <c:set var="emotionLabel" value="焦り" /></c:when>
+  <c:when test="${emotionsList.emotion == '2'}"> <c:set var="emotionLabel" value="恐怖" /></c:when>
+  <c:when test="${emotionsList.emotion == '1'}"> <c:set var="emotionLabel" value="不安" /></c:when>
+</c:choose>
+
+<div class="form-group">
+ <p id="emotion">その時の感情：<c:out value="${emotionLabel}" /></p>
+</div>
+</div>
 
     <div id="feedback_text">
         <h2>フィードバック</h2>
@@ -40,8 +85,11 @@
     	<input type="hidden" name="emotion" value="${emotionsList.emotion}">
     	<input type="hidden" name="feedbacks_id" value="${feedbacksList.id}">
     	<input type="hidden" name="feedbacks" value="${feedbacksList.feedbacks}">
-        <input type="submit" id="back_button" name="abutton" value="感情登録に戻る">
         <input type="submit" name="abutton" value="登録">
+    </form>
+    
+    <form id="back" method="GET" action="MindShift-regist">
+    <input type="button" id="back_button" name="abutton" value="感情登録に戻る">
     </form>
   </main>
 
