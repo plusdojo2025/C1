@@ -6,7 +6,7 @@
 <html>
 <head>
 <meta charset="UTF-8">
-<title>ページ名 | MindShift</title>
+<title>各種説明 | MindShift</title>
 <link rel="stylesheet"
 	href="${pageContext.request.contextPath}/css/explain.css">
     <link rel="icon" href="image/favicon1.ico" id="favicon">
