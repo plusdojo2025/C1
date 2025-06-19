@@ -77,16 +77,7 @@ public class AllListDao extends CustomTemplateDao<AllListDto> {
 					feedbacks_id, 
 					created_at, 
 					plant)
-					value(?,?,0,?,?,new Timestamp(System.currentTimeMillis(),?)
-					user_id = ?
-					emo_stamp_id= ?
-					action= ?
-					emotion_id= ?
-					feedbacks_id= ?
-					created_at= ?
-					plant= ?
-					where id = ?
-					
+					value(?, ?, ?, ?, ?, NOW(), ?)
 					""";
 			PreparedStatement pStmt = conn.prepareStatement(sql);
 
@@ -97,8 +88,8 @@ public class AllListDao extends CustomTemplateDao<AllListDto> {
 			pStmt.setString(3, dto.getAction());
 			pStmt.setInt(4, dto.getEmotionId());
 			pStmt.setInt(5, dto.getFeedbacksId());
-			pStmt.setDate(6, new java.sql.Date(dto.getCreatedAt().getTime()));
-			pStmt.setString(7, dto.getPlant());
+//			pStmt.setDate(6, new java.sql.Date(dto.getCreatedAt().getTime()));
+			pStmt.setString(6, dto.getPlant());
 
 			// SQL文を実行する
 			if (pStmt.executeUpdate() == 1) {

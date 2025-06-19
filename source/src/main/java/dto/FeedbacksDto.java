@@ -4,18 +4,20 @@ import java.io.Serializable;
 
 public class FeedbacksDto extends CustomTemplateDto implements Serializable{
 	private int id;
+	private int emo_stamp_id;
 	private int emotionId;
 	private String feedbacks;
 
-	public FeedbacksDto(int id, int emotionId, String feedbacks) {
+	public FeedbacksDto(int id, int emo_stamp_id, int emotionId, String feedbacks) {
 		super();
 		this.id = id;
+		this.emo_stamp_id = emo_stamp_id;
 		this.emotionId = emotionId;
 		this.feedbacks = feedbacks;
 	}
 	
 	public FeedbacksDto() {
-		this(0, 0, "");
+		this(0, 0, 0, "");
 	}
 
 	public int getId() {
@@ -24,6 +26,14 @@ public class FeedbacksDto extends CustomTemplateDto implements Serializable{
 
 	public void setId(int id) {
 		this.id = id;
+	}
+	
+	public int getEmo_stamp_id() {
+		return emo_stamp_id;
+	}
+
+	public void setEmo_stamp_id(int emo_stamp_id) {
+		this.emo_stamp_id = emo_stamp_id;
 	}
 
 	public int getEmotionId() {

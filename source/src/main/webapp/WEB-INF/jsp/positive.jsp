@@ -24,7 +24,7 @@
   <main>
     <div id="regist_text">
         <h2>登録内容</h2>
-        <p id="emo_stamp"><c:out value="${emotionsList.emoStamp}" /></p>
+        <p id="emo_stamp"><c:out value="${feedbacksList.emo_stamp_id}" /></p>
         <p id="action">出来事：<c:out value="${emotionsList.action}" /></p>
         <p id="emotion"><c:out value="${emotionsList.emotion}" /></p>
     </div>
@@ -35,12 +35,12 @@
     </div>
 
     <form id="feedback_form" method="POST" action="MindShift-positive">
-    	<input type="hidden" name="emo_stamp" value="${emotionsList.emoStamp}">
+    	<input type="hidden" name="emo_stamp" value="${feedbacksList.emo_stamp_id}">
     	<input type="hidden" name="action" value="${emotionsList.action}">
     	<input type="hidden" name="emotion" value="${emotionsList.emotion}">
     	<input type="hidden" name="feedbacks_id" value="${feedbacksList.id}">
     	<input type="hidden" name="feedbacks" value="${feedbacksList.feedbacks}">
-        <input type="button" id="back_button" name="abutton" value="感情登録に戻る">
+        <input type="submit" id="back_button" name="abutton" value="感情登録に戻る">
         <input type="submit" name="abutton" value="登録">
     </form>
   </main>
