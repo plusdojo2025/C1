@@ -9,7 +9,7 @@
 <head>
 <meta charset="UTF-8">
 <title>登録一覧 | MindShift</title>
-<link rel="icon" href="${pageContext.request.contextPath}/images/favicon1.ico" id="favicon">
+<link rel="icon" href="${pageContext.request.contextPath}/image/favicon1.ico" id="favicon">
 <link rel="stylesheet"
 	href="${pageContext.request.contextPath}/css/list.css">
 	
