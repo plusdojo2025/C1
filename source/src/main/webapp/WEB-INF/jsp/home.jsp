@@ -284,6 +284,7 @@
             	</c:forEach>
             		};
          // ★土曜日のセルの隣に画像セルを追加
+          if(!isCrossMonthRow){
             let saturdayCell = row.children[6]; // 7列目（0開始）
 
             if (saturdayCell) {
@@ -322,6 +323,20 @@
             } else {
                 break;
             }
+          }else{
+           
+                const newCell = document.createElement('td');
+                newCell.className = 'plant';
+
+                const img = document.createElement('img');
+                img.src = '${pageContext.request.contextPath}/image/logo_circle.png';   // 画像のパスを指定
+                img.alt = '植物の画像';          // 代替テキスト
+                img.width = 100;                 // 幅（必要に応じて調整）
+                img.height = 100;     
+                newCell.appendChild(img);
+                row.appendChild(newCell);	
+                	
+                }
                    
            /* const contextPath = "${pageContext.request.contextPath}";
             const plantList = [
@@ -355,7 +370,8 @@
             	
             	
                 
-         /*   }else{
+         /*   }else
+            if(isCrossMonthRow){
             const newCell = document.createElement('td');
             newCell.className = 'plant';
 

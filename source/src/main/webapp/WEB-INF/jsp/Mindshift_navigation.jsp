@@ -4,30 +4,30 @@
 <%@ taglib uri="http://java.sun.com/jsp/jstl/fmt" prefix="fmt"%>
 <nav class="nav">
   <ul class="menu2">
-    <li><a href="MindShift-home">ホーム</a></li>
-    <li><a href="MindShift-explain">各種説明</a></li>
-    <li><a href="MindShift-regist">感情登録</a></li>
+    <li><a href="MindShift-home">🌸ホーム🌸</a></li>
+    <li><a href="MindShift-explain">🌷各種説明🌷</a></li>
+    <li><a href="MindShift-regist">🌹感情登録🌹</a></li>
 
     <!-- 登録一覧へのPOSTリクエスト -->
     <li>
       <form action="MindShift-list" method="get">
-        <button type="submit" class="menu-button_li" name="record">今月の登録一覧</button>
+        <button type="submit" class="menu-button_li" name="record">🌻今月の登録一覧🌻</button>
       </form>
     </li>
 
     <li class="menu-item-has-submenu">
-      <a href="#">アカウント</a>
+      <a href="#">🌼アカウント🌼</a>
       <ul>
         <!-- ログアウト -->
         <li>
           <form action="MindShift-home" method="post">
-            <button type="submit" class="menu-button" name="logout" id="logout">ログアウト</button>
+            <button type="submit" class="menu-button" name="logout" id="logout">🪻ログアウト🪻</button>
           </form>
         </li>
         <!-- アカウント削除 -->
         <li>
           <form action="MindShift-home" method="post">
-            <button type="submit" class="menu-button" name="account_del" id="account_del">アカウント削除</button>
+            <button type="submit" class="menu-button" name="account_del" id="account_del">🥀アカウント削除🥀</button>
           </form>
         </li>
       </ul>
