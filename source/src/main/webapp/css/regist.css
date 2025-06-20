@@ -176,6 +176,13 @@ main {
 	margin-bottom: 20px;
 }
 
+.hText {
+	height: 50px;
+	margin-bottom: 0;
+	align-content: center;
+}
+
+
 .radio_edit{
    font-size: 1.5rem;
 /*	margin-top: 20px;

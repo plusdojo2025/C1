@@ -157,25 +157,36 @@ padding: 0;
 
 
 /* メイン　************************************************************/
-/******** メイン **********/
+h2 {
+  padding: 10px 0 10px 0;
+}
+
 #regist_text {
   margin: 50px auto 50px auto;
   width:800px;
+  height: 180px;
   text-align: center;
   background-color: #FFFFFF;
-  border: solid;
-  border-color:#59b396;
-  border-radius:30px;
+  border-radius: 8px;
+  box-shadow: 0 0 10px rgba(0,0,0,0.1);
+}
+
+#action, #emotion {
+	margin: 0px;
 }
 
 #feedback_text {
   margin: 40px auto 40px auto;
   width:800px;
+  height: 150px;
   text-align: center;
   background-color: #FFFFFF;
-  border: solid;
-  border-color:#59b396;
-  border-radius:30px;
+  border-radius: 8px;
+  box-shadow: 0 0 10px rgba(0,0,0,0.1);
+}
+#feedback {
+	width: 700px;
+	margin: 0 auto 0 auto;
 }
 /****************************/
 
