@@ -92,11 +92,8 @@ public class LoginRegisterServlet extends CustomTemplateServlet {
     				    "──────────────────────\n" +
     				    "※ 本メールは送信専用です。\n" +
     				    "　ご返信いただいても対応いたしかねますので、ご了承ください。\n" +
-    				    "※ ご登録にお心当たりのない場合は、\n" +
-    				    "　以下までご連絡ください。\n" +
-    				    "　gonbei-nanashino-plusdojo2025@seplus2016.onmicrosoft.com\n" +
     				    "──────────────────────\n\n" +
-    				    "CollectForce Inc.\n" +
+    				    "FRIYAY Inc.\n" +
     				    "〒102-0083 東京都千代田区麹町1丁目6\n"
     				    ;
     			MailUtil.sendMail(loginId, subject, body);
