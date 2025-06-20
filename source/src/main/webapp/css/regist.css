@@ -194,6 +194,7 @@ h2{
 }
 
 input[type="radio"] {
+  /* accent-color: #59b396; */
   transform: scale(1.5);
 }
 /****************************/
