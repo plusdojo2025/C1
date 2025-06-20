@@ -113,77 +113,77 @@
   </div>
 
   <c:choose>
-  <c:when test="${item.feedbacksId == '52' || item.feedbacksId == ''}"> <c:set var="feedbackLabel" value="元気チャージできたね！このチャージを使って明日からもうひと踏ん張りだ！" /></c:when>
-  <c:when test="${item.feedbacksId == '53' || item.feedbacksId == ''}"> <c:set var="feedbackLabel" value="自分らしさを取り戻せたかな？明日もこの調子で頑張っていこう！" /></c:when>
-  <c:when test="${item.feedbacksId == '54' || item.feedbacksId == ''}"> <c:set var="feedbackLabel" value="元気が出てよかったよ！これで少しでも気持ちが前向きなったら嬉しいな！" /></c:when>
+  <c:when test="${item.feedbacksId == '52' || item.feedbacksId == ''}"> <c:set var="feedbackLabel" value="元気をしっかりチャージできたみたいですね！少しでも心が軽くなったなら本当に良かったです。そのエネルギーを大切にして、明日からもうひと踏ん張りしていきましょう！今のあなたなら大丈夫です！" /></c:when>
+  <c:when test="${item.feedbacksId == '53' || item.feedbacksId == ''}"> <c:set var="feedbackLabel" value="自分らしさを少しずつ取り戻せたのではないでしょうか？自分のペースで前に進むことが一番大切です。明日もこの調子で無理せず一歩ずつ進んでいきましょうね。" /></c:when>
+  <c:when test="${item.feedbacksId == '54' || item.feedbacksId == ''}"> <c:set var="feedbackLabel" value="元気が出てきたようで良かったです！これで少しでも気持ちが前向きになっていたら、嬉しいです。どんな小さな一歩でも、自分を信じて進めば、きっと大きな力になりますよ。" /></c:when>
   
   <c:when test="${item.feedbacksId == '49' || item.feedbacksId == ''}"> <c:set var="feedbackLabel" value="リフレッシュできたみたいだね。休息も大事だから、リラックスできた自分を褒めてあげよう！" /></c:when>
-  <c:when test="${item.feedbacksId == '50' || item.feedbacksId == ''}"> <c:set var="feedbackLabel" value="毎日頑張っているからこそ、リラックスタイムは重要だね。たくさん自分を癒してあげてね。" /></c:when>
-  <c:when test="${item.feedbacksId == '51' || item.feedbacksId == ''}"> <c:set var="feedbackLabel" value="リラックスできてよかった！自分がどんなことでリラックスできるのかメモしておくと、気分転換したいときに役立つよ。" /></c:when>
+  <c:when test="${item.feedbacksId == '50' || item.feedbacksId == ''}"> <c:set var="feedbackLabel" value="毎日一生懸命頑張っているからこそ、リラックスタイムはとても重要な時間になります。無理せず、今のようにリラックスできる時間を意識していきましょう。たくさん自分を癒してあげてね。" /></c:when>
+  <c:when test="${item.feedbacksId == '51' || item.feedbacksId == ''}"> <c:set var="feedbackLabel" value="リラックスできてよかったです！自分がどんなことでリラックスできるのかメモしておくと、気分転換したいときに役立ちますよ。自分の気分転換リストを作ってみるのもおすすめですよ。" /></c:when>
   
-  <c:when test="${item.feedbacksId == '46' || item.feedbacksId == ''}"> <c:set var="feedbackLabel" value="一息つけたみたいでよかった！この調子で自分のペースで進んでいこう。" /></c:when>
-  <c:when test="${item.feedbacksId == '47' || item.feedbacksId == ''}"> <c:set var="feedbackLabel" value="一安心だね。ここまで頑張った自分をたくさん褒めてね！" /></c:when>
-  <c:when test="${item.feedbacksId == '48' || item.feedbacksId == ''}"> <c:set var="feedbackLabel" value="心が休まったね。頑張っている姿をいつも見てるから、今日はゆっくりしよう！" /></c:when>
+  <c:when test="${item.feedbacksId == '46' || item.feedbacksId == ''}"> <c:set var="feedbackLabel" value="一息つけたようで安心しました！頑張ったかいがありましたね。今日は一度休息をとって、明日からもこの調子で自分のペースで進んでいきましょう。お疲れさまでした。" /></c:when>
+  <c:when test="${item.feedbacksId == '47' || item.feedbacksId == ''}"> <c:set var="feedbackLabel" value="一安心ですね。ぜひ、ここまで頑張った自分をたくさん褒めてあげてください。そして、あなたの頑張りを周りは理解してくれていますよ。本当にお疲れ様です。" /></c:when>
+  <c:when test="${item.feedbacksId == '48' || item.feedbacksId == ''}"> <c:set var="feedbackLabel" value="心が休まったようで良かったです。頑張っている姿をいつも見ていますから安心してくださいね。今日は、お家で溜まっているドラマを見てゆっくりするのはどうしょうか？" /></c:when>
   
-  <c:when test="${item.feedbacksId == '43' || item.feedbacksId == ''}"> <c:set var="feedbackLabel" value="本当に好きなんですね。それだけ夢中になれるってことは本当に素晴らしいことです！！" /></c:when>
-  <c:when test="${item.feedbacksId == '44' || item.feedbacksId == ''}"> <c:set var="feedbackLabel" value="その気持ちを大切にしてください。きっともっと素敵なことに繋がりますよ！！" /></c:when>
-  <c:when test="${item.feedbacksId == '45' || item.feedbacksId == ''}"> <c:set var="feedbackLabel" value="すごく魅力的ですね。あなたの目が輝いてます。その気持ちを大切にしましょう！！" /></c:when>
+  <c:when test="${item.feedbacksId == '43' || item.feedbacksId == ''}"> <c:set var="feedbackLabel" value="本当に好きなんですね。その気持ちがよく伝わりましたよ。それだけ夢中になれるのは本当に素晴らしいです！その気持ちをだれかに共有してみませんか？" /></c:when>
+  <c:when test="${item.feedbacksId == '44' || item.feedbacksId == ''}"> <c:set var="feedbackLabel" value="ぜひその気持ちを大切にしてくださいね。きっともっと素敵なことに繋がります。そして、今の気持ちを覚えていると将来役に立つのではないでしょうか。" /></c:when>
+  <c:when test="${item.feedbacksId == '45' || item.feedbacksId == ''}"> <c:set var="feedbackLabel" value="すごく魅力的ですね。あなたの目が輝いてますよ。その気持ちを大切にしましょう！そして何が好きなのか詳しく考えてみるともっと好きになりかもしれません。" /></c:when>
   
-  <c:when test="${item.feedbacksId == '40' || item.feedbacksId == ''}"> <c:set var="feedbackLabel" value="最高ですね！！、これからもっと幸せなことが待ってそうですね。応援しています！！" /></c:when>
-  <c:when test="${item.feedbacksId == '41' || item.feedbacksId == ''}"> <c:set var="feedbackLabel" value="素敵ですね！！、その幸せがずっと続くことを願っています。" /></c:when>
-  <c:when test="${item.feedbacksId == '42' || item.feedbacksId == ''}"> <c:set var="feedbackLabel" value="素晴らしいことですね！！、幸せを感じられる日々が続くと心もどんどん元気になりそうですね。" /></c:when>
+  <c:when test="${item.feedbacksId == '40' || item.feedbacksId == ''}"> <c:set var="feedbackLabel" value="とても幸せそうでよかったです。これから先も、きっとたくさんの素敵なことが待っていますよ。新たな幸せを掴めるように、これからも応援しています。" /></c:when>
+  <c:when test="${item.feedbacksId == '41' || item.feedbacksId == ''}"> <c:set var="feedbackLabel" value="それは素敵でしたね。幸せは舞い込んでくるものではなく、自分でつかみ取るものです。明日からも幸せを捕まえられるように、積極的に動いていきましょう！" /></c:when>
+  <c:when test="${item.feedbacksId == '42' || item.feedbacksId == ''}"> <c:set var="feedbackLabel" value="素晴らしいことですね。幸せを感じられる日々が続くと心もどんどん元気になるので、心の栄養を補給していきましょうね。この幸せをエネルギーにして、明日からも頑張りましょう！" /></c:when>
   
-  <c:when test="${item.feedbacksId == '37' || item.feedbacksId == ''}"> <c:set var="feedbackLabel" value="それはいい事だね！！、自分らしく取り組んだ結果だね。この調子で行こう！！" /></c:when>
-  <c:when test="${item.feedbacksId == '38' || item.feedbacksId == '55'}"> <c:set var="feedbackLabel" value="さすがです！！、満足できる結果になって本当によかったです。" /></c:when>
-  <c:when test="${item.feedbacksId == '39' || item.feedbacksId == '56'}"> <c:set var="feedbackLabel" value="本当に嬉しそうですね。その気持ちを忘れずに、これからも前向きに行きましょう！！" /></c:when>
+  <c:when test="${item.feedbacksId == '37' || item.feedbacksId == ''}"> <c:set var="feedbackLabel" value="それはいい事ですね。きっと自分らしく取り組んだ結果が形になったのですね。この満足した気持ちを忘れずに、これからも少しずつ進んでいきましょう！" /></c:when>
+  <c:when test="${item.feedbacksId == '38' || item.feedbacksId == '55'}"> <c:set var="feedbackLabel" value="さすがですね、満足できる結果になって本当によかったです。きっとあなたの頑張りを周りの人も見てくれているはずですよ！満足いくまで取り組めた自分を認めてあげてくださいね。" /></c:when>
+  <c:when test="${item.feedbacksId == '39' || item.feedbacksId == '56'}"> <c:set var="feedbackLabel" value="本当に嬉しそうで安心しました。今までの努力を振り返って、頑張った自分を褒めましょう！再び頑張るのはその後でも大丈夫ですよ。これからも前向きに行きましょう。" /></c:when>
   
-  <c:when test="${item.feedbacksId == '34'}"> <c:set var="feedbackLabel" value="イライラするの、無理もないよ。感情が動くって、それだけ真剣だった証拠。まずは深呼吸して、好きなことに 5 分だけ集中してみて" /></c:when>
-  <c:when test="${item.feedbacksId == '35'}"> <c:set var="feedbackLabel" value="怒るのってエネルギー使うよね。でもずっと抱えてるのもしんどいし、まずは好きな音楽で気分切り替えよ！" /></c:when>
-  <c:when test="${item.feedbacksId == '36'}"> <c:set var="feedbackLabel" value="気持ちがごちゃごちゃしてるときは、寝るのが最強説ある。起きたらちょっとマシになってるかもよ？" /></c:when>
+  <c:when test="${item.feedbacksId == '34'}"> <c:set var="feedbackLabel" value="イライラしてしまうのも無理はありません。それだけ一生懸命向き合っていた証です。深呼吸をして、まずは好きなことに数分だけ集中してみましょう。少し気が紛れるだけでも、心が軽くなりますよ。" /></c:when>
+  <c:when test="${item.feedbacksId == '35'}"> <c:set var="feedbackLabel" value="怒りって、思っている以上にエネルギーを消耗しますよね。でも、その感情をずっと抱えているのもつらいものです。好きな音楽を聞いたり、心が落ち着く時間を作ることが大切かもしれません。" /></c:when>
+  <c:when test="${item.feedbacksId == '36'}"> <c:set var="feedbackLabel" value="気持ちがごちゃごちゃしてるときは、思いきって一度寝てしまうのもひとつの方法です。眠ることで脳と心がリセットされて、起きたときには少しだけ気持ちが楽になっているかもしれませんよ。'" /></c:when>
   
-  <c:when test="${item.feedbacksId == '31'}"> <c:set var="feedbackLabel" value="我慢し続けるのはつらいよね。ムリせず、ちょっと休んでみよう！" /></c:when>
-  <c:when test="${item.feedbacksId == '32'}"> <c:set var="feedbackLabel" value="今の気持ち、無理にポジティブにしなくていいよ。まずは美味しいものを食べて休もう！" /></c:when>
-  <c:when test="${item.feedbacksId == '33'}"> <c:set var="feedbackLabel" value="お疲れ様。その不満も大切な声だよ！思い切って誰かに相談するだけで、道が開けるかもよ！" /></c:when>
+  <c:when test="${item.feedbacksId == '31'}"> <c:set var="feedbackLabel" value="我慢を続けるのは、本当につらいことですよね。無理に頑張りすぎず、一度立ち止まって深呼吸をしてみましょう。少しの休息だけでも、気持ちが軽くなることがあります。心の声を大切にしてくださいね。" /></c:when>
+  <c:when test="${item.feedbacksId == '32'}"> <c:set var="feedbackLabel" value="今感じているそのモヤモヤした気持ちを、無理にポジティブに変えなくても大丈夫です。まずは美味しいものを食べて、ゆっくりと体を休めてみましょう。心にもエネルギーが戻ってくるはずですよ。" /></c:when>
+  <c:when test="${item.feedbacksId == '33'}"> <c:set var="feedbackLabel" value="その不満は、あなた自身の大切な感情のひとつです。無理に抱え込まず、思い切って信頼できる人に相談してみてください。誰かに話すだけで、気持ちが整理されたり、新しい道が見えてくることがありますよ。" /></c:when>
   
-  <c:when test="${item.feedbacksId == '28'}"> <c:set var="feedbackLabel" value="そんな日もあるよね。あなたにはあなたの良さがある。今日は、自分の良いところをメモしてみてみて" /></c:when>
-  <c:when test="${item.feedbacksId == '29'}"> <c:set var="feedbackLabel" value="嫉妬は成長のサイン。まずは休んで、自分に足りないものを一歩ずつ磨いていこう" /></c:when>
-  <c:when test="${item.feedbacksId == '30'}"> <c:set var="feedbackLabel" value="気持ちが落ち着かないときは、正直な感情を書き出してみて。気づきが得られると思うよ！" /></c:when>
+  <c:when test="${item.feedbacksId == '28'}"> <c:set var="feedbackLabel" value="思い通りにいかない日もありますし、落ち込んでしまうこともありますよね。でも、あなたにしかない魅力や強みが必ずあります。まずは、自分の好きなところや頑張っていることを書き出してみませんか。 " /></c:when>
+  <c:when test="${item.feedbacksId == '29'}"> <c:set var="feedbackLabel" value="嫉妬という気持ちは、実は自分ももっと成長したいという前向きなエネルギーのサインでもあります。自分に足りないと感じる部分を、少しずつ磨いていきましょう。きっと成長につながっていきますよ。" /></c:when>
+  <c:when test="${item.feedbacksId == '30'}"> <c:set var="feedbackLabel" value="気持ちが落ち着かないときは、正直な感情を紙に書き出してみてください。書いてみることで、自分でも気づいていなかった思いや願いに出会えることがありますし、気持ちの整理にもつながっていくはずです。" /></c:when>
   
-  <c:when test="${item.feedbacksId == '25'}"> <c:set var="feedbackLabel" value="大変だったね。感情を出すことは悪いことじゃないよ。まずは深呼吸して、また前に進もう！" /></c:when>
-  <c:when test="${item.feedbacksId == '26'}"> <c:set var="feedbackLabel" value="怒りを感じることは当たり前！まずは休んで、前に進むための原動力にしよう！" /></c:when>
-  <c:when test="${item.feedbacksId == '27'}"> <c:set var="feedbackLabel" value="まずは、深呼吸をして、よく食べて、よく寝てみようよ。体と心にお疲れ様！" /></c:when>
+  <c:when test="${item.feedbacksId == '25'}"> <c:set var="feedbackLabel" value="大変なことがあったのですね。つらい気持ちを抑える必要はありませんし、感情を出すことは決して悪いことではありません。まずは深呼吸をして、少しずつでいいので前を向いて進んでいきましょう！" /></c:when>
+  <c:when test="${item.feedbacksId == '26'}"> <c:set var="feedbackLabel" value="怒りを感じるのはとても自然なことです。無理に抑え込もうとせずに、まずは落ち着ける時間を作ってみましょう。しっかり休んで気持ちを整えることで、きっと前向きなエネルギーへと変わっていきますよ。" /></c:when>
+  <c:when test="${item.feedbacksId == '27'}"> <c:set var="feedbackLabel" value="つらい気持ちがあるときは、深呼吸をしたり、ゆっくり眠るだけでも心と体が軽くなります。あなたの心と体は、日々がんばっています。まずはそのことをねぎらってあげてくださいね。" /></c:when>
   
-  <c:when test="${item.feedbacksId == '22'}"> <c:set var="feedbackLabel" value="しんどかったよね、ほんとよく頑張った！後悔って、次に進むヒントだよ。まずは好きな曲でも聴いて、ちょっと一息しよ" /></c:when>
-  <c:when test="${item.feedbacksId == '23'}"> <c:set var="feedbackLabel" value="落ち込むのも当然だよ。でもそれって、ちゃんと向き合ってる証拠。コンビニで甘いもん買って、気分リセットしよ！" /></c:when>
-  <c:when test="${item.feedbacksId == '24'}"> <c:set var="feedbackLabel" value="後悔してるって？それ、未来の自分が“あの頃の自分、よくやった！”って言うための伏線だから。今は伏線回収待ち！" /></c:when>
+  <c:when test="${item.feedbacksId == '22'}"> <c:set var="feedbackLabel" value="つらい思いをしたのですね。本当によく頑張りました。後悔という気持ちは、次に進むための大切なヒントでもあります。まずは好きな音楽を聴いて、心と体を少しだけ休ませてあげましょう。" /></c:when>
+  <c:when test="${item.feedbacksId == '23'}"> <c:set var="feedbackLabel" value="落ち込んでしまうことも当然のことです。それはあなたがしっかりと自分の気持ちに向き合っている証です。無理に元気になろうとせずに、甘いものでも食べて、ゆっくり気分を整えてみてくださいね。" /></c:when>
+  <c:when test="${item.feedbacksId == '24'}"> <c:set var="feedbackLabel" value="後悔してるというその気持ちも、きっと未来の自分があのときの自分、よくやったと振り返るための大切な伏線です。今はまだ途中ですが、きっとその思いは意味のあるものに変わっていきますよ。" /></c:when>
   
-  <c:when test="${item.feedbacksId == '19'}"> <c:set var="feedbackLabel" value="本当に大変だったね。今は苦しいと思うけど、必ず楽になるときが来るからね。まずはゆっくり休もう。" /></c:when>
-  <c:when test="${item.feedbacksId == '20'}"> <c:set var="feedbackLabel" value="自分の気持ちを吐き出せてえらい！この瞬間生きてくれているだけで素晴らしいよ。信頼できる人に話してみると、もっと気持ちが楽になるかも" /></c:when>
-  <c:when test="${item.feedbacksId == '21'}"> <c:set var="feedbackLabel" value="教えてくれてありがとう。無理に乗り越えなくていいし、そのままのあなたが大切だよ。今は自分を最優先にしてね" /></c:when>
+  <c:when test="${item.feedbacksId == '19'}"> <c:set var="feedbackLabel" value="本当に大変だったのですね。今は苦しく悪い考えが頭を巡らせると思いますが、必ず楽になるときが来ます。まずはゆっくり休んで疲れをとりましょう。考えるのはそのあとです。" /></c:when>
+  <c:when test="${item.feedbacksId == '20'}"> <c:set var="feedbackLabel" value="自分の気持ちを吐き出せて偉いです！この瞬間生きてくれているだけで素晴らしいです。信頼できる人に話してみると、もっと気持ちが楽になるかもしれません。" /></c:when>
+  <c:when test="${item.feedbacksId == '21'}"> <c:set var="feedbackLabel" value="正直な気持ちを教えてくれてありがとう。今の気持ちを無理に乗り越えなくてもいいと思います。ありのままのあなたが大切が一番大切です。まずは、ゆっくり休んで気持ちの切り替えてみるといいかもしれません。" /></c:when>
   
-  <c:when test="${item.feedbacksId == '16'}"> <c:set var="feedbackLabel" value="今日も頑張ったね。寂しさを感じるのは、あなたがとっても優しい人だからだよ。暖かい飲み物でも飲んで、気持ちを和らげてね" /></c:when>
-  <c:when test="${item.feedbacksId == '17'}"> <c:set var="feedbackLabel" value="なんだか寂しく感じるときもあるよね。でも、あなたは決して一人ではないよ。思い切って誰かに話してみるのもいいかもね" /></c:when>
-  <c:when test="${item.feedbacksId == '18'}"> <c:set var="feedbackLabel" value="寂しいって感じると苦しくなるよね。でもあなたの気持ちは決して悪いものじゃないよ。ありのままの自分を受け止めてあげて" /></c:when>
+  <c:when test="${item.feedbacksId == '16'}"> <c:set var="feedbackLabel" value="今日も頑張りましたね。寂しさを感じるのは、あなたがとても優しい人だからです。あなたの優しさで救われている人がきっといます。暖かい飲み物を飲んで、気持ちを和らげてくださいね。" /></c:when>
+  <c:when test="${item.feedbacksId == '17'}"> <c:set var="feedbackLabel" value="なんだか寂しく感じるときもありますよね。でも、あなたは決して一人ではありません。ノートに感情を書き出してみたり、思い切って誰かに話してみたりするのはどうですか？'" /></c:when>
+  <c:when test="${item.feedbacksId == '18'}"> <c:set var="feedbackLabel" value="寂しいと感じると苦しくなりますよね。でもあなたの気持ちは決して悪いものではありません。ありのままの自分を受け止めてあげてください。きっと良い状況に好転しますよ。" /></c:when>
   
-  <c:when test="${item.feedbacksId == '13'}"> <c:set var="feedbackLabel" value="話してくれてありがとう。そう感じられるぐらいあなたの心は豊かなんだよ。今日はゆっくりお風呂に入ってリラックスしよう！" /></c:when>
-  <c:when test="${item.feedbacksId == '14'}"> <c:set var="feedbackLabel" value="お疲れさま。切なく感じられるなんて、あなたは何かを大切にできる素敵な人だね！今日は自分の好きなもの食べちゃう？" /></c:when>
-  <c:when test="${item.feedbacksId == '15'}"> <c:set var="feedbackLabel" value="そういう日もあるよね。その気持ちはあなたをより素敵な人に変えてくれるから、大事に抱えていてもいいんだよ。今はしっかり休もう！" /></c:when>
+  <c:when test="${item.feedbacksId == '13'}"> <c:set var="feedbackLabel" value="話してくれてありがとうございます。そう感じられる心は豊かさは、あなたの長所です。その気持ちもあなたの糧になりますよ。今日はゆっくりお風呂に入ってリラックスしましょう。" /></c:when>
+  <c:when test="${item.feedbacksId == '14'}"> <c:set var="feedbackLabel" value="お疲れさまです。切ないと感じることができるのは、あなたが何かを大切にできる素敵な人だということです！今日は自分の好きなものを食べて、自分を大切にしてみませんか？" /></c:when>
+  <c:when test="${item.feedbacksId == '15'}"> <c:set var="feedbackLabel" value="そういう日もありますよね。その気持ちはあなたをより素敵な人に変えてくます。感情を出してすっきりしてみましょう。そして、今はしっかり休みましょう。" /></c:when>
   
-  <c:when test="${item.feedbacksId == '10'}"> <c:set var="feedbackLabel" value="話してくれてありがとう。後悔するってことは、それだけ真剣だった証拠だよ。今の気持ちをノートに書きだしてみると気持ちの整理がつくかも" /></c:when>
-  <c:when test="${item.feedbacksId == '11'}"> <c:set var="feedbackLabel" value="後悔って、過去の自分が一生懸命だったことの裏返しだと思う！一回頑張った自分を褒めてみよう。" /></c:when>
-  <c:when test="${item.feedbacksId == '12'}"> <c:set var="feedbackLabel" value="誰にだってそういう瞬間はあるよ。今できる小さなことをひとつだけやってみよう。それが次の一歩につながるから。" /></c:when>
+  <c:when test="${item.feedbacksId == '10'}"> <c:set var="feedbackLabel" value="話してくれてありがとうございます。後悔するのは、それだけ真剣だった証拠です。真剣に取り組めていて素敵です。今の気持ちをノートに書きだしてみると気持ちの整理がつくと思いますよ。" /></c:when>
+  <c:when test="${item.feedbacksId == '11'}"> <c:set var="feedbackLabel" value="そんなことがあったんですね。ただ後悔は、過去の自分が一生懸命だったことの裏返しだと思います。一度頑張った自分を褒めて、コンビニスイーツ買ってみるのはどうですか？" /></c:when>
+  <c:when test="${item.feedbacksId == '12'}"> <c:set var="feedbackLabel" value="誰でもそう感じてしまうことはありますよ。きっと大丈夫です。前向きに、今できる小さなことをひとつだけやってみませんか。それが次の一歩につながるはずです。" /></c:when>
   
-  <c:when test="${item.feedbacksId == '7'}"> <c:set var="feedbackLabel" value="教えてくれてありがとう。その感覚は、ちゃんと前に進もうとしている証拠だよ。一度手を止めて、深呼吸してみよう。" /></c:when>
-  <c:when test="${item.feedbacksId == '8'}"> <c:set var="feedbackLabel" value="焦ってしまうのは当然のことだよ。それだけ責任感を持ってるってことだよね。まずは小さなことからひとつずつ片づけてみよう。流れに乗る感覚が戻ってくるはず。" /></c:when>
-  <c:when test="${item.feedbacksId == '9'}"> <c:set var="feedbackLabel" value="焦るのは悪いことじゃないよ、それだけ本気ってこと。5 分だけ目を閉じて、何もしない時間をつくってみて。頭の中が少しずつ整ってくるから。" /></c:when>
+  <c:when test="${item.feedbacksId == '7'}"> <c:set var="feedbackLabel" value="教えてくれてありがとうございます。その感覚は、ちゃんと前に進もうとしている証拠です。素晴らしいですね。一度手を止めて、深呼吸してみてください。やりべきことが明確になりますよ。" /></c:when>
+  <c:when test="${item.feedbacksId == '8'}"> <c:set var="feedbackLabel" value="焦ってしまうのは当然のことです。それだけ責任感を持っていて素晴らしいですね。まずは小さなことからひとつずつ片づけてみましょう。流れに乗る感覚が戻ってくるはずです。" /></c:when>
+  <c:when test="${item.feedbacksId == '9'}"> <c:set var="feedbackLabel" value="焦るのは悪いことではありませんよ。それだけ本気なんですね。5分間だけ目を閉じて、何もしない時間をつくってみてください。頭の中が少しずつ整ってくると思います。" /></c:when>
   
-  <c:when test="${item.feedbacksId == '4'}"> <c:set var="feedbackLabel" value="話してくれてありがとう。不安を感じるのは、それだけ物事を真剣に考えている証拠だよ。深呼吸しながら、あたたかい飲み物をゆっくり飲んでみて" /></c:when>
-  <c:when test="${item.feedbacksId == '5'}"> <c:set var="feedbackLabel" value="共有してくれてありがとう。怖いって感じられるのは、ちゃんとリスクを察知できる力があるってことだよ。ストレッチをして脳をリフレッシュしてみるのはどう？" /></c:when>
-  <c:when test="${item.feedbacksId == '6'}"> <c:set var="feedbackLabel" value="打ち明けてくれてありがとう。すぐに動かなくても大丈夫、自分の感覚を信じてね。安心できる場所で、香りのいいアロマを焚いてみると気持ちが落ち着くかもしれないよ。" /></c:when>
+  <c:when test="${item.feedbacksId == '4'}"> <c:set var="feedbackLabel" value="伝えてくれてありがとうございます。恐怖を感じたのは、物事を真剣に考えている証拠だと思います。深呼吸しながら、あたたかい飲み物をゆっくり飲んでみてください。" /></c:when>
+  <c:when test="${item.feedbacksId == '5'}"> <c:set var="feedbackLabel" value="共有してくれてありがとうございます。怖いと感じられるのは、あなたがしっかりリスクを察知できているということですよ。ストレッチをして脳をリフレッシュしてみるのはどうですか？" /></c:when>
+  <c:when test="${item.feedbacksId == '6'}"> <c:set var="feedbackLabel" value="打ち明けてくれてありがとうございます。すぐに動かなくても大丈夫です、自分の感覚を信じてくださいね。安心できる場所で、香りのいいアロマを焚いてみてください。気持ちが落ち着きますよ。" /></c:when>
   
-  <c:when test="${item.feedbacksId == '1'}"> <c:set var="feedbackLabel" value="教えてくれてありがとう。焦らなくても大丈夫、危機管理能力が長けているね！好きな音楽を聴いてリラックスしてね" /></c:when>
-  <c:when test="${item.feedbacksId == '2'}"> <c:set var="feedbackLabel" value="大丈夫だよ。焦らなくても進んでるよ、周りを見られて優秀！今日は散歩して帰ろう。" /></c:when>
-  <c:when test="${item.feedbacksId == '3'}"> <c:set var="feedbackLabel" value="お疲れ様。焦らなくても大丈夫、先まで考えられてえらい！今日はゆっくりお風呂に入ろう。" /></c:when>
+  <c:when test="${item.feedbacksId == '1'}"> <c:set var="feedbackLabel" value="教えてくれてありがとうございます。不安なときも一歩ずつ進んでいるあなたは本当にすごいです。その繊細さは、誰かを思いやる力にもなります。好きな音楽で気分転換して、心に少しの余白を作ってみてくださいね。" /></c:when>
+  <c:when test="${item.feedbacksId == '2'}"> <c:set var="feedbackLabel" value="不安は危機管理ができている証拠です。過去を振り返ってみて、どれだけ進んでいるか確認してみてください。きっとあなたなら大丈夫ですよ。今日は散歩して帰ってみませんか。" /></c:when>
+  <c:when test="${item.feedbacksId == '3'}"> <c:set var="feedbackLabel" value="お疲れ様です。焦る気持ちもわかりますが大丈夫ですよ。先まで見通しをつけて考えられるのはあなたの長所ですね！今日はゆっくりお風呂に入って明日に備えましょう。" /></c:when>
 </c:choose>
 
 <div class="form-group">
