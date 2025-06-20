@@ -14,6 +14,7 @@ import dao.EmotionsDao;
 import dao.FeedbacksDao;
 import dto.AllList;
 import dto.EmotionsDto;
+import dto.ErrorDto;
 import dto.FeedbacksDto;
 
 
@@ -95,7 +96,6 @@ public class PositiveServlet extends CustomTemplateServlet {
 				}
 				
       			// リクエストパラメータを取得（入力された内容を取得する）
-				String abutton = request.getParameter("abutton");
 				Integer userId = (Integer) request.getSession().getAttribute("user_id");
 				int emo_stamp = Integer.parseInt(request.getParameter("emo_stamp"));
 				String action = request.getParameter("action");
@@ -105,27 +105,23 @@ public class PositiveServlet extends CustomTemplateServlet {
 				
 				
 				
-//				if(abutton .equals("登録")){
+				try {
 				// AllListDaoのinsert文を呼び出して登録処理をする
 				AllList AL = new AllList(0, userId, emo_stamp ,action, emotion, feedbacks_id, new java.util.Date(), "");	
 				AL.setFeedbacks(feedbacks);
 				AllListDao AllListDAO = new AllListDao();
 				AllListDAO.insert(AL);	
-				
-				// EmotionsDaoのdelete文を呼び出して削除処理をする
-//				EmotionsDao EmotionsDAO = new EmotionsDao();
-//				EmotionsDAO.delete(new EmotionsDto());
-				
+		
 				// ページ遷移
 				response.sendRedirect("MindShift-home");
-//				}else{
-				// EmotionsDaoのdelete文を呼び出して削除処理をする
-//				EmotionsDAO.delete(new EmotionsDto());
-				
-				// ページ遷移
-//				response.sendRedirect("MindShift-regist");
-//				}
-//				response.getWriter().append("Served at: ").append(request.getContextPath());
+				}catch(Exception e) {
+					//スコープにデータ保存
+					request.setAttribute("systemError", new ErrorDto("エラー","何らかのエラーが発生しております。","MindShift-home")); 
+
+					// エラーページにフォワードする
+					RequestDispatcher dispatcher = request.getRequestDispatcher("/WEB-INF/jsp/error.jsp");
+					dispatcher.forward(request, response);
+				}
 			
 			}
 
