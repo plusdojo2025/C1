@@ -188,22 +188,31 @@ login_id = ?
     }
 
     public boolean registerUser(UsersDto user) {
-    	Connection conn = null;
+        Connection conn = null;
         try {
-			conn = conn();
+            conn = conn();
 
-            String sql = "INSERT INTO users (login_id, password_hash) VALUES (?, ?)";
-            PreparedStatement stmt = conn.prepareStatement(sql);
-            stmt.setString(1, user.getLoginId());
-            stmt.setString(2, user.getPasswordHash());
+            String insertSql = "INSERT INTO users (login_id, password_hash) VALUES (?, ?)";
+            PreparedStatement insertStmt = conn.prepareStatement(insertSql);
+            insertStmt.setString(1, user.getLoginId());
+            insertStmt.setString(2, user.getPasswordHash());
 
-            int rows = stmt.executeUpdate();
+            int rows = insertStmt.executeUpdate();
+
+            if (rows > 0) {
+            	//直前に挿入されたSQLをselect
+                String idSql = "SELECT LAST_INSERT_ID()";
+                PreparedStatement idStmt = conn.prepareStatement(idSql);
+                ResultSet rs = idStmt.executeQuery();
+                if (rs.next()) {
+                    int userId = rs.getInt(1);
+                    user.setUserId(userId);
+                }
+            }
 
             close(conn);
-
             return rows > 0;
-            
-        //制約に違反した場合(login_idはunique属性)
+
         } catch (SQLIntegrityConstraintViolationException e) {
             return false;
         } catch (Exception e) {
@@ -211,4 +220,5 @@ login_id = ?
             return false;
         }
     }
+
 }

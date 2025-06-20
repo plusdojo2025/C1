@@ -113,27 +113,27 @@
   </div>
 
   <c:choose>
-  <c:when test="${item.feedbacksId == '52' || item.feedbacksId == ''}"> <c:set var="feedbackLabel" value="元気をしっかりチャージできたみたいですね！少しでも心が軽くなったなら本当に良かったです。そのエネルギーを大切にして、明日からもうひと踏ん張りしていきましょう！今のあなたなら大丈夫です！" /></c:when>
-  <c:when test="${item.feedbacksId == '53' || item.feedbacksId == ''}"> <c:set var="feedbackLabel" value="自分らしさを少しずつ取り戻せたのではないでしょうか？自分のペースで前に進むことが一番大切です。明日もこの調子で無理せず一歩ずつ進んでいきましょうね。" /></c:when>
-  <c:when test="${item.feedbacksId == '54' || item.feedbacksId == ''}"> <c:set var="feedbackLabel" value="元気が出てきたようで良かったです！これで少しでも気持ちが前向きになっていたら、嬉しいです。どんな小さな一歩でも、自分を信じて進めば、きっと大きな力になりますよ。" /></c:when>
+  <c:when test="${item.feedbacksId == '52' || item.feedbacksId == '69'}"> <c:set var="feedbackLabel" value="元気をしっかりチャージできたみたいですね！少しでも心が軽くなったなら本当に良かったです。そのエネルギーを大切にして、明日からもうひと踏ん張りしていきましょう！今のあなたなら大丈夫です！" /></c:when>
+  <c:when test="${item.feedbacksId == '53' || item.feedbacksId == '71'}"> <c:set var="feedbackLabel" value="自分らしさを少しずつ取り戻せたのではないでしょうか？自分のペースで前に進むことが一番大切です。明日もこの調子で無理せず一歩ずつ進んでいきましょうね。" /></c:when>
+  <c:when test="${item.feedbacksId == '54' || item.feedbacksId == '72'}"> <c:set var="feedbackLabel" value="元気が出てきたようで良かったです！これで少しでも気持ちが前向きになっていたら、嬉しいです。どんな小さな一歩でも、自分を信じて進めば、きっと大きな力になりますよ。" /></c:when>
   
-  <c:when test="${item.feedbacksId == '49' || item.feedbacksId == ''}"> <c:set var="feedbackLabel" value="リフレッシュできたみたいだね。休息も大事だから、リラックスできた自分を褒めてあげよう！" /></c:when>
-  <c:when test="${item.feedbacksId == '50' || item.feedbacksId == ''}"> <c:set var="feedbackLabel" value="毎日一生懸命頑張っているからこそ、リラックスタイムはとても重要な時間になります。無理せず、今のようにリラックスできる時間を意識していきましょう。たくさん自分を癒してあげてね。" /></c:when>
-  <c:when test="${item.feedbacksId == '51' || item.feedbacksId == ''}"> <c:set var="feedbackLabel" value="リラックスできてよかったです！自分がどんなことでリラックスできるのかメモしておくと、気分転換したいときに役立ちますよ。自分の気分転換リストを作ってみるのもおすすめですよ。" /></c:when>
+  <c:when test="${item.feedbacksId == '49' || item.feedbacksId == '66'}"> <c:set var="feedbackLabel" value="リフレッシュできたみたいだね。休息も大事だから、リラックスできた自分を褒めてあげよう！" /></c:when>
+  <c:when test="${item.feedbacksId == '50' || item.feedbacksId == '67'}"> <c:set var="feedbackLabel" value="毎日一生懸命頑張っているからこそ、リラックスタイムはとても重要な時間になります。無理せず、今のようにリラックスできる時間を意識していきましょう。たくさん自分を癒してあげてね。" /></c:when>
+  <c:when test="${item.feedbacksId == '51' || item.feedbacksId == '68'}"> <c:set var="feedbackLabel" value="リラックスできてよかったです！自分がどんなことでリラックスできるのかメモしておくと、気分転換したいときに役立ちますよ。自分の気分転換リストを作ってみるのもおすすめですよ。" /></c:when>
   
-  <c:when test="${item.feedbacksId == '46' || item.feedbacksId == ''}"> <c:set var="feedbackLabel" value="一息つけたようで安心しました！頑張ったかいがありましたね。今日は一度休息をとって、明日からもこの調子で自分のペースで進んでいきましょう。お疲れさまでした。" /></c:when>
-  <c:when test="${item.feedbacksId == '47' || item.feedbacksId == ''}"> <c:set var="feedbackLabel" value="一安心ですね。ぜひ、ここまで頑張った自分をたくさん褒めてあげてください。そして、あなたの頑張りを周りは理解してくれていますよ。本当にお疲れ様です。" /></c:when>
-  <c:when test="${item.feedbacksId == '48' || item.feedbacksId == ''}"> <c:set var="feedbackLabel" value="心が休まったようで良かったです。頑張っている姿をいつも見ていますから安心してくださいね。今日は、お家で溜まっているドラマを見てゆっくりするのはどうしょうか？" /></c:when>
+  <c:when test="${item.feedbacksId == '46' || item.feedbacksId == '63'}"> <c:set var="feedbackLabel" value="一息つけたようで安心しました！頑張ったかいがありましたね。今日は一度休息をとって、明日からもこの調子で自分のペースで進んでいきましょう。お疲れさまでした。" /></c:when>
+  <c:when test="${item.feedbacksId == '47' || item.feedbacksId == '64'}"> <c:set var="feedbackLabel" value="一安心ですね。ぜひ、ここまで頑張った自分をたくさん褒めてあげてください。そして、あなたの頑張りを周りは理解してくれていますよ。本当にお疲れ様です。" /></c:when>
+  <c:when test="${item.feedbacksId == '48' || item.feedbacksId == '65'}"> <c:set var="feedbackLabel" value="心が休まったようで良かったです。頑張っている姿をいつも見ていますから安心してくださいね。今日は、お家で溜まっているドラマを見てゆっくりするのはどうしょうか？" /></c:when>
   
-  <c:when test="${item.feedbacksId == '43' || item.feedbacksId == ''}"> <c:set var="feedbackLabel" value="本当に好きなんですね。その気持ちがよく伝わりましたよ。それだけ夢中になれるのは本当に素晴らしいです！その気持ちをだれかに共有してみませんか？" /></c:when>
-  <c:when test="${item.feedbacksId == '44' || item.feedbacksId == ''}"> <c:set var="feedbackLabel" value="ぜひその気持ちを大切にしてくださいね。きっともっと素敵なことに繋がります。そして、今の気持ちを覚えていると将来役に立つのではないでしょうか。" /></c:when>
-  <c:when test="${item.feedbacksId == '45' || item.feedbacksId == ''}"> <c:set var="feedbackLabel" value="すごく魅力的ですね。あなたの目が輝いてますよ。その気持ちを大切にしましょう！そして何が好きなのか詳しく考えてみるともっと好きになりかもしれません。" /></c:when>
+  <c:when test="${item.feedbacksId == '43' || item.feedbacksId == '60'}"> <c:set var="feedbackLabel" value="本当に好きなんですね。その気持ちがよく伝わりましたよ。それだけ夢中になれるのは本当に素晴らしいです！その気持ちをだれかに共有してみませんか？" /></c:when>
+  <c:when test="${item.feedbacksId == '44' || item.feedbacksId == '61'}"> <c:set var="feedbackLabel" value="ぜひその気持ちを大切にしてくださいね。きっともっと素敵なことに繋がります。そして、今の気持ちを覚えていると将来役に立つのではないでしょうか。" /></c:when>
+  <c:when test="${item.feedbacksId == '45' || item.feedbacksId == '62'}"> <c:set var="feedbackLabel" value="すごく魅力的ですね。あなたの目が輝いてますよ。その気持ちを大切にしましょう！そして何が好きなのか詳しく考えてみるともっと好きになりかもしれません。" /></c:when>
   
-  <c:when test="${item.feedbacksId == '40' || item.feedbacksId == ''}"> <c:set var="feedbackLabel" value="とても幸せそうでよかったです。これから先も、きっとたくさんの素敵なことが待っていますよ。新たな幸せを掴めるように、これからも応援しています。" /></c:when>
-  <c:when test="${item.feedbacksId == '41' || item.feedbacksId == ''}"> <c:set var="feedbackLabel" value="それは素敵でしたね。幸せは舞い込んでくるものではなく、自分でつかみ取るものです。明日からも幸せを捕まえられるように、積極的に動いていきましょう！" /></c:when>
-  <c:when test="${item.feedbacksId == '42' || item.feedbacksId == ''}"> <c:set var="feedbackLabel" value="素晴らしいことですね。幸せを感じられる日々が続くと心もどんどん元気になるので、心の栄養を補給していきましょうね。この幸せをエネルギーにして、明日からも頑張りましょう！" /></c:when>
+  <c:when test="${item.feedbacksId == '40' || item.feedbacksId == '57'}"> <c:set var="feedbackLabel" value="とても幸せそうでよかったです。これから先も、きっとたくさんの素敵なことが待っていますよ。新たな幸せを掴めるように、これからも応援しています。" /></c:when>
+  <c:when test="${item.feedbacksId == '41' || item.feedbacksId == '58'}"> <c:set var="feedbackLabel" value="それは素敵でしたね。幸せは舞い込んでくるものではなく、自分でつかみ取るものです。明日からも幸せを捕まえられるように、積極的に動いていきましょう！" /></c:when>
+  <c:when test="${item.feedbacksId == '42' || item.feedbacksId == '59'}"> <c:set var="feedbackLabel" value="素晴らしいことですね。幸せを感じられる日々が続くと心もどんどん元気になるので、心の栄養を補給していきましょうね。この幸せをエネルギーにして、明日からも頑張りましょう！" /></c:when>
   
-  <c:when test="${item.feedbacksId == '37' || item.feedbacksId == ''}"> <c:set var="feedbackLabel" value="それはいい事ですね。きっと自分らしく取り組んだ結果が形になったのですね。この満足した気持ちを忘れずに、これからも少しずつ進んでいきましょう！" /></c:when>
+  <c:when test="${item.feedbacksId == '37' || item.feedbacksId == '54'}"> <c:set var="feedbackLabel" value="それはいい事ですね。きっと自分らしく取り組んだ結果が形になったのですね。この満足した気持ちを忘れずに、これからも少しずつ進んでいきましょう！" /></c:when>
   <c:when test="${item.feedbacksId == '38' || item.feedbacksId == '55'}"> <c:set var="feedbackLabel" value="さすがですね、満足できる結果になって本当によかったです。きっとあなたの頑張りを周りの人も見てくれているはずですよ！満足いくまで取り組めた自分を認めてあげてくださいね。" /></c:when>
   <c:when test="${item.feedbacksId == '39' || item.feedbacksId == '56'}"> <c:set var="feedbackLabel" value="本当に嬉しそうで安心しました。今までの努力を振り返って、頑張った自分を褒めましょう！再び頑張るのはその後でも大丈夫ですよ。これからも前向きに行きましょう。" /></c:when>
   

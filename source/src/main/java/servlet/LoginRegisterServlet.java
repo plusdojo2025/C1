@@ -14,6 +14,7 @@ import javax.servlet.http.HttpSession;
 import dao.UsersDao;
 import dto.UsersDto;
 import util.ConfigUtil;
+import util.MailUtil;
 
 /**
  * Servlet implementation class LoginRegisterServlet
@@ -77,28 +78,28 @@ public class LoginRegisterServlet extends CustomTemplateServlet {
                 session.setAttribute("login_id", user.getLoginId());
                 
     			// メール送信処理
-//    			String subject = "【MindShift】登録完了のお知らせ";
-//    			String body = 
-//    				    "MindShift運営チームよりご案内いたします。\n\n" +
-//    				    "このたびは、MindShiftへのご登録、誠にありがとうございます。\n" +
-//    				    "下記の内容で、正常に登録が完了いたしました。\n\n" +
-//    				    "━━━━━━━━━━━━━━━━━━━━━━\n" +
-//    				    "■ ご登録メールアドレス\n" +
-//    				    user.getLoginId() + "\n" +
-//    				    "━━━━━━━━━━━━━━━━━━━━━━\n\n" +
-//    				    "ログインに必要な情報となりますので、大切に保管してください。\n\n" +
-//    				    "今後とも、MindShiftをどうぞよろしくお願いいたします。\n\n" +
-//    				    "──────────────────────\n" +
-//    				    "※ 本メールは送信専用です。\n" +
-//    				    "　ご返信いただいても対応いたしかねますので、ご了承ください。\n" +
-//    				    "※ ご登録にお心当たりのない場合は、\n" +
-//    				    "　以下までご連絡ください。\n" +
-//    				    "　gonbei-nanashino-plusdojo2025@seplus2016.onmicrosoft.com\n" +
-//    				    "──────────────────────\n\n" +
-//    				    "CollectForce Inc.\n" +
-//    				    "〒102-0083 東京都千代田区麹町1丁目6\n"
-//    				    ;
-//    			MailUtil.sendMail(loginId, subject, body);
+    			String subject = "【MindShift】登録完了のお知らせ";
+    			String body = 
+    				    "MindShift運営チームよりご案内いたします。\n\n" +
+    				    "このたびは、MindShiftへのご登録、誠にありがとうございます。\n" +
+    				    "下記の内容で、正常に登録が完了いたしました。\n\n" +
+    				    "━━━━━━━━━━━━━━━━━━━━━━\n" +
+    				    "■ ご登録メールアドレス\n" +
+    				    user.getLoginId() + "\n" +
+    				    "━━━━━━━━━━━━━━━━━━━━━━\n\n" +
+    				    "ログインに必要な情報となりますので、大切に保管してください。\n\n" +
+    				    "今後とも、MindShiftをどうぞよろしくお願いいたします。\n\n" +
+    				    "──────────────────────\n" +
+    				    "※ 本メールは送信専用です。\n" +
+    				    "　ご返信いただいても対応いたしかねますので、ご了承ください。\n" +
+    				    "※ ご登録にお心当たりのない場合は、\n" +
+    				    "　以下までご連絡ください。\n" +
+    				    "　gonbei-nanashino-plusdojo2025@seplus2016.onmicrosoft.com\n" +
+    				    "──────────────────────\n\n" +
+    				    "CollectForce Inc.\n" +
+    				    "〒102-0083 東京都千代田区麹町1丁目6\n"
+    				    ;
+    			MailUtil.sendMail(loginId, subject, body);
                 
                 out.println("alert('登録が完了しました！');");
                 out.println("window.location.href = 'MindShift-home';");
