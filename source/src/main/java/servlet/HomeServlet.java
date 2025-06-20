@@ -59,12 +59,36 @@ public class HomeServlet extends CustomTemplateServlet {
 		  //コンソールにテスト表示
 		    System.out.println("stampCount = " + summary.getCnt());
 		    System.out.println("totalScore = " + summary.getTotalScore());
-		      
+		     
+		    
+		    String gazou="";
 		    if(summary.getCnt()==0) {
-		    	
-		    	
+		    	 gazou = "uekibati.png";
+		    }else if(summary.getCnt() >= 1 && summary.getCnt() <= 3) {
+		    	 gazou = "me.png";
+		    }else if(summary.getCnt() >= 4 && summary.getCnt() <= 6) {
+		    	 gazou = "me.png";
+		    }   
+		    if(summary.getCnt()==7) {
+		    	if(summary.getTotalScore()<= 10) {
+		    		 gazou = "lavender.png";
+		    	}else if(summary.getTotalScore()<= 14) {
+		    		 gazou = "rindou.png";
+		    	}else if(summary.getTotalScore()<= 18) {
+		    		 gazou = "nemophila.png";
+		    	}else if(summary.getTotalScore()<= 22) {
+		    		 gazou = "dandelion.png";
+		    	}else if(summary.getTotalScore()<= 26) {
+		    		 gazou = "sunflower.png";
+		    	}else if(summary.getTotalScore()<= 30) {
+		    		 gazou = "tulips.png";
+		    	}else if(summary.getTotalScore()<= 30) {
+		    		 gazou = "roses.png";
+		    	}
 		    	
 		    }
+		    
+		    System.out.println(gazou);
 		    
 
 		    // スタンプ集計表（1か月分）
