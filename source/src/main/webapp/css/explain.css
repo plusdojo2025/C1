@@ -161,11 +161,50 @@ padding: 0;
 
 .main{
   margin-top: 30px;
-  margin-bottom:300px;
-}
+ }
 
 .section{/*項目・内容セット*/
   margin: 50px;
+  background-color: white;
+  width: 800px;
+  height: 150px;
+  align-content: center;
+  border-radius: 8px;
+  box-shadow: 0 0 10px rgba(0,0,0,0.1);
+  margin-left: auto;
+  margin-right: auto;
+  padding-right: 20px;
+  padding-left: 20px;
+}
+
+.section1{/*項目・内容セット*/
+  margin: 50px;
+  background-color: white;
+  width: 800px;
+  height: 880px;
+  align-content: center;
+  border-radius: 8px;
+  box-shadow: 0 0 10px rgba(0,0,0,0.1);
+  margin-left: auto;
+  margin-right: auto;
+  padding-right: 20px;
+  padding-left: 20px;
+  padding-bottom: 20px;
+}
+
+.section2{/*項目・内容セット*/
+  margin: 50px;
+  background-color: white;
+  width: 800px;
+  height: 480px;
+  align-content: center;
+  border-radius: 8px;
+  box-shadow: 0 0 10px rgba(0,0,0,0.1);
+  margin-left: auto;
+  margin-right: auto;
+  padding-right: 20px;
+  padding-left: 20px;
+  padding-bottom: 20px;
 }
 
 h2{/*下線あり大見出し*/
@@ -180,6 +219,7 @@ h3{/*小見出し*/
 
 img{/*画像*/
   max-width: 600px;
+  padding-top: 30px;
   display: block;
   margin: 0 auto;
 }
@@ -189,7 +229,6 @@ img{/*画像*/
   display: block;
   text-align: center;
   font-size: 1.3rem;
-  margin-top: 200px;
 }
 
 

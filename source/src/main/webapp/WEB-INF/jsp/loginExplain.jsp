@@ -21,14 +21,14 @@
 		<!-- ヘッダー（ここまで） -->
 
 	<main class="main">
-		<u><h2 style="text-align: center;">MindShift</h2></u>
+		<h2 style="text-align: center;">MindShift</h2>
 		<!-- アプリについて -->
 		<div class="section">
 		 <h3 style="text-align: center;">アプリについて</h3>
 		 <p>このアプリは自分のメンタル状況を確認し、マインドをネガティブからポジティブにシフトすることを助けます。1日1回、毎日登録することで、ホームページの植物が育ちます。開花を目指して継続しましょう！</p>
 	    </div>
 	
-	    <u><h2 style="text-align:center;">使い方</h2></u>
+	    <h2 style="text-align:center;">使い方</h2>
 		<!-- ホーム-->
 		<div class="section">
 		  <h3 style="text-align:center;">ホーム</h3>
@@ -36,30 +36,30 @@
 		</div>
 		    
 		<!-- 植物-->
-		<div class="section">
+		<div class="section1">
 		   <h3 style="text-align:center;">植物</h3>
 		   <p>1週間のうちに登録した回数によって植物の育ち方が変わります。
 また、1週間毎日登録した場合、感情スタンプの種類によって開花する植物の種類が変わります。7種類あります。</p>
 		
 		   <h3 style="text-align:center;">植物の育ち方</h3>
-		   <img src="${pageContext.request.contextPath}/image/枠あり育ち方.png" class="images" alt="植物の育ち方">
+		   <div><img src="${pageContext.request.contextPath}/image/枠あり育ち方.png" class="images" alt="植物の育ち方"></div>
 		
 		   <h3 style="text-align:center;">植物の種類</h3>
-		   <img src="${pageContext.request.contextPath}/image/枠あり種類.png" class="images" alt="植物の種類">
+		   <div><img src="${pageContext.request.contextPath}/image/枠あり種類.png" class="images" alt="植物の種類"></div>
 		</div>
 		    
 		<!-- 感情登録-->
-		<div class="section">
+		<div class="section2">
 		   <h3 style="text-align:center;">感情登録</h3>
 		   <p>感情登録ページから感情スタンプ、出来事、どのような気持ちだったかの3つ全てを入力して登録してください。登録された内容に基づいたフィードバックがあります。</p>
 		
 		   <h3 style="text-align:center;">感情スタンプ</h3>
-		   <img src="${pageContext.request.contextPath}/image/枠ありスタンプ.png" class="images" alt="スタンプ">
+		   <div><img src="${pageContext.request.contextPath}/image/枠ありスタンプ.png" class="images" alt="スタンプ"></div>
 		</div>
 		    
 		<!-- 記録一覧-->
 	    <div class="section">
-		   <h3 style="text-align:center;">記録一覧</h3>
+		   <h3 style="text-align:center;">登録一覧</h3>
 		   <p>今までに登録した感情スタンプ、出来事、気持ち、フィードバック、育てた植物を一覧で確認することができます。</p>
 		</div>
 		    
