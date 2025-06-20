@@ -213,21 +213,21 @@ var btn_del = document.getElementById('account_del');
 
   // stampsテーブルから　スタンプ件数（count）と点数合計（totalScore）
   function getGrowthStage(cnt) {
-    if (cnt === 0 || cnt === 1) return "uekibati";       // 植木鉢
-    else if (cnt >= 2 && cnt <= 4) return "me";  // 芽
-    else if (cnt === 5 || cnt === 6) return "tubomi";   // つぼみ
+    if (cnt === 0) return "uekibati";       // 植木鉢
+    else if (cnt >= 1 && cnt <= 3) return "me";  // 芽
+    else if (cnt >= 4 && cnt <= 6) return "tubomi";   // つぼみ
     else return "flower";                                // 開花
   }
 
   // スコアに応じた植物種類（7段階）
   function getPlantType(score) {
-    if (score <= 7)  return "lavender";
-  else if (score <= 11) return "rindou";
-  else if (score <= 15) return "nemophila";
-  else if (score <= 19) return "dandelion";
-  else if (score <= 23) return "sunflower";
-  else if (score <= 27) return "tulips";
-  else if (score <= 31) return "roses";
+    if (score <= 10)  return "lavender";
+  else if (score <= 14) return "rindou";
+  else if (score <= 18) return "nemophila";
+  else if (score <= 22) return "dandelion";
+  else if (score <= 26) return "sunflower";
+  else if (score <= 30) return "tulips";
+  else if (score <= 35) return "roses";
 }
 
   
@@ -245,32 +245,46 @@ function updatePlantImage() {
   const plantImg = document.getElementById("plantImage");
   plantImg.src = `${contextPath}/image/${imageName}.png`;
   plantImg.alt = imageName;
-}
+//}
 
-
+// テストログ
+    console.log("テスト: stage =", stage);
+    console.log("テスト: imageName =", imageName);
+    console.log("テスト: image path =", `${contextPath}/image/${imageName}.png`);
+  }
 // DOM読み込み完了時に実行
 document.addEventListener("DOMContentLoaded", updatePlantImage);
  
   
 //************************************************スタンプ集計表**************************************** */
 // IDごとに該当するセルへ集計値を反映（JSPの表に反映）
+	/*const stampData = [
+		{id: 1, count: 3},
+		{id: 2, count: 5},
+		{id: 3, count: 0},
+		{id: 4, count: 2},
+		{id: 5, count: 1}
+	]//テスト文*/
+	
 	stampData.forEach(item => {
 	  const cell = document.getElementById(`stamp-${item.id}`);
 	  if (cell) cell.textContent = item.count;
 	});
-
+	
+	//ここでブラウザにstampDataの中身を表示する
+		//console.log("stampData =", stampData);
 
  
   
 //**********************************************登録済みアラート***********************************::: */
-const alreadyRegistered = alreadyRegistered;
+/*const alreadyRegistered = alreadyRegistered;
   function handleEmotionClick() {
     if (alreadyRegistered) {
       alert("本日はすでに感情登録済みです。");
     } else {
       window.location.href = "emotion.jsp";
     }
-  }
+  }*/
   
   
   
