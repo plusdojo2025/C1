@@ -475,6 +475,61 @@ public class AllListDao extends CustomTemplateDao<AllListDto> {
 
 	    return cardList;
 	}
+	
+	
+	public List<AllListDto> plant_display(Integer userId) {
+	    Connection conn = null;
+	    PreparedStatement pStmt = null;
+	    ResultSet rs = null;
+	    List<AllListDto> cardList = new ArrayList<>();
+
+	    try {
+	        conn = conn();
+
+	        // 検索条件を使ったSQL（created_atは今月の範囲で固定）
+	        String sql = """
+	            SELECT plant,created_at
+				FROM allList
+				WHERE user_id=? AND DATE(created_at) = DATE_ADD(
+				    DATE_SUB(DATE(created_at), INTERVAL WEEKDAY(created_at) DAY),
+				    INTERVAL 5 DAY
+				);
+
+	            """;
+
+	        pStmt = conn.prepareStatement(sql);
+
+	        // limit, offset は最後の2つのパラメータ
+	        pStmt.setInt(1, userId);
+	        rs = pStmt.executeQuery();
+
+	        while (rs.next()) {
+	            AllListDto allLists = new AllListDto(
+	                rs.getInt("id"),
+	                rs.getInt("user_id"),
+	                rs.getInt("emo_stamp_id"),
+	                rs.getString("action"),
+	                rs.getInt("emotion_id"),
+	                rs.getInt("feedbacks_id"),
+	                new java.util.Date(rs.getDate("created_at").getTime()),
+	                rs.getString("plant")
+	            );
+	            cardList.add(allLists);
+	        }
+
+	    } catch (SQLException e) {
+	        e.printStackTrace();
+	    } finally {
+	        close(conn);
+	    }
+
+	    return cardList;
+	}
+	
+	
+	
+	
+	
 
 		// ****************スタンプ集計表　指定ユーザーの「今月分」のスタンプ件数をemo_stamp_idごとに取得*************
 	public Map<Integer, Integer> getStampCountsThisMonth(int userId) {

@@ -72,6 +72,13 @@ public class HomeServlet extends CustomTemplateServlet {
 		    List<AllListDto> allStamp = allstamps.select_stamp(userId);
 		    
 		    request.setAttribute("allStamp", allStamp);
+		    
+		    //ホームのカレンダーに植物表示
+		    AllListDao plant = new AllListDao();   
+		    List<AllListDto> result_plant = plant.plant_display(userId);
+		    
+		    request.setAttribute("result_plant", result_plant);
+		    
 
 	    // ホームページにフォワードする
 	    RequestDispatcher dispatcher = request.getRequestDispatcher("/WEB-INF/jsp/home.jsp");

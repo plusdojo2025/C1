@@ -1,6 +1,7 @@
 package servlet;
 
 import java.io.IOException;
+import java.util.Calendar;
 import java.util.List;
 
 import javax.servlet.RequestDispatcher;
@@ -35,7 +36,7 @@ public class ListServlet extends CustomTemplateServlet {
         if (checkNoneLogin(request, response)) {
             return;
         }	
-        
+        Calendar calendar = Calendar.getInstance();
         String year = request.getParameter("year");
         String month = request.getParameter("month");
         String day = request.getParameter("day");
@@ -53,7 +54,7 @@ public class ListServlet extends CustomTemplateServlet {
 	    }
 	    int offset = (currentPage - 1) * recordsPerPage;
 	    
-	    if (year==null) {
+	    if (year== null ) {
         AllListDao allListDao = new AllListDao();
         
         int totalRecords = allListDao.count(userId);
@@ -65,8 +66,9 @@ public class ListServlet extends CustomTemplateServlet {
         // 取得したリストをJSPに渡す
 	    request.setAttribute("cardList", pagedCards);
         request.setAttribute("currentPage", currentPage);
-        request.setAttribute("month", month);
-        request.setAttribute("year", year);
+        request.setAttribute("month", String.valueOf(calendar.get(Calendar.MONTH)+1));
+        request.setAttribute("year", String.valueOf(calendar.get(Calendar.YEAR)));
+        request.setAttribute("day", String.valueOf(calendar.get(Calendar.DATE)));
 	    request.setAttribute("totalPages", totalPages); 
 	    }else {
 	    
@@ -82,6 +84,7 @@ public class ListServlet extends CustomTemplateServlet {
 	    request.setAttribute("currentPage", currentPage);
 	    request.setAttribute("month", month);
 	    request.setAttribute("year", year);
+	    request.setAttribute("day", day);
 	 	request.setAttribute("totalPages", totalPages); 	
 	    		    	
 	    }

@@ -208,7 +208,7 @@
 
     <!-- 前へ -->
     <c:if test="${currentPage > 1}">
-      <a href="MindShift-list?page=${currentPage - 1}" class="page_before">前へ</a>
+      <a href="MindShift-list?year=${year}&month=${month}&day=${day}&page=${currentPage - 1}" class="page_before">前へ</a>
     </c:if>
 
     <!-- ページ番号 -->
@@ -218,18 +218,19 @@
           <span class="current" aria-current="page">${i}</span>
         </c:when>
         <c:otherwise>
-          <a href="MindShift-list?page=${i}" class="page_num">${i}</a>
+          <a href="MindShift-list?year=${year}&month=${month}&day=${day}&page=${i}" class="page_num">${i}</a>
         </c:otherwise>
       </c:choose>
     </c:forEach>
 
     <!-- 次へ -->
     <c:if test="${currentPage < totalPages}">
-      <a href="MindShift-list?page=${currentPage + 1}" class="page_after">次へ</a>
+      <a href="MindShift-list?year=${year}&month=${month}&day=${day}&page=${currentPage + 1}" class="page_after">次へ</a>
     </c:if>
 
   </div>
 </c:if>
+
 
 	
 		</main>
