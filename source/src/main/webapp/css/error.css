@@ -161,8 +161,13 @@ padding: 0;
 
 .content{
 	background-color: white;
+	width: 800px;
+	height: 300px;
+    align-content: center;
 	border-radius: 8px;
     box-shadow: 0 0 10px rgba(0,0,0,0.1);
+	margin-left: auto;
+	margin-right: auto;
 }
 
 .bar{
@@ -173,11 +178,11 @@ padding: 0;
 
 h2{
   margin-top: 50px;
+  
 }
 
 .nav1{
   text-align: center;
-  margin-top: 80px;
   font-size: 1.1rem;
 }
 
