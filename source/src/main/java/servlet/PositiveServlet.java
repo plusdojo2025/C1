@@ -78,7 +78,8 @@ public class PositiveServlet extends CustomTemplateServlet {
 			//「checkNoneLogin」、「logout」の処理を加えてください。(logoutはナビゲーションがあるページのみに適用する。)
 			protected void doPost(HttpServletRequest request, HttpServletResponse response)throws ServletException, IOException {
 				// TODO 自動生成されたメソッド・スタブ
-				
+				response.setCharacterEncoding("UTF-8");
+
 				//ログインしていなかった場合、ログイン画面にリダイレクト処理をする。(HomeServletをそのままコピーしてもらって大丈夫です。)
 				if(checkNoneLogin(request, response)) {
 					return;
@@ -94,7 +95,6 @@ public class PositiveServlet extends CustomTemplateServlet {
 				}
 				
       			// リクエストパラメータを取得（入力された内容を取得する）
-				response.setCharacterEncoding("UTF-8");
 				String abutton = request.getParameter("abutton");
 				Integer userId = (Integer) request.getSession().getAttribute("user_id");
 				int emo_stamp = Integer.parseInt(request.getParameter("emo_stamp"));
