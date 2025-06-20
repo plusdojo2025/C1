@@ -216,7 +216,7 @@ var btn_del = document.getElementById('account_del');
     if (cnt === 0) return "uekibati";       // 植木鉢
     else if (cnt >= 1 && cnt <= 3) return "me";  // 芽
     else if (cnt >= 4 && cnt <= 6) return "tubomi";   // つぼみ
-    else return "flower";                                // 開花
+    else return "flower";   // 開花
   }
 
   // スコアに応じた植物種類（7段階）

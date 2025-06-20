@@ -578,9 +578,8 @@ public class AllListDao extends CustomTemplateDao<AllListDto> {
 		               COALESCE(SUM(emo_stamp_id), 0) AS total
 		        FROM allList
 		        WHERE user_id = ?
-		          AND created_at >= DATE_SUB(CURDATE(), INTERVAL WEEKDAY(CURDATE()) + 1 DAY)
-		          AND created_at <  DATE_ADD(DATE_SUB(CURDATE(), INTERVAL WEEKDAY(CURDATE()) + 1 DAY), INTERVAL 7 DAY)
-
+		          AND week(created_at,0)= week(current_timestamp,0);
+		          
 		        """;
 		        PreparedStatement ps = conn.prepareStatement(sql);
 		        ps.setInt(1, userId);
