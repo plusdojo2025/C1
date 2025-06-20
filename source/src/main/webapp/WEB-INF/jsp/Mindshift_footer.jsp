@@ -6,7 +6,7 @@
 	<div id="footer">
 		<p>&copy;Copyright FriYay All rights reserved.</p>
 		<div class="gotop">
-			<a href=""><img
+			<a href="#"><img
 				src="${pageContext.request.contextPath}/image/gotop_circle_light.png"
 				alt="ページトップへ戻る"></a>
 		</div>
