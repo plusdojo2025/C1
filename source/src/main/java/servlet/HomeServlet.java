@@ -55,9 +55,17 @@ public class HomeServlet extends CustomTemplateServlet {
 	    stampsDto summary = sDao.selectWeeklySummary(userId);
 		    request.setAttribute("stampCount",  summary.getCnt());
 		    request.setAttribute("totalScore",  summary.getTotalScore());
+		        
 		  //コンソールにテスト表示
 		    System.out.println("stampCount = " + summary.getCnt());
-		    System.out.println("totalScore = " + summary.getCnt());
+		    System.out.println("totalScore = " + summary.getTotalScore());
+		      
+		    if(summary.getCnt()==0) {
+		    	
+		    	
+		    	
+		    }
+		    
 
 		    // スタンプ集計表（1か月分）
 		    AllListDao dao = new AllListDao();

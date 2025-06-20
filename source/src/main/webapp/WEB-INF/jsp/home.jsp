@@ -83,7 +83,6 @@
     </table>
   </div>
   <!--スタンプ集計表終わり-->
-  
 
 </main>
 	
@@ -111,6 +110,10 @@
 		  });
 	</script> 
 	<script src="js/home.js"></script>
+	
+	
+	  
+	
 	
 	<script>
 	function generate_year_range(start, end) {
@@ -211,6 +214,9 @@
                     cell. appendChild(cellText);
                     row.appendChild(cell);
                     
+                
+                    
+                    
                 } else if (date > daysInMonth(month, year)) {//月ごとの日を設定
                     var cell = document.createElement("td");
                                 cell.textContent = nextMonthDate;
@@ -251,7 +257,7 @@
                     }
 
                     cell.appendChild(stampDiv);
-                   
+                    console.log('年: ' + year + ', 月: ' + (month + 1) + ', 日: ' + thisDate);
                     cell.addEventListener("click", (function(y, m, d) {
                         return function() {
                         	const dateUrl = "MindShift-list?year=" + y + "&month=" + m + "&day=" + d;
@@ -272,28 +278,84 @@
                 break; // 完全に空白行だったらループ終了
             }
             
-            const contextPath = "${pageContext.request.contextPath}";
+            const plantImagesByDate = {
+            		<c:forEach var="plant" items="${result_plant}" varStatus="status">
+            	    "<fmt:formatDate value='${plant.createdAt}' pattern='yyyy-MM-dd'/>": "${plant.plant}"<c:if test="${!status.last}">,</c:if>
+            	</c:forEach>
+            		};
+         // ★土曜日のセルの隣に画像セルを追加
+            let saturdayCell = row.children[6]; // 7列目（0開始）
+
+            if (saturdayCell) {
+                let year = saturdayCell.getAttribute("data-year");
+                let month = saturdayCell.getAttribute("data-month");
+                let day = saturdayCell.getAttribute("data-date");
+
+                function padZero(n) {
+                	  return n < 10 ? '0' + n : n;
+                	}
+
+                let dateStr = year + '-' + padZero(Number(month)) + '-' + padZero(Number(day));
+                
+                console.log("dateStr:", dateStr);
+                console.log("plantImagesByDate[dateStr]:", plantImagesByDate[dateStr]);
+
+                let imgCell = document.createElement("td");
+                imgCell.className = "plant";
+               
+
+                if (plantImagesByDate[dateStr]) {
+                    let img = document.createElement("img");
+                    img.src = "${pageContext.request.contextPath}/image/" + plantImagesByDate[dateStr];
+                    img.alt = "植物の画像";
+                    img.width = 100;
+                    img.height = 100;
+                    imgCell.appendChild(img);
+                } else {
+                    imgCell.textContent = ""; // 画像なしは空セル
+                }
+                row.appendChild(imgCell);
+            }
+
+            if (!isRowEmpty) {
+                tbl.appendChild(row);
+            } else {
+                break;
+            }
+                   
+           /* const contextPath = "${pageContext.request.contextPath}";
             const plantList = [
                 <c:forEach var="item" items="${result_plant}" varStatus="status">
                     "${item.plant}"<c:if test="${!status.last}">,</c:if>
                 </c:forEach>
             ];
             const plantName = plantList[i];
+           
 
+            
             if (!isCrossMonthRow) {
+            	
+            	
+               
             	const newCell = document.createElement('td');
                 newCell.className = 'plant';
 
                 const img = document.createElement('img');
-                img.src = contextPath + "/image/" + plantName;
-                img.alt = '植物の画像';
+                img.src = contextPath + '/image/'+plantName; 
                 img.width = 100;
                 img.height = 100;
 
                 newCell.appendChild(img);
                 row.appendChild(newCell);
+            	
+            	
+            	/*const newCell = document.createElement('td');
+                newCell.className = 'plant';
+                row.appendChild(newCell);*/
+            	
+            	
                 
-            }else{
+         /*   }else{
             const newCell = document.createElement('td');
             newCell.className = 'plant';
 
@@ -305,7 +367,7 @@
             newCell.appendChild(img);
             row.appendChild(newCell);	
             	
-            }
+            }*/
         }
 
         }
