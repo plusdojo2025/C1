@@ -56,6 +56,7 @@ body {
 }
 
 .menu2 a {/*それぞれのブロックの設定*/
+  width: 100%;
   display: block;
   padding: 20px 20px;
   text-align: center;
@@ -237,6 +238,7 @@ img{/*画像*/
 /* フッター　************************************************************/
 /* id="footer" */
 #footer {
+  width: 100%;
   margin-top: 20px;
   margin-bottom:0;
   margin-top: 60px;

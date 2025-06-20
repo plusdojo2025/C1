@@ -12,13 +12,11 @@
     <link rel="icon" href="image/favicon1.ico" id="favicon">
 </head>
 <body>
+   	<!-- ヘッダー（ここから） -->
+	<jsp:include page="Mindshift_header.jsp" />
+	<jsp:include page="Mindshift_navigation.jsp" />
+	<!-- ヘッダー（ここまで） -->
 	<div class="wrapper">
-
-		<!-- ヘッダー（ここから） -->
-		<jsp:include page="Mindshift_header.jsp" />
-		<jsp:include page="Mindshift_navigation.jsp" />
-		<!-- ヘッダー（ここまで） -->
-
 		<main class="main">
 		 <h2 style="text-align:center;">MindShift</h2>
 			<!--アプリについて -->
@@ -81,13 +79,13 @@
 		   
 		</main>
 
-		<!-- フッター（ここから） -->
-		<jsp:include page="Mindshift_footer.jsp" />
 
-		<!-- フッター（ここまで） -->
 	</div>
 	<!--javascriptのファイルの読み込み-->
 	<script src="js/explain.js"></script>
-
+	
+	<!-- フッター（ここから） -->
+	<jsp:include page="Mindshift_footer.jsp" />
+	<!-- フッター（ここまで） -->
 </body>
 </html>
