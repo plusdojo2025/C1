@@ -24,7 +24,6 @@
     <div id="regist_text">
         <h2>登録内容</h2>
          <div class="form-group">
-    <label>感情スタンプ：</label>
    <c:if test="${feedbacksList.emo_stamp_id == '5'}">
     <span class="emostamp">😆</span>
    </c:if>
@@ -44,7 +43,7 @@
    <c:if test="${feedbacksList.emo_stamp_id == '1'}">
     <span class="emostamp">😨</span>
    </c:if>
-  </div>
+ 
   
         <p id="action">出来事：<c:out value="${emotionsList.action}" /></p>      
         
@@ -68,7 +67,7 @@
   <c:when test="${emotionsList.emotion == '1'}"> <c:set var="emotionLabel" value="不安" /></c:when>
 </c:choose>
 
-<div class="form-group">
+
  <p id="emotion">その時の感情：<c:out value="${emotionLabel}" /></p>
 </div>
 </div>

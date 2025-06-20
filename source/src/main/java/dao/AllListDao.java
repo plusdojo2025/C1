@@ -488,7 +488,7 @@ public class AllListDao extends CustomTemplateDao<AllListDto> {
 
 	        // 検索条件を使ったSQL（created_atは今月の範囲で固定）
 	        String sql = """
-	            SELECT plant,created_at
+	            SELECT *
 				FROM allList
 				WHERE user_id=? AND DATE(created_at) = DATE_ADD(
 				    DATE_SUB(DATE(created_at), INTERVAL WEEKDAY(created_at) DAY),

@@ -22,17 +22,17 @@
 		<!-- ヘッダー（ここから） -->
 		<!-- ヘッダー（ここまで） -->
 		<c:if test="${empty month}">
-		 <u><h2 style="text-align: center;">今月の登録一覧</h2></u>
+		<h2 style="text-align: center;">今月の登録一覧</h2>
         </c:if>
         
         <c:if test="${not empty month}">
 		  <fmt:formatDate value="${cardList[0].createdAt}" pattern="M" var="createdMonth" />
 		  <c:choose>
 		    <c:when test="${createdMonth == month}">
-		      <u><h2 style="text-align: center;">登録一覧</h2></u>
+		      <h2 style="text-align: center;">登録一覧</h2>
 		    </c:when>
 		    <c:otherwise>
-		      <u><h2 style="text-align: center;">${year}年-${month}月の登録一覧</h2></u>
+		      <h2 style="text-align: center;">${year}年-${month}月の登録一覧</h2>
 		    </c:otherwise>
 		  </c:choose>
 		</c:if>
@@ -60,23 +60,23 @@
   <div class="form-group">
     <label>感情スタンプ</label>
    <c:if test="${item.emoStampId == '5'}">
-    <span class="emostamp">😆</span>
+    <span class="emostamp"><font size="+4">😆</font></span>
    </c:if>
    
    <c:if test="${item.emoStampId == '4'}">
-    <span class="emostamp">😊</span>
+    <span class="emostamp"><font size="+4">😊</font></span>
    </c:if>
    
    <c:if test="${item.emoStampId == '3'}">
-    <span class="emostamp">😠</span>
+    <span class="emostamp"><font size="+4">😠</font></span>
    </c:if>
    
    <c:if test="${item.emoStampId == '2'}">
-    <span class="emostamp">😢</span>
+    <span class="emostamp"><font size="+4">😢</font></span>
    </c:if>
    
    <c:if test="${item.emoStampId == '1'}">
-    <span class="emostamp">😨</span>
+    <span class="emostamp"><font size="+4">😨</font></span>
    </c:if>
   </div>
   

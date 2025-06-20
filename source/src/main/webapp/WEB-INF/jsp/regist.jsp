@@ -23,7 +23,7 @@
   <main>
 	<form id="emo_form" method="POST" action="MindShift-regist"> 
       <div class="radio">
-          1.感情スタンプを選んでね<br>
+          <p class="hText">1.感情スタンプを選んでね</p>
           <div class="radio_edit">
           <input type="radio" name="emo_stamp" value="5" onchange="setOption(this);"/>😆　
           <input type="radio" name="emo_stamp" value="4" onchange="setOption(this);"/>😊　

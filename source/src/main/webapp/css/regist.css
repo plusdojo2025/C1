@@ -51,6 +51,7 @@ body {
 }
 
 .menu2 a {/*それぞれのブロックの設定*/
+  width: 100%;
   display: block;
   padding: 20px 20px;
   text-align: center;
@@ -159,13 +160,17 @@ padding: 0;
 main {
   margin: 0 auto 0 auto;
   width:800px;
+  text-align: center;
   background-color: #FFFFFF;
-  border: solid;
-  border-color:#59b396;
-  border-radius:30px;
+  border-radius: 8px;
+  box-shadow: 0 0 10px rgba(0,0,0,0.1);
 }
 /****************************/
+/*見出し**************************************************************/
 
+h2{
+	font-size: 1.9rem;
+}
 
 /******** 1.ラジオボタン**********/
 .radio{
@@ -175,6 +180,13 @@ main {
 	margin-bottom: 20px;
 }
 
+.hText {
+	height: 50px;
+	margin-bottom: 0;
+	align-content: center;
+}
+
+
 .radio_edit{
    font-size: 1.5rem;
 /*	margin-top: 20px;
@@ -182,7 +194,7 @@ main {
 }
 
 input[type="radio"] {
-  accent-color: #f00;
+  /* accent-color: #59b396; */
   transform: scale(1.5);
 }
 /****************************/
