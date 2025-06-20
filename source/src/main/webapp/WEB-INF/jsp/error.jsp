@@ -21,7 +21,8 @@
 		
 		<main>
 		 <div  class="main">
-		     <u><h2 style="text-align:center;"><c:out value="${systemError.title}"/></h2></u>
+		     <p class="bar"></p>
+		     <h2 style="text-align:center;"><c:out value="${systemError.title}"/></h2>
 		     <p></p>
 		     <p></p>
 		     <p></p>
