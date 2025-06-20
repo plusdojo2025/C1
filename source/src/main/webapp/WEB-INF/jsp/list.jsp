@@ -60,23 +60,23 @@
   <div class="form-group">
     <label>感情スタンプ</label>
    <c:if test="${item.emoStampId == '5'}">
-    <span class="emostamp">😆</span>
+    <span class="emostamp"><font size="+4">😆</font></span>
    </c:if>
    
    <c:if test="${item.emoStampId == '4'}">
-    <span class="emostamp">😊</span>
+    <span class="emostamp"><font size="+4">😊</font></span>
    </c:if>
    
    <c:if test="${item.emoStampId == '3'}">
-    <span class="emostamp">😠</span>
+    <span class="emostamp"><font size="+4">😠</font></span>
    </c:if>
    
    <c:if test="${item.emoStampId == '2'}">
-    <span class="emostamp">😢</span>
+    <span class="emostamp"><font size="+4">😢</font></span>
    </c:if>
    
    <c:if test="${item.emoStampId == '1'}">
-    <span class="emostamp">😨</span>
+    <span class="emostamp"><font size="+4">😨</font></span>
    </c:if>
   </div>
   
