@@ -74,11 +74,11 @@
             <th>😠<br>怒り</th>
         </tr>
         <tr>
-            <td id="stamp-1">0</td>
-            <td id="stamp-2">0</td>
-            <td id="stamp-3">0</td>
-            <td id="stamp-4">0</td>
             <td id="stamp-5">0</td>
+            <td id="stamp-4">0</td>
+            <td id="stamp-3">0</td>
+            <td id="stamp-2">0</td>
+            <td id="stamp-1">0</td>
         </tr>
     </table>
   </div>
@@ -101,18 +101,17 @@
 		<c:forEach var="e" items="${stampCounts}">
 		    stampData.push({ id: ${e.key}, count: ${e.value} });
 		</c:forEach>
-		//ここでブラウザにstampDataの中身を表示する
-		console.log("stampData =", stampData);
+		
 		stampData.forEach(item => {
 		    const cell = document.getElementById(`stamp-${item.id}`);
 		    if (cell) {
 		      cell.textContent = item.count;
 		    }
-		  });  
+		  });
 	</script> 
 	<script src="js/home.js"></script>
 	
-	<script>
+	<!-- <script>
 		const stampCount = Number("${stampCount != null ? stampCount : 0}");
 		const totalScore = Number("${totalScore != null ? totalScore : 0}");
 		
@@ -128,7 +127,7 @@
 		    }
 		  });  
 	</script> 
-	<script src="js/home.js"></script>
+	<script src="js/home.js"></script> -->
 	<script>
 	function generate_year_range(start, end) {
         var years = "";
