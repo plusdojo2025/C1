@@ -10,14 +10,13 @@
 <title>エラー | MindShift</title>
 <link rel="stylesheet"
 	href="${pageContext.request.contextPath}/css/error.css">
-	  <link rel="icon" href="images/favicon1.ico" id="favicon">
+<link rel="icon" href="image/favicon1.ico">
 </head>
 <body>
 	<div class="wrapper">
 
 		<!-- ヘッダー（ここから） -->
 		<jsp:include page="Mindshift_header.jsp" />
-		<!--<jsp:include page="Mindshift_navigation.jsp" />-->
 		<!-- ヘッダー（ここまで） -->
 		
 		<main>
