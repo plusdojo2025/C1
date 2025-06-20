@@ -13,12 +13,11 @@
 	href="${pageContext.request.contextPath}/css/regist.css">
 </head>
 <body>
+	<!-- ヘッダー（ここから） -->
+	<jsp:include page="Mindshift_header.jsp" />
+	<jsp:include page="Mindshift_navigation.jsp" />
+	<!-- ヘッダー（ここまで） -->
 	<div class="wrapper">
-
-		<!-- ヘッダー（ここから） -->
-		<jsp:include page="Mindshift_header.jsp" />
-		<jsp:include page="Mindshift_navigation.jsp" />
-		<!-- ヘッダー（ここまで） -->
         <h2 style="text-align:center;">感情登録</h2>
   
   <main>
@@ -53,13 +52,13 @@
     </form>
   </main>
 
-		<!-- フッター（ここから） -->
-		<jsp:include page="Mindshift_footer.jsp" />
-
-		<!-- フッター（ここまで） -->
 	</div>
 	<!--javascriptのファイルの読み込み-->
 	<script src="js/regist.js"></script>
+	
+	<!-- フッター（ここから） -->
+	<jsp:include page="Mindshift_footer.jsp" />
+	<!-- フッター（ここまで） -->
 
 </body>
 </html>

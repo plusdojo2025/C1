@@ -15,11 +15,11 @@
 	
 </head>
 <body>
+	<jsp:include page="Mindshift_header.jsp" />
+	<jsp:include page="Mindshift_navigation.jsp" />
 	<div class="wrapper">
 
 		<!-- ヘッダー（ここから） -->
-		<jsp:include page="Mindshift_header.jsp" />
-		<jsp:include page="Mindshift_navigation.jsp" />
 		<!-- ヘッダー（ここまで） -->
 		<c:if test="${empty month}">
 		 <u><h2 style="text-align: center;">今月の登録一覧</h2></u>
@@ -234,16 +234,14 @@
 
 	
 		</main>
-
-		<!-- フッター（ここから） -->
-		<jsp:include page="Mindshift_footer.jsp" />
-
-		<!-- フッター（ここまで） -->
 	</div>
 	<!--javascriptのファイルの読み込み-->
 	<script src="js/list.js"></script>
 	
-	
+			<!-- フッター（ここから） -->
+		<jsp:include page="Mindshift_footer.jsp" />
+
+		<!-- フッター（ここまで） -->
 
 </body>
 </html>
