@@ -27,8 +27,10 @@
 		     <p></p>
 		     <p></p>
 		     <p></p>
+		    <div class="content">
 		     <p class="nav1"><c:out value="${systemError.message}" /></p>
 		     <p class="nav2"><a href="${systemError.backTo}">ホームに戻る</a></p>
+	        </div>
 	    </div>
 	
 	
