@@ -13,6 +13,7 @@ import javax.servlet.http.HttpServletResponse;
 import dao.AllListDao;
 import dao.EmotionsDao;
 import dto.EmotionsDto;
+import dto.ErrorDto;
 
 
 /**
@@ -74,6 +75,7 @@ protected void doPost(HttpServletRequest request, HttpServletResponse response)
 //	EmotionDto.setAction("action");
 //	EmotionDto.setEmotion(0);
 	
+	try {
 	// EmotionsDaoのinsert文を呼び出して登録処理をする
 	EmotionsDao EmotionDao = new EmotionsDao();
     int userId = Integer.parseInt(request.getSession().getAttribute("user_id").toString());
@@ -85,7 +87,14 @@ protected void doPost(HttpServletRequest request, HttpServletResponse response)
 	
 	// フィードバック画面にリダイレクトする
 	response.sendRedirect("MindShift-positive");
-	
+	}catch(Exception e) {
+		//スコープにデータ保存
+		request.setAttribute("systemError", new ErrorDto("エラー","何らかのエラーが発生しております。","MindShift-home")); 
+
+		// エラーページにフォワードする
+		RequestDispatcher dispatcher = request.getRequestDispatcher("/WEB-INF/jsp/error.jsp");
+		dispatcher.forward(request, response);
+	}
 	
 	//ログインしていなかった場合、ログイン画面にリダイレクト処理をする。
 	if(checkNoneLogin(request, response)) {
