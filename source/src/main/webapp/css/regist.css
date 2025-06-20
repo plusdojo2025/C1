@@ -160,10 +160,10 @@ padding: 0;
 main {
   margin: 0 auto 0 auto;
   width:800px;
+  text-align: center;
   background-color: #FFFFFF;
-  border: solid;
-  border-color:#59b396;
-  border-radius:30px;
+  border-radius: 8px;
+  box-shadow: 0 0 10px rgba(0,0,0,0.1);
 }
 /****************************/
 /*見出し**************************************************************/
@@ -194,7 +194,6 @@ h2{
 }
 
 input[type="radio"] {
-  accent-color: #f00;
   transform: scale(1.5);
 }
 /****************************/
