@@ -78,7 +78,7 @@ public class PositiveServlet extends CustomTemplateServlet {
 			//「checkNoneLogin」、「logout」の処理を加えてください。(logoutはナビゲーションがあるページのみに適用する。)
 			protected void doPost(HttpServletRequest request, HttpServletResponse response)throws ServletException, IOException {
 				// TODO 自動生成されたメソッド・スタブ
-				response.setCharacterEncoding("UTF-8");
+				request.setCharacterEncoding("UTF-8");
 
 				//ログインしていなかった場合、ログイン画面にリダイレクト処理をする。(HomeServletをそのままコピーしてもらって大丈夫です。)
 				if(checkNoneLogin(request, response)) {

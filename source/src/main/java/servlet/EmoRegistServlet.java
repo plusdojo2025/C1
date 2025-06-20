@@ -86,6 +86,7 @@ protected void doPost(HttpServletRequest request, HttpServletResponse response)
 	// フィードバック画面にリダイレクトする
 	response.sendRedirect("MindShift-positive");
 	
+	
 	//ログインしていなかった場合、ログイン画面にリダイレクト処理をする。
 	if(checkNoneLogin(request, response)) {
 		return;
