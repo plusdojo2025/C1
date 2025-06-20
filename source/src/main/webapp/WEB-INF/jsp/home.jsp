@@ -69,9 +69,9 @@
         <tr>
             <th>😆<br>楽しみ</th>
             <th>😊<br>喜び</th>
-            <th>😨<br>恐れ</th>
-            <th>😢<br>悲しみ</th>
             <th>😠<br>怒り</th>
+            <th>😢<br>悲しみ</th>          
+            <th>😨<br>恐れ</th>
         </tr>
         <tr>
             <td id="stamp-5">0</td>
@@ -84,6 +84,7 @@
   </div>
   <!--スタンプ集計表終わり-->
   
+
 </main>
 	
 
@@ -111,23 +112,6 @@
 	</script> 
 	<script src="js/home.js"></script>
 	
-	<!-- <script>
-		const stampCount = Number("${stampCount != null ? stampCount : 0}");
-		const totalScore = Number("${totalScore != null ? totalScore : 0}");
-		
-		const stampData = [];
-		<c:forEach var="e" items="${stampCounts}">
-		    stampData.push({ id: ${e.key}, count: ${e.value} });
-		</c:forEach>
-		
-		stampData.forEach(item => {
-		    const cell = document.getElementById(`stamp-${item.id}`);
-		    if (cell) {
-		      cell.textContent = item.count;
-		    }
-		  });  
-	</script> 
-	<script src="js/home.js"></script> -->
 	<script>
 	function generate_year_range(start, end) {
         var years = "";
@@ -287,24 +271,34 @@
             } else {
                 break; // 完全に空白行だったらループ終了
             }
+            
+            const contextPath = "${pageContext.request.contextPath}";
+            const plantList = [
+                <c:forEach var="item" items="${result_plant}" varStatus="status">
+                    "${item.plant}"<c:if test="${!status.last}">,</c:if>
+                </c:forEach>
+            ];
+            const plantName = plantList[i];
+
             if (!isCrossMonthRow) {
-            const newCell = document.createElement('td');
-            newCell.className = 'plant';
+            	const newCell = document.createElement('td');
+                newCell.className = 'plant';
 
-            const img = document.createElement('img');
-            img.src = 'image/roses.png';   // 画像のパスを指定
-            img.alt = '植物の画像';          // 代替テキスト
-            img.width = 100;                 // 幅（必要に応じて調整）
-            img.height = 100;                // 高さ（必要に応じて調整）
+                const img = document.createElement('img');
+                img.src = contextPath + "/image/" + plantName;
+                img.alt = '植物の画像';
+                img.width = 100;
+                img.height = 100;
 
-            newCell.appendChild(img);
-            row.appendChild(newCell);
+                newCell.appendChild(img);
+                row.appendChild(newCell);
+                
             }else{
             const newCell = document.createElement('td');
             newCell.className = 'plant';
 
             const img = document.createElement('img');
-            img.src = 'image/logo_circle.png';   // 画像のパスを指定
+            img.src = '${pageContext.request.contextPath}/image/logo_circle.png';   // 画像のパスを指定
             img.alt = '植物の画像';          // 代替テキスト
             img.width = 100;                 // 幅（必要に応じて調整）
             img.height = 100;     
