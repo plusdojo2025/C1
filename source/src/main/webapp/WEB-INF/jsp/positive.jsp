@@ -24,7 +24,6 @@
     <div id="regist_text">
         <h2>登録内容</h2>
          <div class="form-group">
-    <label>感情スタンプ：</label>
    <c:if test="${feedbacksList.emo_stamp_id == '5'}">
     <span class="emostamp">😆</span>
    </c:if>
