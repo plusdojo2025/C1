@@ -6,21 +6,33 @@ html{
 }
 /* bodyタグ */
 body {
-  font-family: "M PLUS Rounded 1c", sans-serif;
-  font-weight: 500;
   margin: 0 0 0 0;	/* マージンなし（後で個別に設定） */
   padding: 0 0 0 0;	/* パディングなし（後で個別に設定） */
   color: #333;
   font-size: 16px;
   background: #c3e6d3;
+  font-family: "Zen Maru Gothic", sans-serif;
+  font-weight: 500;
+  font-style: normal;
 }
 
 .form-group,
 .form-group input,
 .form-group textarea,
 .form-group label {
-  font-family: 'M PLUS Rounded 1c', sans-serif;
+  font-family: "Zen Maru Gothic", sans-serif;
   font-weight: 500;
+  font-style: normal;
+}
+
+/* アクセス日時 */
+.access {
+	padding: 20px;
+	margin: 20px;
+    width: 280px;
+    border-radius: 8px;
+	background-color: #59b396;
+	color: #ffffff;
 }
 
 /* wrapperクラス */

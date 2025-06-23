@@ -214,8 +214,9 @@ html{
 }
 /* bodyタグ */
 body {
-  font-family: "M PLUS Rounded 1c", sans-serif;
+  font-family: "Zen Maru Gothic", sans-serif;
   font-weight: 500;
+  font-style: normal;
   margin: 0 0 0 0;	/* マージンなし（後で個別に設定） */
   padding: 0 0 0 0;	/* パディングなし（後で個別に設定） */
   color: #333;
