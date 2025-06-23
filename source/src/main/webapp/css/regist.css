@@ -259,12 +259,15 @@ textarea {
 
 input[type=submit] {
   border: none;
-  color:#FFFFFF;
+  color: #fafafa;
   background-color: #59b396;
   margin: 30px;
   width: 180px;
   height: 50px;
   border-radius:30px;
+  font-family: "Zen Maru Gothic", sans-serif;
+  font-weight: 500;
+  font-style: normal;
 }
 /***********************************************************************/
 
