@@ -155,3 +155,10 @@ document.getElementById('emo_form').onsubmit = function(event) {
         }
     };
 
+
+window.addEventListener("pageshow", function(event) {
+  if (event.persisted || (window.performance && window.performance.navigation.type === 2)) {
+    // ページがキャッシュから戻ってきたときに強制リロード
+    window.location.reload();
+  }
+});

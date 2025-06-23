@@ -72,3 +72,10 @@ document.getElementById('back_button').onclick = function(event) {
       return false;
     }
 }
+
+window.addEventListener("pageshow", function(event) {
+  if (event.persisted || (window.performance && window.performance.navigation.type === 2)) {
+    // ページがキャッシュから戻ってきたときに強制リロード
+    window.location.reload();
+  }
+});

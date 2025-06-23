@@ -82,7 +82,7 @@ public class HomeServlet extends CustomTemplateServlet {
 		    		 gazou = "sunflower.png";
 		    	}else if(summary.getTotalScore()<= 30) {
 		    		 gazou = "tulips.png";
-		    	}else if(summary.getTotalScore()<= 30) {
+		    	}else if(summary.getTotalScore()<= 35) {
 		    		 gazou = "roses.png";
 		    	}
 		    	

@@ -19,6 +19,16 @@ body {
   padding: 20px;
 }
 
+.access {
+	padding: 20px;
+	margin: 20px;
+    width: 280px;
+    border-radius: 8px;
+	background-color: #59b396;
+	color: #FFFFFF;
+}
+
+
 /* タイトル*/
 #logo {
   text-align: center;
@@ -176,6 +186,7 @@ main {
 
 h2{
 	font-size: 1.9rem;
+	border-bottom: 3px dotted #59B396;
 }
 
 /******** 1.ラジオボタン**********/
@@ -275,7 +286,6 @@ input[type=submit] {
 /* フッター　************************************************************/
 /* id="footer" */
 #footer {
-  width: 100%;
   margin-top: 20px;
   margin-bottom:0;
   margin-top: 60px;
@@ -286,6 +296,12 @@ input[type=submit] {
   text-align: center;
   border-radius: 8px;
 }
+
+.catchphrase {
+	margin: 0;
+	font-size: 1rem;
+}
+
 .gotop img {
   text-align: center;
   width: 140px;

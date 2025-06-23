@@ -62,6 +62,14 @@
 	<!-- フッター（ここから） -->
 	<jsp:include page="Mindshift_footer.jsp" />
 	<!-- フッター（ここまで） -->
+	<script>
+	window.addEventListener("pageshow", function(event) {
+	  if (event.persisted || (window.performance && window.performance.navigation.type === 2)) {
+	    // ページがキャッシュから戻ってきたときに強制リロード
+	    window.location.reload();
+	  }
+	});
+	</script>
 
 </body>
 </html>
