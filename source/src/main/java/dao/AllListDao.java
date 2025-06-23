@@ -600,6 +600,38 @@ public class AllListDao extends CustomTemplateDao<AllListDto> {
 
 		    return summary;
 		}
+
+		public boolean update_image(Integer userId, String gazou) {
+		    Connection conn = null;
+		    boolean result = false;
+
+		    try {
+		        conn = conn();  // DB接続
+
+		        String sql = """
+		           UPDATE allList SET plant = ? 
+		           WHERE user_id = ? 
+		           AND DATE(created_at) = CURDATE();
+		        """;
+
+		        PreparedStatement ps = conn.prepareStatement(sql);
+		        ps.setString(1, gazou);
+		        ps.setInt(2, userId);
+
+		        int rowsAffected = ps.executeUpdate();
+		        if (rowsAffected > 0) {
+		            result = true;
+		        }
+
+		    } catch (Exception e) {
+		        e.printStackTrace();
+		    } finally {
+		        close(conn);
+		    }
+
+		    return result;
+		}
+		
 }
 	
 

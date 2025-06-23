@@ -67,7 +67,7 @@ public class HomeServlet extends CustomTemplateServlet {
 		    }else if(summary.getCnt() >= 1 && summary.getCnt() <= 3) {
 		    	 gazou = "me.png";
 		    }else if(summary.getCnt() >= 4 && summary.getCnt() <= 6) {
-		    	 gazou = "me.png";
+		    	 gazou = "tubomi.png";
 		    }   
 		    if(summary.getCnt()==7) {
 		    	if(summary.getTotalScore()<= 10) {
@@ -89,6 +89,11 @@ public class HomeServlet extends CustomTemplateServlet {
 		    }
 		    
 		    System.out.println(gazou);
+		    
+		    AllListDao Gazou = new AllListDao();   
+		    boolean updateResult = Gazou.update_image(userId, gazou);
+		    request.setAttribute("plant_image_updated", updateResult);
+		    
 		    
 
 		    // スタンプ集計表（1か月分）
