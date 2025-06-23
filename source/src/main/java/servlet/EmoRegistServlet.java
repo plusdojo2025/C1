@@ -86,6 +86,7 @@ protected void doPost(HttpServletRequest request, HttpServletResponse response)
 //	EmotionDao.delete(EmotionDto);
 	
 	// フィードバック画面にリダイレクトする
+	request.getSession().setAttribute("cameFromRegistFlow", true);
 	response.sendRedirect("MindShift-positive");
 	}catch(Exception e) {
 		//スコープにデータ保存

@@ -57,10 +57,13 @@ public class PositiveServlet extends CustomTemplateServlet {
 				
 				Boolean cameFromFlow = (Boolean) request.getSession().getAttribute("cameFromRegistFlow");
 			    if (cameFromFlow == null || !cameFromFlow) {
+			        // ❗直接アクセスを遮断
 			        response.sendRedirect("MindShift-regist");
 			        return;
 			    }
 
+			    // 一度使ったら消すことで、再読み込みやお気に入り直アクセスを防止
+			    request.getSession().removeAttribute("cameFromRegistFlow");
 				
 				//EmotionsDaoでデータベースから情報を得る
 				EmotionsDao eDao = new EmotionsDao();
