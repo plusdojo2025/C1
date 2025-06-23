@@ -25,6 +25,16 @@ body {
   padding: 20px;
 }
 
+/* アクセス日時 */
+.access {
+	padding: 20px;
+	margin: 20px;
+    width: 280px;
+    border-radius: 8px;
+	background-color: #59b396;
+	color: #FFFFFF;
+}
+
 /* タイトル*/
 #logo {
   text-align: center;
@@ -255,6 +265,12 @@ img{/*画像*/
   text-align: center;
   border-radius: 8px;
 }
+
+.catchphrase {
+	margin: 0;
+	font-size: 1rem;
+}
+
 .gotop img {
   text-align: center;
   width: 140px;

@@ -6,7 +6,7 @@
 	<!--ヘッダー部をまとめるためのタグ -->
 
 	<section>
-		<p>
+		<p class="access">
 			最終アクセス日時：<span id="time"></span>
 		</p>
 	</section>

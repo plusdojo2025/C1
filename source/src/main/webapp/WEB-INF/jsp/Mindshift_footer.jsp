@@ -4,6 +4,8 @@
 <%@ taglib uri="http://java.sun.com/jsp/jstl/fmt" prefix="fmt"%>
 <footer>
 	<div id="footer">
+		<p class="catchphrase">5分でココロのガーデニング</p>
+		<p class="catchphrase">MindShift</p>
 		<p>&copy;Copyright FriYay All rights reserved.</p>
 		<div class="gotop">
 			<a href="#"><img
