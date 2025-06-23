@@ -63,8 +63,8 @@
 .login-button {
     width: 100%;
     padding: 10px;
-    background-color: #ffff00;
-    color: white;
+    background-color: #ffd700;
+    color: #fafafa;
     border: none;
     border-radius: 9999px;
     font-size: 16px;
@@ -74,7 +74,7 @@
 }
 
 .login-button:hover {
-    background-color: #ffd700;
+    background-color: #e6c300;
 }
 
 .login-links {
@@ -124,8 +124,8 @@
 .newlogin-button {
     width: 100%;
     padding: 10px;
-    background-color: #008000;
-    color: white;
+    background-color: #59b396;
+    color: #fafafa;
     border: none;
     border-radius: 9999px;
     font-size: 16px;
@@ -135,7 +135,7 @@
 }
 
 .newlogin-button:hover {
-    background-color: #006400;
+    background-color: #4d9981;
 }
 /* /new_login.html */
 
@@ -216,7 +216,6 @@ html{
 body {
   font-family: "M PLUS Rounded 1c", sans-serif;
   font-weight: 500;
-  font-style: normal;
   margin: 0 0 0 0;	/* マージンなし（後で個別に設定） */
   padding: 0 0 0 0;	/* パディングなし（後で個別に設定） */
   color: #333;

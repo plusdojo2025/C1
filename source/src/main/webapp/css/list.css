@@ -6,12 +6,23 @@ html{
 }
 /* bodyタグ */
 body {
+  font-family: "M PLUS Rounded 1c", sans-serif;
+  font-weight: 500;
   margin: 0 0 0 0;	/* マージンなし（後で個別に設定） */
   padding: 0 0 0 0;	/* パディングなし（後で個別に設定） */
   color: #333;
   font-size: 16px;
   background: #c3e6d3;
 }
+
+.form-group,
+.form-group input,
+.form-group textarea,
+.form-group label {
+  font-family: 'M PLUS Rounded 1c', sans-serif;
+  font-weight: 500;
+}
+
 /* wrapperクラス */
 .wrapper {
   margin: 0 auto 0 auto;	/* 中央揃え */
@@ -52,7 +63,7 @@ body {
 }
 
 .menu2 a {/*それぞれのブロックの設定*/
-  width: 100%;
+  width: auto;
   display: block;
   padding: 20px 20px;
   text-align: center;
@@ -158,6 +169,7 @@ padding: 0;
 
 h2{
 	font-size: 1.9rem;
+	border-bottom: 3px dotted #59B396;
 }
 
 .term{
@@ -304,7 +316,7 @@ textarea:focus {
 /* フッター　************************************************************/
 /* id="footer" */
 #footer {
-  width: 100%;
+  width: auto;
   margin-top: 20px;
   margin-bottom:0;
   margin-top: 60px;

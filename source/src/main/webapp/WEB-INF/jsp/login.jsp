@@ -42,7 +42,9 @@
 <!-- フッター（ここから） -->
   <footer>
     <div id="footer">
-      <p>&copy;Copyright FriYay All rights reserved.</p>
+      	<p class="catchphrase">5分でココロのガーデニング</p>
+		<p class="catchphrase">MindShift</p>
+		<p>&copy;Copyright FriYay All rights reserved.</p>
       <div class="gotop">
         <!--<a href="#top"><img src="gotop_circle_light.png" alt="ページトップへ戻る"></a>-->
       </div>

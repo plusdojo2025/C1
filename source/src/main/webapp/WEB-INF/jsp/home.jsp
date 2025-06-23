@@ -14,11 +14,12 @@
 <link href="https://fonts.googleapis.com/css2?family=Zen+Maru+Gothic:wght@500&display=swap" rel="stylesheet">
 </head>
 <body data-context="${pageContext.request.contextPath}">
+	
+	<!-- ヘッダー（ここから） -->
+	<jsp:include page="Mindshift_header.jsp" />
+	<jsp:include page="Mindshift_navigation.jsp" />
+	<!-- ヘッダー（ここまで） -->
 	<div class="wrapper">
-		<!-- ヘッダー（ここから） -->
-		<jsp:include page="Mindshift_header.jsp" />
-		<jsp:include page="Mindshift_navigation.jsp" />
-		<!-- ヘッダー（ここまで） -->
 		<main>
 		<!-- この部分を差し替える -->
 		<h2 style="text-align:center;">オブジェクト表示</h2>
@@ -87,11 +88,6 @@
 
 </main>
 	
-
-		<!-- フッター（ここから） -->
-		<jsp:include page="Mindshift_footer.jsp" />
-		
-		<!-- フッター（ここまで） -->
 	</div>
 	<!--javascriptのファイルの読み込み-->
 	<script>
@@ -394,5 +390,10 @@
         return 32 - new Date(iYear, iMonth, 32).getDate();
         }
 	</script>
+	
+	<!-- フッター（ここから） -->
+	<jsp:include page="Mindshift_footer.jsp" />
+	<!-- フッター（ここまで） -->
+		
 </body>
 </html>

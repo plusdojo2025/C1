@@ -12,7 +12,7 @@
 <link rel="icon" href="${pageContext.request.contextPath}/image/favicon1.ico" id="favicon">
 <link rel="stylesheet"
 	href="${pageContext.request.contextPath}/css/list.css">
-	
+<link href="https://fonts.googleapis.com/css2?family=DotGothic16&family=M+PLUS+Rounded+1c&family=Zen+Maru+Gothic&display=swap" rel="stylesheet">
 </head>
 <body>
 	<jsp:include page="Mindshift_header.jsp" />
@@ -238,10 +238,9 @@
 	<!--javascriptのファイルの読み込み-->
 	<script src="js/list.js"></script>
 	
-			<!-- フッター（ここから） -->
-		<jsp:include page="Mindshift_footer.jsp" />
-
-		<!-- フッター（ここまで） -->
+	<!-- フッター（ここから） -->
+	<jsp:include page="Mindshift_footer.jsp" />
+	<!-- フッター（ここまで） -->
 
 </body>
 </html>
