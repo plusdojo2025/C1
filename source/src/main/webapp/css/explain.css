@@ -227,6 +227,7 @@ padding: 0;
 h2{/*下線あり大見出し*/
   margin: 20px;
   font-size: 1.9rem;
+  border-bottom: 3px dotted #59b396;
 }
 
 h3{/*小見出し*/
