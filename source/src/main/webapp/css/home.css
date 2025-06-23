@@ -29,6 +29,16 @@ body {
   color:#67AE6E;
 }
 
+/* アクセス日時 */
+.access {
+	padding: 20px;
+	margin: 20px;
+    width: 280px;
+    border-radius: 8px;
+	background-color: #59b396;
+	color: #FFFFFF;
+}
+
 .logo {
   text-align: center;
   font-family: 'Courier New', Courier, monospace;
@@ -45,6 +55,7 @@ h2 {
   margin-top: 40px;
   margin-bottom: 20px;
   font-weight: bold;
+  border-bottom: 3px dotted #59B396;
 
 }
 /****************************ナビゲーション**************************/
@@ -355,6 +366,12 @@ padding: 0;
   text-align: center;
   border-radius: 8px;
 }
+
+.catchphrase {
+	margin: 0;
+	font-size: 1rem;
+}
+
 .gotop img {
   text-align: center;
   width: 140px;
