@@ -11,7 +11,13 @@ body {
   color: #333;
   font-size: 16px;
   background: #c3e6d3;
+  font-family: "Zen Maru Gothic", sans-serif;
+  font-weight: 500;
+  font-style: normal;
 }
+
+
+
 /* wrapperクラス */
 .wrapper {
   margin: 0 auto 0 auto;	/* 中央揃え */

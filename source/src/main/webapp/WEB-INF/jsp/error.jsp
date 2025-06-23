@@ -11,6 +11,9 @@
 <link rel="stylesheet"
 	href="${pageContext.request.contextPath}/css/error.css">
 <link rel="icon" href="image/favicon1.ico">
+<style>
+@import url('https://fonts.googleapis.com/css2?family=Zen+Maru+Gothic:wght@500&display=swap');
+</style>
 </head>
 <body>
 	<div class="wrapper">
