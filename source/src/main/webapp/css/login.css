@@ -64,7 +64,7 @@
     width: 100%;
     padding: 10px;
     background-color: #ffff00;
-    color: black;
+    color: white;
     border: none;
     border-radius: 9999px;
     font-size: 16px;
@@ -214,6 +214,9 @@ html{
 }
 /* bodyタグ */
 body {
+  font-family: "M PLUS Rounded 1c", sans-serif;
+  font-weight: 500;
+  font-style: normal;
   margin: 0 0 0 0;	/* マージンなし（後で個別に設定） */
   padding: 0 0 0 0;	/* パディングなし（後で個別に設定） */
   color: #333;

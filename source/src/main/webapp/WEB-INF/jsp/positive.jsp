@@ -11,8 +11,11 @@
 <title>ポジティブ変換 | MindShift</title>
 <link rel="stylesheet"
 	href="${pageContext.request.contextPath}\css\positive.css">
+<link rel="preconnect" href="https://fonts.googleapis.com">
+<link rel="preconnect" href="https://fonts.gstatic.com" crossorigin>
+<link href="https://fonts.googleapis.com/css2?family=Zen+Maru+Gothic:wght@500&display=swap" rel="stylesheet">
 </head>
-<body>
+<body class="zen-maru-gothic-medium">
 	<!-- ヘッダー（ここから） -->
 	<jsp:include page="Mindshift_header.jsp" />
 	<jsp:include page="Mindshift_navigation.jsp" />
