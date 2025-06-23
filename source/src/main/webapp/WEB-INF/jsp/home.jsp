@@ -11,6 +11,7 @@
 <title>ホーム | MindShift</title>
 <link rel="stylesheet"
 	href="${pageContext.request.contextPath}/css/home.css">
+<link href="https://fonts.googleapis.com/css2?family=Zen+Maru+Gothic:wght@500&display=swap" rel="stylesheet">
 </head>
 <body data-context="${pageContext.request.contextPath}">
 	<div class="wrapper">
