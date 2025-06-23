@@ -61,7 +61,7 @@ body {
 }
 
 .menu2 a {/*それぞれのブロックの設定*/
-  width: 100%;
+  width: auto;
   display: block;
   padding: 20px 20px;
   text-align: center;
@@ -286,6 +286,7 @@ input[type=submit] {
 /* フッター　************************************************************/
 /* id="footer" */
 #footer {
+  width: auto;
   margin-top: 20px;
   margin-bottom:0;
   margin-top: 60px;
