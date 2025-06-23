@@ -157,6 +157,12 @@ padding: 0;
 
 
 /* メイン　************************************************************/
+.zen-maru-gothic-medium {
+  font-family: "Zen Maru Gothic", sans-serif;
+  font-weight: 500;
+  font-style: normal;
+}
+
 h2 {
   padding: 10px 0 10px 0;
 }
