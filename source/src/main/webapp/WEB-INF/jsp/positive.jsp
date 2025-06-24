@@ -95,11 +95,11 @@
     <input type="button" id="back_button" name="abutton" value="感情登録に戻る">
     </form>
 </main>
-
+</div>
 
 	<!--javascriptのファイルの読み込み-->
 	<script src="js/positive.js"></script>
-	
+		
 	<script>
 	window.addEventListener("pageshow", function(event) {
 	  if (event.persisted || (window.performance && window.performance.navigation.type === 2)) {

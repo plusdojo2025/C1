@@ -63,9 +63,6 @@
 	<!--javascriptのファイルの読み込み-->
 	<script src="js/regist.js"></script>
 	
-	<!-- フッター（ここから） -->
-	<jsp:include page="Mindshift_footer.jsp" />
-	<!-- フッター（ここまで） -->
 	<script>
 	window.addEventListener("pageshow", function(event) {
 	  if (event.persisted || (window.performance && window.performance.navigation.type === 2)) {
@@ -74,6 +71,10 @@
 	  }
 	});
 	</script>
-
+	
+	<!-- フッター（ここから） -->
+	<jsp:include page="Mindshift_footer.jsp" />
+	<!-- フッター（ここまで） -->
+	
 </body>
 </html>
