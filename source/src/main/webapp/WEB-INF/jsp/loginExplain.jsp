@@ -18,10 +18,12 @@
 <body>
 	<div class="wrapper">
 
-		<!-- ヘッダー（ここから） -->
-		<jsp:include page="Mindshift_header.jsp" />
-		<header class="header"></header>
-		<!-- ヘッダー（ここまで） -->
+	
+    <div id="logo">
+		<img src="${pageContext.request.contextPath}/image/logo_circle.png"
+			alt="LOGO" width="169" height="160">
+	</div>
+   
 
 	<main class="main">
 		<h2 style="text-align: center;">MindShift</h2>
