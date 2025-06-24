@@ -23,7 +23,7 @@
 	<div class="wrapper">
 
   
-  <main>
+<main>
     <div id="regist_text">
         <h2>登録内容</h2>
          <div class="form-group">
@@ -74,10 +74,12 @@
  <p id="emotion">その時の感情：<c:out value="${emotionLabel}" /></p>
 </div>
 </div>
-
+	
     <div id="feedback_text">
         <h2>フィードバック</h2>
         <p id="feedback"><c:out value="${feedbacksList.feedbacks}" /></p>
+     <img class="img" src="${pageContext.request.contextPath}/image/original_char.png"
+    alt="Original_Character" width="180" height="190" >
     </div>
 
     <form id="feedback_form" method="POST" action="MindShift-positive">
@@ -92,10 +94,9 @@
     <form id="back" method="GET" action="MindShift-regist">
     <input type="button" id="back_button" name="abutton" value="感情登録に戻る">
     </form>
-  </main>
+</main>
 
 
-	</div>
 	<!--javascriptのファイルの読み込み-->
 	<script src="js/positive.js"></script>
 	

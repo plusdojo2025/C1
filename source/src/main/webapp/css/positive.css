@@ -208,6 +208,12 @@ h2 {
   border-radius: 8px;
   box-shadow: 0 0 10px rgba(0,0,0,0.1);
 }
+
+.img {
+	position: relative;
+    left: 300px;
+    top: 70px;
+}
 #feedback {
 	width: 700px;
 	margin: 0 auto 0 auto;
