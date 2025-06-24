@@ -77,8 +77,13 @@
 		    <div class="section">
 		      <h3 style="text-align:center;"><c:out value="${explainList[5].title}" /></h3>
 		      <p><c:out value="${explainList[5].content}" /></p>
+		      <img src="${pageContext.request.contextPath}/image/original_char.png" id="char" alt="キャラクター">		
 		    </div>
 		    
+		    <!-- オリジナルキャラクター -->
+　　　　　　　　   <div class="original">
+               <!-- <img src="${pageContext.request.contextPath}/image/original_char.png" id="char" alt="キャラクター">-->		
+			 </div>
 		   
 		</main>
 

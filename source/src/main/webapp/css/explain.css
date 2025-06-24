@@ -242,6 +242,25 @@ img{/*画像*/
   margin: 0 auto;
 }
 
+
+.original{
+	display: flex;
+	align-items: center;
+	
+}
+#char{/*オリキャラ*/
+  /*position: absolute;
+  bottom: 1px;
+  right: 20px;
+  height: 200px;
+  z-index: 10;
+  width: 200px;*/
+  width: 150px;
+  margin-left: 950px;
+  height: 150px;
+ }
+ 
+
 /*** ログイン画面の各種説明 ***/
 .relogin{
   display: block;

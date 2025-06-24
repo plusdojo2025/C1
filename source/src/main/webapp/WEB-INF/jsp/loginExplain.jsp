@@ -70,9 +70,15 @@
 		<div class="section">
 		   <h3 style="text-align:center;">アカウント</h3>
 		   <p>ログアウトとアカウント削除ができます。</p>
+		    <img src="${pageContext.request.contextPath}/image/original_char.png" id="char" alt="キャラクター">	
 		</div>	
 		
-		<a href="MindShift-login" class="relogin">ログイン画面に戻る</a>
+	 
+          <a href="MindShift-login" class="relogin">ログイン画面に戻る</a>
+	      
+	     <div class="original">
+	      <!-- <img src="${pageContext.request.contextPath}/image/original_char.png" id="char" alt="キャラクター">-->		
+        </div>
 	</main>
 
 		<!-- フッター（ここから） -->
