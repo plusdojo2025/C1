@@ -250,7 +250,7 @@
                     if (stampDates[thisDateStr]) {
                       stampDiv.textContent = '　'+stampDates[thisDateStr]; // 対応した絵文字を表示
                     } else {
-                      stampDiv.textContent = ''; // 何も表示しない
+                      stampDiv.textContent = '　　　'; // 何も表示しない
                     }
 
                     cell.appendChild(stampDiv);
