@@ -16,6 +16,8 @@
         <div class="login-logo">
             <img src="image/logo_circle.png" alt="MindSift ロゴ">
         </div>
+
+        
     
         <div class="login-form-container">
             <h1>ログイン</h1>
@@ -30,7 +32,9 @@
                 </div>
                 <button type="submit" class="login-button">ログイン</button>
             </form>
-
+            <div class="character-icon-wrapper">
+		    <img src="image/original_char.png" alt="キャラクター">
+			</div>
             <div class="login-links">
                 <a href="MindShift-register">新規登録はこちら</a>
                 <!--servletのマッピング名に変更してください-->

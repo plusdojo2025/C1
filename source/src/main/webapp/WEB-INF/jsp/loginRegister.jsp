@@ -35,9 +35,12 @@
                     <input type="password" id="cpassword" name="cpassword" required>
                 </div>-->
     
+                
                 <button type="submit" class="newlogin-button">登録する</button>
             </form>
-    
+            <div class="character-icon-wrapper">
+            <img src="image/original_char.png" alt="キャラクター">
+        	</div>
             <div class="login-links">
                 <!--<a href="MindShift-login">ログインページへ戻る</a>-->
                 <a href="MindShift-loginExplain">各種説明はこちら</a>

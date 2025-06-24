@@ -1,7 +1,30 @@
+.character-icon-wrapper {
+    position: absolute;
+    right: 5px;
+    bottom: 10px;
+    z-index: 5;
+}
+
+.character-icon-wrapper img {
+    width: 100px;
+    height: auto;
+    animation: float 3s ease-in-out infinite;
+}
+
+
+/* ふわふわアニメーション */
+@keyframes float {
+    0%, 100% {
+        transform: translateY(0px);
+    }
+    50% {
+        transform: translateY(-10px);
+    }
+}
+
 /* <header> */
 .logo {
     display: flex;
-    align-items: center;
     text-decoration: none;
     background-image: url('../imgaes/title_back2.jpg');
     background-size: cover;       
@@ -20,6 +43,7 @@
     background-image: url('../imgaes/background.jpg');
     background-size: cover;
     background-position: center;
+    position: relative;
 }
 
 .login-logo img {
@@ -29,6 +53,7 @@
 }
 
 .login-form-container {
+	position: relative;
     background-color: #ffffffcc;
     padding: 40px;
     border-radius: 10px;
@@ -105,9 +130,12 @@
     background-image: url('../imgaes/background.jpg');
     background-size: cover;
     background-position: center;
+    position: relative;
+    
 }
 
 .newlogin-form-container {
+	position: relative;
     background-color: #ffffffcc;
     padding: 40px;
     border-radius: 10px;

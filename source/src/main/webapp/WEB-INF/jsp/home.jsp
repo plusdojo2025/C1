@@ -19,8 +19,41 @@
 	<jsp:include page="Mindshift_header.jsp" />
 	<jsp:include page="Mindshift_navigation.jsp" />
 	<!-- ヘッダー（ここまで） -->
+	
+<div class="character-icon-wrapper">
+  <div class="speech-bubble" id="speechText">ようこそ！</div>
+  <img src="image/original_char.png" alt="キャラクター">
+</div>
+
+<script>
+  const messages = {
+    section1: "今育てている花です！",
+    section2: "まとめてみよう！",
+    section3: "今月の合計スタンプだよ！"
+  };
+
+  window.addEventListener("scroll", () => {
+    const speech = document.getElementById("speechText");
+
+    // 各セクションの位置を取得
+    for (const id in messages) {
+      const section = document.getElementById(id);
+      const rect = section.getBoundingClientRect();
+
+      // セクションが画面の中央に近いときにメッセージを表示
+      if (rect.top <= window.innerHeight / 2 && rect.bottom >= window.innerHeight / 2) {
+        speech.textContent = messages[id];
+        break;
+      }
+    }
+  });
+</script>
+
+
+	
 	<div class="wrapper">
 		<main>
+		<section id="section1" class="page-section">&nbsp;</section>
 		<!-- この部分を差し替える -->
 		<h2 style="text-align:center;">あなたの今週の植物</h2>
 		  <div class="rectangle">
@@ -31,6 +64,7 @@
 		<div id="calendar"></div>
     <main>
       <!--ページの中心となる内容をまとめるためのタグ --> 
+    <section id="section2" class="page-section">&nbsp;</section>  
     <h2>カレンダー</h2> 
       <div class="container-calendar">
             <h4 id="monthAndYear"></h4>
@@ -64,6 +98,7 @@
             </div>
       </div>  
     </main>
+  <section id="section3" class="page-section">&nbsp;</section>  
   <!-- ✅ スタンプ集計表ここから -->
    <h2 style="text-align:center;">スタンプ集計表</h2>
    <div id="stamp-summary">

@@ -380,3 +380,27 @@ padding: 0;
   scroll-behavior: smooth;
 }
 /***********************************************************************/
+
+.speech-bubble {
+  background: #fff;
+  padding: 10px;
+  border-radius: 10px;
+  margin-bottom: 5px;
+  text-align: center;
+  box-shadow: 0 0 5px rgba(0,0,0,0.3);
+}
+
+
+.character-icon-wrapper {
+  position: fixed;
+  right: 30px;
+  top: 400px;
+  z-index: 1000;
+}
+
+.character-icon-wrapper img {
+  width: 150px;
+  height: auto;
+  animation: float 3s ease-in-out infinite;
+}
+
