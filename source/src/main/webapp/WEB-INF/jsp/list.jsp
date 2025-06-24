@@ -109,7 +109,7 @@
 
   <div class="form-group">
     <label>出来事</label>
-    <textarea name="action" cols="20" rows="3" readonly>${item.action}</textarea>
+    <p class="FB">${item.action}</p>
   </div>
 
   <c:choose>
@@ -186,9 +186,14 @@
   <c:when test="${item.feedbacksId == '3'}"> <c:set var="feedbackLabel" value="お疲れ様です。焦る気持ちもわかりますが大丈夫ですよ。先まで見通しをつけて考えられるのはあなたの長所ですね！今日はゆっくりお風呂に入って明日に備えましょう。" /></c:when>
 </c:choose>
 
-<div class="form-group">
-  <label>フィードバック</label>
-  <textarea name="action" cols="20" rows="3" readonly>${feedbackLabel}</textarea>
+<div class="dialog-box right">
+  <div class="form-group speech-wrapper">
+    <label>相手からのメッセージ</label>
+    <p class="FB">${feedbackLabel}</p>
+  </div>
+  <div class=img>
+  <img src="${pageContext.request.contextPath}/image/original_char.png" alt="相手キャラ" class="avatar">
+  </div>
 </div>
   
   
@@ -198,7 +203,11 @@
   <div class="image-box" style="background-image: url('${pageContext.request.contextPath}/image/${item.plant}');">
   </div>
 </div>
+
+
 </c:forEach>
+
+
 
 <br>
 <br>
@@ -229,10 +238,86 @@
     </c:if>
 
   </div>
-</c:if>
+</c:if>	
+<stlye>
+<style>
+.image-box {
+    width: 300px;
+    height: 200px;
+    border: 2px solid #ccc;
+    margin-left: -100px;
+    background-size: cover;
+    background-position: center;
+  }
+
+.avatar {
+  width: 100px;
+  height: 100px;
+  border-radius: 50%;       /* 丸く切り抜く */
+  object-fit: cover;        /* 中央を切り抜いて枠にフィット */
+  box-shadow: 0 4px 8px rgba(0, 0, 0, 0.2);  /* 影で立体感 */
+}
+.img {
+  margin-left: 830px;
+  margin-top: -100px;  
+ 
+}
+
+.dialog-box.right .speech-wrapper::after {
+  left: auto;
+  right: -15px;
+  border-right: none;
+  border-left: 15px solid #b2eecc;
+}
+/* テキストエリアは柔らかいグリーンと丸み */
+.speech-wrapper {
+  position: relative;
+  width: fit-content;
+  max-width: 800px;
+}
+
+/* 吹き出し本体 */
+.FB {
+  width: 800px;
+  min-height: 120px;
+  padding: 15px 20px;
+  font-size: 1.1rem;
+  font-family: 'Comic Sans MS', cursive, sans-serif;
+  color: #2e7d32;
+  background-color: #b2eecc;
+  border: 2px solid #4caf50;
+  border-radius: 25px;
+  box-shadow: 0 6px 15px rgba(76, 175, 80, 0.3);
+  box-sizing: border-box;
+  margin: 0;
+  line-height: 1.6;
+}
+
+/* 吹き出しのしっぽ */
+.speech-wrapper::after {
+  content: "";
+  position: absolute;
+  top: 50%;
+  left: 100%;
+  margin-top: -15px;
+  border: 15px solid transparent;
+  border-left: 15px solid #b2eecc;
+}
+
+.image-char {
+    width: 100px;
+    height: 150px;
+    border: 2px solid #ccc;
+    margin-left: 750px;
+    margin-top: -20px;
+    background-size: cover;
+    background-position: center;
+  }
 
 
-	
+</style>
+</stlye>
+
 		</main>
 	</div>
 	<!--javascriptのファイルの読み込み-->
