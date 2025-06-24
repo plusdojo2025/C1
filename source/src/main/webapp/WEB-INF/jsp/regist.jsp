@@ -22,8 +22,8 @@
 	<!-- ヘッダー（ここまで） -->
 	<div class="wrapper">
         <h2 style="text-align:center;">感情登録</h2>
-  
   <main>
+  
 	<form id="emo_form" method="POST" action="MindShift-regist"> 
       <div class="radio">
           <p class="hText">1.感情スタンプを選んでね</p>
@@ -50,7 +50,11 @@
       <!-- エラーメッセージエリア -->
       <div class="submit">
       <p id="error"></p>
+      <div class="flex">
       <input type="submit" value="登録">
+      <img class="img" src="${pageContext.request.contextPath}/image/original_char.png"
+    alt="Original_Character" width="180" height="190" >
+    </div>
       </div>
     </form>
   </main>

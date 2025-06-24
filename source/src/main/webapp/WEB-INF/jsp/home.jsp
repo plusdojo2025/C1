@@ -284,19 +284,22 @@
 
                     if (stampDates[thisDateStr]) {
                       stampDiv.textContent = '　'+stampDates[thisDateStr]; // 対応した絵文字を表示
+                      
+                      cell.appendChild(stampDiv);
+                      console.log('年: ' + year + ', 月: ' + (month + 1) + ', 日: ' + thisDate);
+                      cell.addEventListener("click", (function(y, m, d) {
+                          return function() {
+                          	const dateUrl = "MindShift-list?year=" + y + "&month=" + m + "&day=" + d;
+                              console.log("Navigate to", dateUrl);
+                              window.location.href = dateUrl;
+                          };
+                      })(year, month + 1, thisDate));
+                      
                     } else {
                       stampDiv.textContent = '　　　'; // 何も表示しない
                     }
 
-                    cell.appendChild(stampDiv);
-                    console.log('年: ' + year + ', 月: ' + (month + 1) + ', 日: ' + thisDate);
-                    cell.addEventListener("click", (function(y, m, d) {
-                        return function() {
-                        	const dateUrl = "MindShift-list?year=" + y + "&month=" + m + "&day=" + d;
-                            console.log("Navigate to", dateUrl);
-                            window.location.href = dateUrl;
-                        };
-                    })(year, month + 1, thisDate));
+                    
 
                     row.appendChild(cell);
                     isRowEmpty = false; // 今月の日付があるので空じゃない
