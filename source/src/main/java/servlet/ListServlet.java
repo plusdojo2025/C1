@@ -51,7 +51,13 @@ public class ListServlet extends CustomTemplateServlet {
 	    String pageParam = request.getParameter("page");
 	    if (pageParam != null && !pageParam.isEmpty()) {
 	        currentPage = Integer.parseInt(pageParam);
+	    } else if(year!=null) {
+	    	 AllListDao allListDao = new AllListDao();
+	        // 指定日のページ番号が計算されている場合、それを初期表示にする
+	        int recordIndex = allListDao.countBeforeDateInMonth(year, month, day, userId);
+	        currentPage = (recordIndex / recordsPerPage) + 1;
 	    }
+	    
 	    int offset = (currentPage - 1) * recordsPerPage;
 	    
 	    if (year== null ) {
@@ -78,8 +84,10 @@ public class ListServlet extends CustomTemplateServlet {
 	 	int totalPages = (int) Math.ceil((double) totalRecords / recordsPerPage);
 	 	    
 	 	List<AllListDto> pagedCards = allListDao.selectWithPaging_history(recordsPerPage, offset,year,month,day,userId);
-	 	    
+	 	 
+	 	
 	    // 取得したリストをJSPに渡す
+	 	
 	 	request.setAttribute("cardList", pagedCards);
 	    request.setAttribute("currentPage", currentPage);
 	    request.setAttribute("month", month);

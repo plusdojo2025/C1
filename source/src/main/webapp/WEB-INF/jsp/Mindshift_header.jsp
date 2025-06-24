@@ -11,7 +11,7 @@
 		</p>
 	</section>
 	<div id="logo">
-		<img src="${pageContext.request.contextPath}/image/logo_circle.png"
+		<img src="${pageContext.request.contextPath}/image/logo_slogan.png"
 			alt="LOGO" width="169" height="160">
 	</div>
 </header>

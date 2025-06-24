@@ -528,6 +528,54 @@ public class AllListDao extends CustomTemplateDao<AllListDto> {
 	
 	
 	
+	// その月の中で、指定日より前の件数をカウント
+	public int countBeforeDateInMonth(String year, String month, String day, Integer userId) {
+	    Connection conn = null;
+	    PreparedStatement pStmt = null;
+	    ResultSet rs = null;
+	    int count = 0;
+
+	    try {
+	        conn = conn();
+
+	        String targetStr = String.format("%s-%s-%s", year, month, day);
+	        java.sql.Date targetDate = java.sql.Date.valueOf(targetStr);
+	        
+	        // 月初と翌月初日を作成
+	        String monthStartStr = String.format("%s-%s-01", year, month);
+	        java.sql.Date monthStartDate = java.sql.Date.valueOf(monthStartStr);
+
+	        String sql = """
+	            SELECT COUNT(*) FROM allList
+	            WHERE user_id = ?
+	              AND created_at >= DATE_FORMAT(?, '%Y-%m-01')
+	              AND created_at < DATE_FORMAT(DATE_ADD(?, INTERVAL 1 MONTH), '%Y-%m-01')
+	              AND created_at < ?
+	        """;
+
+	        pStmt = conn.prepareStatement(sql);
+	        pStmt.setInt(1, userId);
+	        pStmt.setDate(2, targetDate); // 月初用
+	        pStmt.setDate(3, targetDate); // 翌月初日用
+	        pStmt.setDate(4, targetDate); // 対象日より前
+
+	        rs = pStmt.executeQuery();
+
+	        if (rs.next()) {
+	            count = rs.getInt(1);
+	        }
+
+	    } catch (SQLException e) {
+	        e.printStackTrace();
+	    } finally {
+	        close(conn);
+	    }
+
+	    return count;
+	}
+
+
+	
 	
 	
 
