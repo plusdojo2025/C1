@@ -297,6 +297,7 @@
                       
                     } else {
                       stampDiv.textContent = '　　　'; // 何も表示しない
+                      cell.appendChild(stampDiv); 
                     }
 
                     
