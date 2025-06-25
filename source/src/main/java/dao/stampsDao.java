@@ -22,7 +22,7 @@ public class stampsDao extends CustomTemplateDao<stampsDto> {
 			// SQL文を準備する
 			String sql = """
 					SELECT COUNT(*) AS cnt, COALESCE(SUM(emo_stamp_id), 0) 
-					AS total FROM allList WHERE created_at >= DATE_SUB
+					AS total FROM alllist WHERE created_at >= DATE_SUB
 					(CURDATE(), INTERVAL (WEEKDAY(CURDATE()) + 1) % 7 DAY) AND created_at < DATE_ADD(
 					 DATE_SUB(CURDATE(), INTERVAL (WEEKDAY(CURDATE()) + 1) % 7 DAY), INTERVAL 7 DAY )
 					""";
@@ -109,7 +109,7 @@ public class stampsDao extends CustomTemplateDao<stampsDto> {
 					CREATE EVENT delete_last_week_records ON 
 					SCHEDULE EVERY 1 WEEK STARTS DATE_ADD(CURRENT_DATE, 
 					INTERVAL (7 - WEEKDAY(CURRENT_DATE)) % 7 DAY) 
-					-- 次の日曜日スタート DO DELETE FROM allList WHERE 
+					-- 次の日曜日スタート DO DELETE FROM alllist WHERE 
 					created_at >= DATE_SUB(CURDATE(), INTERVAL 
 					((WEEKDAY(CURDATE()) + 1) % 7 + 7) DAY) AND created_at 
 					< DATE_SUB(CURDATE(), INTERVAL (WEEKDAY(CURDATE()) + 1) % 7 DAY) 
