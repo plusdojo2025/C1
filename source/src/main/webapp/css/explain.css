@@ -258,8 +258,18 @@ img{/*画像*/
   width: 150px;
   margin-left: 950px;
   height: 150px;
+   animation: float 3s ease-in-out infinite;
  }
  
+ /* ふわふわアニメーション */
+@keyframes float {
+    0%, 100% {
+        transform: translateY(0px);
+    }
+    50% {
+        transform: translateY(-10px);
+    }
+}
 
 /*** ログイン画面の各種説明 ***/
 .relogin{
