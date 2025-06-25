@@ -65,7 +65,7 @@
     <main>
       <!--ページの中心となる内容をまとめるためのタグ --> 
     <section id="section2" class="page-section">&nbsp;</section>  
-    <h2>カレンダー</h2> 
+    <h2>カレンダー<br>(スタンプがある日付をクリックすると過去の登録情報が見れます)</h2> 
       <div class="container-calendar">
             <h4 id="monthAndYear"></h4>
             <div class="button-container-calendar">

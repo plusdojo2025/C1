@@ -12,6 +12,6 @@
 	</section>
 	<div id="logo">
 		<img src="${pageContext.request.contextPath}/image/logo_slogan.png"
-			alt="LOGO" width="169" height="160">
+			alt="LOGO" width="300" height="300" style="margin-top: -100px; margin-bottom: -40px;">
 	</div>
 </header>

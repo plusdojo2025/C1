@@ -41,14 +41,11 @@ body {
   font-family: 'Courier New', Courier, monospace;
   font-size: 70px;
   color:#67AE6E;
+  margin-bottom : 50px;
+
 }
 
-.logo {
-  text-align: center;
-  font-family: 'Courier New', Courier, monospace;
-  font-size: 70px;
-  color:#67AE6E;
-}
+
 
 /*.header{
   background: #59b396;
