@@ -12,7 +12,7 @@
 <link rel="icon" href="${pageContext.request.contextPath}/image/favicon1.ico" id="favicon">
 <link rel="stylesheet"
 	href="${pageContext.request.contextPath}/css/list.css">
-<link href="https://fonts.googleapis.com/css2?family=DotGothic16&family=M+PLUS+Rounded+1c&family=Zen+Maru+Gothic&display=swap" rel="stylesheet">
+<link href="https://fonts.googleapis.com/css2?family=Zen+Maru+Gothic:wght@500&display=swap" rel="stylesheet">
 </head>
 <body>
 	<jsp:include page="Mindshift_header.jsp" />
