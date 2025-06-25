@@ -213,6 +213,16 @@ h2 {
 	position: relative;
     left: 300px;
     top: 70px;
+    animation: float 3s ease-in-out infinite;
+}
+/* ふわふわアニメーション */
+@keyframes float {
+    0%, 100% {
+        transform: translateY(0px);
+    }
+    50% {
+        transform: translateY(-10px);
+    }
 }
 #feedback {
 	width: 700px;
