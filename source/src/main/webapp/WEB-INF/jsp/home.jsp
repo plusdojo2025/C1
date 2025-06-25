@@ -329,28 +329,44 @@
                 let day = saturdayCell.getAttribute("data-date");
 
                 function padZero(n) {
-                	  return n < 10 ? '0' + n : n;
-                	}
+                    return n < 10 ? '0' + n : n;
+                }
 
-                let dateStr = year + '-' + padZero(Number(month)) + '-' + padZero(Number(day));
-                
-                console.log("dateStr:", dateStr);
-                console.log("plantImagesByDate[dateStr]:", plantImagesByDate[dateStr]);
+                let dateObj = new Date(year, month - 1, day);
+                let imageFile = null;
+                let fallbackDateStr = null;
 
+                // 最大6日前までチェック（土曜 → 日曜まで）
+                for (let i = 0; i <= 6; i++) {
+                    let checkDate = new Date(dateObj); // コピー
+                    checkDate.setDate(dateObj.getDate() - i);
+                    let dateStr = checkDate.getFullYear() + '-' + padZero(checkDate.getMonth() + 1) + '-' + padZero(checkDate.getDate());
+
+                    if (plantImagesByDate[dateStr]) {
+                        imageFile = plantImagesByDate[dateStr];
+                        fallbackDateStr = dateStr;
+                        break;
+                    }
+                }
+
+                // 画像表示用セル作成
                 let imgCell = document.createElement("td");
                 imgCell.className = "plant";
-               
 
-                if (plantImagesByDate[dateStr]) {
+                
+
+                // 画像が見つかったら表示
+                if (imageFile) {
                     let img = document.createElement("img");
-                    img.src = "${pageContext.request.contextPath}/image/" + plantImagesByDate[dateStr];
+                    img.src = '${pageContext.request.contextPath}/image/'+imageFile;
                     img.alt = "植物の画像";
                     img.width = 100;
                     img.height = 100;
                     imgCell.appendChild(img);
                 } else {
-                    imgCell.textContent = ""; // 画像なしは空セル
+                    imgCell.textContent = ""; // データがない場合は空白
                 }
+
                 row.appendChild(imgCell);
             }
 
