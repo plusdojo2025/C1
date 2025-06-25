@@ -380,23 +380,69 @@ padding: 0;
   scroll-behavior: smooth;
 }
 /***********************************************************************/
-
-.speech-bubble {
-  background: #fff;
-  padding: 10px;
-  border-radius: 10px;
-  margin-bottom: 5px;
-  text-align: center;
-  box-shadow: 0 0 5px rgba(0,0,0,0.3);
+.nav {
+  position: relative;
+  z-index: 2000;
 }
-
 
 .character-icon-wrapper {
   position: fixed;
   right: 30px;
   top: 400px;
-  z-index: 1000;
+  z-index: 500;
+  display: flex;
+  align-items: center;
+  flex-direction: column;
 }
+
+.speech-bubble {
+  position: relative;
+  display: inline-block;
+  width: 80px;
+  margin-bottom: 20px;
+  padding: 20px 10px 20px 20px;
+  border: 2px solid #59b396;
+  border-radius: 10px;
+  background-color: #ffffff;
+  text-align: left;
+  font-size: 16px;
+  font-weight: 400;
+  line-height: 1.5;
+  color: #000000;
+  width: 100px;
+  height: 70px;
+  white-space: pre-line;
+}
+
+/* 吹き出しの三角形（外側） */
+.speech-bubble::before {
+  content: "";
+  position: absolute;
+  bottom: 0;
+  left: 50%;
+  border-style: solid;
+  border-width: 20px 0 0 20px;
+  border-color: #59b396 transparent transparent;
+  translate: -50% 100%;
+  transform: skew(-33deg);
+  transform-origin: top;
+}
+
+/* 吹き出しの三角形（内側） */
+.speech-bubble::after {
+  content: "";
+  position: absolute;
+  bottom: 0;
+  left: 50%;
+  border-style: solid;
+  border-width: 15.2px 0 0 15.2px;
+  border-color: #ffffff transparent transparent;
+  translate: calc(-50% + 0.4px) 100%;
+  transform: skew(-33deg);
+  transform-origin: top;
+}
+
+
 
 .character-icon-wrapper img {
   width: 150px;

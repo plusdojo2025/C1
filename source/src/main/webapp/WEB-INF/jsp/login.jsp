@@ -3,7 +3,7 @@
 <html>
 <head>
     <meta charset="UTF-8">
-    <title>ログイン | MindSift</title>
+    <title>ログイン | MindShift</title>
     <link rel="icon" href="image/favicon1.ico">
     <link rel="stylesheet" href="css/login.css">
     <link rel="preconnect" href="https://fonts.googleapis.com">
@@ -14,7 +14,7 @@
 <body>
     <main class="login-main">
         <div class="login-logo">
-            <img src="image/logo_circle.png" alt="MindSift ロゴ">
+            <img src="image/logo_slogan.png" alt="MindSift ロゴ">
         </div>
 
         

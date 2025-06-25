@@ -83,13 +83,13 @@
         </div>
 	</main>
 
-		<!-- フッター（ここから） -->
-		<jsp:include page="Mindshift_footer.jsp" />
-
-		<!-- フッター（ここまで） -->
 	</div>
 	<!--javascriptのファイルの読み込み-->
 	<script src="js/template.js"></script>
-
+	
+	<!-- フッター（ここから） -->
+	<jsp:include page="Mindshift_footer.jsp" />
+	<!-- フッター（ここまで） -->
+		
 </body>
 </html>

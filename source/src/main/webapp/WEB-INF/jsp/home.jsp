@@ -27,9 +27,9 @@
 
 <script>
   const messages = {
-    section1: "今育てている花です！",
-    section2: "まとめてみよう！",
-    section3: "今月の合計スタンプだよ！"
+	section1: "お花を\nていねいに\n育成中！",
+	section2: "今までの\nスタンプを\n確認！",
+	section3: "今月の\nスタンプ\nを数えたよ！"
   };
 
   window.addEventListener("scroll", () => {
