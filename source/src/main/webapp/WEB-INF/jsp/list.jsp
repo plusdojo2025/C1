@@ -186,9 +186,10 @@
   <c:when test="${item.feedbacksId == '3'}"> <c:set var="feedbackLabel" value="お疲れ様です。焦る気持ちもわかりますが大丈夫ですよ。先まで見通しをつけて考えられるのはあなたの長所ですね！今日はゆっくりお風呂に入って明日に備えましょう。" /></c:when>
 </c:choose>
 
+<br>
 <div class="dialog-box right">
   <div class="form-group speech-wrapper">
-    <label>相手からのメッセージ</label>
+    <label>はなまるんからのメッセージ</label>
     <p class="FB">${feedbackLabel}</p>
   </div>
   <div class=img>
