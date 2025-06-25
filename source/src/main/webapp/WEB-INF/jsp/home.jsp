@@ -100,7 +100,7 @@
     </main>
   <section id="section3" class="page-section">&nbsp;</section>  
   <!-- ✅ スタンプ集計表ここから -->
-   <h2 style="text-align:center;">スタンプ集計表</h2>
+   <h2 style="text-align:center;">今月のスタンプ</h2>
    <div id="stamp-summary">
     <table class="stamptable">
         <tr>
