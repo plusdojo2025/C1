@@ -19,6 +19,12 @@
 	<jsp:include page="Mindshift_header.jsp" />
 	<jsp:include page="Mindshift_navigation.jsp" />
 	<!-- ヘッダー（ここまで） -->
+	<style>
+	#logo {
+	  margin-bottom : 51px;
+	}
+	</style>
+	
 	<div class="wrapper">
 		<main class="main">
 		 <h2 style="text-align:center;">MindShift</h2>

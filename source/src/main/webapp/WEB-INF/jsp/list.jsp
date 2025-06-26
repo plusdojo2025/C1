@@ -53,7 +53,12 @@
 	
 
     <hr>
-    <p><fmt:formatDate value="${item.createdAt}" pattern="yyyy-MM-dd"/></p>
+    <p class="days"><fmt:formatDate value="${item.createdAt}" pattern="yyyy-MM-dd"/></p>
+    <style>
+    .days{
+    font-size: 1.5rem;
+    }
+    </style>
     <div class="form-container">
   <form>
  <div class="form-row">
@@ -240,84 +245,8 @@
 
   </div>
 </c:if>	
-<stlye>
-<style>
-.image-box {
-    width: 300px;
-    height: 200px;
-    border: 2px solid #ccc;
-    margin-left: -100px;
-    background-size: cover;
-    background-position: center;
-  }
-
-.avatar {
-  width: 100px;
-  height: 100px;
-  border-radius: 50%;       /* 丸く切り抜く */
-  object-fit: cover;        /* 中央を切り抜いて枠にフィット */
-  box-shadow: 0 4px 8px rgba(0, 0, 0, 0.2);  /* 影で立体感 */
-}
-.img {
-  margin-left: 830px;
-  margin-top: -100px;  
- 
-}
-
-.dialog-box.right .speech-wrapper::after {
-  left: auto;
-  right: -15px;
-  border-right: none;
-  border-left: 15px solid #b2eecc;
-}
-/* テキストエリアは柔らかいグリーンと丸み */
-.speech-wrapper {
-  position: relative;
-  width: fit-content;
-  max-width: 800px;
-}
-
-/* 吹き出し本体 */
-.FB {
-  width: 800px;
-  min-height: 120px;
-  padding: 15px 20px;
-  font-size: 1.1rem;
-  font-family: 'Comic Sans MS', cursive, sans-serif;
-  color: #2e7d32;
-  background-color: #b2eecc;
-  border: 2px solid #4caf50;
-  border-radius: 25px;
-  box-shadow: 0 6px 15px rgba(76, 175, 80, 0.3);
-  box-sizing: border-box;
-  margin: 0;
-  line-height: 1.6;
-}
-
-/* 吹き出しのしっぽ */
-.speech-wrapper::after {
-  content: "";
-  position: absolute;
-  top: 50%;
-  left: 100%;
-  margin-top: -15px;
-  border: 15px solid transparent;
-  border-left: 15px solid #b2eecc;
-}
-
-.image-char {
-    width: 100px;
-    height: 150px;
-    border: 2px solid #ccc;
-    margin-left: 750px;
-    margin-top: -20px;
-    background-size: cover;
-    background-position: center;
-  }
 
 
-</style>
-</stlye>
 
 		</main>
 	</div>
