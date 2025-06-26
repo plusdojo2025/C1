@@ -16,15 +16,19 @@
 </style>
 </head>
 <body>
+
+	<!-- ヘッダー（ここから） -->
+		<div id="logo">
+		<img src="${pageContext.request.contextPath}/image/logo_slogan.png"
+			alt="LOGO" width="300" height="300" style="margin-top: -30px; margin-bottom: -40px;">
+	</div>
+	<p class="bar"></p>
+	<!-- ヘッダー（ここまで） -->
 	<div class="wrapper">
 
-		<!-- ヘッダー（ここから） -->
-		<jsp:include page="Mindshift_header.jsp" />
-		<!-- ヘッダー（ここまで） -->
 		
 		<main>
 		 <div  class="main">
-		     <p class="bar"></p>
 		     <h2 style="text-align:center;"><c:out value="${systemError.title}"/></h2>
 		     <p></p>
 		     <p></p>
@@ -39,13 +43,12 @@
 	
 		</main>
 
-		<!-- フッター（ここから） -->
-		<jsp:include page="Mindshift_footer.jsp" />
-
-		<!-- フッター（ここまで） -->
 	</div>
 	<!--javascriptのファイルの読み込み-->
 	<script src="js/template.js"></script>
-
+	
+	<!-- フッター（ここから） -->
+	<jsp:include page="Mindshift_footer.jsp" />
+	<!-- フッター（ここまで） -->
 </body>
 </html>
