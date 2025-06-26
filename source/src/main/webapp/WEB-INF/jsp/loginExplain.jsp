@@ -19,9 +19,9 @@
 	<div class="wrapper">
 
 	
-    <div id="logo">
-		<img src="${pageContext.request.contextPath}/image/logo_circle.png"
-			alt="LOGO" width="169" height="160">
+	<div id="logo">
+		<img src="${pageContext.request.contextPath}/image/logo_slogan.png"
+			alt="LOGO" width="300" height="300" style="margin-top: -50px; margin-bottom: -40px;">
 	</div>
    
 
