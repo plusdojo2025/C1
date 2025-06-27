@@ -25,7 +25,7 @@
   
 <main>
     <div id="regist_text">
-        <h2>登録内容</h2>
+        <h2>あなたの気持ち</h2>
          <div class="form-group">
    <c:if test="${feedbacksList.emo_stamp_id == '5'}">
     <span class="emostamp">😆</span>
@@ -76,7 +76,7 @@
 </div>
 	
     <div id="feedback_text">
-        <h2>フィードバック</h2>
+        <h2>はなまるんからのメッセージ</h2>
         <p id="feedback"><c:out value="${feedbacksList.feedbacks}" /></p>
      <img class="img" src="${pageContext.request.contextPath}/image/original_char.png"
     alt="Original_Character" width="180" height="190" >
