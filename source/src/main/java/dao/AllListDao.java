@@ -24,7 +24,7 @@ public class AllListDao extends CustomTemplateDao<AllListDto> {
 
 			// SQL文を準備する
 			String sql = """
-					SELECT * from allList WHERE created_at >= DATE_FORMAT(CURDATE(), '%Y-%m-01') 
+					SELECT * FROM alllist WHERE created_at >= DATE_FORMAT(CURDATE(), '%Y-%m-01') 
 					AND created_at 
 					< DATE_FORMAT(DATE_ADD(CURDATE(), INTERVAL 1 MONTH), '%Y-%m-01') 
 					""";
@@ -70,14 +70,14 @@ public class AllListDao extends CustomTemplateDao<AllListDto> {
 
 			// SQL文を準備する
 			String sql = """
-					insert allList(user_id,
+					INSERT alllist(user_id,
 					emo_stamp_id, 
 					action, 
 					emotion_id, 
 					feedbacks_id, 
 					created_at, 
 					plant)
-					value(?, ?, ?, ?, ?, NOW(), ?)
+					VALUES(?, ?, ?, ?, ?, NOW(), ?)
 					""";
 			PreparedStatement pStmt = conn.prepareStatement(sql);
 
@@ -118,7 +118,7 @@ public class AllListDao extends CustomTemplateDao<AllListDto> {
 
 			// SQL文を準備する
 			String sql = """
-					update allList set
+					UPDATE alllist SET
 					user_id = ?
 					emo_stamp_id= ?
 					action= ?
@@ -222,7 +222,7 @@ public class AllListDao extends CustomTemplateDao<AllListDto> {
 
 	        // 検索条件を使ったSQL（created_atは今月の範囲で固定）
 	        String sql = """
-	            SELECT * FROM allList
+	            SELECT * FROM alllist
 	            WHERE user_id= ? AND created_at >= DATE_FORMAT(CURDATE(), '%Y-%m-01') 
 	              AND created_at < DATE_FORMAT(DATE_ADD(CURDATE(), INTERVAL 1 MONTH), '%Y-%m-01')
 	              -- ここに他の条件あれば追加できます
@@ -277,7 +277,7 @@ public class AllListDao extends CustomTemplateDao<AllListDto> {
 
 	        // 検索条件を使ったSQL（created_atは今月の範囲で固定）
 	        String sql = """
-	            SELECT * FROM allList
+	            SELECT * FROM alllist
 	            WHERE  user_id= ? AND created_at >= DATE_FORMAT(?, '%Y-%m-01') 
 	              AND created_at < DATE_FORMAT(DATE_ADD(?, INTERVAL 1 MONTH), '%Y-%m-01')
 	              -- ここに他の条件あれば追加できます
@@ -332,7 +332,7 @@ public class AllListDao extends CustomTemplateDao<AllListDto> {
 	        conn = conn();
 
 	        String sql = """
-	            SELECT COUNT(*) FROM allList
+	            SELECT COUNT(*) FROM alllist
 	            WHERE user_id= ? AND created_at >= DATE_FORMAT(CURDATE(), '%Y-%m-01') 
 	              AND created_at < DATE_FORMAT(DATE_ADD(CURDATE(), INTERVAL 1 MONTH), '%Y-%m-01')
 	              -- ここに他の条件あれば追加できます
@@ -370,7 +370,7 @@ public class AllListDao extends CustomTemplateDao<AllListDto> {
 	        java.sql.Date countDate = java.sql.Date.valueOf(countStr);
 
 	        String sql = """
-	            SELECT COUNT(*) FROM allList
+	            SELECT COUNT(*) FROM alllist
 	            WHERE user_id= ? AND created_at >= DATE_FORMAT(?, '%Y-%m-01') 
 	              AND created_at < DATE_FORMAT(DATE_ADD(?, INTERVAL 1 MONTH), '%Y-%m-01')
 	              -- ここに他の条件あれば追加できます
@@ -440,7 +440,7 @@ public class AllListDao extends CustomTemplateDao<AllListDto> {
 	        
 	        // 検索条件を使ったSQL（created_atは今月の範囲で固定）
 	        String sql = """
-	            SELECT * FROM allList
+	            SELECT * FROM alllist
 	            WHERE  user_id= ? 
 	            ORDER BY created_at
 	            
@@ -488,12 +488,18 @@ public class AllListDao extends CustomTemplateDao<AllListDto> {
 
 	        // 検索条件を使ったSQL（created_atは今月の範囲で固定）
 	        String sql = """
-	            SELECT *
-				FROM allList
-				WHERE user_id=? AND DATE(created_at) = DATE_ADD(
-				    DATE_SUB(DATE(created_at), INTERVAL WEEKDAY(created_at) DAY),
-				    INTERVAL 5 DAY
-				);
+	            SELECT a.*
+				FROM alllist a
+				JOIN (
+				    SELECT YEARWEEK(created_at, 0) AS year_week, MAX(created_at) AS max_created_at
+				    FROM alllist
+				    WHERE user_id = ?
+				    GROUP BY YEARWEEK(created_at, 0)
+				) latest
+				ON YEARWEEK(a.created_at, 0) = latest.year_week AND a.created_at = latest.max_created_at
+				WHERE a.user_id = ?
+				ORDER BY latest.year_week;
+
 
 	            """;
 
@@ -501,6 +507,7 @@ public class AllListDao extends CustomTemplateDao<AllListDto> {
 
 	        // limit, offset は最後の2つのパラメータ
 	        pStmt.setInt(1, userId);
+	        pStmt.setInt(2, userId);
 	        rs = pStmt.executeQuery();
 
 	        while (rs.next()) {
@@ -546,7 +553,7 @@ public class AllListDao extends CustomTemplateDao<AllListDto> {
 	        java.sql.Date monthStartDate = java.sql.Date.valueOf(monthStartStr);
 
 	        String sql = """
-	            SELECT COUNT(*) FROM allList
+	            SELECT COUNT(*) FROM alllist
 	            WHERE user_id = ?
 	              AND created_at >= DATE_FORMAT(?, '%Y-%m-01')
 	              AND created_at < DATE_FORMAT(DATE_ADD(?, INTERVAL 1 MONTH), '%Y-%m-01')
@@ -589,7 +596,7 @@ public class AllListDao extends CustomTemplateDao<AllListDto> {
 
 	        String sql = """
 	            SELECT emo_stamp_id, COUNT(*) AS cnt
-	        FROM allList
+	        FROM alllist
 	        WHERE created_at >= DATE_FORMAT(CURDATE(), '%Y-%m-01')
 	          AND created_at < DATE_FORMAT(DATE_ADD(CURDATE(), INTERVAL 1 MONTH), '%Y-%m-01')
 	          AND user_id = ?
@@ -624,7 +631,7 @@ public class AllListDao extends CustomTemplateDao<AllListDto> {
 		        String sql = """
 		            SELECT COUNT(*) AS cnt,
 		               COALESCE(SUM(emo_stamp_id), 0) AS total
-		        FROM allList
+		        FROM alllist
 		        WHERE user_id = ?
 		          AND week(created_at,0)= week(current_timestamp,0);
 		          
@@ -657,7 +664,7 @@ public class AllListDao extends CustomTemplateDao<AllListDto> {
 		        conn = conn();  // DB接続
 
 		        String sql = """
-		           UPDATE allList SET plant = ? 
+		           UPDATE alllist SET plant = ? 
 		           WHERE user_id = ? 
 		           AND DATE(created_at) = CURDATE();
 		        """;
