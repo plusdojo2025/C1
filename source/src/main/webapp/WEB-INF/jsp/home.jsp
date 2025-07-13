@@ -364,7 +364,12 @@
                     img.height = 100;
                     imgCell.appendChild(img);
                 } else {
-                    imgCell.textContent = ""; // データがない場合は空白
+                	let img = document.createElement("img");
+                    img.src = '${pageContext.request.contextPath}/image/uekibati.png';
+                    img.alt = "植物の画像";
+                    img.width = 100;
+                    img.height = 100;
+                    imgCell.appendChild(img);
                 }
 
                 row.appendChild(imgCell);
